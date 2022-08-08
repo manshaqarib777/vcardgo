@@ -86,7 +86,7 @@
             {
                 $status = "trail";
             }
-            else if(\Carbon\Carbon::now() > $currentPlan->ends_at)
+            else if(\Carbon\Carbon::now() < $currentPlan->ends_at)
             {
                 $status = "active";
             }
