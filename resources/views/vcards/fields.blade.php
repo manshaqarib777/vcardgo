@@ -713,10 +713,6 @@
             {{ Form::label('Date of Inspection', __('messages.vcard.inspection_date_of_inspection').':', ['class' => 'form-label']) }}
             {{ Form::text('inspection_date_of_inspection', isset($vcard) ? $vcard->inspection_date_of_inspection : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_date_of_inspection')]) }}
         </div>
-        <div class="col-lg-6 mb-7">
-            {{ Form::label('Date of Expiration', __('messages.vcard.inspection_date_of_expiration').':', ['class' => 'form-label']) }}
-            {{ Form::text('inspection_date_of_expiration', isset($vcard) ? $vcard->inspection_date_of_expiration : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_date_of_expiration')]) }}
-        </div>
 
         <div class="col-lg-12 d-flex">
             <button type="submit" class="btn btn-primary me-3">
@@ -781,27 +777,13 @@
             {{ Form::text('parking_p_date_of_payment', isset($vcard) ? $vcard->parking_p_date_of_payment : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_p_date_of_payment')]) }}
         </div>
         <div class="col-lg-6 mb-7">
-            {{ Form::label('Expiration Date', __('messages.vcard.parking_expiration_date').':', ['class' => 'form-label']) }}
-            {{ Form::text('parking_expiration_date', isset($vcard) ? $vcard->parking_expiration_date : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_expiration_date')]) }}
-        </div>
-        <div class="col-lg-6 mb-7">
             {{ Form::label('Parking Plan', __('messages.vcard.parking_parking_plan').':', ['class' => 'form-label']) }}
             {{ Form::text('parking_parking_plan', isset($vcard) ? $vcard->parking_parking_plan : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_parking_plan')]) }}
         </div>
-        <div class="col-lg-6 mb-7">
-            {{ Form::label('Status', __('messages.vcard.parking_status').':', ['class' => 'form-label']) }}
-            {{ Form::text('parking_status', isset($vcard) ? $vcard->parking_status : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_status')]) }}
-        </div>
-
-
 
         <div class="col-lg-6 mb-7">
             {{ Form::label('Date of Inspection', __('messages.vcard.parking_date_of_inspection').':', ['class' => 'form-label']) }}
             {{ Form::text('parking_date_of_inspection', isset($vcard) ? $vcard->parking_date_of_inspection : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_date_of_inspection')]) }}
-        </div>
-        <div class="col-lg-6 mb-7">
-            {{ Form::label('Date of Expiration', __('messages.vcard.parking_date_of_expiration').':', ['class' => 'form-label']) }}
-            {{ Form::text('parking_date_of_expiration', isset($vcard) ? $vcard->parking_date_of_expiration : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_date_of_expiration')]) }}
         </div>
 
         <div class="col-lg-12 d-flex">
