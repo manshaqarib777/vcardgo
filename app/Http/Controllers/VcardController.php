@@ -153,7 +153,7 @@ class VcardController extends AppBaseController
             $currency = Currency::where('id',$userSetting['currency_id'])->first();
             $paymentMethod = getPaymentMethod($userSetting);
         }
-
+        //dd($vcard_name);
         return view('vcardTemplates.'.$vcard_name, compact('vcard', 'setting', 'url','appointmentDetail','userSetting','currency','paymentMethod'));
     }
 
@@ -187,7 +187,6 @@ class VcardController extends AppBaseController
             }
         }
         $data = $this->vcardRepository->edit($vcard);
-        dd($data);
         $data['partName'] = $partName;
         $appointmentDetail = AppointmentDetail::where('vcard_id',$vcard->id)->first();
         $privacyPolicy = PrivacyPolicy::where('vcard_id', $vcard->id)->first();

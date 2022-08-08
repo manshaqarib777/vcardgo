@@ -367,7 +367,146 @@
                 </div>
             </div>
         @endif
-
+        {{-- registration custom idea --}}
+        @if(checkFeature('registration_custom_idea'))
+            <div class="vcard-one__timing py-3 px-1">
+                <h4 class="vcard-one-heading text-center pb-4">{{ __('messages.vcard.registration_custom_idea') }}</h4>
+                <div class="container pb-4">
+                    <div class="row g-3">
+                        @if($vcard->registration_address)
+                        <div class="col-sm-6 col-12">
+                            <div class="card business-card flex-row justify-content-center">
+                            <span class="me-2">
+                                {{ strtoupper(__('messages.vcard.registration_address')).':' }}
+                            </span>
+                                <span>{{ $vcard->registration_address }}</span>
+                            </div>
+                        </div>
+                        @endif
+                        @if($vcard->registration_chassis_no)
+                        <div class="col-sm-6 col-12">
+                            <div class="card business-card flex-row justify-content-center">
+                            <span class="me-2">
+                                {{ strtoupper(__('messages.vcard.registration_chassis_no')).':' }}
+                            </span>
+                                <span>{{ $vcard->registration_chassis_no }}</span>
+                            </div>
+                        </div>
+                        @endif
+                        @if($vcard->registration_vin_no)
+                        <div class="col-sm-6 col-12">
+                            <div class="card business-card flex-row justify-content-center">
+                            <span class="me-2">
+                                {{ strtoupper(__('messages.vcard.registration_vin_no')).':' }}
+                            </span>
+                                <span>{{ $vcard->registration_vin_no }}</span>
+                            </div>
+                        </div>
+                        @endif
+                        @if($vcard->registration_vehicle_model)
+                        <div class="col-sm-6 col-12">
+                            <div class="card business-card flex-row justify-content-center">
+                            <span class="me-2">
+                                {{ strtoupper(__('messages.vcard.registration_vehicle_model')).':' }}
+                            </span>
+                                <span>{{ $vcard->registration_vehicle_model }}</span>
+                            </div>
+                        </div>
+                        @endif
+                        @if($vcard->registration_vehicle_color)
+                        <div class="col-sm-6 col-12">
+                            <div class="card business-card flex-row justify-content-center">
+                            <span class="me-2">
+                                {{ strtoupper(__('messages.vcard.registration_vehicle_color')).':' }}
+                            </span>
+                                <span>{{ $vcard->registration_vehicle_color }}</span>
+                            </div>
+                        </div>
+                        @endif
+                        @if($vcard->registration_vehicle_year)
+                        <div class="col-sm-6 col-12">
+                            <div class="card business-card flex-row justify-content-center">
+                            <span class="me-2">
+                                {{ strtoupper(__('messages.vcard.registration_vehicle_year')).':' }}
+                            </span>
+                                <span>{{ $vcard->registration_vehicle_year }}</span>
+                            </div>
+                        </div>
+                        @endif
+                        @if($vcard->registration_plate_no)
+                        <div class="col-sm-6 col-12">
+                            <div class="card business-card flex-row justify-content-center">
+                            <span class="me-2">
+                                {{ strtoupper(__('messages.vcard.registration_plate_no')).':' }}
+                            </span>
+                                <span>{{ $vcard->registration_plate_no }}</span>
+                            </div>
+                        </div>
+                        @endif
+                        @if($vcard->registration_country)
+                        <div class="col-sm-6 col-12">
+                            <div class="card business-card flex-row justify-content-center">
+                            <span class="me-2">
+                                {{ strtoupper(__('messages.vcard.registration_country')).':' }}
+                            </span>
+                                <span>{{ $vcard->registration_country }}</span>
+                            </div>
+                        </div>
+                        @endif
+                        @if($vcard->registration_city)
+                        <div class="col-sm-6 col-12">
+                            <div class="card business-card flex-row justify-content-center">
+                            <span class="me-2">
+                                {{ strtoupper(__('messages.vcard.registration_city')).':' }}
+                            </span>
+                                <span>{{ $vcard->registration_city }}</span>
+                            </div>
+                        </div>
+                        @endif
+                        @if($vcard->registration_district)
+                        <div class="col-sm-6 col-12">
+                            <div class="card business-card flex-row justify-content-center">
+                            <span class="me-2">
+                                {{ strtoupper(__('messages.vcard.registration_district')).':' }}
+                            </span>
+                                <span>{{ $vcard->registration_district }}</span>
+                            </div>
+                        </div>
+                        @endif
+                        @if($vcard->registration_emergency_contact_no)
+                        <div class="col-sm-6 col-12">
+                            <div class="card business-card flex-row justify-content-center">
+                            <span class="me-2">
+                                {{ strtoupper(__('messages.vcard.registration_emergency_contact_no')).':' }}
+                            </span>
+                                <span>{{ $vcard->registration_emergency_contact_no }}</span>
+                            </div>
+                        </div>
+                        @endif
+                        @if($vcard->registration_ar_no)
+                        <div class="col-sm-6 col-12">
+                            <div class="card business-card flex-row justify-content-center">
+                            <span class="me-2">
+                                {{ strtoupper(__('messages.vcard.registration_ar_no')).':' }}
+                            </span>
+                                <span>{{ $vcard->registration_ar_no }}</span>
+                            </div>
+                        </div>
+                        @endif
+                        @if($vcard->registration_pcn_no)
+                        <div class="col-sm-6 col-12">
+                            <div class="card business-card flex-row justify-content-center">
+                            <span class="me-2">
+                                {{ strtoupper(__('messages.vcard.registration_pcn_no')).':' }}
+                            </span>
+                                <span>{{ $vcard->registration_pcn_no }}</span>
+                            </div>
+                        </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        @endif
         {{--Appointment--}}
         @if(checkFeature('appointments') && $vcard->appointmentHours->count())
             <div class="vcard-eight__appointment py-3 px-sm-4 px-3 mt-2 position-relative">

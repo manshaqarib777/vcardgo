@@ -673,7 +673,18 @@ function checkFeature($partName)
 
         return $feature;
     }
-
+    // dd($currentPlan->planFeature->registration_custom_idea);
+    if ($partName == 'registration_custom_idea' && !$currentPlan->planFeature->registration_custom_idea) {
+        return false;
+    }
+    // dd($currentPlan->planFeature->registration_custom_idea);
+    if ($partName == 'inspection_custom_idea' && !$currentPlan->planFeature->inspection_custom_idea) {
+        return false;
+    }
+    // dd($currentPlan->planFeature->registration_custom_idea);
+    if ($partName == 'parking_custom_idea' && !$currentPlan->planFeature->parking_custom_idea) {
+        return false;
+    }
     return true;
 }
 
@@ -963,13 +974,13 @@ function getStatusClassName($status)
 function getMaximumCurrencyCode()
 {
     $plan = Plan::all()->groupBy('currency_id');
-    
+
     if($plan->isEmpty()){
         return;
     }
-    
+
     return $plan->first()->first()->currency->currency_code;
-  
+
 }
 
 /**

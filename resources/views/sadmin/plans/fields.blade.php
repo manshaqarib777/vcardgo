@@ -190,6 +190,27 @@
                 {{ __('messages.plan.blog') }}
             </label>
         </div>
+        <div class="col-lg-3 col-md-4 col-6 mb-5 col-xs">
+            <label class="form-label form-check">
+                <input class="form-check-input feature mx-2" type="checkbox" value="1"
+                       name="registration_custom_idea" {{ (isset($feature) && $feature->registration_custom_idea == 1) ? 'checked' : '' }}/>
+                {{ __('messages.vcard.registration_custom_idea') }}
+            </label>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6 mb-5 col-xs">
+            <label class="form-label form-check">
+                <input class="form-check-input feature mx-2" type="checkbox" value="1"
+                       name="inspection_custom_idea" {{ (isset($feature) && $feature->inspection_custom_idea == 1) ? 'checked' : '' }}/>
+                {{ __('messages.vcard.inspection_custom_idea') }}
+            </label>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6 mb-5 col-xs">
+            <label class="form-label form-check">
+                <input class="form-check-input feature mx-2" type="checkbox" value="1"
+                       name="parking_custom_idea" {{ (isset($feature) && $feature->parking_custom_idea == 1) ? 'checked' : '' }}/>
+                {{ __('messages.vcard.parking_custom_idea') }}
+            </label>
+        </div>
     </div>
     <div>
         {{ Form::submit(__('messages.common.save'),['class' => 'btn btn-primary me-3','id' => 'planFormSubmit']) }}

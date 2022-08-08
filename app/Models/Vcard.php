@@ -164,7 +164,52 @@ class Vcard extends Model implements HasMedia
         'meta_description',
         'google_analytics',
         'default_language',
-        'language_enable'
+        'language_enable',
+        'registration_address',
+        'registration_chassis_no',
+        'registration_vin_no',
+        'registration_vehicle_model',
+        'registration_vehicle_color',
+        'registration_vehicle_year',
+        'registration_plate_no',
+        'registration_country',
+        'registration_city',
+        'registration_district',
+        'registration_emergency_contact_no',
+        'registration_ar_no',
+        'registration_pcn_no',
+        'inspection_address',
+        'inspection_chassis_no',
+        'inspection_vin_no',
+        'inspection_vehicle_model',
+        'inspection_vehicle_color',
+        'inspection_vehicle_year',
+        'inspection_plate_no',
+        'inspection_contact',
+        'inspection_ar_no',
+        'inspection_country',
+        'inspection_city',
+        'inspection_district',
+        'inspection_control_technique',
+        'inspection_date_of_inspection',
+        'inspection_date_of_expiration',
+        'parking_owner_mobile_no',
+        'parking_address',
+        'parking_vehicle_color',
+        'parking_vehicle_model',
+        'parking_plate_no',
+        'parking_mobile',
+        'parking_country',
+        'parking_city',
+        'parking_district',
+        'parking_p_place_of_registration',
+        'parking_p_registration_officer',
+        'parking_p_date_of_payment',
+        'parking_expiration_date',
+        'parking_parking_plan',
+        'parking_status',
+        'parking_date_of_inspection',
+        'parking_date_of_expiration',
     ];
 
     /**
@@ -235,7 +280,7 @@ class Vcard extends Model implements HasMedia
     {
         return $this->first_name.' '.$this->last_name;
     }
-    
+
     /**
      * @return string
      */
@@ -362,7 +407,7 @@ class Vcard extends Model implements HasMedia
     {
         return $this->hasOne(AppointmentDetail::class, 'vcard_id');
     }
-    
+
     /**
      *
      * @return HasMany

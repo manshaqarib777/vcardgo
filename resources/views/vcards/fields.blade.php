@@ -594,25 +594,216 @@
 @if($partName == 'registration_custom_idea')
     <div class="row">
         <div class="col-lg-6 mb-7">
-            {{ Form::label('Site title', __('messages.vcard.site_title').':', ['class' => 'form-label']) }}
-            {{ Form::text('site_title', isset($vcard) ? $vcard->site_title : null, ['class' => 'form-control', 'placeholder' => __('messages.form.site_title')]) }}
+            {{ Form::label('Address', __('messages.vcard.registration_address').':', ['class' => 'form-label']) }}
+            {{ Form::text('registration_address', isset($vcard) ? $vcard->registration_address : null, ['class' => 'form-control', 'placeholder' => __('messages.form.registration_address')]) }}
         </div>
         <div class="col-lg-6 mb-7">
-            {{ Form::label('Home title', __('messages.vcard.home_title').':', ['class' => 'form-label']) }}
-            {{ Form::text('home_title', isset($vcard) ? $vcard->home_title : null, ['class' => 'form-control', 'placeholder' => __('messages.form.home_title')]) }}
+            {{ Form::label('Chassis No.', __('messages.vcard.registration_chassis_no').':', ['class' => 'form-label']) }}
+            {{ Form::text('registration_chassis_no', isset($vcard) ? $vcard->registration_chassis_no : null, ['class' => 'form-control', 'placeholder' => __('messages.form.registration_chassis_no')]) }}
         </div>
         <div class="col-lg-6 mb-7">
-            {{ Form::label('Meta keyword', __('messages.vcard.meta_keyword').':', ['class' => 'form-label']) }}
-            {{ Form::text('meta_keyword', isset($vcard) ? $vcard->meta_keyword : null, ['class' => 'form-control', 'placeholder' => __('messages.form.meta_keyword')]) }}
+            {{ Form::label('Vin No.', __('messages.vcard.registration_vin_no').':', ['class' => 'form-label']) }}
+            {{ Form::text('registration_vin_no', isset($vcard) ? $vcard->registration_vin_no : null, ['class' => 'form-control', 'placeholder' => __('messages.form.registration_vin_no')]) }}
         </div>
         <div class="col-lg-6 mb-7">
-            {{ Form::label('Meta Description', __('messages.vcard.meta_description').':', ['class' => 'form-label']) }}
-            {{ Form::text('meta_description', isset($vcard) ? $vcard->meta_description : null, ['class' => 'form-control', 'placeholder' => __('messages.form.meta_description')]) }}
+            {{ Form::label('Vehicle Model', __('messages.vcard.registration_vehicle_model').':', ['class' => 'form-label']) }}
+            {{ Form::text('registration_vehicle_model', isset($vcard) ? $vcard->registration_vehicle_model : null, ['class' => 'form-control', 'placeholder' => __('messages.form.registration_vehicle_model')]) }}
         </div>
-        <div class="col-lg-12 mb-7">
-            {{ Form::label('Google Analytics', __('messages.vcard.google_analytics').':', ['class' => 'form-label']) }}
-            {{ Form::textarea('google_analytics', isset($vcard) ? $vcard->google_analytics : null, ['class' => 'form-control', 'placeholder' => __('messages.form.google_analytics')]) }}
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Vehicle Color', __('messages.vcard.registration_vehicle_color').':', ['class' => 'form-label']) }}
+            {{ Form::text('registration_vehicle_color', isset($vcard) ? $vcard->registration_vehicle_color : null, ['class' => 'form-control', 'placeholder' => __('messages.form.registration_vehicle_color')]) }}
         </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Vehicle Year', __('messages.vcard.registration_vehicle_year').':', ['class' => 'form-label']) }}
+            {{ Form::text('registration_vehicle_year', isset($vcard) ? $vcard->registration_vehicle_year : null, ['class' => 'form-control', 'placeholder' => __('messages.form.registration_vehicle_year')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Plate No.', __('messages.vcard.registration_plate_no').':', ['class' => 'form-label']) }}
+            {{ Form::text('registration_plate_no', isset($vcard) ? $vcard->registration_plate_no : null, ['class' => 'form-control', 'placeholder' => __('messages.form.registration_plate_no')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Country', __('messages.vcard.registration_country').':', ['class' => 'form-label']) }}
+            {{ Form::text('registration_country', isset($vcard) ? $vcard->registration_country : null, ['class' => 'form-control', 'placeholder' => __('messages.form.registration_country')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('City', __('messages.vcard.registration_city').':', ['class' => 'form-label']) }}
+            {{ Form::text('registration_city', isset($vcard) ? $vcard->registration_city : null, ['class' => 'form-control', 'placeholder' => __('messages.form.registration_city')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('District', __('messages.vcard.registration_district').':', ['class' => 'form-label']) }}
+            {{ Form::text('registration_district', isset($vcard) ? $vcard->registration_district : null, ['class' => 'form-control', 'placeholder' => __('messages.form.registration_district')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Emergency Contact No.', __('messages.vcard.registration_emergency_contact_no').':', ['class' => 'form-label']) }}
+            {{ Form::text('registration_emergency_contact_no', isset($vcard) ? $vcard->registration_emergency_contact_no : null, ['class' => 'form-control', 'placeholder' => __('messages.form.registration_emergency_contact_no')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('AR No.', __('messages.vcard.registration_ar_no').':', ['class' => 'form-label']) }}
+            {{ Form::text('registration_ar_no', isset($vcard) ? $vcard->registration_ar_no : null, ['class' => 'form-control', 'placeholder' => __('messages.form.registration_ar_no')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('PCN no.', __('messages.vcard.registration_pcn_no').':', ['class' => 'form-label']) }}
+            {{ Form::text('registration_pcn_no', isset($vcard) ? $vcard->registration_pcn_no : null, ['class' => 'form-control', 'placeholder' => __('messages.form.registration_pcn_no')]) }}
+        </div>
+
+        <div class="col-lg-12 d-flex">
+            <button type="submit" class="btn btn-primary me-3">
+                {{ __('messages.common.save') }}
+            </button>
+            <a href="{{ route('vcards.index') }}"
+               class="btn btn-secondary">{{__('messages.common.discard')}}</a>
+        </div>
+@endif
+
+@if($partName == 'inspection_custom_idea')
+    <div class="row">
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Address', __('messages.vcard.inspection_address').':', ['class' => 'form-label']) }}
+            {{ Form::text('inspection_address', isset($vcard) ? $vcard->inspection_address : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_address')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Chassis No.', __('messages.vcard.inspection_chassis_no').':', ['class' => 'form-label']) }}
+            {{ Form::text('inspection_chassis_no', isset($vcard) ? $vcard->inspection_chassis_no : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_chassis_no')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Vin No.', __('messages.vcard.inspection_vin_no').':', ['class' => 'form-label']) }}
+            {{ Form::text('inspection_vin_no', isset($vcard) ? $vcard->inspection_vin_no : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_vin_no')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Vehicle Model', __('messages.vcard.inspection_vehicle_model').':', ['class' => 'form-label']) }}
+            {{ Form::text('inspection_vehicle_model', isset($vcard) ? $vcard->inspection_vehicle_model : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_vehicle_model')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Vehicle Color', __('messages.vcard.inspection_vehicle_color').':', ['class' => 'form-label']) }}
+            {{ Form::text('inspection_vehicle_color', isset($vcard) ? $vcard->inspection_vehicle_color : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_vehicle_color')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Vehicle Year', __('messages.vcard.inspection_vehicle_year').':', ['class' => 'form-label']) }}
+            {{ Form::text('inspection_vehicle_year', isset($vcard) ? $vcard->inspection_vehicle_year : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_vehicle_year')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Plate No.', __('messages.vcard.inspection_plate_no').':', ['class' => 'form-label']) }}
+            {{ Form::text('inspection_plate_no', isset($vcard) ? $vcard->inspection_plate_no : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_plate_no')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Contact', __('messages.vcard.inspection_contact').':', ['class' => 'form-label']) }}
+            {{ Form::text('inspection_contact', isset($vcard) ? $vcard->inspection_contact : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_contact')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('AR No.', __('messages.vcard.inspection_ar_no').':', ['class' => 'form-label']) }}
+            {{ Form::text('inspection_ar_no', isset($vcard) ? $vcard->inspection_ar_no : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_ar_no')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Country', __('messages.vcard.inspection_country').':', ['class' => 'form-label']) }}
+            {{ Form::text('inspection_country', isset($vcard) ? $vcard->inspection_country : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_country')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('City', __('messages.vcard.inspection_city').':', ['class' => 'form-label']) }}
+            {{ Form::text('inspection_city', isset($vcard) ? $vcard->inspection_city : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_city')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('District', __('messages.vcard.inspection_district').':', ['class' => 'form-label']) }}
+            {{ Form::text('inspection_district', isset($vcard) ? $vcard->inspection_district : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_district')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Control Technique', __('messages.vcard.inspection_control_technique').':', ['class' => 'form-label']) }}
+            {{ Form::text('inspection_control_technique', isset($vcard) ? $vcard->inspection_control_technique : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_control_technique')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Date of Inspection', __('messages.vcard.inspection_date_of_inspection').':', ['class' => 'form-label']) }}
+            {{ Form::text('inspection_date_of_inspection', isset($vcard) ? $vcard->inspection_date_of_inspection : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_date_of_inspection')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Date of Expiration', __('messages.vcard.inspection_date_of_expiration').':', ['class' => 'form-label']) }}
+            {{ Form::text('inspection_date_of_expiration', isset($vcard) ? $vcard->inspection_date_of_expiration : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_date_of_expiration')]) }}
+        </div>
+
+        <div class="col-lg-12 d-flex">
+            <button type="submit" class="btn btn-primary me-3">
+                {{ __('messages.common.save') }}
+            </button>
+            <a href="{{ route('vcards.index') }}"
+               class="btn btn-secondary">{{__('messages.common.discard')}}</a>
+        </div>
+@endif
+
+
+@if($partName == 'parking_custom_idea')
+    <div class="row">
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Owner Mobile No.', __('messages.vcard.parking_owner_mobile_no').':', ['class' => 'form-label']) }}
+            {{ Form::text('parking_owner_mobile_no', isset($vcard) ? $vcard->parking_owner_mobile_no : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_owner_mobile_no')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Address', __('messages.vcard.parking_address').':', ['class' => 'form-label']) }}
+            {{ Form::text('parking_address', isset($vcard) ? $vcard->parking_address : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_address')]) }}
+        </div>
+
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Vehicle Color', __('messages.vcard.parking_vehicle_color').':', ['class' => 'form-label']) }}
+            {{ Form::text('parking_vehicle_color', isset($vcard) ? $vcard->parking_vehicle_color : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_vehicle_color')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Vehicle Model', __('messages.vcard.parking_vehicle_model').':', ['class' => 'form-label']) }}
+            {{ Form::text('parking_vehicle_model', isset($vcard) ? $vcard->parking_vehicle_model : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_vehicle_model')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Plate No.', __('messages.vcard.parking_plate_no').':', ['class' => 'form-label']) }}
+            {{ Form::text('parking_plate_no', isset($vcard) ? $vcard->parking_plate_no : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_plate_no')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Driver Mobile No.', __('messages.vcard.parking_mobile').':', ['class' => 'form-label']) }}
+            {{ Form::text('parking_mobile', isset($vcard) ? $vcard->parking_mobile : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_mobile')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Country', __('messages.vcard.parking_country').':', ['class' => 'form-label']) }}
+            {{ Form::text('parking_country', isset($vcard) ? $vcard->parking_country : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_country')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('City', __('messages.vcard.parking_city').':', ['class' => 'form-label']) }}
+            {{ Form::text('parking_city', isset($vcard) ? $vcard->parking_city : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_city')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('District', __('messages.vcard.parking_district').':', ['class' => 'form-label']) }}
+            {{ Form::text('parking_district', isset($vcard) ? $vcard->parking_district : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_district')]) }}
+        </div>
+
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('P. Place of Registration', __('messages.vcard.parking_p_place_of_registration').':', ['class' => 'form-label']) }}
+            {{ Form::text('parking_p_place_of_registration', isset($vcard) ? $vcard->parking_p_place_of_registration : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_p_place_of_registration')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('P. Registration Officer', __('messages.vcard.parking_p_registration_officer').':', ['class' => 'form-label']) }}
+            {{ Form::text('parking_p_registration_officer', isset($vcard) ? $vcard->parking_p_registration_officer : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_p_registration_officer')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('P. Date of Payment', __('messages.vcard.parking_p_date_of_payment').':', ['class' => 'form-label']) }}
+            {{ Form::text('parking_p_date_of_payment', isset($vcard) ? $vcard->parking_p_date_of_payment : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_p_date_of_payment')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Expiration Date', __('messages.vcard.parking_expiration_date').':', ['class' => 'form-label']) }}
+            {{ Form::text('parking_expiration_date', isset($vcard) ? $vcard->parking_expiration_date : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_expiration_date')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Parking Plan', __('messages.vcard.parking_parking_plan').':', ['class' => 'form-label']) }}
+            {{ Form::text('parking_parking_plan', isset($vcard) ? $vcard->parking_parking_plan : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_parking_plan')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Status', __('messages.vcard.parking_status').':', ['class' => 'form-label']) }}
+            {{ Form::text('parking_status', isset($vcard) ? $vcard->parking_status : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_status')]) }}
+        </div>
+
+
+
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Date of Inspection', __('messages.vcard.parking_date_of_inspection').':', ['class' => 'form-label']) }}
+            {{ Form::text('parking_date_of_inspection', isset($vcard) ? $vcard->parking_date_of_inspection : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_date_of_inspection')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Date of Expiration', __('messages.vcard.parking_date_of_expiration').':', ['class' => 'form-label']) }}
+            {{ Form::text('parking_date_of_expiration', isset($vcard) ? $vcard->parking_date_of_expiration : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_date_of_expiration')]) }}
+        </div>
+
         <div class="col-lg-12 d-flex">
             <button type="submit" class="btn btn-primary me-3">
                 {{ __('messages.common.save') }}

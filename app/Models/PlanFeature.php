@@ -86,7 +86,10 @@ class PlanFeature extends Model
         'gallery',
         'analytics',
         'seo',
-        'blog'
+        'blog',
+        'registration_custom_idea',
+        'inspection_custom_idea',
+        'parking_custom_idea'
     ];
 
     /**
