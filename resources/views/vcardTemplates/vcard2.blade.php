@@ -864,7 +864,7 @@
                         </div>
                         @endif
 
-                        @if($vcard->parking_status)
+                        @if($status)
                         <div class="col-sm-6 col-12">
                             <div class="card business-card flex-row justify-content-center">
                             <span class="me-2">
