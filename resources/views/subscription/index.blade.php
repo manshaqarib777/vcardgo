@@ -31,7 +31,7 @@
                                 @if(!empty($currentPlan->trial_ends_at))
                                     @php
                                         $startsAt = \Carbon\Carbon::now();
-                                        $totalDays = \Carbon\Carbon::parse($currentPlan->starts_at)->diffInDays($currentPlan->ends_at);
+                                        $totalDays = \Carbon\Carbon::parse($currentPlan->starts_at)->diffInDays($currentPlan->trial_ends_at);
                                         $usedDays = \Carbon\Carbon::parse($currentPlan->starts_at)->diffInDays($startsAt);
                                         $remainingDays = $totalDays - $usedDays;
                                     @endphp
