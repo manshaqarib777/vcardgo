@@ -35,10 +35,10 @@ class CheckSubscription
                 ->withErrors('Your plan is expired. Please choose a plan to continue the services');
         }
 
-        if ($subscription->isExpired()) {
-            Vcard::where('tenant_id',getLogInUser()->tenant_id)->update([
-                'status' => 0
-            ]);
+        if ($subscription->isExpired() && request()->segment(2) != "vcards" && request()->segment(2) != "vcard") {
+            // Vcard::where('tenant_id',getLogInUser()->tenant_id)->update([
+            //     'status' => 0
+            // ]);
             return redirect(route('subscription.upgrade'))
                 ->withErrors('Your plan is expired. Please choose a plan to continue the services');
         }

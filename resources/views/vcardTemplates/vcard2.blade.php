@@ -68,6 +68,44 @@
     @include('vcards.password')
     <div class="vcard-two main-content w-100 mx-auto overflow-hidden content-blur collapse show allSection">
         {{--banner--}}
+        @php
+
+            $urlAlias = Route::current()->parameters['alias'];
+            $vcard = App\Models\Vcard::whereUrlAlias($urlAlias)->first();
+            if ($vcard) {
+                $currentPlan = $vcard->subscriptions()->get()->where('status', 1)->first();
+            }
+
+            $startsAt = \Carbon\Carbon::now();
+            $totalDays = \Carbon\Carbon::parse($currentPlan->starts_at)->diffInDays($currentPlan->ends_at);
+            $usedDays = \Carbon\Carbon::parse($currentPlan->starts_at)->diffInDays($startsAt);
+            $remainingDays = $totalDays - $usedDays;
+            $status = "";
+            if($remainingDays > 0)
+            {
+                $status = "trail";
+            }
+            else if(\Carbon\Carbon::now() > $currentPlan->ends_at)
+            {
+                $status = "active";
+            }
+            else
+            {
+                $status = "expired";
+            }
+            @endphp
+        <h2>{{ $currentPlan->plan->name }}</h2>
+        <h5 class="mb-12">
+            @if( \Carbon\Carbon::now() > $currentPlan->ends_at)
+                <span class="text-danger">
+                {{ __('messages.subscription.expired').' '.\Carbon\Carbon::parse($currentPlan->ends_at)->format('dS M, Y') }}
+            </span>
+            @else
+                <span class="text-success">
+                    {{ __('messages.subscription.active_until').' '.\Carbon\Carbon::parse($currentPlan->ends_at)->format('dS M, Y') }}
+            </span>
+            @endif
+        </h5>
         <div class="vcard-two__banner w-100 position-relative">
             <img src="{{ $vcard->cover_url }}" class="img-fluid banner-image position-relative" alt="background"/>
             {{--shape img--}}
@@ -649,7 +687,7 @@
                             <span class="me-2">
                                 {{ strtoupper(__('messages.vcard.inspection_control_technique')).':' }}
                             </span>
-                                <span>{{ $vcard->inspection_control_technique }}</span>
+                                <span class="{{$status =='trail' ? 'text-warning':($status =='active' ? 'text-success':'text-danger') }}">{{ $vcard->inspection_control_technique }}</span>
                             </div>
                         </div>
                         @endif
@@ -663,13 +701,13 @@
                             </div>
                         </div>
                         @endif
-                        @if($vcard->inspection_date_of_expiration)
+                        @if($status)
                         <div class="col-sm-6 col-12">
                             <div class="card business-card flex-row justify-content-center">
                             <span class="me-2">
                                 {{ strtoupper(__('messages.vcard.inspection_date_of_expiration')).':' }}
                             </span>
-                                <span>{{ $vcard->inspection_date_of_expiration }}</span>
+                                <span class="{{$status =='trail' ? 'text-warning':($status =='active' ? 'text-success':'text-danger') }}">{{ \Carbon\Carbon::parse($currentPlan->ends_at)->format('dS M, Y') }}</span>
                             </div>
                         </div>
                         @endif
@@ -805,13 +843,13 @@
                             </div>
                         </div>
                         @endif
-                        @if($vcard->parking_expiration_date)
+                        @if($status)
                         <div class="col-sm-6 col-12">
                             <div class="card business-card flex-row justify-content-center">
                             <span class="me-2">
                                 {{ strtoupper(__('messages.vcard.parking_expiration_date')).':' }}
                             </span>
-                                <span>{{ $vcard->parking_expiration_date }}</span>
+                                <span class="{{$status =='trail' ? 'text-warning':($status =='active' ? 'text-success':'text-danger') }}">{{ \Carbon\Carbon::parse($currentPlan->ends_at)->format('dS M, Y') }}</span>
                             </div>
                         </div>
                         @endif
@@ -832,7 +870,7 @@
                             <span class="me-2">
                                 {{ strtoupper(__('messages.vcard.parking_status')).':' }}
                             </span>
-                                <span>{{ $vcard->parking_status }}</span>
+                                <span class="{{$status =='trail' ? 'text-warning':($status =='active' ? 'text-success':'text-danger') }}">{{ strtoupper($status) }}</span>
                             </div>
                         </div>
                         @endif
@@ -843,16 +881,6 @@
                                 {{ strtoupper(__('messages.vcard.parking_date_of_inspection')).':' }}
                             </span>
                                 <span>{{ $vcard->parking_date_of_inspection }}</span>
-                            </div>
-                        </div>
-                        @endif
-                        @if($vcard->parking_date_of_expiration)
-                        <div class="col-sm-6 col-12">
-                            <div class="card business-card flex-row justify-content-center">
-                            <span class="me-2">
-                                {{ strtoupper(__('messages.vcard.parking_date_of_expiration')).':' }}
-                            </span>
-                                <span>{{ $vcard->parking_date_of_expiration }}</span>
                             </div>
                         </div>
                         @endif

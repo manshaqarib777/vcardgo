@@ -63,7 +63,7 @@ Route::get('/login/{provider}/callback', [SocialAuthController::class, 'handleSo
 Route::group(['middleware' => ['setLanguage']], function () {
     Route::post('/change-language', [HomeController::class, 'changeLanguage']);
     Route::get('/', [HomeController::class, 'index'])->name('home');
-    
+
 });
 Route::group(['middleware' => ['auth', 'valid.user', 'xss']], function () {
     // Update profile
@@ -79,10 +79,10 @@ Route::group(['middleware' => ['auth', 'valid.user', 'xss']], function () {
     Route::get('failed-payment', [SubscriptionController::class, 'handleFailedPayment'])->name('failed-payment');
 
     Route::group(['prefix' => 'admin', 'middleware' => ['role:admin', 'multi_tenant']], function () {
-        
+
         //dashboard chart
         Route::get('/dashboard-chart', [VcardController::class, 'dashboardChartData'])->name('dashboard.vcard.chart');
-        
+
         //manage-subscription
         Route::get('manage-subscription', [SubscriptionController::class, 'index'])->name('subscription.index');
         Route::get('choose-payment-type/{planId}/{context?}/{fromScreen?}',
@@ -145,7 +145,7 @@ Route::group(['middleware' => ['auth', 'valid.user', 'xss']], function () {
                     [VcardBlogController::class, 'update'])->name('vcard.blog.update');
                 Route::delete('blogs/{vcardBlog}',
                     [VcardBlogController::class, 'destroy'])->name('vcard.blog.destroy');
-                
+
                 //gallery
                 Route::get('{vcard}/galleries',[GalleryController::class,'index'])->name('gallery.index');
                 Route::post('galleries',[GalleryController::class,'store'])->name('gallery.store');
@@ -188,7 +188,7 @@ Route::group(['middleware' => ['auth', 'valid.user', 'xss']], function () {
         Route::post('/dashboard-plan-chart', [DashboardController::class, 'planChartData'])->name('dashboard.plan-chart');
         Route::post('/dashboard-income-chart', [DashboardController::class, 'incomeChartData'])->name('dashboard.income-chart');
         Route::get('/dashboard-income-chart', [DashboardController::class, 'incomeChartData'])->name('dashboard.income-chart');
-        
+
         Route::get('/planSubscriptions', [SubscriptionController::class,'cashPlan'])->name('subscription.cash');
         Route::get('/planSubscription/{id}',[SubscriptionController::class,'planStatus'])->name('subscription.status');
         Route::get('/subscribedPlans',[SubscriptionController::class,'userSubscribedPlan'])->name('subscription.user.plan');
@@ -241,13 +241,13 @@ Route::group(['middleware' => ['auth', 'valid.user', 'xss']], function () {
         Route::get('contactUs', [HomeController::class, 'showContactUs'])->name('contact.contactus');
         //contact list
         Route::get('/dashboard-users', [DashboardController::class, 'getUsersList'])->name('usersData.dashboard');
-        
+
         Route::get('/front-cms', [SettingController::class, 'frontCmsIndex'])->name('setting.front.cms');
         Route::post('/front-cms', [SettingController::class, 'frontCmsUpdate'])->name('setting.front.cms.update');
         Route::get('/email-subscriptions', [EmailSubscriptionController::class, 'index'])->name('email.sub.index');
         Route::delete('/email-sub/{emailSubscription}',
             [EmailSubscriptionController::class, 'destroy'])->name('email.sub.destroy');
-        
+
         Route::group(['middleware' => ['permission:manage_language']], function () {
             Route::resource('languages', LanguageController::class);
             Route::get('languages/translation/{language}',
@@ -270,8 +270,8 @@ Route::group(['prefix' => 'sadmin', 'middleware' => ['role:super_admin','setLang
 Route::post('/email-sub', [EmailSubscriptionController::class, 'store'])->name('email.sub');
 
 Route::get('/v')->name('vcard.defaultIndex');
-Route::get('/v/{alias}', [VcardController::class, 'show'])->name('vcard.show')->middleware(['analytics','language','vcardSubscription']);
-Route::get('/v/{alias}/blog/{id}', [VcardController::class, 'showBlog'])->name('vcard.show-blog')->middleware(['vcardSubscription']);
+Route::get('/v/{alias}', [VcardController::class, 'show'])->name('vcard.show')->middleware(['analytics','language']);
+Route::get('/v/{alias}/blog/{id}', [VcardController::class, 'showBlog'])->name('vcard.show-blog');
 Route::get('/vcard/{alias}/chart', [VcardController::class, 'chartData'])->name('vcard.chart');
 Route::post('/vcard/{vcard}/check-password', [VcardController::class, 'checkPassword'])->name('vcard.password');
 Route::post('/vcard/{vcard}/enquiry/store', [EnquiryController::class, 'store'])->name('enquiry.store');
@@ -486,7 +486,7 @@ Route::get('/upgrade-to-v4-0-0', function () {
             '--force' => true,
             '--path'  => 'database/migrations/2022_04_26_113358_add_payable_amount_in_subscriptions_table.php',
         ]);
-    
+
     Artisan::call('db:seed', ['--class' => 'LanguageTableSeeder', '--force' => true]);
     Artisan::call('db:seed', ['--class' => 'DefaultLanguageSettingsSeeder', '--force' => true]);
 });

@@ -153,7 +153,6 @@ class VcardController extends AppBaseController
             $currency = Currency::where('id',$userSetting['currency_id'])->first();
             $paymentMethod = getPaymentMethod($userSetting);
         }
-        //dd($vcard_name);
         return view('vcardTemplates.'.$vcard_name, compact('vcard', 'setting', 'url','appointmentDetail','userSetting','currency','paymentMethod'));
     }
 
