@@ -42,7 +42,7 @@
   'translation_manager' => 'Çeviri Yöneticisi',
   'create_your_business_digital_card_with_lots_of_information' => 'Çok sayıda bilgi içeren dijital işletme kartınızı oluşturun',
   'subscribe' => 'Abone olmak',
-  'flash' => 
+  'flash' =>
   array (
     'vcard_create' => 'VCard başarıyla oluşturuldu.',
     'vcard_update' => 'başarıyla güncellendi.',
@@ -84,7 +84,7 @@
     'create_blog' => 'Blog AyrıntılarıVCard blogu başarıyla oluşturuldu.',
     'update_blog' => 'VCard blogu başarıyla güncellendi.',
   ),
-  'form' => 
+  'form' =>
   array (
     'my_vcard_url' => 'vcard-sayfam-url\'m',
     'vcard_name' => 'VCard Adını Girin',
@@ -142,8 +142,56 @@
     'home_title' => 'Ana Başlık Girin',
     'google_analytics' => 'Google Analytics Kodu',
     'blog' => 'Blog Adını Girin',
+    'registration_custom_idea'          => 'Custom Registration Section',
+    'registration_address'          => 'Address',
+    'registration_chassis_no'          => 'Chassis No',
+    'registration_vin_no'          => 'Vin No',
+    'registration_vehicle_model'          => 'Model of Vehicle',
+    'registration_vehicle_color'          => 'Color of Vehicle',
+    'registration_vehicle_year'          => 'Year of Vehicle',
+    'registration_plate_no'          => 'Vehicle Plate No',
+    'registration_country'          => 'Country',
+    'registration_city'          => 'City',
+    'registration_district'          => 'District',
+    'registration_emergency_contact_no'          => 'Emergency Contact No',
+    'registration_ar_no'          => 'AR No',
+    'registration_pcn_no'          => 'PCN no',
+    'inspection_custom_idea'          => 'Custom Inspection Section',
+    'inspection_address'          => 'Address',
+    'inspection_chassis_no'          => 'Chassis No',
+    'inspection_vin_no'          => 'Vin No',
+    'inspection_vehicle_model'          => 'Model of Vehicle',
+    'inspection_vehicle_color'          => 'Color of Vehicle',
+    'inspection_vehicle_year'          => 'Year of Vehicle',
+    'inspection_plate_no'          => 'Vehicle Plate No',
+    'inspection_contact'          => 'Contact No',
+    'inspection_ar_no'          => 'AR No',
+    'inspection_country'          => 'Country',
+    'inspection_city'          => 'City',
+    'inspection_district'          => 'District',
+    'inspection_control_technique' =>'Control Technique',
+    'inspection_date_of_inspection'          => 'Date of Inspection',
+    'inspection_date_of_expiration'          => 'Date of Expiration',
+    'parking_custom_idea'          => 'Custom Parking Section',
+    'parking_owner_mobile_no'          => 'Owner Mobile No',
+    'parking_address'          => 'Address',
+    'parking_vehicle_color'          => 'Color of Vehicle',
+    'parking_vehicle_model'          => 'Model of Vehicle',
+    'parking_plate_no'          => 'Vehicle Plate No',
+    'parking_mobile'          => 'Driver Modile No',
+    'parking_country'          => 'Country',
+    'parking_city'          => 'City',
+    'parking_district'          => 'District',
+    'parking_p_place_of_registration' =>'P. Place of Registration',
+    'parking_p_registration_officer'          => 'P. Registration Officer',
+    'parking_p_date_of_payment'          => 'P. Date of Payment',
+    'parking_expiration_date'          => 'Expiration Date',
+    'parking_parking_plan'          => 'Parking Plan',
+    'parking_status'          => 'Status',
+    'parking_date_of_inspection'          => 'Date of Inspection',
+    'parking_date_of_expiration'          => 'Date of Expiration',
   ),
-  'analytics' => 
+  'analytics' =>
   array (
     'countries' => 'Ülkeler',
     'view_more' => 'Daha fazla göster',
@@ -154,7 +202,7 @@
     'overview' => 'genel bakış',
     'visitors' => 'Ziyaretçi',
   ),
-  'sadmin_dashboard' => 
+  'sadmin_dashboard' =>
   array (
     'day' => 'Gün',
     'week' => 'Hafta',
@@ -165,7 +213,7 @@
     'recent_users_registration' => 'Son Kullanıcı Kaydı',
     'contact' => 'İletişim Numarası',
   ),
-  'languages' => 
+  'languages' =>
   array (
     'languages' => 'Diller',
     'new_language' => 'Yeni dil',
@@ -175,7 +223,7 @@
     'language' => 'Dilim',
     'edit_translation' => 'Çeviriyi Düzenle',
   ),
-  'common' => 
+  'common' =>
   array (
     'are_you_sure' => 'Bunu silmek istediğinizden emin misiniz?',
     'no' => 'Hayır, İptal',
@@ -235,7 +283,7 @@
     'filter' => 'filtre',
     'reset' => 'Sıfırla',
   ),
-  'user' => 
+  'user' =>
   array (
     'theme_change' => 'Tema Modu Değişikliği',
     'profile_details' => 'profil detayları',
@@ -272,7 +320,7 @@
     'your_name' => 'Adınız',
     'your_message' => 'Mesajın',
   ),
-  'subscription' => 
+  'subscription' =>
   array (
     'current_expire' => 'Geçerli Süresi Dolmuş Plan',
     'manage_subscription' => 'Aboneliği Yönet',
@@ -312,14 +360,14 @@
     'has_already_been_subscribed' => 'zaten abone',
     'payment' => 'Ödeme',
   ),
-  'contact_us' => 
+  'contact_us' =>
   array (
     'contact_us' => 'Araştırma',
     'contact' => 'Bizimle iletişime geçin',
     'message' => 'İleti',
     'send_message' => 'Mesaj gönder',
   ),
-  'payment' => 
+  'payment' =>
   array (
     'payment_cancel' => 'Ödeme İptal',
     'payment_success' => 'Başarılı ödeme',
@@ -327,18 +375,18 @@
     'payment' => 'ÖDEME',
     'cancelled' => 'İPTAL EDİLDİ',
   ),
-  'notification' => 
+  'notification' =>
   array (
     'notifications' => 'Bildirimler',
     'mark_all_as_read' => 'Tümünü Okundu Olarak İşaretle',
     'you_don`t_have_any_new_notification' => 'Yeni bildiriminiz yok',
   ),
-  'vcards_template' => 
+  'vcards_template' =>
   array (
     'image' => 'resim',
     'used_count' => 'Kullanılan Sayı',
   ),
-  'vcard' => 
+  'vcard' =>
   array (
     'stats' => 'istatistikler',
     'new_vcard' => 'Yeni VC Kartı',
@@ -426,8 +474,59 @@
     'share' => 'Paylaş',
     'appointments' => 'Randevular',
     'language_enable' => 'Dil Etkinleştir',
+    'privacy_policy'       => 'Privacy Policy',
+    'term_condition'       => 'Terms & Conditions',
+    'term_policy'          => 'Terms & Policies',
+    'registration_custom_idea'          => 'Custom Registration Section',
+    'registration_address'          => 'Address',
+    'registration_chassis_no'          => 'Chassis No',
+    'registration_vin_no'          => 'Vin No',
+    'registration_vehicle_model'          => 'Model of Vehicle',
+    'registration_vehicle_color'          => 'Color of Vehicle',
+    'registration_vehicle_year'          => 'Year of Vehicle',
+    'registration_plate_no'          => 'Vehicle Plate No',
+    'registration_country'          => 'Country',
+    'registration_city'          => 'City',
+    'registration_district'          => 'District',
+    'registration_emergency_contact_no'          => 'Emergency Contact No',
+    'registration_ar_no'          => 'AR No',
+    'registration_pcn_no'          => 'PCN no',
+    'inspection_custom_idea'          => 'Custom Inspection Section',
+    'inspection_address'          => 'Address',
+    'inspection_chassis_no'          => 'Chassis No',
+    'inspection_vin_no'          => 'Vin No',
+    'inspection_vehicle_model'          => 'Model of Vehicle',
+    'inspection_vehicle_color'          => 'Color of Vehicle',
+    'inspection_vehicle_year'          => 'Year of Vehicle',
+    'inspection_plate_no'          => 'Vehicle Plate No',
+    'inspection_contact'          => 'Contact No',
+    'inspection_ar_no'          => 'AR No',
+    'inspection_country'          => 'Country',
+    'inspection_city'          => 'City',
+    'inspection_district'          => 'District',
+    'inspection_control_technique' =>'Control Technique',
+    'inspection_date_of_inspection'          => 'Date of Inspection',
+    'inspection_date_of_expiration'          => 'Date of Expiration',
+    'parking_custom_idea'          => 'Custom Parking Section',
+    'parking_owner_mobile_no'          => 'Owner Mobile No',
+    'parking_address'          => 'Address',
+    'parking_vehicle_color'          => 'Color of Vehicle',
+    'parking_vehicle_model'          => 'Model of Vehicle',
+    'parking_plate_no'          => 'Vehicle Plate No',
+    'parking_mobile'          => 'Driver Modile No',
+    'parking_country'          => 'Country',
+    'parking_city'          => 'City',
+    'parking_district'          => 'District',
+    'parking_p_place_of_registration' =>'P. Place of Registration',
+    'parking_p_registration_officer'          => 'P. Registration Officer',
+    'parking_p_date_of_payment'          => 'P. Date of Payment',
+    'parking_expiration_date'          => 'Expiration Date',
+    'parking_parking_plan'          => 'Parking Plan',
+    'parking_status'          => 'Status',
+    'parking_date_of_inspection'          => 'Date of Inspection',
+    'parking_date_of_expiration'          => 'Date of Expiration',
   ),
-  'business' => 
+  'business' =>
   array (
     'business_hours' => 'İş vakitleri',
     'start_time' => 'Başlangıç saati',
@@ -440,24 +539,24 @@
     'sat' => 'Oturdu',
     'sun' => 'Güneş',
   ),
-  'font' => 
+  'font' =>
   array (
     'fonts' => 'yazı tipleri',
     'font_family' => 'Font ailesi',
     'font_size' => 'Yazı Boyutu',
     'px' => 'piksel',
       'font_size_in_px' => 'Piksel cinsinden yazı tipi boyutu'
-      
+
 
   ),
-  'gallery' => 
+  'gallery' =>
   array (
     'gallery_name' => 'Galeriler',
     'type' => 'Tip',
     'image' => 'resim',
     'youtube' => 'Youtube',
   ),
-  'social' => 
+  'social' =>
   array (
     'social_links' => 'Sosyal bağlantılar - Web sitesi',
     'Facebook' => 'Facebook',
@@ -473,7 +572,7 @@
     'map' => 'Harita',
     'Tiktok' => 'Tiktok',
   ),
-  'plan' => 
+  'plan' =>
   array (
     'default_Plan' => 'Varsayılan Plan',
     'new_plan' => 'Yeni plan',
@@ -524,13 +623,13 @@
       'what_s_in_startup_plan' =>'Başlangıç ​​planına neler dahildir?'
 
   ),
-  'currency' => 
+  'currency' =>
   array (
     'currencies' => 'para birimleri',
     'currency_icon' => 'para birimi simgesi',
     'currency_code' => 'Para Birimi Kodu',
   ),
-  'country' => 
+  'country' =>
   array (
     'short_code' => 'Kısa kod',
     'phone_code' => 'Telefon Kodu',
@@ -542,7 +641,7 @@
     'no_country_available' => 'Kullanılabilir Ülke Yok',
     'country' => 'Ülke',
   ),
-  'state' => 
+  'state' =>
   array (
     'states' => 'eyaletler',
     'new_state' => 'Yeni Devlet',
@@ -553,7 +652,7 @@
     'no_state_available' => 'Mevcut Durum Yok',
     'state' => 'Belirtmek, bildirmek',
   ),
-  'city' => 
+  'city' =>
   array (
     'cities' => 'Şehirler',
     'new_city' => 'Yeni şehir',
@@ -564,7 +663,7 @@
     'no_city_available' => 'Şehir Yok',
     'city' => 'Şehir',
   ),
-  'role' => 
+  'role' =>
   array (
     'new_role' => 'Yeni rol',
     'edit_role' => 'Rolü Düzenle',
@@ -573,7 +672,7 @@
     'role_permissions' => 'Rol İzinleri',
     'select_all_permissions' => 'Tüm İzinleri Seç',
   ),
-  'feature' => 
+  'feature' =>
   array (
     'edit_feature' => 'Özelliği Düzenle',
     'name' => 'İsim',
@@ -596,21 +695,21 @@
     'seo' => 'SEO',
     'blog' => 'Blog',
   ),
-  'front_cms' => 
+  'front_cms' =>
   array (
     'front_cms' => 'Ön CMS',
     'title' => 'Başlık',
     'banner' => 'Afiş Resmi',
     'description' => 'Açıklama',
   ),
-  'about_us' => 
+  'about_us' =>
   array (
     'about_us' => 'Hakkımızda',
     'title' => 'Başlık',
     'image' => 'Resim Hakkında',
     'description' => 'Açıklama',
   ),
-  'setting' => 
+  'setting' =>
   array (
     'setting' => 'Ayar',
     'general' => 'Genel',
@@ -639,7 +738,7 @@
     'paypal_key' => 'paypal anahtarı',
     'select_currency' => 'Para birimini seçin',
   ),
-  'tooltip' => 
+  'tooltip' =>
   array (
     'the_main_url' => 'vcard\'ınızın erişebileceği ana URL.',
     'remove_branding' => 'Etkinleştirilirse, vcard web sitemizin markasını göstermez.',
@@ -671,7 +770,7 @@
     'light_mode' => 'Işık moduna geç',
     'dark_mode' => 'Karanlık moda geç',
   ),
-  'appointment' => 
+  'appointment' =>
   array (
     'calendar' => 'Takvim',
     'appointment_details' => 'Randevu Detayları',
@@ -680,14 +779,14 @@
     'free' => 'Özgür',
     'paid' => 'Paralı',
   ),
-  'front' => 
+  'front' =>
   array (
     'enter_your_name' => 'Adınızı giriniz',
     'enter_your_email' => 'E-postanızı giriniz',
     'enter_your_message' => 'Mesajınızı Girin',
     'your_email_address' => 'E-posta adresiniz',
   ),
-  'analytic' => 
+  'analytic' =>
   array (
     'vcard_analytic' => 'Vcard Analitiği',
   ),

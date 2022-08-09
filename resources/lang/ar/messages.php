@@ -41,7 +41,7 @@
   'translation_manager' => 'مدير الترجمة',
   'create_your_business_digital_card_with_lots_of_information' => 'قم بإنشاء بطاقة العمل الرقمية الخاصة بك مع الكثير من المعلومات',
   'subscribe' => 'الإشتراك',
-  'flash' => 
+  'flash' =>
   array (
     'vcard_create' => 'تم إنشاء VCard بنجاح.',
     'vcard_update' => 'تم التحديث بنجاح.',
@@ -83,7 +83,7 @@
     'create_blog' => 'تم إنشاء مدونة VCard بنجاح.',
     'update_blog' => 'تم تحديث مدونة VCard بنجاح.',
   ),
-  'form' => 
+  'form' =>
   array (
     'my_vcard_url' => 'my-vcard-page-url',
     'vcard_name' => 'أدخل اسم VCard',
@@ -141,8 +141,56 @@
     'home_title' => 'أدخل عنوان المنزل',
     'google_analytics' => 'كود تحليلات جوجل',
     'blog' => 'أدخل اسم المدونة',
+    'registration_custom_idea'          => 'Custom Registration Section',
+    'registration_address'          => 'Address',
+    'registration_chassis_no'          => 'Chassis No',
+    'registration_vin_no'          => 'Vin No',
+    'registration_vehicle_model'          => 'Model of Vehicle',
+    'registration_vehicle_color'          => 'Color of Vehicle',
+    'registration_vehicle_year'          => 'Year of Vehicle',
+    'registration_plate_no'          => 'Vehicle Plate No',
+    'registration_country'          => 'Country',
+    'registration_city'          => 'City',
+    'registration_district'          => 'District',
+    'registration_emergency_contact_no'          => 'Emergency Contact No',
+    'registration_ar_no'          => 'AR No',
+    'registration_pcn_no'          => 'PCN no',
+    'inspection_custom_idea'          => 'Custom Inspection Section',
+    'inspection_address'          => 'Address',
+    'inspection_chassis_no'          => 'Chassis No',
+    'inspection_vin_no'          => 'Vin No',
+    'inspection_vehicle_model'          => 'Model of Vehicle',
+    'inspection_vehicle_color'          => 'Color of Vehicle',
+    'inspection_vehicle_year'          => 'Year of Vehicle',
+    'inspection_plate_no'          => 'Vehicle Plate No',
+    'inspection_contact'          => 'Contact No',
+    'inspection_ar_no'          => 'AR No',
+    'inspection_country'          => 'Country',
+    'inspection_city'          => 'City',
+    'inspection_district'          => 'District',
+    'inspection_control_technique' =>'Control Technique',
+    'inspection_date_of_inspection'          => 'Date of Inspection',
+    'inspection_date_of_expiration'          => 'Date of Expiration',
+    'parking_custom_idea'          => 'Custom Parking Section',
+    'parking_owner_mobile_no'          => 'Owner Mobile No',
+    'parking_address'          => 'Address',
+    'parking_vehicle_color'          => 'Color of Vehicle',
+    'parking_vehicle_model'          => 'Model of Vehicle',
+    'parking_plate_no'          => 'Vehicle Plate No',
+    'parking_mobile'          => 'Driver Modile No',
+    'parking_country'          => 'Country',
+    'parking_city'          => 'City',
+    'parking_district'          => 'District',
+    'parking_p_place_of_registration' =>'P. Place of Registration',
+    'parking_p_registration_officer'          => 'P. Registration Officer',
+    'parking_p_date_of_payment'          => 'P. Date of Payment',
+    'parking_expiration_date'          => 'Expiration Date',
+    'parking_parking_plan'          => 'Parking Plan',
+    'parking_status'          => 'Status',
+    'parking_date_of_inspection'          => 'Date of Inspection',
+    'parking_date_of_expiration'          => 'Date of Expiration',
   ),
-  'analytics' => 
+  'analytics' =>
   array (
     'countries' => 'الدول',
     'view_more' => 'عرض المزيد',
@@ -153,7 +201,7 @@
     'overview' => 'ملخص',
     'visitors' => 'الزائرين',
   ),
-  'sadmin_dashboard' => 
+  'sadmin_dashboard' =>
   array (
     'day' => 'يوم',
     'week' => 'أسبوع',
@@ -165,7 +213,7 @@
     'contact' => 'رقم الاتصال',
     'plans_by_users' => 'الخطط من قبل المستخدمين',
   ),
-  'languages' => 
+  'languages' =>
   array (
     'languages' => 'اللغات',
     'new_language' => 'لغة جديدة',
@@ -175,7 +223,7 @@
     'language' => 'لغة',
     'edit_translation' => 'تحرير الترجمة',
   ),
-  'common' => 
+  'common' =>
   array (
     'are_you_sure' => 'هل تريد بالتأكيد حذف هذا',
     'no' => 'لا إلغاء',
@@ -235,7 +283,7 @@
     'filter' => 'منقي',
     'reset' => 'إعادة ضبط',
   ),
-  'user' => 
+  'user' =>
   array (
     'theme_change' => 'تغيير وضع السمة',
     'profile_details' => 'تفاصيل الملف الشخصي',
@@ -272,7 +320,7 @@
     'your_name' => 'اسمك',
     'your_message' => 'رسالتك',
   ),
-  'subscription' => 
+  'subscription' =>
   array (
     'current_expire' => 'الخطة الحالية منتهية الصلاحية',
     'manage_subscription' => 'إدارة الاشتراك',
@@ -312,14 +360,14 @@
     'has_already_been_subscribed' => 'مشترك بالفعل',
     'payment' => 'دفع',
   ),
-  'contact_us' => 
+  'contact_us' =>
   array (
     'contact_us' => 'استفسارات',
     'contact' => 'اتصل بنا',
     'message' => 'رسالة',
     'send_message' => 'أرسل رسالة',
   ),
-  'payment' => 
+  'payment' =>
   array (
     'payment_cancel' => 'إلغاء الدفع',
     'payment_success' => 'الدفع الناجح',
@@ -327,18 +375,18 @@
     'payment' => 'دفع',
     'cancelled' => 'ألغيت',
   ),
-  'notification' => 
+  'notification' =>
   array (
     'notifications' => 'إشعارات',
     'mark_all_as_read' => 'اشر عليها بانها قرات',
     'you_don`t_have_any_new_notification' => 'ليس لديك أي إخطار جديد',
   ),
-  'vcards_template' => 
+  'vcards_template' =>
   array (
     'image' => 'صورة',
     'used_count' => 'عدد المستخدمين',
   ),
-  'vcard' => 
+  'vcard' =>
   array (
     'stats' => 'احصائيات',
     'new_vcard' => 'جديد VCard',
@@ -426,8 +474,59 @@
     'edit_blog' => 'تحرير المدونة',
     'blog_details' => 'تفاصيل المدونة',
     'language_enable' => 'تم تمكين اللغة',
+    'privacy_policy'       => 'Privacy Policy',
+    'term_condition'       => 'Terms & Conditions',
+    'term_policy'          => 'Terms & Policies',
+    'registration_custom_idea'          => 'Custom Registration Section',
+    'registration_address'          => 'Address',
+    'registration_chassis_no'          => 'Chassis No',
+    'registration_vin_no'          => 'Vin No',
+    'registration_vehicle_model'          => 'Model of Vehicle',
+    'registration_vehicle_color'          => 'Color of Vehicle',
+    'registration_vehicle_year'          => 'Year of Vehicle',
+    'registration_plate_no'          => 'Vehicle Plate No',
+    'registration_country'          => 'Country',
+    'registration_city'          => 'City',
+    'registration_district'          => 'District',
+    'registration_emergency_contact_no'          => 'Emergency Contact No',
+    'registration_ar_no'          => 'AR No',
+    'registration_pcn_no'          => 'PCN no',
+    'inspection_custom_idea'          => 'Custom Inspection Section',
+    'inspection_address'          => 'Address',
+    'inspection_chassis_no'          => 'Chassis No',
+    'inspection_vin_no'          => 'Vin No',
+    'inspection_vehicle_model'          => 'Model of Vehicle',
+    'inspection_vehicle_color'          => 'Color of Vehicle',
+    'inspection_vehicle_year'          => 'Year of Vehicle',
+    'inspection_plate_no'          => 'Vehicle Plate No',
+    'inspection_contact'          => 'Contact No',
+    'inspection_ar_no'          => 'AR No',
+    'inspection_country'          => 'Country',
+    'inspection_city'          => 'City',
+    'inspection_district'          => 'District',
+    'inspection_control_technique' =>'Control Technique',
+    'inspection_date_of_inspection'          => 'Date of Inspection',
+    'inspection_date_of_expiration'          => 'Date of Expiration',
+    'parking_custom_idea'          => 'Custom Parking Section',
+    'parking_owner_mobile_no'          => 'Owner Mobile No',
+    'parking_address'          => 'Address',
+    'parking_vehicle_color'          => 'Color of Vehicle',
+    'parking_vehicle_model'          => 'Model of Vehicle',
+    'parking_plate_no'          => 'Vehicle Plate No',
+    'parking_mobile'          => 'Driver Modile No',
+    'parking_country'          => 'Country',
+    'parking_city'          => 'City',
+    'parking_district'          => 'District',
+    'parking_p_place_of_registration' =>'P. Place of Registration',
+    'parking_p_registration_officer'          => 'P. Registration Officer',
+    'parking_p_date_of_payment'          => 'P. Date of Payment',
+    'parking_expiration_date'          => 'Expiration Date',
+    'parking_parking_plan'          => 'Parking Plan',
+    'parking_status'          => 'Status',
+    'parking_date_of_inspection'          => 'Date of Inspection',
+    'parking_date_of_expiration'          => 'Date of Expiration',
   ),
-  'business' => 
+  'business' =>
   array (
     'business_hours' => 'ساعات العمل',
     'start_time' => 'وقت البدء',
@@ -440,7 +539,7 @@
     'sat' => 'جلس',
     'sun' => 'الشمس',
   ),
-  'font' => 
+  'font' =>
   array (
     'fonts' => 'الخطوط',
     'font_family' => 'خط العائلة',
@@ -449,14 +548,14 @@
       'font_size_in_px' => 'حجم الخط بالبكسل'
 
   ),
-  'gallery' => 
+  'gallery' =>
   array (
     'gallery_name' => 'صالات العرض',
     'type' => 'نوع',
     'image' => 'صورة',
     'youtube' => 'موقع YouTube',
   ),
-  'social' => 
+  'social' =>
   array (
     'social_links' => 'الروابط الاجتماعية - الموقع',
     'Facebook' => 'فيسبوك',
@@ -472,7 +571,7 @@
     'map' => 'خريطة',
     'Tiktok' => 'تيك توك',
   ),
-  'plan' => 
+  'plan' =>
   array (
     'default_Plan' => 'الخطة الافتراضية',
     'new_plan' => 'خطة جديدة',
@@ -523,13 +622,13 @@
       'what_s_in_startup_plan' => 'المدونات'
 
   ),
-  'currency' => 
+  'currency' =>
   array (
     'currencies' => 'العملات',
     'currency_icon' => 'رمز العملة',
     'currency_code' => 'رمز العملة',
   ),
-  'country' => 
+  'country' =>
   array (
     'short_code' => 'رمز قصير',
     'phone_code' => 'كود الهاتف',
@@ -541,7 +640,7 @@
     'no_country_available' => 'لا يوجد بلد متاح',
     'country' => 'دولة',
   ),
-  'state' => 
+  'state' =>
   array (
     'states' => 'تنص على',
     'new_state' => 'دولة جديدة',
@@ -552,7 +651,7 @@
     'no_state_available' => 'لا توجد دولة متاحة',
     'state' => 'ولاية',
   ),
-  'city' => 
+  'city' =>
   array (
     'cities' => 'مدن',
     'new_city' => 'مدينة جديدة',
@@ -563,7 +662,7 @@
     'no_city_available' => 'لا توجد مدينة متاحة',
     'city' => 'مدينة',
   ),
-  'role' => 
+  'role' =>
   array (
     'new_role' => 'دور جديد',
     'edit_role' => 'تحرير الدور',
@@ -572,7 +671,7 @@
     'role_permissions' => 'أذونات الدور',
     'select_all_permissions' => 'حدد كافة الأذونات',
   ),
-  'feature' => 
+  'feature' =>
   array (
     'edit_feature' => 'تحرير الميزة',
     'name' => 'اسم',
@@ -595,21 +694,21 @@
     'seo' => 'SEO',
     'blog' => 'مدونة او مذكرة',
   ),
-  'front_cms' => 
+  'front_cms' =>
   array (
     'front_cms' => 'الجبهة CMS',
     'title' => 'عنوان',
     'banner' => 'صورة بانر',
     'description' => 'وصف',
   ),
-  'about_us' => 
+  'about_us' =>
   array (
     'about_us' => 'معلومات عنا',
     'title' => 'عنوان',
     'image' => 'حول الصورة',
     'description' => 'وصف',
   ),
-  'setting' => 
+  'setting' =>
   array (
     'setting' => 'جلسة',
     'general' => 'عام',
@@ -638,7 +737,7 @@
     'paypal_key' => 'مفتاح Paypal',
     'select_currency' => 'اختر العملة',
   ),
-  'tooltip' => 
+  'tooltip' =>
   array (
     'the_main_url' => 'عنوان URL الرئيسي الذي سيتم الوصول إلى vcard منه.',
     'remove_branding' => 'في حالة التمكين ، لن تعرض vcard العلامة التجارية لموقعنا على الويب.',
@@ -670,7 +769,7 @@
     'light_mode' => 'قم بالتبديل إلى وضع Light',
     'dark_mode' => 'قم بالتبديل إلى الوضع الداكن',
   ),
-  'appointment' => 
+  'appointment' =>
   array (
     'calendar' => 'تقويم',
     'appointment_details' => 'تفاصيل الموعد',
@@ -679,14 +778,14 @@
     'free' => 'حر',
     'paid' => 'دفع',
   ),
-  'front' => 
+  'front' =>
   array (
     'enter_your_name' => 'أدخل أسمك',
     'enter_your_email' => 'أدخل بريدك الإلكتروني',
     'enter_your_message' => 'أدخل رسالتك',
     'your_email_address' => 'عنوان بريدك  الإلكتروني',
   ),
-  'analytic' => 
+  'analytic' =>
   array (
     'vcard_analytic' => 'تحليلي Vcard',
   ),

@@ -41,7 +41,7 @@
   'translation_manager' => 'Gerente de traducción',
   'create_your_business_digital_card_with_lots_of_information' => 'Crea tu tarjeta digital de empresa con mucha información',
   'subscribe' => 'Suscribir',
-  'flash' => 
+  'flash' =>
   array (
     'vcard_create' => 'VCard creado con éxito.',
     'vcard_update' => 'actualizado con éxito.',
@@ -83,7 +83,7 @@
     'create_blog' => 'Blog de VCard creado con éxito.',
     'update_blog' => 'Blog de VCard actualizado con éxito.',
   ),
-  'form' => 
+  'form' =>
   array (
     'my_vcard_url' => 'Mi-vcard-pagina-url',
     'vcard_name' => 'Ingrese el nombre de la tarjeta virtual',
@@ -141,8 +141,56 @@
     'home_title' => 'Ingrese el título de la casa',
     'google_analytics' => 'Código de Google Analytics',
     'blog' => 'Ingrese el nombre del blog',
+    'registration_custom_idea'          => 'Custom Registration Section',
+    'registration_address'          => 'Address',
+    'registration_chassis_no'          => 'Chassis No',
+    'registration_vin_no'          => 'Vin No',
+    'registration_vehicle_model'          => 'Model of Vehicle',
+    'registration_vehicle_color'          => 'Color of Vehicle',
+    'registration_vehicle_year'          => 'Year of Vehicle',
+    'registration_plate_no'          => 'Vehicle Plate No',
+    'registration_country'          => 'Country',
+    'registration_city'          => 'City',
+    'registration_district'          => 'District',
+    'registration_emergency_contact_no'          => 'Emergency Contact No',
+    'registration_ar_no'          => 'AR No',
+    'registration_pcn_no'          => 'PCN no',
+    'inspection_custom_idea'          => 'Custom Inspection Section',
+    'inspection_address'          => 'Address',
+    'inspection_chassis_no'          => 'Chassis No',
+    'inspection_vin_no'          => 'Vin No',
+    'inspection_vehicle_model'          => 'Model of Vehicle',
+    'inspection_vehicle_color'          => 'Color of Vehicle',
+    'inspection_vehicle_year'          => 'Year of Vehicle',
+    'inspection_plate_no'          => 'Vehicle Plate No',
+    'inspection_contact'          => 'Contact No',
+    'inspection_ar_no'          => 'AR No',
+    'inspection_country'          => 'Country',
+    'inspection_city'          => 'City',
+    'inspection_district'          => 'District',
+    'inspection_control_technique' =>'Control Technique',
+    'inspection_date_of_inspection'          => 'Date of Inspection',
+    'inspection_date_of_expiration'          => 'Date of Expiration',
+    'parking_custom_idea'          => 'Custom Parking Section',
+    'parking_owner_mobile_no'          => 'Owner Mobile No',
+    'parking_address'          => 'Address',
+    'parking_vehicle_color'          => 'Color of Vehicle',
+    'parking_vehicle_model'          => 'Model of Vehicle',
+    'parking_plate_no'          => 'Vehicle Plate No',
+    'parking_mobile'          => 'Driver Modile No',
+    'parking_country'          => 'Country',
+    'parking_city'          => 'City',
+    'parking_district'          => 'District',
+    'parking_p_place_of_registration' =>'P. Place of Registration',
+    'parking_p_registration_officer'          => 'P. Registration Officer',
+    'parking_p_date_of_payment'          => 'P. Date of Payment',
+    'parking_expiration_date'          => 'Expiration Date',
+    'parking_parking_plan'          => 'Parking Plan',
+    'parking_status'          => 'Status',
+    'parking_date_of_inspection'          => 'Date of Inspection',
+    'parking_date_of_expiration'          => 'Date of Expiration',
   ),
-  'analytics' => 
+  'analytics' =>
   array (
     'countries' => 'Los paises',
     'view_more' => 'Ver más',
@@ -153,7 +201,7 @@
     'overview' => 'Visión de conjunto',
     'visitors' => 'Visitantes',
   ),
-  'sadmin_dashboard' => 
+  'sadmin_dashboard' =>
   array (
     'day' => 'Día',
     'week' => 'Semana',
@@ -165,7 +213,7 @@
     'contact' => 'Número de contacto',
     'plans_by_users' => 'Planes por Usuarios',
   ),
-  'languages' => 
+  'languages' =>
   array (
     'languages' => 'idiomas',
     'new_language' => 'Nuevo idioma',
@@ -175,7 +223,7 @@
     'language' => 'idioma',
     'edit_translation' => 'Editar traducción',
   ),
-  'common' => 
+  'common' =>
   array (
     'are_you_sure' => '¿Estás seguro de que quieres eliminar esto?',
     'no' => 'no, cancelar',
@@ -235,7 +283,7 @@
     'filter' => 'Filtrar',
     'reset' => 'Reiniciar',
   ),
-  'user' => 
+  'user' =>
   array (
     'theme_change' => 'Cambio de modo de temae',
     'profile_details' => 'detalles del perfil',
@@ -272,7 +320,7 @@
     'your_name' => 'Tu nombre',
     'your_message' => 'Tu mensaje',
   ),
-  'subscription' => 
+  'subscription' =>
   array (
     'current_expire' => 'Plan actual vencido',
     'manage_subscription' => 'Administrar suscripción',
@@ -312,14 +360,14 @@
     'has_already_been_subscribed' => 'ya está suscrito',
     'payment' => 'Pago',
   ),
-  'contact_us' => 
+  'contact_us' =>
   array (
     'contact_us' => 'Consultas',
     'contact' => 'Contacta con nosotros',
     'message' => 'Mensaje',
     'send_message' => 'Enviar mensaje',
   ),
-  'payment' => 
+  'payment' =>
   array (
     'payment_cancel' => 'Pago Cancelar',
     'payment_success' => 'pago exitoso',
@@ -327,18 +375,18 @@
     'payment' => 'PAGO',
     'cancelled' => 'CANCELADO',
   ),
-  'notification' => 
+  'notification' =>
   array (
     'notifications' => 'Notificaciones',
     'mark_all_as_read' => 'Marcar todo como leido',
     'you_don`t_have_any_new_notification' => 'No tienes ninguna notificación nueva',
   ),
-  'vcards_template' => 
+  'vcards_template' =>
   array (
     'image' => 'Imagen',
     'used_count' => 'Conteo usado',
   ),
-  'vcard' => 
+  'vcard' =>
   array (
     'stats' => 'Estadísticas',
     'new_vcard' => 'Nueva tarjeta virtual',
@@ -426,8 +474,59 @@
     'share' => 'Cuota',
     'appointments' => 'Equipo',
     'language_enable' => 'habilitar idioma',
+    'privacy_policy'       => 'Privacy Policy',
+    'term_condition'       => 'Terms & Conditions',
+    'term_policy'          => 'Terms & Policies',
+    'registration_custom_idea'          => 'Custom Registration Section',
+    'registration_address'          => 'Address',
+    'registration_chassis_no'          => 'Chassis No',
+    'registration_vin_no'          => 'Vin No',
+    'registration_vehicle_model'          => 'Model of Vehicle',
+    'registration_vehicle_color'          => 'Color of Vehicle',
+    'registration_vehicle_year'          => 'Year of Vehicle',
+    'registration_plate_no'          => 'Vehicle Plate No',
+    'registration_country'          => 'Country',
+    'registration_city'          => 'City',
+    'registration_district'          => 'District',
+    'registration_emergency_contact_no'          => 'Emergency Contact No',
+    'registration_ar_no'          => 'AR No',
+    'registration_pcn_no'          => 'PCN no',
+    'inspection_custom_idea'          => 'Custom Inspection Section',
+    'inspection_address'          => 'Address',
+    'inspection_chassis_no'          => 'Chassis No',
+    'inspection_vin_no'          => 'Vin No',
+    'inspection_vehicle_model'          => 'Model of Vehicle',
+    'inspection_vehicle_color'          => 'Color of Vehicle',
+    'inspection_vehicle_year'          => 'Year of Vehicle',
+    'inspection_plate_no'          => 'Vehicle Plate No',
+    'inspection_contact'          => 'Contact No',
+    'inspection_ar_no'          => 'AR No',
+    'inspection_country'          => 'Country',
+    'inspection_city'          => 'City',
+    'inspection_district'          => 'District',
+    'inspection_control_technique' =>'Control Technique',
+    'inspection_date_of_inspection'          => 'Date of Inspection',
+    'inspection_date_of_expiration'          => 'Date of Expiration',
+    'parking_custom_idea'          => 'Custom Parking Section',
+    'parking_owner_mobile_no'          => 'Owner Mobile No',
+    'parking_address'          => 'Address',
+    'parking_vehicle_color'          => 'Color of Vehicle',
+    'parking_vehicle_model'          => 'Model of Vehicle',
+    'parking_plate_no'          => 'Vehicle Plate No',
+    'parking_mobile'          => 'Driver Modile No',
+    'parking_country'          => 'Country',
+    'parking_city'          => 'City',
+    'parking_district'          => 'District',
+    'parking_p_place_of_registration' =>'P. Place of Registration',
+    'parking_p_registration_officer'          => 'P. Registration Officer',
+    'parking_p_date_of_payment'          => 'P. Date of Payment',
+    'parking_expiration_date'          => 'Expiration Date',
+    'parking_parking_plan'          => 'Parking Plan',
+    'parking_status'          => 'Status',
+    'parking_date_of_inspection'          => 'Date of Inspection',
+    'parking_date_of_expiration'          => 'Date of Expiration',
   ),
-  'business' => 
+  'business' =>
   array (
     'business_hours' => 'Horas de trabajo',
     'start_time' => 'Hora de inicio',
@@ -440,7 +539,7 @@
     'sat' => 'Se sentó',
     'sun' => 'sol',
   ),
-  'font' => 
+  'font' =>
   array (
     'fonts' => 'fuentes',
     'font_family' => 'Familia tipográfica',
@@ -449,14 +548,14 @@
       'font_size_in_px' => 'Tamaño de fuente en píxeles'
 
   ),
-  'gallery' => 
+  'gallery' =>
   array (
     'gallery_name' => 'galerías',
     'type' => 'Escribe',
     'image' => 'Imagen',
     'youtube' => 'Youtube',
   ),
-  'social' => 
+  'social' =>
   array (
     'social_links' => 'Enlaces sociales - Sitio web',
     'Facebook' => 'Facebook',
@@ -472,7 +571,7 @@
     'map' => 'Mapa',
     'Tiktok' => 'Tik Tok',
   ),
-  'plan' => 
+  'plan' =>
   array (
     'default_Plan' => 'Plan predeterminado',
     'new_plan' => 'Nuevo plan',
@@ -523,13 +622,13 @@
       'what_s_in_startup_plan' =>'¿Qué hay en el plan de inicio?'
 
   ),
-  'currency' => 
+  'currency' =>
   array (
     'currencies' => 'Monedas',
     'currency_icon' => 'Icono de moneda',
     'currency_code' => 'Código de moneda',
   ),
-  'country' => 
+  'country' =>
   array (
     'short_code' => 'Código corto',
     'phone_code' => 'Código de teléfono',
@@ -541,7 +640,7 @@
     'no_country_available' => 'Ningún país disponible',
     'country' => 'País',
   ),
-  'state' => 
+  'state' =>
   array (
     'states' => 'estados',
     'new_state' => 'nuevo estado',
@@ -552,7 +651,7 @@
     'no_state_available' => 'Ningún estado disponible',
     'state' => 'Expresar',
   ),
-  'city' => 
+  'city' =>
   array (
     'cities' => 'Ciudades',
     'new_city' => 'Ciudad Nueva',
@@ -563,7 +662,7 @@
     'no_city_available' => 'Ninguna ciudad disponible',
     'city' => 'Ciudad',
   ),
-  'role' => 
+  'role' =>
   array (
     'new_role' => 'Nuevo rol',
     'edit_role' => 'Editar rol',
@@ -572,7 +671,7 @@
     'role_permissions' => 'Permisos de rol',
     'select_all_permissions' => 'Seleccionar todos los permisos',
   ),
-  'feature' => 
+  'feature' =>
   array (
     'edit_feature' => 'Editar característica',
     'name' => 'Nombre',
@@ -595,21 +694,21 @@
     'seo' => 'SEO',
     'blog' => 'Blog',
   ),
-  'front_cms' => 
+  'front_cms' =>
   array (
     'front_cms' => 'CMS frontal',
     'title' => 'Título',
     'banner' => 'Imagen de la pancarta',
     'description' => 'Descripción',
   ),
-  'about_us' => 
+  'about_us' =>
   array (
     'about_us' => 'Sobre nosotros',
     'title' => 'Título',
     'image' => 'Acerca de la imagen',
     'description' => 'Descripción',
   ),
-  'setting' => 
+  'setting' =>
   array (
     'setting' => 'Ajuste',
     'general' => 'General',
@@ -638,7 +737,7 @@
     'paypal' => 'PayPal',
     'paypal_key' => 'Clave de PayPal',
   ),
-  'tooltip' => 
+  'tooltip' =>
   array (
     'the_main_url' => 'La URL principal desde la que se podrá acceder a su vcard.',
     'remove_branding' => 'Si está habilitado, la vcard no mostrará la marca de nuestro sitio web.',
@@ -670,7 +769,7 @@
     'light_mode' => 'Cambiar al modo de luz',
     'dark_mode' => 'Cambiar al modo oscuro',
   ),
-  'appointment' => 
+  'appointment' =>
   array (
     'calendar' => 'Calendario',
     'appointment_details' => 'Detalles de la cita',
@@ -679,14 +778,14 @@
     'free' => 'Gratis',
     'paid' => 'Pagada',
   ),
-  'front' => 
+  'front' =>
   array (
     'enter_your_name' => 'Introduzca su nombre',
     'enter_your_email' => 'Introduce tu correo electrónico',
     'enter_your_message' => 'Ingrese su mensaje',
     'your_email_address' => 'Su dirección de correo electrónico',
   ),
-  'analytic' => 
+  'analytic' =>
   array (
     'vcard_analytic' => 'Analítica de tarjeta virtual',
   ),

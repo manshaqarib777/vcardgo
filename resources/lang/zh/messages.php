@@ -41,7 +41,7 @@
   'edit_translation' => '编辑翻译',
   'create_your_business_digital_card_with_lots_of_information' => '创建包含大量信息的商务数字卡n',
   'subscribe' => '订阅',
-  'flash' => 
+  'flash' =>
   array (
     'vcard_create' => 'VCard 創建成功。',
     'vcard_update' => '更新成功.',
@@ -83,7 +83,7 @@
     'create_blog' => 'VCard 博客创建成功。',
     'update_blog' => 'VCard 博客更新成功。',
   ),
-  'form' => 
+  'form' =>
   array (
     'my_vcard_url' => '我的電子名片頁面網址',
     'vcard_name' => '輸入 VC 卡名稱',
@@ -141,8 +141,56 @@
     'home_title' => '輸入主頁標題',
     'google_analytics' => '谷歌分析代碼',
     'blog' => '输入博客名称',
+    'registration_custom_idea'          => 'Custom Registration Section',
+    'registration_address'          => 'Address',
+    'registration_chassis_no'          => 'Chassis No',
+    'registration_vin_no'          => 'Vin No',
+    'registration_vehicle_model'          => 'Model of Vehicle',
+    'registration_vehicle_color'          => 'Color of Vehicle',
+    'registration_vehicle_year'          => 'Year of Vehicle',
+    'registration_plate_no'          => 'Vehicle Plate No',
+    'registration_country'          => 'Country',
+    'registration_city'          => 'City',
+    'registration_district'          => 'District',
+    'registration_emergency_contact_no'          => 'Emergency Contact No',
+    'registration_ar_no'          => 'AR No',
+    'registration_pcn_no'          => 'PCN no',
+    'inspection_custom_idea'          => 'Custom Inspection Section',
+    'inspection_address'          => 'Address',
+    'inspection_chassis_no'          => 'Chassis No',
+    'inspection_vin_no'          => 'Vin No',
+    'inspection_vehicle_model'          => 'Model of Vehicle',
+    'inspection_vehicle_color'          => 'Color of Vehicle',
+    'inspection_vehicle_year'          => 'Year of Vehicle',
+    'inspection_plate_no'          => 'Vehicle Plate No',
+    'inspection_contact'          => 'Contact No',
+    'inspection_ar_no'          => 'AR No',
+    'inspection_country'          => 'Country',
+    'inspection_city'          => 'City',
+    'inspection_district'          => 'District',
+    'inspection_control_technique' =>'Control Technique',
+    'inspection_date_of_inspection'          => 'Date of Inspection',
+    'inspection_date_of_expiration'          => 'Date of Expiration',
+    'parking_custom_idea'          => 'Custom Parking Section',
+    'parking_owner_mobile_no'          => 'Owner Mobile No',
+    'parking_address'          => 'Address',
+    'parking_vehicle_color'          => 'Color of Vehicle',
+    'parking_vehicle_model'          => 'Model of Vehicle',
+    'parking_plate_no'          => 'Vehicle Plate No',
+    'parking_mobile'          => 'Driver Modile No',
+    'parking_country'          => 'Country',
+    'parking_city'          => 'City',
+    'parking_district'          => 'District',
+    'parking_p_place_of_registration' =>'P. Place of Registration',
+    'parking_p_registration_officer'          => 'P. Registration Officer',
+    'parking_p_date_of_payment'          => 'P. Date of Payment',
+    'parking_expiration_date'          => 'Expiration Date',
+    'parking_parking_plan'          => 'Parking Plan',
+    'parking_status'          => 'Status',
+    'parking_date_of_inspection'          => 'Date of Inspection',
+    'parking_date_of_expiration'          => 'Date of Expiration',
   ),
-  'analytics' => 
+  'analytics' =>
   array (
     'countries' => '國家',
     'view_more' => '查看更多',
@@ -153,7 +201,7 @@
     'overview' => '概述',
     'visitors' => '訪客',
   ),
-  'sadmin_dashboard' => 
+  'sadmin_dashboard' =>
   array (
     'day' => '日',
     'week' => '星期',
@@ -165,7 +213,7 @@
     'contact' => '聯繫方式',
     'plans_by_users' => '用户计划',
   ),
-  'languages' => 
+  'languages' =>
   array (
     'languages' => '语言',
     'new_language' => '新语言',
@@ -175,7 +223,7 @@
     'language' => '语言',
     'edit_translation' => '编辑翻译',
   ),
-  'common' => 
+  'common' =>
   array (
     'are_you_sure' => '你確定要刪除這個',
     'no' => '不，取消',
@@ -235,7 +283,7 @@
     'filter' => '筛选',
     'reset' => '重启',
   ),
-  'user' => 
+  'user' =>
   array (
     'theme_change' => '主題模式更改',
     'profile_details' => '個人資料詳情',
@@ -272,7 +320,7 @@
     'your_name' => '你的名字',
     'your_message' => '您的留言',
   ),
-  'subscription' => 
+  'subscription' =>
   array (
     'current_expire' => '當前過期計劃',
     'manage_subscription' => '管理訂閱',
@@ -312,14 +360,14 @@
     'has_already_been_subscribed' => '已訂閱',
     'payment' => '支付',
   ),
-  'contact_us' => 
+  'contact_us' =>
   array (
     'contact_us' => '查詢',
     'contact' => '聯繫我們',
     'message' => '信息',
     'send_message' => '發信息',
   ),
-  'payment' => 
+  'payment' =>
   array (
     'payment_cancel' => '付款取消',
     'payment_success' => '付款成功',
@@ -327,18 +375,18 @@
     'payment' => '支付',
     'cancelled' => '取消',
   ),
-  'notification' => 
+  'notification' =>
   array (
     'notifications' => '通知',
     'mark_all_as_read' => '標記為已讀',
     'you_don`t_have_any_new_notification' => '您沒有任何新通知',
   ),
-  'vcards_template' => 
+  'vcards_template' =>
   array (
     'image' => 'Image',
     'used_count' => '使用次數',
   ),
-  'vcard' => 
+  'vcard' =>
   array (
     'stats' => '統計數據',
     'new_vcard' => '新電子名片',
@@ -426,8 +474,59 @@
     'share' => '分享',
     'appointments' => '約會',
     'language_enable' => '启用语言',
+    'privacy_policy'       => 'Privacy Policy',
+    'term_condition'       => 'Terms & Conditions',
+    'term_policy'          => 'Terms & Policies',
+    'registration_custom_idea'          => 'Custom Registration Section',
+    'registration_address'          => 'Address',
+    'registration_chassis_no'          => 'Chassis No',
+    'registration_vin_no'          => 'Vin No',
+    'registration_vehicle_model'          => 'Model of Vehicle',
+    'registration_vehicle_color'          => 'Color of Vehicle',
+    'registration_vehicle_year'          => 'Year of Vehicle',
+    'registration_plate_no'          => 'Vehicle Plate No',
+    'registration_country'          => 'Country',
+    'registration_city'          => 'City',
+    'registration_district'          => 'District',
+    'registration_emergency_contact_no'          => 'Emergency Contact No',
+    'registration_ar_no'          => 'AR No',
+    'registration_pcn_no'          => 'PCN no',
+    'inspection_custom_idea'          => 'Custom Inspection Section',
+    'inspection_address'          => 'Address',
+    'inspection_chassis_no'          => 'Chassis No',
+    'inspection_vin_no'          => 'Vin No',
+    'inspection_vehicle_model'          => 'Model of Vehicle',
+    'inspection_vehicle_color'          => 'Color of Vehicle',
+    'inspection_vehicle_year'          => 'Year of Vehicle',
+    'inspection_plate_no'          => 'Vehicle Plate No',
+    'inspection_contact'          => 'Contact No',
+    'inspection_ar_no'          => 'AR No',
+    'inspection_country'          => 'Country',
+    'inspection_city'          => 'City',
+    'inspection_district'          => 'District',
+    'inspection_control_technique' =>'Control Technique',
+    'inspection_date_of_inspection'          => 'Date of Inspection',
+    'inspection_date_of_expiration'          => 'Date of Expiration',
+    'parking_custom_idea'          => 'Custom Parking Section',
+    'parking_owner_mobile_no'          => 'Owner Mobile No',
+    'parking_address'          => 'Address',
+    'parking_vehicle_color'          => 'Color of Vehicle',
+    'parking_vehicle_model'          => 'Model of Vehicle',
+    'parking_plate_no'          => 'Vehicle Plate No',
+    'parking_mobile'          => 'Driver Modile No',
+    'parking_country'          => 'Country',
+    'parking_city'          => 'City',
+    'parking_district'          => 'District',
+    'parking_p_place_of_registration' =>'P. Place of Registration',
+    'parking_p_registration_officer'          => 'P. Registration Officer',
+    'parking_p_date_of_payment'          => 'P. Date of Payment',
+    'parking_expiration_date'          => 'Expiration Date',
+    'parking_parking_plan'          => 'Parking Plan',
+    'parking_status'          => 'Status',
+    'parking_date_of_inspection'          => 'Date of Inspection',
+    'parking_date_of_expiration'          => 'Date of Expiration',
   ),
-  'business' => 
+  'business' =>
   array (
     'business_hours' => '營業時間',
     'start_time' => '開始時間',
@@ -440,7 +539,7 @@
     'sat' => '星期六',
     'sun' => '太陽',
   ),
-  'font' => 
+  'font' =>
   array (
     'fonts' => '字體',
     'font_family' => '字體系列',
@@ -449,14 +548,14 @@
       'font_size_in_px' => '字体大小（以像素为单位）'
 
   ),
-  'gallery' => 
+  'gallery' =>
   array (
     'gallery_name' => '画廊',
     'type' => '类型',
     'image' => '图像',
     'youtube' => 'Youtube',
   ),
-  'social' => 
+  'social' =>
   array (
     'social_links' => '社交链接 - 网站',
     'Facebook' => 'Facebook',
@@ -472,7 +571,7 @@
     'map' => '地圖',
     'Tiktok' => '抖音',
   ),
-  'plan' => 
+  'plan' =>
   array (
     'default_Plan' => '默認計劃',
     'new_plan' => '新計劃',
@@ -523,13 +622,13 @@
       'what_s_in_startup_plan' =>'启动计划中有什么？'
 
   ),
-  'currency' => 
+  'currency' =>
   array (
     'currencies' => '貨幣',
     'currency_icon' => '貨幣圖標',
     'currency_code' => '貨幣代碼',
   ),
-  'country' => 
+  'country' =>
   array (
     'short_code' => '短鱈魚e',
     'phone_code' => '電話代碼',
@@ -541,7 +640,7 @@
     'no_country_available' => '沒有可用的國家',
     'country' => '國家',
   ),
-  'state' => 
+  'state' =>
   array (
     'states' => '狀態',
     'new_state' => '新州',
@@ -552,7 +651,7 @@
     'no_state_available' => '無可用狀態',
     'state' => '狀態',
   ),
-  'city' => 
+  'city' =>
   array (
     'cities' => '城市',
     'new_city' => '新城市',
@@ -563,7 +662,7 @@
     'no_city_available' => '沒有可用的城市',
     'city' => '城市',
   ),
-  'role' => 
+  'role' =>
   array (
     'new_role' => '新角色',
     'edit_role' => '編輯角色',
@@ -572,7 +671,7 @@
     'role_permissions' => '角色權限',
     'select_all_permissions' => '選擇所有權限',
   ),
-  'feature' => 
+  'feature' =>
   array (
     'edit_feature' => '編輯特徵',
     'name' => '名稱',
@@ -595,21 +694,21 @@
     'seo' => '搜索引擎優化',
     'blog' => '博客',
   ),
-  'front_cms' => 
+  'front_cms' =>
   array (
     'front_cms' => '前台CMS',
     'title' => '標題',
     'banner' => '橫幅圖片',
     'description' => '描述',
   ),
-  'about_us' => 
+  'about_us' =>
   array (
     'about_us' => '關於我們',
     'title' => '標題',
     'image' => '關於形象',
     'description' => '描述',
   ),
-  'setting' => 
+  'setting' =>
   array (
     'setting' => '環境',
     'general' => '一般的',
@@ -638,7 +737,7 @@
     'paypal_key' => '贝宝钥匙',
     'select_currency' => '选择货币',
   ),
-  'tooltip' => 
+  'tooltip' =>
   array (
     'the_main_url' => '可以從中訪問您的 vcard 的主要 URL。',
     'remove_branding' => '如果啟用，電子名片將不會顯示我們網站的品牌。',
@@ -668,18 +767,18 @@
     'light_mode' => '切換到燈光模式',
     'dark_mode' => '切換到深色模式',
   ),
-  'front' => 
+  'front' =>
   array (
     'enter_your_name' => '输入你的名字',
     'enter_your_email' => '输入你的电子邮箱',
     'enter_your_message' => '输入您的信息',
     'your_email_address' => '您的电子邮件地址',
   ),
-  'analytic' => 
+  'analytic' =>
   array (
     'vcard_analytic' => '电子名片分析',
   ),
-  'appointment' => 
+  'appointment' =>
   array (
     'calendar' => '日历',
     'appointment_details' => '预约详情',

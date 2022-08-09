@@ -155,10 +155,6 @@
             'registration_emergency_contact_no'          => 'Emergency Contact No',
             'registration_ar_no'          => 'AR No',
             'registration_pcn_no'          => 'PCN no',
-
-
-
-
             'inspection_custom_idea'          => 'Custom Inspection Section',
             'inspection_address'          => 'Address',
             'inspection_chassis_no'          => 'Chassis No',
@@ -175,8 +171,6 @@
             'inspection_control_technique' =>'Control Technique',
             'inspection_date_of_inspection'          => 'Date of Inspection',
             'inspection_date_of_expiration'          => 'Date of Expiration',
-
-
             'parking_custom_idea'          => 'Custom Parking Section',
             'parking_owner_mobile_no'          => 'Owner Mobile No',
             'parking_address'          => 'Address',
@@ -505,10 +499,6 @@
             'registration_emergency_contact_no'          => 'Emergency Contact No',
             'registration_ar_no'          => 'AR No',
             'registration_pcn_no'          => 'PCN no',
-
-
-
-
             'inspection_custom_idea'          => 'Custom Inspection Section',
             'inspection_address'          => 'Address',
             'inspection_chassis_no'          => 'Chassis No',
@@ -525,8 +515,6 @@
             'inspection_control_technique' =>'Control Technique',
             'inspection_date_of_inspection'          => 'Date of Inspection',
             'inspection_date_of_expiration'          => 'Date of Expiration',
-
-
             'parking_custom_idea'          => 'Custom Parking Section',
             'parking_owner_mobile_no'          => 'Owner Mobile No',
             'parking_address'          => 'Address',

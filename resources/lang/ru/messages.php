@@ -41,7 +41,7 @@
   'translation_manager' => 'Менеджер переводов',
   'create_your_business_digital_card_with_lots_of_information' => 'Создайте свою бизнес-цифровую карту с большим количеством информации',
   'subscribe' => 'Подписывайся',
-  'flash' => 
+  'flash' =>
   array (
     'vcard_create' => 'VCard успешно создана.',
     'vcard_update' => 'Успешно Обновлено.',
@@ -83,7 +83,7 @@
     'create_blog' => 'Блог VCard успешно создан.',
     'update_blog' => 'Блог VCard успешно обновлен.',
   ),
-  'form' => 
+  'form' =>
   array (
     'my_vcard_url' => 'URL-адрес страницы моей визитной карточки',
     'vcard_name' => 'Введите имя визитной карточки',
@@ -141,8 +141,56 @@
     'home_title' => 'Введите название дома',
     'google_analytics' => 'Код Google Аналитики',
     'blog' => 'Введите название блога',
+    'registration_custom_idea'          => 'Custom Registration Section',
+    'registration_address'          => 'Address',
+    'registration_chassis_no'          => 'Chassis No',
+    'registration_vin_no'          => 'Vin No',
+    'registration_vehicle_model'          => 'Model of Vehicle',
+    'registration_vehicle_color'          => 'Color of Vehicle',
+    'registration_vehicle_year'          => 'Year of Vehicle',
+    'registration_plate_no'          => 'Vehicle Plate No',
+    'registration_country'          => 'Country',
+    'registration_city'          => 'City',
+    'registration_district'          => 'District',
+    'registration_emergency_contact_no'          => 'Emergency Contact No',
+    'registration_ar_no'          => 'AR No',
+    'registration_pcn_no'          => 'PCN no',
+    'inspection_custom_idea'          => 'Custom Inspection Section',
+    'inspection_address'          => 'Address',
+    'inspection_chassis_no'          => 'Chassis No',
+    'inspection_vin_no'          => 'Vin No',
+    'inspection_vehicle_model'          => 'Model of Vehicle',
+    'inspection_vehicle_color'          => 'Color of Vehicle',
+    'inspection_vehicle_year'          => 'Year of Vehicle',
+    'inspection_plate_no'          => 'Vehicle Plate No',
+    'inspection_contact'          => 'Contact No',
+    'inspection_ar_no'          => 'AR No',
+    'inspection_country'          => 'Country',
+    'inspection_city'          => 'City',
+    'inspection_district'          => 'District',
+    'inspection_control_technique' =>'Control Technique',
+    'inspection_date_of_inspection'          => 'Date of Inspection',
+    'inspection_date_of_expiration'          => 'Date of Expiration',
+    'parking_custom_idea'          => 'Custom Parking Section',
+    'parking_owner_mobile_no'          => 'Owner Mobile No',
+    'parking_address'          => 'Address',
+    'parking_vehicle_color'          => 'Color of Vehicle',
+    'parking_vehicle_model'          => 'Model of Vehicle',
+    'parking_plate_no'          => 'Vehicle Plate No',
+    'parking_mobile'          => 'Driver Modile No',
+    'parking_country'          => 'Country',
+    'parking_city'          => 'City',
+    'parking_district'          => 'District',
+    'parking_p_place_of_registration' =>'P. Place of Registration',
+    'parking_p_registration_officer'          => 'P. Registration Officer',
+    'parking_p_date_of_payment'          => 'P. Date of Payment',
+    'parking_expiration_date'          => 'Expiration Date',
+    'parking_parking_plan'          => 'Parking Plan',
+    'parking_status'          => 'Status',
+    'parking_date_of_inspection'          => 'Date of Inspection',
+    'parking_date_of_expiration'          => 'Date of Expiration',
   ),
-  'analytics' => 
+  'analytics' =>
   array (
     'countries' => 'Страны',
     'view_more' => 'Посмотреть больше',
@@ -153,7 +201,7 @@
     'overview' => 'Обзор',
     'visitors' => 'Посетители',
   ),
-  'sadmin_dashboard' => 
+  'sadmin_dashboard' =>
   array (
     'day' => 'День',
     'week' => 'Неделю',
@@ -165,7 +213,7 @@
     'contact' => 'Контактный номер',
     'plans_by_users' => 'Планы пользователей',
   ),
-  'languages' => 
+  'languages' =>
   array (
     'languages' => 'языки',
     'new_language' => 'Новый язык',
@@ -175,7 +223,7 @@
     'language' => 'язык',
     'edit_translation' => 'Изменить перевод',
   ),
-  'common' => 
+  'common' =>
   array (
     'are_you_sure' => 'Вы уверены, что хотите удалить это',
     'no' => 'Нет, отменить',
@@ -235,7 +283,7 @@
     'filter' => 'Фильтр',
     'reset' => 'Перезагрузить',
   ),
-  'user' => 
+  'user' =>
   array (
     'theme_change' => 'Изменение режима темы',
     'profile_details' => 'Детали профиля',
@@ -272,7 +320,7 @@
     'your_name' => 'Твое имя',
     'your_message' => 'Твое сообщение',
   ),
-  'subscription' => 
+  'subscription' =>
   array (
     'current_expire' => 'Текущий просроченный план',
     'manage_subscription' => 'Управление подпиской',
@@ -312,14 +360,14 @@
     'has_already_been_subscribed' => 'уже подписан',
     'payment' => 'Оплата',
   ),
-  'contact_us' => 
+  'contact_us' =>
   array (
     'contact_us' => 'Запросы',
     'contact' => 'Связаться с нами',
     'message' => 'Сообщение',
     'send_message' => 'Отправить сообщение',
   ),
-  'payment' => 
+  'payment' =>
   array (
     'payment_cancel' => 'Отмена платежа',
     'payment_success' => 'Успешный платеж',
@@ -327,18 +375,18 @@
     'payment' => 'ОПЛАТА',
     'cancelled' => 'ОТМЕНЕНО',
   ),
-  'notification' => 
+  'notification' =>
   array (
     'notifications' => 'Уведомления',
     'mark_all_as_read' => 'Отметить все как прочитанное',
     'you_don`t_have_any_new_notification' => 'У вас нет новых уведомлений',
   ),
-  'vcards_template' => 
+  'vcards_template' =>
   array (
     'image' => 'Изображение',
     'used_count' => 'Используемый счетчик',
   ),
-  'vcard' => 
+  'vcard' =>
   array (
     'stats' => 'Статистика',
     'new_vcard' => 'Новая визитная карточка',
@@ -426,8 +474,59 @@
     'share' => 'доля',
     'appointments' => 'Назначения',
     'language_enable' => 'Включить язык',
+    'privacy_policy'       => 'Privacy Policy',
+    'term_condition'       => 'Terms & Conditions',
+    'term_policy'          => 'Terms & Policies',
+    'registration_custom_idea'          => 'Custom Registration Section',
+    'registration_address'          => 'Address',
+    'registration_chassis_no'          => 'Chassis No',
+    'registration_vin_no'          => 'Vin No',
+    'registration_vehicle_model'          => 'Model of Vehicle',
+    'registration_vehicle_color'          => 'Color of Vehicle',
+    'registration_vehicle_year'          => 'Year of Vehicle',
+    'registration_plate_no'          => 'Vehicle Plate No',
+    'registration_country'          => 'Country',
+    'registration_city'          => 'City',
+    'registration_district'          => 'District',
+    'registration_emergency_contact_no'          => 'Emergency Contact No',
+    'registration_ar_no'          => 'AR No',
+    'registration_pcn_no'          => 'PCN no',
+    'inspection_custom_idea'          => 'Custom Inspection Section',
+    'inspection_address'          => 'Address',
+    'inspection_chassis_no'          => 'Chassis No',
+    'inspection_vin_no'          => 'Vin No',
+    'inspection_vehicle_model'          => 'Model of Vehicle',
+    'inspection_vehicle_color'          => 'Color of Vehicle',
+    'inspection_vehicle_year'          => 'Year of Vehicle',
+    'inspection_plate_no'          => 'Vehicle Plate No',
+    'inspection_contact'          => 'Contact No',
+    'inspection_ar_no'          => 'AR No',
+    'inspection_country'          => 'Country',
+    'inspection_city'          => 'City',
+    'inspection_district'          => 'District',
+    'inspection_control_technique' =>'Control Technique',
+    'inspection_date_of_inspection'          => 'Date of Inspection',
+    'inspection_date_of_expiration'          => 'Date of Expiration',
+    'parking_custom_idea'          => 'Custom Parking Section',
+    'parking_owner_mobile_no'          => 'Owner Mobile No',
+    'parking_address'          => 'Address',
+    'parking_vehicle_color'          => 'Color of Vehicle',
+    'parking_vehicle_model'          => 'Model of Vehicle',
+    'parking_plate_no'          => 'Vehicle Plate No',
+    'parking_mobile'          => 'Driver Modile No',
+    'parking_country'          => 'Country',
+    'parking_city'          => 'City',
+    'parking_district'          => 'District',
+    'parking_p_place_of_registration' =>'P. Place of Registration',
+    'parking_p_registration_officer'          => 'P. Registration Officer',
+    'parking_p_date_of_payment'          => 'P. Date of Payment',
+    'parking_expiration_date'          => 'Expiration Date',
+    'parking_parking_plan'          => 'Parking Plan',
+    'parking_status'          => 'Status',
+    'parking_date_of_inspection'          => 'Date of Inspection',
+    'parking_date_of_expiration'          => 'Date of Expiration',
   ),
-  'business' => 
+  'business' =>
   array (
     'business_hours' => 'Часы работы',
     'start_time' => 'Начальное время',
@@ -440,7 +539,7 @@
     'sat' => 'Сидел',
     'sun' => 'солнце',
   ),
-  'font' => 
+  'font' =>
   array (
     'fonts' => 'Шрифты',
     'font_family' => 'Семейство шрифтов',
@@ -449,14 +548,14 @@
       'font_size_in_px' => 'Pазмер шрифта в пикселях'
 
   ),
-  'gallery' => 
+  'gallery' =>
   array (
     'gallery_name' => 'Galeries',
     'type' => 'Тип',
     'image' => 'Изображение',
     'youtube' => 'Youtube',
   ),
-  'social' => 
+  'social' =>
   array (
     'social_links' => 'Социальные ссылки - Веб-сайт',
     'Facebook' => 'Фейсбук',
@@ -472,7 +571,7 @@
     'map' => 'карта',
     'Tiktok' => 'ТИК Так',
   ),
-  'plan' => 
+  'plan' =>
   array (
     'default_Plan' => 'План по умолчанию',
     'new_plan' => 'Новый план',
@@ -523,13 +622,13 @@
       'what_s_in_startup_plan' =>'Что входит в стартовый план?'
 
   ),
-  'currency' => 
+  'currency' =>
   array (
     'currencies' => 'Валюты',
     'currency_icon' => 'Значок валюты',
     'currency_code' => 'Код валюты',
   ),
-  'country' => 
+  'country' =>
   array (
     'short_code' => 'Короткий номер',
     'phone_code' => 'Телефонный код',
@@ -541,7 +640,7 @@
     'no_country_available' => 'Страна недоступна',
     'country' => 'Страна',
   ),
-  'state' => 
+  'state' =>
   array (
     'states' => 'состояния',
     'new_state' => 'Новое состояние',
@@ -552,7 +651,7 @@
     'no_state_available' => 'Нет доступных состояний',
     'state' => 'Состояние',
   ),
-  'city' => 
+  'city' =>
   array (
     'cities' => 'Города',
     'new_city' => 'Новый город',
@@ -563,7 +662,7 @@
     'no_city_available' => 'Нет доступных городов',
     'city' => 'Город',
   ),
-  'role' => 
+  'role' =>
   array (
     'new_role' => 'Новая роль',
     'edit_role' => 'Изменить роль',
@@ -572,7 +671,7 @@
     'role_permissions' => 'Разрешения роли',
     'select_all_permissions' => 'Выбрать все разрешения',
   ),
-  'feature' => 
+  'feature' =>
   array (
     'edit_feature' => 'Редактировать объект',
     'name' => 'Имя',
@@ -595,21 +694,21 @@
     'seo' => 'SEO',
     'blog' => 'Блог',
   ),
-  'front_cms' => 
+  'front_cms' =>
   array (
     'front_cms' => 'Передняя CMS',
     'title' => 'Заголовок',
     'banner' => 'Изображение баннера',
     'description' => 'Описание',
   ),
-  'about_us' => 
+  'about_us' =>
   array (
     'about_us' => 'О нас',
     'title' => 'Заголовок',
     'image' => 'Об изображении',
     'description' => 'Описание',
   ),
-  'setting' => 
+  'setting' =>
   array (
     'setting' => 'Параметр',
     'general' => 'Общий',
@@ -638,7 +737,7 @@
     'paypal_key' => 'ключ PayPal',
     'select_currency' => 'Выберите валюту',
   ),
-  'tooltip' => 
+  'tooltip' =>
   array (
     'the_main_url' => 'Основной URL-адрес, с которого можно будет получить доступ к вашей визитной карточке..',
     'remove_branding' => 'Если включено, vcard не будет отображать фирменный стиль нашего веб-сайта..',
@@ -670,7 +769,7 @@
     'light_mode' => 'Переключиться в светлый режим',
     'dark_mode' => 'Переключиться на темный модe',
   ),
-  'appointment' => 
+  'appointment' =>
   array (
     'calendar' => 'Календарь',
     'appointment_details' => 'Сведения о назначении',
@@ -679,14 +778,14 @@
     'free' => 'Бесплатно',
     'paid' => 'Оплаченный',
   ),
-  'front' => 
+  'front' =>
   array (
     'enter_your_name' => 'Введите ваше имя',
     'enter_your_email' => 'Введите адрес электронной почты',
     'enter_your_message' => 'Введите сообщение',
     'your_email_address' => 'Ваш адрес электронной почты',
   ),
-  'analytic' => 
+  'analytic' =>
   array (
     'vcard_analytic' => 'Аналитика визиток',
   ),
