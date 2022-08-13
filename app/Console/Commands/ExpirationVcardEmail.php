@@ -51,7 +51,18 @@ class ExpirationVcardEmail extends Command
             Mail::to($subscription->tenant->user->email)
                 ->send(new ExpirationVcardMail('emails.expiration_vcard_mail',
                     'Your Plan will be expired tomorrow',
-                    ["name" => 'mansha']));
+                    [
+                        "data" => [
+                            "purchased_at" => $subscription->starts_at,
+                            "expiry_date" => $subscription->ends_at,
+                            "plan_name" => $subscription->plan->name,
+                            "customer_name" => $subscription->tenant->user->full_name,
+                            "plan_price" => $subscription->plan->price,
+                            "checkout_url" => url("/")."/admin/manage-subscription/upgrade/".$subscription->vcard->id,
+                            "order_id" => $subscription->tenant_id,
+                            "order_id" => $subscription->tenant_id,
+                        ]
+                    ]));
         }
     }
 }
