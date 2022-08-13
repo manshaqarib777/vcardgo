@@ -385,7 +385,7 @@ class Vcard extends Model implements HasMedia
      */
     public function subscriptions(): HasMany
     {
-        return $this->hasMany(Subscription::class, 'tenant_id', 'tenant_id');
+        return $this->hasMany(Subscription::class, 'tenant_id', 'tenant_id')->where('card_id', $this->id);
     }
 
     /**

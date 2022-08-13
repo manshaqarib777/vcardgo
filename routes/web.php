@@ -90,7 +90,7 @@ Route::group(['middleware' => ['auth', 'valid.user', 'xss']], function () {
         Route::post('purchase-subscription',
             [SubscriptionController::class, 'purchaseSubscription'])->name('purchase-subscription');
 
-        Route::get('manage-subscription/upgrade',
+        Route::get('manage-subscription/upgrade/{id}',
             [SubscriptionController::class, 'upgrade'])->name('subscription.upgrade');
         Route::post('subscription-purchase/{plan}/plan-zero',
             [SubscriptionController::class, 'setPlanZero'])->name('subscription.plan-zero');

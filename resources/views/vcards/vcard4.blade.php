@@ -23,7 +23,7 @@
 <body>
 <div class="container">
     <div class="main-content vcard w-100 mx-auto">
-       
+
         <div class="vcard__banner w-100 position-relative">
             <img src="{{asset('assets/img/vcard3/vcard3-banner.png')}}" alt="banner"/>
 
@@ -388,7 +388,8 @@
                 </div>
             </div>
         </div>
-        {{--QR code--}}
+        {{--Qr code--}}
+        @if(checkFeature('qr_code'))
         <div class="vcard__qr-code">
             <div class="px-4 pt-5 pb-4">
                 <h4 class="vcard__heading text-center pb-5">QR CODE</h4>
@@ -403,7 +404,8 @@
             </div>
         </div>
 
-        {{--Business hour--}}
+        @endif
+        {{--business hour--}}
         <div class="vcard__timing pt-5 pb-4">
             <div class="px-4">
                 <h4 class="vcard__heading text-center pb-4">BUSINESS HOURS</h4>

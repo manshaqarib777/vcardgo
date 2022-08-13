@@ -123,6 +123,10 @@ class PlanRepository extends BaseRepository
         $input['registration_custom_idea'] = isset($input['registration_custom_idea']);
         $input['inspection_custom_idea'] = isset($input['inspection_custom_idea']);
         $input['parking_custom_idea'] = isset($input['parking_custom_idea']);
+        $input['privacy_policy'] = isset($input['privacy_policy']);
+        $input['term_condition'] = isset($input['term_condition']);
+        $input['business_hours'] = isset($input['business_hours']);
+        $input['qr_code'] = isset($input['qr_code']);
 
         return $input;
     }

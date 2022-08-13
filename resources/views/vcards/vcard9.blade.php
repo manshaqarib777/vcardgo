@@ -27,7 +27,7 @@
 <body>
 <div class="container">
     <div class="vcard-nine main-content w-100 mx-auto overflow-hidden">
-      
+
         {{--banner--}}
         <div class="vcard-nine__banner w-100 position-relative">
             <img src="{{asset('assets/img/vcard9/vcard9-banner.png')}}" class="img-fluid banner-image" alt="banner"/>
@@ -422,7 +422,8 @@
                 </div>
             </div>
         </div>
-        {{--qr code--}}
+        {{--Qr code--}}
+        @if(checkFeature('qr_code'))
         <div class="vcard-nine__qr-code py-4 px-3 position-relative px-sm-3">
             <h4 class="heading-left position-relative text-center">QR CODE</h4>
             <div class="container mt-5">
@@ -443,6 +444,7 @@
             </div>
         </div>
 
+        @endif
         {{--business hour--}}
         <div class="vcard-nine__timing py-4 px-3 position-relative px-sm-3">
             <h4 class="heading-right position-relative text-center">BUSINESS HOURS</h4>

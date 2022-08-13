@@ -130,6 +130,11 @@ function getLogInTenantId()
     return Auth::user()->tenant_id;
 }
 
+function getLogInCardId()
+{
+    return session('card_id');
+}
+
 /**
  * @return mixed
  */
@@ -353,6 +358,7 @@ function getCurrentSubscription()
 //    if (empty($subscription)) {
         $subscription = Subscription::with(['plan'])
             ->whereTenantId(getLogInTenantId())
+            ->whereCardId(getLogInCardId())
             ->where('status', Subscription::ACTIVE)->latest()->first();
 
 //        Cache::put('subscription', $subscription);
@@ -620,9 +626,9 @@ function setExpiryDate($plan): ?Carbon
  */
 function checkFeature($partName)
 {
-    if (Auth::check() && getLoggedInUserRoleId() != getSuperAdminRoleId()) {
-        $currentPlan = getCurrentSubscription()->plan;
-    } else {
+    // if (Auth::check() && getLoggedInUserRoleId() != getSuperAdminRoleId()) {
+    //     $currentPlan = getCurrentSubscription()->plan;
+    // } else {
         $urlAlias = Route::current()->parameters['alias'];
         $vcard = Vcard::whereUrlAlias($urlAlias)->first();
         if ($vcard) {
@@ -630,7 +636,7 @@ function checkFeature($partName)
         } else {
             return false;
         }
-    }
+    // }
 
     if ($partName == 'services' && !$currentPlan->planFeature->products_services) {
         return false;
@@ -673,15 +679,110 @@ function checkFeature($partName)
 
         return $feature;
     }
-    // dd($currentPlan->planFeature->registration_custom_idea);
+    if ($partName == 'privacy_policy' && !$currentPlan->planFeature->privacy_policy) {
+        return false;
+    }
+    if ($partName == 'term_condition' && !$currentPlan->planFeature->term_condition) {
+        return false;
+    }
+    if ($partName == 'business_hours' && !$currentPlan->planFeature->business_hours) {
+        return false;
+    }
+    if ($partName == 'qr_code' && !$currentPlan->planFeature->qr_code) {
+        return false;
+    }
     if ($partName == 'registration_custom_idea' && !$currentPlan->planFeature->registration_custom_idea) {
         return false;
     }
-    // dd($currentPlan->planFeature->registration_custom_idea);
     if ($partName == 'inspection_custom_idea' && !$currentPlan->planFeature->inspection_custom_idea) {
         return false;
     }
-    // dd($currentPlan->planFeature->registration_custom_idea);
+    if ($partName == 'parking_custom_idea' && !$currentPlan->planFeature->parking_custom_idea) {
+        return false;
+    }
+    return true;
+}
+
+
+/**
+ * @param $partName
+ *
+ * @return bool
+ */
+function checkFeatureVcard($partName)
+{
+    if (Auth::check() && getLoggedInUserRoleId() != getSuperAdminRoleId()) {
+        $currentPlan = getCurrentSubscription()->plan;
+    } else {
+        $urlAlias = Route::current()->parameters['alias'];
+        $vcard = Vcard::whereUrlAlias($urlAlias)->first();
+        if ($vcard) {
+            $currentPlan = $vcard->subscriptions()->get()->where('status', 1)->first()->plan;
+        } else {
+            return false;
+        }
+    }
+
+    if ($partName == 'services' && !$currentPlan->planFeature->products_services) {
+        return false;
+    }
+    if ($partName == 'products' && !$currentPlan->planFeature->products) {
+        return false;
+    }
+    if ($partName == 'appointments' && !$currentPlan->planFeature->appointments) {
+        return false;
+    }
+    if ($partName == 'testimonials' && !$currentPlan->planFeature->testimonials) {
+        return false;
+    }
+    if ($partName == 'social_links' && !$currentPlan->planFeature->social_links) {
+        return false;
+    }
+    if ($partName == 'custom_fonts' && !$currentPlan->planFeature->custom_fonts) {
+        return false;
+    }
+    if ($partName == 'gallery' && !$currentPlan->planFeature->gallery) {
+        return false;
+    }
+    if ($partName == 'seo' && !$currentPlan->planFeature->seo) {
+        return false;
+    }
+    if ($partName == 'blog' && !$currentPlan->planFeature->blog) {
+        return false;
+    }
+    //dd($partName);
+    if ($partName == 'privacy_policy' && !$currentPlan->planFeature->privacy_policy) {
+        return false;
+    }
+    if ($partName == 'term_condition' && !$currentPlan->planFeature->term_condition) {
+        return false;
+    }
+    if ($partName == 'advanced') {
+        $feature = $currentPlan->planFeature;
+        if (!$feature->password && !$feature->hide_branding && !$feature->custom_css && !$feature->custom_js) {
+            return false;
+        }
+
+        return $feature;
+    }
+    if ($partName == 'privacy_policy' && !$currentPlan->planFeature->privacy_policy) {
+        return false;
+    }
+    if ($partName == 'term_condition' && !$currentPlan->planFeature->term_condition) {
+        return false;
+    }
+    if ($partName == 'business_hours' && !$currentPlan->planFeature->business_hours) {
+        return false;
+    }
+    if ($partName == 'qr_code' && !$currentPlan->planFeature->qr_code) {
+        return false;
+    }
+    if ($partName == 'registration_custom_idea' && !$currentPlan->planFeature->registration_custom_idea) {
+        return false;
+    }
+    if ($partName == 'inspection_custom_idea' && !$currentPlan->planFeature->inspection_custom_idea) {
+        return false;
+    }
     if ($partName == 'parking_custom_idea' && !$currentPlan->planFeature->parking_custom_idea) {
         return false;
     }

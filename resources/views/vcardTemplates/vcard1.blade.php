@@ -356,6 +356,7 @@
             </div>
         @endif
         {{--Qr code--}}
+        @if(checkFeature('qr_code'))
         <div class="vcard-one__qr-code my-3 py-5 px-3">
             <h4 class="vcard-one-heading text-center pb-4">{{ __('messages.vcard.qr_code') }}</h4>
             <div class="qr-code p-3 card d-block mx-auto border-0">
@@ -370,8 +371,9 @@
             <a class="qr-code-btn text-white mt-4 d-block mx-auto text-decoration-none" id="qr-code-btn"
                download="qr_code.png">{{ __('messages.vcard.download_my_qr_code') }}</a>
         </div>
+        @endif
         {{--business hour--}}
-        @if($vcard->businessHours->count())
+        @if($vcard->businessHours->count() && checkFeature('business_hours'))
             <div class="vcard-one__timing py-3 px-1">
                 <h4 class="vcard-one-heading text-center pb-4">{{ __('messages.business.business_hours') }}</h4>
                 <div class="container pb-4">
@@ -979,7 +981,7 @@
     </div>
     <div class="vcard-one main-content mx-auto content-blur collapse terms-policies-section">
         <div class="vcard-one__contact py-5">
-            @if(!empty($vcard->privacy_policy))
+            @if(!empty($vcard->privacy_policy) && checkFeature('privacy_policy'))
                 <div class="container">
                     <h4 class="vcard-one-heading text-center py-4 heading-title">{{ __('messages.vcard.privacy_policy') }}</h4>
                     <div class="card px-sm-3 px-4 py-md-5 py-4 m-3">
@@ -989,7 +991,7 @@
                     </div>
                 </div>
             @endif
-            @if(!empty($vcard->term_condition))
+            @if(!empty($vcard->term_condition) && checkFeature('term_condition'))
                 <div class="container">
                     <h4 class="vcard-one-heading text-center py-4 heading-title">{{ __('messages.vcard.term_condition') }}</h4>
                     <div class="card px-sm-3 px-4 py-md-5 py-4 m-3">

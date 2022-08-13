@@ -63,7 +63,7 @@ class Subscription extends Model
     const TYPE_STRIPE = 1;
     const TYPE_PAYPAL = 2;
     const TYPE_RAZORPAY = 3;
-   
+
     const STRIPE = 1;
     const PAYPAL = 2;
     const RAZORPAY = 3;
@@ -116,7 +116,8 @@ class Subscription extends Model
         'trial_ends_at',
         'status',
         'no_of_vcards',
-        'payment_type'
+        'payment_type',
+        'card_id',
     ];
 
     /**
@@ -127,10 +128,30 @@ class Subscription extends Model
     {
         return $this->belongsTo(Plan::class, 'plan_id');
     }
+    public function vcard()
+    {
+        return $this->belongsTo(Vcard::class, 'card_id');
+    }
 
     public function isExpired()
     {
         $now = Carbon::now();
+
+        if ($this->ends_at > $now) {
+            return false;
+        }
+
+        // this means the subscription is ended.
+        if ((! empty($this->trial_ends_at) && $this->trial_ends_at < $now) || $this->ends_at < $now) {
+            return true;
+        }
+
+        // this means the subscription is not ended.
+        return false;
+    }
+    public function isExpiredOneDayBefore()
+    {
+        $now = Carbon::now()->subDays(1);
 
         if ($this->ends_at > $now) {
             return false;
@@ -162,5 +183,15 @@ class Subscription extends Model
     public function users()
     {
         return $this->belongsTo(Subscription::class);
+    }
+
+    /**
+     *
+     *
+     * @return BelongsTo
+     */
+    public function tenant()
+    {
+        return $this->belongsTo(MultiTenant::class,'tenant_id','id');
     }
 }

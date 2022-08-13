@@ -17,6 +17,10 @@ class UpdatePlanFeaturesAddRegistrationsColumns extends Migration
             $table->boolean('registration_custom_idea')->default(false);
             $table->boolean('inspection_custom_idea')->default(false);
             $table->boolean('parking_custom_idea')->default(false);
+            $table->boolean('privacy_policy')->default(false);
+            $table->boolean('term_condition')->default(false);
+            $table->boolean('business_hours')->default(false);
+            $table->boolean('qr_code')->default(false);
         });
     }
 
@@ -31,6 +35,10 @@ class UpdatePlanFeaturesAddRegistrationsColumns extends Migration
             $table->dropColumn('registration_custom_idea');
             $table->dropColumn('inspection_custom_idea');
             $table->dropColumn('parking_custom_idea');
+            $table->dropColumn('privacy_policy');
+            $table->dropColumn('term_condition');
+            $table->dropColumn('business_hours');
+            $table->dropColumn('qr_code');
         });
     }
 }

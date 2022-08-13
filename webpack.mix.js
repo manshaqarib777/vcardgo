@@ -157,3 +157,8 @@ mix.js( 'resources/assets/js/custom/helpers.js', 'public/assets/js/custom/helper
     .js('resources/assets/js/home_page/home_page.js', 'public/assets/js/home_page/home_page.js').version()
 
 mix.sass('resources/assets/css/front-custom.scss', 'public/assets/css/custom.css').version()
+mix.webpackConfig({
+    stats: {
+        children: true,
+    },
+});

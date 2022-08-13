@@ -89,7 +89,11 @@ class PlanFeature extends Model
         'blog',
         'registration_custom_idea',
         'inspection_custom_idea',
-        'parking_custom_idea'
+        'parking_custom_idea',
+        'privacy_policy',
+        'term_condition',
+        'business_hours',
+        'qr_code'
     ];
 
     /**

@@ -2,22 +2,23 @@
 
 namespace App\Repositories;
 
-use App\Models\Analytic;
-use App\Models\Appointment;
-use App\Models\AppointmentDetail;
-use App\Models\BusinessHour;
-use App\Models\PrivacyPolicy;
-use App\Models\SocialLink;
-use App\Models\Subscription;
-use App\Models\TermCondition;
-use App\Models\Vcard;
-use Carbon\Carbon;
-use Carbon\CarbonPeriod;
 use DB;
+use Carbon\Carbon;
+use App\Models\Plan;
+use App\Models\Vcard;
+use App\Models\Analytic;
+use Carbon\CarbonPeriod;
+use App\Models\SocialLink;
+use App\Models\Appointment;
+use App\Models\BusinessHour;
+use App\Models\Subscription;
+use App\Models\PrivacyPolicy;
+use App\Models\TermCondition;
+use App\Models\AppointmentDetail;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Crypt;
 use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
 
 class VcardRepository extends BaseRepository
@@ -57,11 +58,28 @@ class VcardRepository extends BaseRepository
             if (isset($input['url_alias'])) {
                 $input['url_alias'] = str_replace(' ', '-', $input['url_alias']);
             }
-            $subscription = getCurrentSubscription();
+
+            $plan = Plan::whereIsDefault(true)->first();
+
+            $subscription = Subscription::create([
+                'plan_id'        => $plan->id,
+                'plan_amount'    => $plan->price,
+                'plan_frequency' => Plan::MONTHLY,
+                'starts_at'      => Carbon::now(),
+                'ends_at'        => Carbon::now()->addDays($plan->trial_days),
+                'trial_ends_at'  => Carbon::now()->addDays($plan->trial_days),
+                'status'         => Subscription::ACTIVE,
+                'tenant_id'      => getLogInTenantId(),
+                'no_of_vcards'   => $plan->no_of_vcards,
+            ]);
+
+            // $subscription = getCurrentSubscription();
             if ($subscription->plan) {
                 $input['template_id'] = $subscription->plan->templates->first()->id;
             }
             $vcard = Vcard::create($input);
+            $subscription->update(['card_id'=> $vcard->id]);
+
 
             $input['vcard_id'] = $vcard->id;
             SocialLink::create($input);
@@ -92,7 +110,7 @@ class VcardRepository extends BaseRepository
     public function edit($vcard): array
     {
         $data['vcard'] = $vcard;
-        
+
         $businessHours = $vcard->businessHours()->get();
 
         foreach ($businessHours as $hour) {
@@ -251,14 +269,14 @@ class VcardRepository extends BaseRepository
      */
     public function checkTotalVcard(): bool
     {
-        $makeVcard = false;
-        $subscription = Subscription::where('tenant_id', getLogInTenantId())->where('status',
-            Subscription::ACTIVE)->first();
+        $makeVcard = true;
+        // $subscription = Subscription::where('tenant_id', getLogInTenantId())->where('status',
+        //     Subscription::ACTIVE)->first();
 
-        if (!empty($subscription)) {
-            $totalCards = Vcard::whereTenantId(getLogInTenantId())->count();
-            $makeVcard = $subscription->no_of_vcards > $totalCards;
-        }
+        // if (!empty($subscription)) {
+        //     $totalCards = Vcard::whereTenantId(getLogInTenantId())->count();
+        //     $makeVcard = $subscription->no_of_vcards > $totalCards;
+        // }
 
         return $makeVcard;
     }

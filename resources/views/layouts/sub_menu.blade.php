@@ -152,7 +152,7 @@
        href="{{ route('profile.setting') }}">{{ __('messages.user.profile_details') }}</a>
 </li>
 
-<li class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0 {{ !Request::is('admin/choose-payment-type*') ? 'd-none' : '' }}">
+{{-- <li class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0 {{ !Request::is('admin/choose-payment-type*') ? 'd-none' : '' }}">
     <a class="nav-link p-0 {{ Request::is('admin/choose-payment-type*') ? 'active' : '' }}"
        href="{{ route('subscription.upgrade') }}">{{ __('messages.plans') }}</a>
-</li>
+</li> --}}

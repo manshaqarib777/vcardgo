@@ -45,6 +45,32 @@
 </x-livewire-tables::table.cell>
 
 <x-livewire-tables::table.cell>
+    <div class="qr-code-image mt-4 d-flex justify-content-center">
+        @if($row->template_id == 1)
+        <img src="{{asset('assets/img/vcard1/vcard-qr.png')}}" alt="qr code" width="50" height="50"/>
+        @elseif($row->template_id == 2)
+        <img src="{{asset('assets/img/vcard2/vcard2-qr-code.png')}}" alt="qr code" width="50" height="50"/>
+        @elseif($row->template_id == 3)
+        <img src="{{asset('assets/img/vcard3/vcard3-qr-code.png')}}" alt="qr code" width="50" height="50"/>
+        @elseif($row->template_id == 4)
+        <img src="{{asset('assets/img/vcard4/qr-code.png')}}" alt="qr code" width="50" height="50"/>
+        @elseif($row->template_id == 5)
+        <img src="{{asset('assets/img/newqr.png')}}" alt="qr code" width="50" height="50"/>
+        @elseif($row->template_id == 6)
+        <img src="{{asset('assets/img/vcard6/qrcode.png')}}" alt="qr code" width="50" height="50"/>
+        @elseif($row->template_id == 7)
+        <img src="{{asset('assets/img/qrcode.png')}}" alt="qr code" width="50" height="50"/>
+        @elseif($row->template_id == 8)
+        <img src="{{asset('assets/img/vcard3/vcard3-qr-code.png')}}" alt="qr code" width="50" height="50"/>
+        @elseif($row->template_id == 9)
+        <img src="{{asset('assets/img/vcard3/vcard3-qr-code.png')}}" alt="qr code" width="50" height="50"/>
+        @elseif($row->template_id == 10)
+        <img src="{{asset('assets/img/vcard3/vcard3-qr-code.png')}}" alt="qr code" width="50" height="50"/>
+        @endif
+    </div>
+</x-livewire-tables::table.cell>
+
+<x-livewire-tables::table.cell>
     <span class="badge bg-secondary me-2">
         {{ Carbon\Carbon::parse($row->created_at)->isoFormat('Do MMM, YYYY') }}
     </span>
@@ -66,6 +92,9 @@
     <a href="javascript:void(0)" data-id="{{ $row->id }}" title="{{ __('messages.common.delete') }}"
        class="btn px-1 text-danger fs-3 vcard_delete-btn">
         <i class="fa-solid fa-trash"></i>
+    </a>
+    <a class="btn btn-primary" href="{{ route('subscription.upgrade',$row->id) }}">
+        {{ __('messages.subscription.upgrade_plan') }}
     </a>
     </div>
 

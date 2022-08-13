@@ -425,6 +425,7 @@
                 </div>
             @endif
             {{--Qr code--}}
+        @if(checkFeature('qr_code'))
             <div class="main-qrcode position-relative pt-8">
                 <img src="{{asset('assets/img/vcard6/orengcircle.png')}}"
                      class="img-fluid position-absolute orengcircle-img"/>
@@ -463,7 +464,7 @@
             </div>
 
             {{--business hour --}}
-            @if($vcard->businessHours->count())
+            @if($vcard->businessHours->count() && checkFeature('business_hours'))
                 <div class="main-businesshour position-relative pt-4">
                     <img src="{{asset('assets/img/vcard6/yellowcircle.png')}}"
                          class="img-fluid position-absolute yellowoval-img"/>
@@ -1113,7 +1114,7 @@
             </div>
         </div>
         <div class="main-bg vcard-six__contact py-5 collapse terms-policies-section">
-            @if(!empty($vcard->privacy_policy))
+            @if(!empty($vcard->privacy_policy) && checkFeature('privacy_policy'))
                 <div class="main-contactus">
                     <h4 class="vcard-six-heading text-center py-4 heading-title">{{ __('messages.vcard.privacy_policy') }}</h4>
                     <div class="card px-sm-3 px-4 py-md-5 py-4 m-3">
@@ -1123,7 +1124,7 @@
                     </div>
                 </div>
             @endif
-            @if(!empty($vcard->term_condition))
+            @if(!empty($vcard->term_condition) && checkFeature('term_condition'))
                 <div class="main-contactus mt-5">
                     <h4 class="vcard-six-heading text-center py-4 heading-title">{{ __('messages.vcard.term_condition') }}</h4>
                     <div class="card px-sm-3 px-4 py-md-5 py-4 m-3">

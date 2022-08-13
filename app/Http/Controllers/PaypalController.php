@@ -132,7 +132,7 @@ class PaypalController extends AppBaseController
         $clientId = getUserSettingValue('paypal_client_id', $userId);
         $clientSecret = getUserSettingValue('paypal_secret', $userId);
         $mode = getUserSettingValue('paypal_mode', $userId);
-        
+
         if ($mode == 'live') {
             $environment = new ProductionEnvironment($clientId, $clientSecret);
         } else {
@@ -161,7 +161,7 @@ class PaypalController extends AppBaseController
         $order = $client->execute($request);
         session()->put(['appointment_details' => $input]);
         session(['vcard_user_id' => $userId, 'tenant_id'=> $vcard->tenant->id , 'vcard_id' => $vcard->id]);
-        
+
         return response()->json($order);
     }
 
@@ -202,7 +202,7 @@ class PaypalController extends AppBaseController
             $currencyId = Currency::whereCurrencyCode($currencyCode)->first()->id;
             $transactionId = $response->result->id;
             $vcard = Vcard::with('tenant.user')->where('id', $vcardId)->first();
-            
+
             $transactionDetails = [
                 'vcard_id'       => $vcardId,
                 'transaction_id' => $transactionId,
@@ -218,8 +218,8 @@ class PaypalController extends AppBaseController
             $appointmentInput = session()->get('appointment_details');
             session()->forget('appointment_details');
             $appointmentInput['appointment_tran_id'] = $appointmentTran->id;
-            
-            
+
+
             /** @var AppointmentRepository $appointmentRepo */
             $appointmentRepo = App::make(AppointmentRepository::class);
             $vcardEmail = is_null($vcard->email) ? $vcard->tenant->user->email : $vcard->email;
@@ -288,9 +288,12 @@ class PaypalController extends AppBaseController
             // De-Active all other subscription
             Subscription::whereTenantId(getLogInTenantId())
                 ->where('id', '!=', $subscriptionId)
+                ->whereCardId(getLogInCardId())
                 ->update([
                     'status' => Subscription::INACTIVE,
                 ]);
+            session()->forget('card_id');
+
 
             $transaction = Transaction::create([
                 'transaction_id' => $transactionID,

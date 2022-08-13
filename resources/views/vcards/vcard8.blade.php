@@ -14,7 +14,7 @@
     {{--slick slider--}}
     <link rel="stylesheet" href="{{ asset('assets/css/slider/css/slick.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/slider/css/slick-theme.min.css') }}">
-    
+
     {{--google Font--}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +27,7 @@
 <body>
 <div class="container">
     <div class="vcard-eight main-content w-100 mx-auto overflow-hidden">
-        
+
         {{--banner--}}
         <div class="vcard-eight__banner w-100 position-relative">
             <img src="{{asset('assets/img/vcard8/vcard8-banner.png')}}" class="img-fluid banner-image position-relative"
@@ -448,7 +448,8 @@
                 </div>
             </div>
         </div>
-        {{--qr code--}}
+        {{--Qr code--}}
+        @if(checkFeature('qr_code'))
         <div class="vcard-eight__qr-code py-4 position-relative px-sm-4 px-3">
             <h4 class="vcard-eight-heading heading-line position-relative text-center d-block mx-auto pb-3">QR Code</h4>
             <div class="card qr-code-card justify-content-center align-items-center px-sm-3 px-4 pt-5 pb-4 position-relative w-100 mx-auto">
@@ -465,6 +466,7 @@
             </div>
         </div>
 
+        @endif
         {{--business hour--}}
         <div class="vcard-eight__timing py-4 position-relative px-sm-4 px-3">
             <div class="container">

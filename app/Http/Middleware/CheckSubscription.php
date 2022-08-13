@@ -21,6 +21,7 @@ class CheckSubscription
     public function handle(Request $request, Closure $next)
     {
         $request = $next($request);
+        return $request;
 
         $subscription = Subscription::with('plan')
             ->where('status', Subscription::ACTIVE)

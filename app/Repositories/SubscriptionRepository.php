@@ -63,7 +63,7 @@ class SubscriptionRepository extends BaseRepository
         if (!isset($data['plan'])) { // 0 amount plan or try to switch the plan if it is in trial mode
             return $data;
         }
-        
+
         $result = $this->manageStripeData(
             $data['plan'],
             ['amountToPay' => $data['amountToPay'], 'sub_id' => $data['subscription']->id]
@@ -117,13 +117,13 @@ class SubscriptionRepository extends BaseRepository
 //            $frequencyDays = $planFrequency == Plan::MONTHLY ? 30 : 365;
             $perDayPrice = round($planPrice / $currentSubsTotalDays, 2);
             $isJPYCurrency = !empty($subscriptionPlan->currency) && isJPYCurrency($subscriptionPlan->currency->currency_code);
-            
+
             $remainingBalance = $planPrice - ($perDayPrice * $usedDays);
-            $remainingBalance = $isJPYCurrency 
+            $remainingBalance = $isJPYCurrency
                 ? round($remainingBalance) : $remainingBalance;
 
             if ($remainingBalance < $subscriptionPlan->price) { // adjust the amount in plan i.e. you have to pay for it
-                $amountToPay = $isJPYCurrency 
+                $amountToPay = $isJPYCurrency
                     ? round($subscriptionPlan->price - $remainingBalance)
                     : round($subscriptionPlan->price - $remainingBalance, 2);
             } else {
@@ -156,20 +156,23 @@ class SubscriptionRepository extends BaseRepository
             'ends_at'        => $endsAt,
             'status'         => Subscription::INACTIVE,
             'no_of_vcards'   => $subscriptionPlan->no_of_vcards,
+            'card_id'        => getLogInCardId(),
         ];
 
         $subscription = Subscription::create($input);
 
 //        Cache::forget('subscription');
-        
+
         if ($subscriptionPlan->price <= 0 || $amountToPay == 0) {
             // De-Active all other subscription
             Subscription::whereTenantId(getLogInTenantId())
                 ->where('id', '!=', $subscription->id)
+                ->whereCardId(getLogInCardId())
                 ->update([
                     'status' => Subscription::INACTIVE,
                 ]);
             Subscription::findOrFail($subscription->id)->update(['status' => Subscription::ACTIVE]);
+            session()->forget('card_id');
 
             return ['status' => true, 'subscriptionPlan' => $subscriptionPlan];
         }
@@ -255,9 +258,11 @@ class SubscriptionRepository extends BaseRepository
             // De-Active all other subscription
             Subscription::whereTenantId(getLogInTenantId())
                 ->where('id', '!=', $sessionData->client_reference_id)
+                ->whereCardId(getLogInCardId())
                 ->update([
                     'status' => Subscription::INACTIVE,
                 ]);
+            session()->forget('card_id');
 
             $paymentAmount = null;
             if ($sessionData->metadata->plan_currency != null && in_array($sessionData->metadata->plan_currency,

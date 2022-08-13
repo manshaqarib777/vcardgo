@@ -26,10 +26,10 @@
 <div class="container main-section">
     <div class="row d-flex justify-content-center">
         <div class="main-bg p-0">
-            
+
             <div class="head-img position-relative">
                 <img src="{{asset('assets/img/vcard6/bgvcard.png')}}" height="400px" class="img-fluid"/>
-                
+
                 <div class="d-flex justify-content-end position-absolute top-0 end-0 me-3">
                     <div class="language pt-3 me-2">
                         <ul class="text-decoration-none">
@@ -513,6 +513,7 @@
             </div>
 
             {{--Qr code--}}
+        @if(checkFeature('qr_code'))
             <div class="main-qrcode position-relative pt-4">
                 <img src="{{asset('assets/img/vcard6/orengcircle.png')}}"
                      class="img-fluid position-absolute orengcircle-img"/>

@@ -452,6 +452,7 @@
         </div>
 
         {{--Qr code--}}
+        @if(checkFeature('qr_code'))
         <div class="vcard-one__qr-code my-3 py-5 px-3">
             <h4 class="vcard-one-heading text-center pb-4">QR Code</h4>
             <div class="qr-code p-3 card d-block mx-auto border-0">
@@ -465,6 +466,7 @@
             </div>
             <button type="button" class="qr-code-btn text-white mt-4 d-block mx-auto">Download My QR Code</button>
         </div>
+        @endif
         {{--business hour--}}
         <div class="vcard-one__timing py-3 px-1">
             <h4 class="vcard-one-heading text-center pb-4">Business Hours</h4>

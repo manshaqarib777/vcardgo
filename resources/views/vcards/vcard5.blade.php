@@ -429,6 +429,7 @@
             </div>
 
             {{--Qr code--}}
+        @if(checkFeature('qr_code'))
             <div class="main-Qr-section mb-5">
                 <div class="qr-header-title">
                     <h2 class="mb-5 text-center">QR Code</h2>

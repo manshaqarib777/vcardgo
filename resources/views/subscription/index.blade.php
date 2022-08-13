@@ -10,7 +10,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-lg-7">
+                        {{-- <div class="col-lg-7">
                             <h2>{{ $currentPlan->plan->name }}</h2>
                             <h5 class="mb-12">
 
@@ -54,13 +54,13 @@
                                     @endif
                                 @endforeach
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="col-lg-5 mt-lg-0 mt-5">
-                            <div class="d-flex justify-content-end">
+                            {{-- <div class="d-flex justify-content-end">
                                 <a class="btn btn-primary" href="{{ route('subscription.upgrade') }}">
                                     {{ __('messages.subscription.upgrade_plan') }}
                                 </a>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

@@ -179,12 +179,19 @@ class VcardController extends AppBaseController
      */
     public function edit(Vcard $vcard, Request $request)
     {
+        session(['card_id' => $vcard->id]);
         $partName = ($request->part === null) ? 'basics' : $request->part;
-        if ($partName !== TermCondition::TERM_CONDITION && $partName !== PrivacyPolicy::PRIVACY_POLICY) {
-            if (!checkFeature($partName)) {
+
+        if (getCurrentSubscription()->isExpired()) {
+            Flash::error(__('Your plan is expired. Please choose a plan to continue the services'));
+            return redirect(route('vcards.index'));
+        }
+
+        // if ($partName !== TermCondition::TERM_CONDITION && $partName !== PrivacyPolicy::PRIVACY_POLICY) {
+            if (!checkFeatureVcard($partName)) {
                 return redirect(route('vcards.edit', $vcard->id));
             }
-        }
+        // }
         $data = $this->vcardRepository->edit($vcard);
         $data['partName'] = $partName;
         $appointmentDetail = AppointmentDetail::where('vcard_id',$vcard->id)->first();

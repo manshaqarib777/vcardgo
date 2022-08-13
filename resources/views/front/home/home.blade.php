@@ -59,7 +59,7 @@
                                 <i class="mdi mdi-trophy-variant-outline"></i>
                                 <img src="{{ $feature->profile_image }}" alt="" class="feature-image feature-image-card image-object-fit-cover">
                             </div>
-                     
+
                         <h3 class="text-secondary fs-4 fw-light">{{ $feature->name }}</h3>
                         <p class="text-gray-100 fs-18 mb-0">
                             {!! $feature->description !!}
@@ -164,7 +164,7 @@
                                             class="fa-solid fa-check"></i></span>{{ __('messages.feature.'.$feature) }}</li>
                             @endforeach
                         </ul>
-                        @if(getLogInUser() && getLoggedInUserRoleId() != getSuperAdminRoleId())
+                        {{-- @if(getLogInUser() && getLoggedInUserRoleId() != getSuperAdminRoleId())
                             <div class="mx-auto">
                                 @if(!empty(getCurrentSubscription()) && $plan->id == getCurrentSubscription()->plan_id && !getCurrentSubscription()->isExpired())
                                     @if($plan->price != 0)
@@ -207,7 +207,7 @@
                                     @endif
                                 @endif
                             </div>
-                        @endif
+                        @endif --}}
                     </div>
                 </div>
                 @endforeach

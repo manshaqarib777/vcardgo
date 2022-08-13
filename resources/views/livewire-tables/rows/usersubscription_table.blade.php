@@ -2,6 +2,9 @@
     <span class="">{{$row->plan->name}}</span>
 </x-livewire-tables::bs5.table.cell>
 <x-livewire-tables::bs5.table.cell>
+    <span class="">{{$row->vcard->name}}</span>
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
     <span class="">{{$row->plan->currency->currency_icon . '  ' .$row->plan_amount}}</span>
 </x-livewire-tables::bs5.table.cell>
 <x-livewire-tables::bs5.table.cell>

@@ -40,42 +40,43 @@ class SubscriptionController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $currentPlan = getCurrentSubscription();
+        // $currentPlan = getCurrentSubscription();
 
-        $days = $remainingDay = '';
-        if ($currentPlan->ends_at > Carbon::now()) {
-            $days = Carbon::parse($currentPlan->ends_at)->diffInDays();
-            $remainingDay = $days.' Days';
-        }
+        // $days = $remainingDay = '';
+        // if ($currentPlan->ends_at > Carbon::now()) {
+        //     $days = Carbon::parse($currentPlan->ends_at)->diffInDays();
+        //     $remainingDay = $days.' Days';
+        // }
 
-        if ($days >= 30 && $days <= 365) {
-            $remainingDay = '';
-            $months = floor($days / 30);
-            $extraDays = $days % 30;
-            if ($extraDays > 0) {
-                $remainingDay .= $months.' Month '.$extraDays.' Days';
-            } else {
-                $remainingDay .= $months.' Month ';
-            }
-        }
+        // if ($days >= 30 && $days <= 365) {
+        //     $remainingDay = '';
+        //     $months = floor($days / 30);
+        //     $extraDays = $days % 30;
+        //     if ($extraDays > 0) {
+        //         $remainingDay .= $months.' Month '.$extraDays.' Days';
+        //     } else {
+        //         $remainingDay .= $months.' Month ';
+        //     }
+        // }
 
-        if ($days >= 365) {
-            $remainingDay = '';
-            $years = floor($days / 365);
-            $extraMonths = floor($days % 365 / 30);
-            $extraDays = floor($days % 365 % 30);
-            if ($extraMonths > 0 && $extraDays < 1) {
-                $remainingDay .= $years.' Years '.$extraMonths.' Month ';
-            } elseif ($extraDays > 0 && $extraMonths < 1) {
-                $remainingDay .= $years.' Years '.$extraDays.' Days';
-            } elseif ($years > 0 && $extraDays > 0 && $extraMonths > 0) {
-                $remainingDay .= $years.' Years '.$extraMonths.' Month '.$extraDays.' Days';
-            }else {
-                $remainingDay .= $years.' Years ';
-            }
-        }
+        // if ($days >= 365) {
+        //     $remainingDay = '';
+        //     $years = floor($days / 365);
+        //     $extraMonths = floor($days % 365 / 30);
+        //     $extraDays = floor($days % 365 % 30);
+        //     if ($extraMonths > 0 && $extraDays < 1) {
+        //         $remainingDay .= $years.' Years '.$extraMonths.' Month ';
+        //     } elseif ($extraDays > 0 && $extraMonths < 1) {
+        //         $remainingDay .= $years.' Years '.$extraDays.' Days';
+        //     } elseif ($years > 0 && $extraDays > 0 && $extraMonths > 0) {
+        //         $remainingDay .= $years.' Years '.$extraMonths.' Month '.$extraDays.' Days';
+        //     }else {
+        //         $remainingDay .= $years.' Years ';
+        //     }
+        // }
 
-        return view('subscription.index', compact('currentPlan', 'remainingDay'));
+        // return view('subscription.index', compact('currentPlan', 'remainingDay'));
+        return view('subscription.index');
     }
 
     public function choosePaymentType($planId, $context = null, $fromScreen = null)
@@ -90,8 +91,9 @@ class SubscriptionController extends AppBaseController
      *
      * @return Application|Factory|View
      */
-    public function upgrade()
+    public function upgrade($id)
     {
+        session(['card_id' => $id]);
         $plans = Plan::with(['currency', 'planFeature'])
             ->get();
 
@@ -124,7 +126,7 @@ class SubscriptionController extends AppBaseController
 
             DB::commit();
 //            Cache::forget('subscription');
-            
+
             return $this->sendSuccess('You subscribed this plan successfully');
         } catch (\Exception $e) {
             DB::rollBack();
@@ -141,7 +143,7 @@ class SubscriptionController extends AppBaseController
      */
     public function manualPay(Request $request): JsonResponse
     {
-        
+
         $this->subscriptionRepo->manageSubscription($request->get('planId'));
         $data = Subscription::whereTenantId(getLogInTenantId())->orderBy('created_at', 'desc')->first();
         Subscription::whereId($data->id)->update(['payment_type' => 'Cash']);
@@ -158,7 +160,7 @@ class SubscriptionController extends AppBaseController
     {
 
         return view('sadmin.planPyment.index');
-        
+
     }
 
     /**
@@ -172,13 +174,13 @@ class SubscriptionController extends AppBaseController
         Subscription::whereTenantId($request->tenant_id)
             ->where('id', '!=', $request->id)
             ->update(['status' => 0]);
-      
+
         Subscription::where('id', $request->id)->update(['status' => 1,
                                'payment_type' => 'paid']);
 //        Cache::forget('subscription');
 
         return $this->sendSuccess('Payment received successfully');
-       
+
     }
 
     public function purchaseSubscription(Request $request)

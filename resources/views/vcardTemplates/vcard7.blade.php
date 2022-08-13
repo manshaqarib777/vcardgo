@@ -420,8 +420,9 @@
                 </div>
             </div>
 
-            {{--business hour--}}
-            @if($vcard->businessHours->count())
+            @endif
+        {{--business hour--}}
+            @if($vcard->businessHours->count() && checkFeature('business_hours'))
                 <div class="container">
                     <div class="business-main-section">
                         <div class="header-title">
@@ -1053,7 +1054,7 @@
             </div>
         </div>
         <div class="main-bg py-5 collapse terms-policies-section">
-            @if(!empty($vcard->privacy_policy))
+            @if(!empty($vcard->privacy_policy) && checkFeature('privacy_policy'))
                 <div class="container contactus-section">
                     <div class="header-title">
                         <h4 class="text-center py-4">{{ __('messages.vcard.privacy_policy') }}</h4>
@@ -1065,7 +1066,7 @@
                     </div>
                 </div>
             @endif
-            @if(!empty($vcard->term_condition))
+            @if(!empty($vcard->term_condition) && checkFeature('term_condition'))
                 <div class="container contactus-section mt-5">
                     <div class="header-title">
                         <h4 class="text-center py-4">{{ __('messages.vcard.term_condition') }}</h4>

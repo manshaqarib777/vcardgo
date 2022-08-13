@@ -435,7 +435,7 @@
 @if($partName == 'advanced')
     <div class="row">
         <input type="hidden" name="part" value="{{$partName}}">
-        @if(checkFeature('advanced')->password)
+        @if(checkFeatureVcard('advanced')->password)
             <div class="col-lg-6 mb-7">
                 <label class="form-label">{{ __('messages.user.password').':' }}</label>
                 <div class="position-relative mb-3">
@@ -454,21 +454,21 @@
             </div>
         @endif
 
-        @if(checkFeature('advanced')->custom_css)
+        @if(checkFeatureVcard('advanced')->custom_css)
             <div class="col-lg-12 mb-7">
                 {{ Form::label('custom_css', __('messages.vcard.custom_css').':', ['class' => 'form-label']) }}
                 {{ Form::textarea('custom_css', isset($vcard) ? $vcard->custom_css : null, ['class' => 'form-control', 'placeholder' => __('messages.form.css'), 'rows' => '5']) }}
             </div>
         @endif
 
-        @if(checkFeature('advanced')->custom_js)
+        @if(checkFeatureVcard('advanced')->custom_js)
             <div class="col-lg-12 mb-7">
                 {{ Form::label('custom_js', __('messages.vcard.custom_js').':', ['class' => 'form-label']) }}
                 {{ Form::textarea('custom_js', isset($vcard) ? $vcard->custom_js : null, ['class' => 'form-control', 'placeholder' => __('messages.form.js'), 'rows' => '5']) }}
             </div>
         @endif
 
-        @if(checkFeature('advanced')->hide_branding)
+        @if(checkFeatureVcard('advanced')->hide_branding)
             <div class="col-lg-6 mb-7">
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" id="branding"

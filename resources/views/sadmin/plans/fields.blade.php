@@ -193,6 +193,38 @@
         <div class="col-lg-3 col-md-4 col-6 mb-5 col-xs">
             <label class="form-label form-check">
                 <input class="form-check-input feature mx-2" type="checkbox" value="1"
+                       name="privacy_policy" {{ (isset($feature) && $feature->privacy_policy == 1) ? 'checked' : '' }}/>
+                {{ __('messages.vcard.privacy_policy') }}
+            </label>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-6 mb-5 col-xs">
+            <label class="form-label form-check">
+                <input class="form-check-input feature mx-2" type="checkbox" value="1"
+                       name="term_condition" {{ (isset($feature) && $feature->term_condition == 1) ? 'checked' : '' }}/>
+                {{ __('messages.vcard.term_condition') }}
+            </label>
+        </div>
+
+
+        <div class="col-lg-3 col-md-4 col-6 mb-5 col-xs">
+            <label class="form-label form-check">
+                <input class="form-check-input feature mx-2" type="checkbox" value="1"
+                       name="business_hours" {{ (isset($feature) && $feature->business_hours == 1) ? 'checked' : '' }}/>
+                {{ __('messages.vcard.business_hours') }}
+            </label>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6 mb-5 col-xs">
+            <label class="form-label form-check">
+                <input class="form-check-input feature mx-2" type="checkbox" value="1"
+                       name="qr_code" {{ (isset($feature) && $feature->qr_code == 1) ? 'checked' : '' }}/>
+                {{ __('messages.vcard.qr_code') }}
+            </label>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-6 mb-5 col-xs">
+            <label class="form-label form-check">
+                <input class="form-check-input feature mx-2" type="checkbox" value="1"
                        name="registration_custom_idea" {{ (isset($feature) && $feature->registration_custom_idea == 1) ? 'checked' : '' }}/>
                 {{ __('messages.vcard.registration_custom_idea') }}
             </label>

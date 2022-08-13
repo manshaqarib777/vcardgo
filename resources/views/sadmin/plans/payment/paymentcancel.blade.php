@@ -23,7 +23,7 @@
         <div class="payment-heading position-absolute top-50 translate-middle-y">
             <h1 class="payment-title">{{__('messages.payment.payment')}}</h1>
             <p class="payment-text">{{__('messages.payment.cancelled')}}</p>
-            <a href="{{route('subscription.upgrade')}}" type="button" class="btn payment-btn">{{__('messages.common.back')}}</a>
+            {{-- <a href="{{route('subscription.upgrade')}}" type="button" class="btn payment-btn">{{__('messages.common.back')}}</a> --}}
         </div>
     </div>
 </div>

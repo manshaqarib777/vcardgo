@@ -95,9 +95,12 @@ class RazorpayController extends AppBaseController
                 // De-Active all other subscription
                 Subscription::whereTenantId(getLogInTenantId())
                     ->where('id', '!=', $subscriptionID)
+                    ->whereCardId(getLogInCardId())
                     ->update([
                         'status' => Subscription::INACTIVE,
                     ]);
+                session()->forget('card_id');
+
 
                 $transaction = Transaction::create([
                     'tenant_id'        => $subscription->tenant_id,

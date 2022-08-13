@@ -55,19 +55,19 @@ class RegisteredUserController extends Controller
                 'tenant_id'  => $tenant->id,
             ])->assignRole(Role::ROLE_ADMIN);
 
-            $plan = Plan::whereIsDefault(true)->first();
+            // $plan = Plan::whereIsDefault(true)->first();
 
-            Subscription::create([
-                'plan_id'        => $plan->id,
-                'plan_amount'    => $plan->price,
-                'plan_frequency' => Plan::MONTHLY,
-                'starts_at'      => Carbon::now(),
-                'ends_at'        => Carbon::now()->addDays($plan->trial_days),
-                'trial_ends_at'  => Carbon::now()->addDays($plan->trial_days),
-                'status'         => Subscription::ACTIVE,
-                'tenant_id'      => $tenant->id,
-                'no_of_vcards'   => $plan->no_of_vcards,
-            ]);
+            // Subscription::create([
+            //     'plan_id'        => $plan->id,
+            //     'plan_amount'    => $plan->price,
+            //     'plan_frequency' => Plan::MONTHLY,
+            //     'starts_at'      => Carbon::now(),
+            //     'ends_at'        => Carbon::now()->addDays($plan->trial_days),
+            //     'trial_ends_at'  => Carbon::now()->addDays($plan->trial_days),
+            //     'status'         => Subscription::ACTIVE,
+            //     'tenant_id'      => $tenant->id,
+            //     'no_of_vcards'   => $plan->no_of_vcards,
+            // ]);
 
             DB::commit();
 

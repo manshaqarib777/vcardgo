@@ -25,7 +25,7 @@
 <div class="container main-section">
     <div class="row d-flex justify-content-center">
         <div class="main-bg p-0">
-           
+
             <div class="position-relative">
                 <img src="{{asset('assets/img/vcard7/bannerimg.png')}}" class="banner-img"/>
 
@@ -489,7 +489,8 @@
                 </div>
             </div>
 
-            {{--business hour--}}
+            @endif
+        {{--business hour--}}
 
             <div class="container">
                 <div class="business-main-section">

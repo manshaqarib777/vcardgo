@@ -2,8 +2,9 @@
 
 namespace App\Console;
 
-use Illuminate\Console\Scheduling\Schedule;
 use App\Console\Commands\GenerateSiteMap;
+use Illuminate\Console\Scheduling\Schedule;
+use App\Console\Commands\ExpirationVcardEmail;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
@@ -12,9 +13,10 @@ class Kernel extends ConsoleKernel
      * The Artisan commands provided by your application.
      *
      * @var array
-     */ 
-    protected $commands = [ 
-        GenerateSiteMap::class
+     */
+    protected $commands = [
+        GenerateSiteMap::class,
+        ExpirationVcardEmail::class
     ];
 
     /**
@@ -27,6 +29,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->command('sitemap:generate')->daily();
+        $schedule->command('email:expiration')->daily();
 
     }
 
