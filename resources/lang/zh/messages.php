@@ -446,6 +446,7 @@
     'meta_keyword' => '元關鍵字',
     'meta_description' => '元描述',
     'google_analytics' => '谷歌分析',
+    'email_expiration'     => 'Email Expiration Days',
     'seo' => '搜索引擎優化',
     'site_title' => '網站標題',
     'home_title' => '主頁標題',

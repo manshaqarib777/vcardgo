@@ -446,6 +446,7 @@
     'meta_keyword' => 'Meta Anahtar Kelime',
     'meta_description' => 'Meta Açıklaması',
     'google_analytics' => 'Google Analytics',
+    'email_expiration'     => 'Email Expiration Days',
     'seo' => 'SEO',
     'site_title' => 'Site Başlığı',
     'home_title' => 'Ana Başlık',

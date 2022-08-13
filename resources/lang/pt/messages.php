@@ -446,6 +446,7 @@
     'meta_keyword' => 'Meta-palavra-chave',
     'meta_description' => 'Meta Descrição',
     'google_analytics' => 'Google Analytics',
+    'email_expiration'     => 'Email Expiration Days',
     'seo' => 'SEO',
     'site_title' => 'titulo do site',
     'home_title' => 'Título inicial',

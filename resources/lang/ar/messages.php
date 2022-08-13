@@ -441,6 +441,7 @@
     'meta_keyword' => 'كلمة ميتا',
     'meta_description' => 'ميتا الوصف',
     'google_analytics' => 'تحليلات كوكل',
+    'email_expiration'     => 'Email Expiration Days',
     'seo' => 'SEO',
     'site_title' => 'عنوان الموقع',
     'home_title' => 'عنوان المنزل',

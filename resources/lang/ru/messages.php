@@ -446,6 +446,7 @@
     'meta_keyword' => 'Мета ключевое слово',
     'meta_description' => 'Мета-описание',
     'google_analytics' => 'Гугл Аналитика',
+    'email_expiration'     => 'Email Expiration Days',
     'seo' => 'SEO',
     'site_title' => 'Заголовок сайта',
     'home_title' => 'Название дома',

@@ -66,9 +66,9 @@ class SettingController extends AppBaseController
                 return redirect()->back();
             }
         }
-        
+
         Meta::query()->delete();
-        
+
         if (isset($request->site_title) || isset($request->site_title) || isset($request->site_title) || isset($request->site_title) || isset($request->google_analytics)){
             Meta::updateOrCreate([
                'site_title' => $request->site_title,
@@ -91,6 +91,7 @@ class SettingController extends AppBaseController
         }
 
         $id = Auth::id();
+        // dd($request->all());
         $this->settingRepository->update($request->all(), $id);
 
         Flash::success(__('messages.flash.setting_update'));

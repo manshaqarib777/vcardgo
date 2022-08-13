@@ -445,6 +445,7 @@
     'vcard_name' => 'Nombre de la tarjeta virtual',
     'meta_keyword' => 'Metapalabra clave',
     'meta_description' => 'Metadescripción',
+    'email_expiration'     => 'Email Expiration Days',
     'google_analytics' => 'Google analitico',
     'seo' => 'SEO',
     'site_title' => 'Título del sitio',

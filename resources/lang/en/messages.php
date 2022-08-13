@@ -449,6 +449,7 @@
             'meta_keyword'         => 'Meta Keyword',
             'meta_description'     => 'Meta Description',
             'google_analytics'     => 'Google Analytics',
+            'email_expiration'     => 'Email Expiration Days',
             'seo'                  => 'SEO',
             'site_title'           => 'Site Title',
             'home_title'           => 'Home Title',

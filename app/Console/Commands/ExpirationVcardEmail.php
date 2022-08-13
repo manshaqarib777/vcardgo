@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Carbon\Carbon;
 use App\Models\Vcard;
+use App\Models\Setting;
 use App\Models\Subscription;
 use Illuminate\Console\Command;
 use App\Mail\ExpirationVcardMail;
@@ -42,10 +43,11 @@ class ExpirationVcardEmail extends Command
      */
     public function handle()
     {
+        $setting = Setting::pluck('value', 'key')->toArray();
 
         $subscriptions = Subscription::with('plan','tenant.user')
         ->where('status', Subscription::ACTIVE)
-        ->whereDate('ends_at',Carbon::now()->addDays(1)->format('Y-m-d'))
+        ->whereDate('ends_at',Carbon::now()->addDays($setting["email_expiration"])->format('Y-m-d'))
         ->get();
         foreach ($subscriptions as $key => $subscription) {
             Mail::to($subscription->tenant->user->email)

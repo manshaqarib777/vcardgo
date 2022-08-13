@@ -130,6 +130,16 @@
             </div>
             <div class="card-header px-0">
                 <div class="d-flex align-items-center justify-content-center">
+                    <h3 class="m-0">{{__('messages.vcard.email_expiration')}}
+                    </h3>
+                </div>
+            </div>
+            <div class="col-lg-12 border-top pt-4 mb-3">
+                {{ Form::label('Email Expiration Days', __('messages.vcard.email_expiration').':', ['class' => 'form-label']) }}
+                {{ Form::number('email_expiration',isset($setting) ? @$setting['email_expiration'] : null, ['class' => 'form-control', 'placeholder' => __('messages.form.email_expiration')]) }}
+            </div>
+            <div class="card-header px-0">
+                <div class="d-flex align-items-center justify-content-center">
                     <h3 class="m-0">{{__('messages.payment_method')}}
                     </h3>
                 </div>

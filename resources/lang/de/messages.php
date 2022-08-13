@@ -446,6 +446,7 @@
     'vcard_name' => 'VCard-Name',
     'meta_keyword' => 'Meta-Schlüsselwort',
     'meta_description' => 'Meta-Beschreibung',
+    'email_expiration'     => 'Email Expiration Days',
     'google_analytics' => 'Google Analytics',
     'seo' => 'SEO',
     'site_title' => 'Seitentitel',
