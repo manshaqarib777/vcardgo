@@ -408,7 +408,7 @@
             </div>
         @endif
         {{-- registration custom idea --}}
-        @if(checkFeature('registration_custom_idea'))
+        @if(checkFeature('registration_custom_idea') && $vcard->registration_address)
             <div class="vcard-one__timing py-3 px-1">
                 <h4 class="vcard-one-heading text-center pb-4">{{ __('messages.vcard.registration_custom_idea') }}</h4>
                 <div class="container pb-4">
@@ -548,7 +548,7 @@
             </div>
         @endif
         {{-- inspection custom idea --}}
-        @if(checkFeature('inspection_custom_idea'))
+        @if(checkFeature('inspection_custom_idea') && $vcard->inspection_address)
             <div class="vcard-one__timing py-3 px-1">
                 <h4 class="vcard-one-heading text-center pb-4">{{ __('messages.vcard.inspection_custom_idea') }}</h4>
                 <div class="container pb-4">
@@ -709,7 +709,7 @@
         @endif
 
         {{-- parking custom idea --}}
-        @if(checkFeature('parking_custom_idea'))
+        @if(checkFeature('parking_custom_idea') && $vcard->parking_owner_mobile_no)
             <div class="vcard-one__timing py-3 px-1">
                 <h4 class="vcard-one-heading text-center pb-4">{{ __('messages.vcard.parking_custom_idea') }}</h4>
                 <div class="container pb-4">

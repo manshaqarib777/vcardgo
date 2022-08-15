@@ -26,9 +26,9 @@ class UserVcardTable extends LivewireTableComponent
                 ->sortable()->searchable(),
             Column::make(__('messages.vcard.preview_url'), "preview_url"),
             Column::make(__('messages.vcard.stats') , "stats"),
-            Column::make(__('messages.vcard.qr_code') , "template_id"),
             Column::make(__('messages.vcard.status'), "first_name")
                 ->sortable(),
+            Column::make(__('messages.vcard.qr_code') , "template_id"),
             Column::make(__('messages.vcard.created_on'), "created_at")
                 ->sortable(),
             Column::make(__('messages.common.action'))->addClass('w-150px justify-content-center d-flex'),
