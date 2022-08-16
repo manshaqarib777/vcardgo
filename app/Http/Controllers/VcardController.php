@@ -242,6 +242,7 @@ class VcardController extends AppBaseController
     {
         $vcard->clearMediaCollection(Vcard::PROFILE_PATH);
         $vcard->clearMediaCollection(Vcard::COVER_PATH);
+        $vcard->subscriptions()->delete();
         $vcard->delete();
 
         $data['make_vcard'] = $this->vcardRepository->checkTotalVcard();
