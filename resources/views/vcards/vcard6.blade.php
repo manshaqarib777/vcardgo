@@ -513,7 +513,6 @@
             </div>
 
             {{--Qr code--}}
-        @if(checkFeature('qr_code'))
             <div class="main-qrcode position-relative pt-4">
                 <img src="{{asset('assets/img/vcard6/orengcircle.png')}}"
                      class="img-fluid position-absolute orengcircle-img"/>

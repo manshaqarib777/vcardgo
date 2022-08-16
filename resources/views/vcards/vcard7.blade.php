@@ -489,7 +489,6 @@
                 </div>
             </div>
 
-            @endif
         {{--business hour--}}
 
             <div class="container">

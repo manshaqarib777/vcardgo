@@ -360,7 +360,6 @@
         </div>
 
         {{--Qr code--}}
-        @if(checkFeature('qr_code'))
         <div class="vcard-two__qr-code py-3 position-relative px-3">
             {{--shape img--}}
             <img src="{{asset('assets/img/vcard2/shape2.png')}}" class="banner-shape-four position-absolute end-0 d-sm-block d-none" alt="shape"/>
@@ -391,7 +390,6 @@
             </div>
         </div>
 
-        @endif
         {{--business hour--}}
         <div class="vcard-two__business-hour py-4 position-relative">
             <div class="container">

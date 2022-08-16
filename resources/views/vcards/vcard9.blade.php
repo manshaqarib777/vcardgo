@@ -423,7 +423,6 @@
             </div>
         </div>
         {{--Qr code--}}
-        @if(checkFeature('qr_code'))
         <div class="vcard-nine__qr-code py-4 px-3 position-relative px-sm-3">
             <h4 class="heading-left position-relative text-center">QR CODE</h4>
             <div class="container mt-5">
@@ -444,7 +443,6 @@
             </div>
         </div>
 
-        @endif
         {{--business hour--}}
         <div class="vcard-nine__timing py-4 px-3 position-relative px-sm-3">
             <h4 class="heading-right position-relative text-center">BUSINESS HOURS</h4>
