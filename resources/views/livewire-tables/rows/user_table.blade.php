@@ -14,9 +14,7 @@
     </div>
 </x-livewire-tables::bs5.table.cell>
 
-<x-livewire-tables::bs5.table.cell class="text-center">
-    <span class="badge bg-light-success">{{$row->plan_name}}</span>
-</x-livewire-tables::bs5.table.cell>
+
 
 <x-livewire-tables::bs5.table.cell>
     @php

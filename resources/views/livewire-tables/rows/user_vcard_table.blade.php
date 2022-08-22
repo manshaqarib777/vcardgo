@@ -46,8 +46,8 @@
 </x-livewire-tables::table.cell>
 
 <x-livewire-tables::table.cell>
-    <div class="qr-code-image mt-4 d-flex justify-content-center">
-        <img src="{{asset('assets/img/vcard1/vcard-qr.png')}}" alt="qr code" width="50" height="50" data-bs-toggle="modal" data-bs-target="#exampleModal{{$row->id}}" style="cursor: pointer;"/>
+    <div class="qr-code-image mt-4 d-flex justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal{{$row->id}}" style="cursor: pointer;">
+        <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate(route('vcard.defaultIndex').'/'. $row->url_alias)) !!}">
     </div>
 </x-livewire-tables::table.cell>
 
@@ -96,10 +96,10 @@
                              class="rounded-circle"/>
                     </div>
                     <div class="qr-code-image mt-4 d-flex justify-content-center">
-                        <img src="{{asset('assets/img/vcard1/vcard-qr.png')}}" alt="qr code"/>
+                        <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate(route('vcard.defaultIndex').'/'. $row->url_alias)) !!}">
                     </div>
                 </div>
-                <a download="vcard-qr.png" href="{{asset('assets/img/vcard1/vcard-qr.png')}}" title="ImageName" class="qr-code-btn text-white mt-4 d-block mx-auto" style="text-decoration:none;">
+                <a download="vcard-qr.png" href="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate(route('vcard.defaultIndex').'/'. $row->url_alias)) !!}" title="ImageName" class="qr-code-btn text-white mt-4 d-block mx-auto" style="text-decoration:none;">
                     Download My QR Code
                 </a>
             </div>

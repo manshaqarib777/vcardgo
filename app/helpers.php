@@ -1,31 +1,32 @@
 <?php
 
-use App\Models\Appointment;
+use Carbon\Carbon;
+use Stripe\Stripe;
+use App\Models\City;
+use App\Models\Plan;
+use App\Models\User;
+use App\Models\State;
+use App\Models\Vcard;
 use App\Models\Country;
+use App\Models\Setting;
 use App\Models\Currency;
 use App\Models\Language;
-use App\Models\PaymentGateway;
-use App\Models\Plan;
-use App\Models\Role as CustomRole;
-use App\Models\Setting;
-use App\Models\State;
-use App\Models\Subscription;
 use App\Models\Template;
-use App\Models\User;
-use App\Models\UserSetting;
-use App\Models\Vcard;
-use App\Providers\RouteServiceProvider;
-use Carbon\Carbon;
 use Carbon\CarbonPeriod;
+use App\Models\Appointment;
+use App\Models\UserSetting;
+use App\Models\Subscription;
+use App\Models\PaymentGateway;
+use App\Models\Role as CustomRole;
+use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Translation\Translator;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
-use Spatie\Permission\Models\Role;
-use Stripe\Stripe;
 
 /**
  *
@@ -199,6 +200,18 @@ function getState()
     $state = State::orderBy('name')->pluck('name', 'id')->toArray();
 
     return $state;
+}
+
+
+/**
+ *
+ * @return mixed
+ */
+function getCity()
+{
+    $city = City::orderBy('name')->pluck('name', 'id')->toArray();
+
+    return $city;
 }
 
 /**

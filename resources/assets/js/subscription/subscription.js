@@ -3,6 +3,7 @@ listenClick('#planStatus', function () {
     $(this).attr('disabled', true);
     let planId = $(this).data('id');
     let tenantId = $(this).data('tenant');
+    let cardId = $(this).data('card');
     let updateStatus = route('subscription.status', planId);
     $.ajax({
         type: 'get',
@@ -10,6 +11,7 @@ listenClick('#planStatus', function () {
         data: {
             'id': planId,
             'tenant_id': tenantId,
+            'card_id': cardId,
         },
         success: function (response) {
             displaySuccessMessage(response.message);

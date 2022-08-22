@@ -4,9 +4,10 @@ namespace App\Http\Livewire;
 
 use App\Models\Plan;
 use App\Models\User;
+use App\Models\Vcard;
+use App\Models\Subscription;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\Views\Column;
-use App\Models\Subscription;
 
 class SubscriptionTable extends LivewireTableComponent
 {
@@ -36,7 +37,12 @@ class SubscriptionTable extends LivewireTableComponent
                     return $query->orderBy(Plan::select('name')->whereColumn('id', 'plan_id'),
                         $direction);
                 })->searchable(),
-                Column::make(__('messages.subscription.start_date'), "starts_at")
+            Column::make(__('messages.subscription.card_name'), "vcard.name")
+                ->sortable(function (Builder $query, $direction) {
+                    return $query->orderBy(Vcard::select('name')->whereColumn('id', 'card_id'),
+                        $direction);
+                })->searchable(),
+            Column::make(__('messages.subscription.start_date'), "starts_at")
                 ->sortable(),
             Column::make(__('messages.subscription.end_date'), "ends_at")
                 ->sortable(),
@@ -47,7 +53,7 @@ class SubscriptionTable extends LivewireTableComponent
 
     public function query()
     {
-        return Subscription::with(['tenant.user','plan.currency'])->where('status',
+        return Subscription::with(['tenant.user','plan.currency','vcard'])->where('status',
             Subscription::ACTIVE);
     }
 

@@ -27,7 +27,7 @@
     @if ($row->payment_type == 'Cash')
         <div class="form-check form-switch d-flex justify-content-center">
             <input type="checkbox" class="form-check-input" id="planStatus" name="is_active"
-                   {{$row->status == 1   ? 'disabled checked' : ''}}  data-id="{{$row->id}}" data-tenant="{{$row->tenant_id}}">
+                   {{$row->status == 1   ? 'disabled checked' : ''}}  data-id="{{$row->id}}" data-tenant="{{$row->tenant_id}}" data-card="{{$row->card_id}}">
         </div>
     @else
         <span class="badge bg-light-success">Received</span>

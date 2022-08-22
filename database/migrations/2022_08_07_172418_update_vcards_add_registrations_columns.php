@@ -22,6 +22,7 @@ class UpdateVcardsAddRegistrationsColumns extends Migration
             $table->string('registration_vehicle_year')->nullable();
             $table->string('registration_plate_no')->nullable();
             $table->string('registration_country')->nullable();
+            $table->string('registration_state')->nullable();
             $table->string('registration_city')->nullable();
             $table->string('registration_district')->nullable();
             $table->string('registration_emergency_contact_no')->nullable();
@@ -40,6 +41,7 @@ class UpdateVcardsAddRegistrationsColumns extends Migration
             $table->string('inspection_contact')->nullable();
             $table->string('inspection_ar_no')->nullable();
             $table->string('inspection_country')->nullable();
+            $table->string('inspection_state')->nullable();
             $table->string('inspection_city')->nullable();
             $table->string('inspection_district')->nullable();
             $table->string('inspection_control_technique')->nullable();
@@ -54,6 +56,7 @@ class UpdateVcardsAddRegistrationsColumns extends Migration
             $table->string('parking_plate_no')->nullable();
             $table->string('parking_mobile')->nullable();
             $table->string('parking_country')->nullable();
+            $table->string('parking_state')->nullable();
             $table->string('parking_city')->nullable();
             $table->string('parking_district')->nullable();
             $table->string('parking_p_place_of_registration')->nullable();
@@ -83,6 +86,7 @@ class UpdateVcardsAddRegistrationsColumns extends Migration
             $table->dropColumn('registration_vehicle_year');
             $table->dropColumn('registration_plate_no');
             $table->dropColumn('registration_country');
+            $table->dropColumn('registration_state');
             $table->dropColumn('registration_city');
             $table->dropColumn('registration_district');
             $table->dropColumn('registration_emergency_contact_no');
@@ -100,6 +104,7 @@ class UpdateVcardsAddRegistrationsColumns extends Migration
             $table->dropColumn('inspection_contact');
             $table->dropColumn('inspection_ar_no');
             $table->dropColumn('inspection_country');
+            $table->dropColumn('inspection_state');
             $table->dropColumn('inspection_city');
             $table->dropColumn('inspection_district');
             $table->dropColumn('inspection_control_technique');
@@ -114,6 +119,7 @@ class UpdateVcardsAddRegistrationsColumns extends Migration
             $table->dropColumn('parking_plate_no');
             $table->dropColumn('parking_mobile');
             $table->dropColumn('parking_country');
+            $table->dropColumn('parking_state');
             $table->dropColumn('parking_city');
             $table->dropColumn('parking_district');
             $table->dropColumn('parking_p_place_of_registration');

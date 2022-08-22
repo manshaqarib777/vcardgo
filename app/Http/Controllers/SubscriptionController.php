@@ -172,6 +172,7 @@ class SubscriptionController extends AppBaseController
     public function planStatus(Request $request)
     {
         Subscription::whereTenantId($request->tenant_id)
+            ->whereCardId($request->card_id)
             ->where('id', '!=', $request->id)
             ->update(['status' => 0]);
 

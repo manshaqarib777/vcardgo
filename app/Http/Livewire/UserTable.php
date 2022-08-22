@@ -20,8 +20,6 @@ class UserTable extends LivewireTableComponent
         return [
             Column::make(__('messages.user.full_name'), 'first_name')->sortable()->searchable(),
             Column::make(__('messages.user.full_name'), 'last_name')->sortable()->searchable()->hideIf(1),
-            Column::make(__('messages.subscription.current_plan'),
-                'subscription.plan.name')->searchable()->addClass('text-center'),
             Column::make(__('messages.user.email_verified'))->addClass('text-center'),
             Column::make(__('messages.user.impersonate'))->addClass('text-center'),
             Column::make(__('messages.common.is_active'))->addClass('text-center'),

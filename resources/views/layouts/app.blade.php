@@ -20,9 +20,9 @@
         @else
         <link rel="stylesheet" type="text/css" href="{{ asset('css/plugins.dark.css') }}">
             <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.dark.css') }}">
-           
-        @endif
 
+        @endif
+    @yield('style')
     @livewireStyles
 
     @livewireScripts
@@ -114,6 +114,7 @@
 
 @include('profile.changePassword')
 @include('profile.changelanguage')
+@yield('script')
 
 
 </body>

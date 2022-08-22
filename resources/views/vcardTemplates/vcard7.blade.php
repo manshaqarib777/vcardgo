@@ -521,23 +521,33 @@
                             </div>
                         </div>
                         @endif
-                        @if($vcard->registration_country)
+                                                @if($vcard->registrationCountry)
                         <div class="col-sm-6 col-12">
                             <div class="card business-card flex-row justify-content-center">
                             <span class="me-2">
                                 {{ strtoupper(__('messages.vcard.registration_country')).':' }}
                             </span>
-                                <span>{{ $vcard->registration_country }}</span>
+                                <span>{{ $vcard->registrationCountry->name }}</span>
                             </div>
                         </div>
                         @endif
-                        @if($vcard->registration_city)
+                        @if($vcard->registrationState)
+                        <div class="col-sm-6 col-12">
+                            <div class="card business-card flex-row justify-content-center">
+                            <span class="me-2">
+                                {{ strtoupper(__('messages.vcard.registration_state')).':' }}
+                            </span>
+                                <span>{{ $vcard->registrationState->name }}</span>
+                            </div>
+                        </div>
+                        @endif
+                        @if($vcard->registrationCity)
                         <div class="col-sm-6 col-12">
                             <div class="card business-card flex-row justify-content-center">
                             <span class="me-2">
                                 {{ strtoupper(__('messages.vcard.registration_city')).':' }}
                             </span>
-                                <span>{{ $vcard->registration_city }}</span>
+                                <span>{{ $vcard->registrationCity->name }}</span>
                             </div>
                         </div>
                         @endif
@@ -681,23 +691,33 @@
                             </div>
                         </div>
                         @endif
-                        @if($vcard->inspection_country)
+                        @if($vcard->inspectionCountry)
                         <div class="col-sm-6 col-12">
                             <div class="card business-card flex-row justify-content-center">
                             <span class="me-2">
                                 {{ strtoupper(__('messages.vcard.inspection_country')).':' }}
                             </span>
-                                <span>{{ $vcard->inspection_country }}</span>
+                                <span>{{ $vcard->inspectionCountry->name }}</span>
                             </div>
                         </div>
                         @endif
-                        @if($vcard->inspection_city)
+                        @if($vcard->inspectionState)
+                        <div class="col-sm-6 col-12">
+                            <div class="card business-card flex-row justify-content-center">
+                            <span class="me-2">
+                                {{ strtoupper(__('messages.vcard.inspection_state')).':' }}
+                            </span>
+                                <span>{{ $vcard->inspectionState->name }}</span>
+                            </div>
+                        </div>
+                        @endif
+                        @if($vcard->inspectionCity)
                         <div class="col-sm-6 col-12">
                             <div class="card business-card flex-row justify-content-center">
                             <span class="me-2">
                                 {{ strtoupper(__('messages.vcard.inspection_city')).':' }}
                             </span>
-                                <span>{{ $vcard->inspection_city }}</span>
+                                <span>{{ $vcard->inspectionCity->name }}</span>
                             </div>
                         </div>
                         @endif
@@ -813,23 +833,33 @@
                             </div>
                         </div>
                         @endif
-                        @if($vcard->parking_country)
+                        @if($vcard->parkingCountry)
                         <div class="col-sm-6 col-12">
                             <div class="card business-card flex-row justify-content-center">
                             <span class="me-2">
                                 {{ strtoupper(__('messages.vcard.parking_country')).':' }}
                             </span>
-                                <span>{{ $vcard->parking_country }}</span>
+                                <span>{{ $vcard->parkingCountry->name }}</span>
                             </div>
                         </div>
                         @endif
-                        @if($vcard->parking_city)
+                        @if($vcard->parkingState)
+                        <div class="col-sm-6 col-12">
+                            <div class="card business-card flex-row justify-content-center">
+                            <span class="me-2">
+                                {{ strtoupper(__('messages.vcard.parking_state')).':' }}
+                            </span>
+                                <span>{{ $vcard->parkingState->name }}</span>
+                            </div>
+                        </div>
+                        @endif
+                        @if($vcard->parkingCity)
                         <div class="col-sm-6 col-12">
                             <div class="card business-card flex-row justify-content-center">
                             <span class="me-2">
                                 {{ strtoupper(__('messages.vcard.parking_city')).':' }}
                             </span>
-                                <span>{{ $vcard->parking_city }}</span>
+                                <span>{{ $vcard->parkingCity->name }}</span>
                             </div>
                         </div>
                         @endif

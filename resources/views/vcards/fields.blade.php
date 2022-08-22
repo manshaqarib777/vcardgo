@@ -615,19 +615,23 @@
         </div>
         <div class="col-lg-6 mb-7">
             {{ Form::label('Vehicle Year', __('messages.vcard.registration_vehicle_year').':', ['class' => 'form-label']) }}
-            {{ Form::text('registration_vehicle_year', isset($vcard) ? $vcard->registration_vehicle_year : null, ['class' => 'form-control', 'placeholder' => __('messages.form.registration_vehicle_year')]) }}
+            {{ Form::text('registration_vehicle_year', isset($vcard) ? $vcard->registration_vehicle_year : null, ['class' => 'form-control datepicker', 'placeholder' => __('messages.form.registration_vehicle_year')]) }}
         </div>
         <div class="col-lg-6 mb-7">
             {{ Form::label('Plate No.', __('messages.vcard.registration_plate_no').':', ['class' => 'form-label']) }}
             {{ Form::text('registration_plate_no', isset($vcard) ? $vcard->registration_plate_no : null, ['class' => 'form-control', 'placeholder' => __('messages.form.registration_plate_no')]) }}
         </div>
         <div class="col-lg-6 mb-7">
-            {{ Form::label('Country', __('messages.vcard.registration_country').':', ['class' => 'form-label']) }}
-            {{ Form::text('registration_country', isset($vcard) ? $vcard->registration_country : null, ['class' => 'form-control', 'placeholder' => __('messages.form.registration_country')]) }}
+            {{ Form::label('Country',__('messages.vcard.registration_country').':', ['class' => 'form-label required']) }}
+            {{ Form::select('registration_country', getCountry(), isset($vcard) ? $vcard->registration_country : null, ['id' => 'registration_country', 'class' => 'form-select','required', 'placeholder'=>__('messages.form.select_country'), 'data-control' => 'select2']) }}
         </div>
         <div class="col-lg-6 mb-7">
-            {{ Form::label('City', __('messages.vcard.registration_city').':', ['class' => 'form-label']) }}
-            {{ Form::text('registration_city', isset($vcard) ? $vcard->registration_city : null, ['class' => 'form-control', 'placeholder' => __('messages.form.registration_city')]) }}
+            {{ Form::label('State',__('messages.vcard.registration_state').':', ['class' => 'form-label required']) }}
+            {{ Form::select('registration_state', [], isset($vcard) ? $vcard->registration_state : null, ['id' => 'registration_state', 'class' => 'form-select','required', 'placeholder'=>__('messages.form.select_state'), 'data-control' => 'select2']) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('City',__('messages.vcard.registration_city').':', ['class' => 'form-label required']) }}
+            {{ Form::select('registration_city', [], isset($vcard) ? $vcard->registration_city : null, ['id' => 'registration_city', 'class' => 'form-select','required', 'placeholder'=>__('messages.form.select_city'), 'data-control' => 'select2']) }}
         </div>
         <div class="col-lg-6 mb-7">
             {{ Form::label('District', __('messages.vcard.registration_district').':', ['class' => 'form-label']) }}
@@ -679,7 +683,7 @@
         </div>
         <div class="col-lg-6 mb-7">
             {{ Form::label('Vehicle Year', __('messages.vcard.inspection_vehicle_year').':', ['class' => 'form-label']) }}
-            {{ Form::text('inspection_vehicle_year', isset($vcard) ? $vcard->inspection_vehicle_year : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_vehicle_year')]) }}
+            {{ Form::text('inspection_vehicle_year', isset($vcard) ? $vcard->inspection_vehicle_year : null, ['class' => 'form-control datepicker', 'placeholder' => __('messages.form.inspection_vehicle_year')]) }}
         </div>
         <div class="col-lg-6 mb-7">
             {{ Form::label('Plate No.', __('messages.vcard.inspection_plate_no').':', ['class' => 'form-label']) }}
@@ -694,12 +698,16 @@
             {{ Form::text('inspection_ar_no', isset($vcard) ? $vcard->inspection_ar_no : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_ar_no')]) }}
         </div>
         <div class="col-lg-6 mb-7">
-            {{ Form::label('Country', __('messages.vcard.inspection_country').':', ['class' => 'form-label']) }}
-            {{ Form::text('inspection_country', isset($vcard) ? $vcard->inspection_country : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_country')]) }}
+            {{ Form::label('Country',__('messages.vcard.inspection_country').':', ['class' => 'form-label required']) }}
+            {{ Form::select('inspection_country', getCountry(), isset($vcard) ? $vcard->inspection_country : null, ['id' => 'inspection_country', 'class' => 'form-select','required', 'placeholder'=>__('messages.form.select_country'), 'data-control' => 'select2']) }}
         </div>
         <div class="col-lg-6 mb-7">
-            {{ Form::label('City', __('messages.vcard.inspection_city').':', ['class' => 'form-label']) }}
-            {{ Form::text('inspection_city', isset($vcard) ? $vcard->inspection_city : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_city')]) }}
+            {{ Form::label('State',__('messages.vcard.inspection_state').':', ['class' => 'form-label required']) }}
+            {{ Form::select('inspection_state', [], isset($vcard) ? $vcard->inspection_state : null, ['id' => 'inspection_state', 'class' => 'form-select','required', 'placeholder'=>__('messages.form.select_state'), 'data-control' => 'select2']) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('City',__('messages.vcard.inspection_city').':', ['class' => 'form-label required']) }}
+            {{ Form::select('inspection_city', [], isset($vcard) ? $vcard->inspection_city : null, ['id' => 'inspection_city', 'class' => 'form-select','required', 'placeholder'=>__('messages.form.select_city'), 'data-control' => 'select2']) }}
         </div>
         <div class="col-lg-6 mb-7">
             {{ Form::label('District', __('messages.vcard.inspection_district').':', ['class' => 'form-label']) }}
@@ -711,7 +719,7 @@
         </div>
         <div class="col-lg-6 mb-7">
             {{ Form::label('Date of Inspection', __('messages.vcard.inspection_date_of_inspection').':', ['class' => 'form-label']) }}
-            {{ Form::text('inspection_date_of_inspection', isset($vcard) ? $vcard->inspection_date_of_inspection : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_date_of_inspection')]) }}
+            {{ Form::date('inspection_date_of_inspection', isset($vcard) ? $vcard->inspection_date_of_inspection : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_date_of_inspection')]) }}
         </div>
 
         <div class="col-lg-12 d-flex">
@@ -752,12 +760,16 @@
             {{ Form::text('parking_mobile', isset($vcard) ? $vcard->parking_mobile : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_mobile')]) }}
         </div>
         <div class="col-lg-6 mb-7">
-            {{ Form::label('Country', __('messages.vcard.parking_country').':', ['class' => 'form-label']) }}
-            {{ Form::text('parking_country', isset($vcard) ? $vcard->parking_country : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_country')]) }}
+            {{ Form::label('Country',__('messages.vcard.parking_country').':', ['class' => 'form-label required']) }}
+            {{ Form::select('parking_country', getCountry(), isset($vcard) ? $vcard->parking_country : null, ['id' => 'parking_country', 'class' => 'form-select','required', 'placeholder'=>__('messages.form.select_country'), 'data-control' => 'select2']) }}
         </div>
         <div class="col-lg-6 mb-7">
-            {{ Form::label('City', __('messages.vcard.parking_city').':', ['class' => 'form-label']) }}
-            {{ Form::text('parking_city', isset($vcard) ? $vcard->parking_city : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_city')]) }}
+            {{ Form::label('State',__('messages.vcard.parking_state').':', ['class' => 'form-label required']) }}
+            {{ Form::select('parking_state', [], isset($vcard) ? $vcard->parking_state : null, ['id' => 'parking_state', 'class' => 'form-select','required', 'placeholder'=>__('messages.form.select_state'), 'data-control' => 'select2']) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('City',__('messages.vcard.parking_city').':', ['class' => 'form-label required']) }}
+            {{ Form::select('parking_city', [], isset($vcard) ? $vcard->parking_city : null, ['id' => 'parking_city', 'class' => 'form-select','required', 'placeholder'=>__('messages.form.select_city'), 'data-control' => 'select2']) }}
         </div>
         <div class="col-lg-6 mb-7">
             {{ Form::label('District', __('messages.vcard.parking_district').':', ['class' => 'form-label']) }}
@@ -774,7 +786,7 @@
         </div>
         <div class="col-lg-6 mb-7">
             {{ Form::label('P. Date of Payment', __('messages.vcard.parking_p_date_of_payment').':', ['class' => 'form-label']) }}
-            {{ Form::text('parking_p_date_of_payment', isset($vcard) ? $vcard->parking_p_date_of_payment : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_p_date_of_payment')]) }}
+            {{ Form::date('parking_p_date_of_payment', isset($vcard) ? $vcard->parking_p_date_of_payment : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_p_date_of_payment')]) }}
         </div>
         <div class="col-lg-6 mb-7">
             {{ Form::label('Parking Plan', __('messages.vcard.parking_parking_plan').':', ['class' => 'form-label']) }}
@@ -783,7 +795,7 @@
 
         <div class="col-lg-6 mb-7">
             {{ Form::label('Date of Inspection', __('messages.vcard.parking_date_of_inspection').':', ['class' => 'form-label']) }}
-            {{ Form::text('parking_date_of_inspection', isset($vcard) ? $vcard->parking_date_of_inspection : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_date_of_inspection')]) }}
+            {{ Form::date('parking_date_of_inspection', isset($vcard) ? $vcard->parking_date_of_inspection : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_date_of_inspection')]) }}
         </div>
 
         <div class="col-lg-12 d-flex">

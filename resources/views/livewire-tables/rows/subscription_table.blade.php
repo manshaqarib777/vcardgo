@@ -7,6 +7,10 @@
 </x-livewire-tables::bs5.table.cell>
 
 <x-livewire-tables::bs5.table.cell>
+{{ @$row->vcard->name }}
+</x-livewire-tables::bs5.table.cell>
+
+<x-livewire-tables::bs5.table.cell>
     {{ \Carbon\Carbon::parse($row->starts_at)->isoFormat('Do MMM YYYY')}}
 </x-livewire-tables::bs5.table.cell>
 
@@ -17,7 +21,7 @@
 <x-livewire-tables::bs5.table.cell>
     <div class="form-check form-switch">
         <input class="form-check-input" type="checkbox" id="planStatus"  name="is_active"
-               {{ $row->status == 1 ? 'disabled checked' : ''}} data-id="{{$row->id}}" data-tenant="{{$row->tenant_id}}">
+               {{ $row->status == 1 ? 'disabled checked' : ''}} data-id="{{$row->id}}" data-tenant="{{$row->tenant_id}}" data-card="{{$row->card_id}}">
     </div>
 </x-livewire-tables::bs5.table.cell>
 

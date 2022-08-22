@@ -2,30 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
+use Carbon\Carbon;
+use App\Models\City;
+use App\Models\State;
+use App\Models\Vcard;
+use App\Models\Setting;
+use App\Models\Currency;
+use App\Models\VcardBlog;
+use Laracasts\Flash\Flash;
+use App\Models\Appointment;
+use App\Models\UserSetting;
+use Illuminate\Http\Request;
+use App\Models\PrivacyPolicy;
+use App\Models\TermCondition;
+use App\Models\AppointmentDetail;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Routing\Redirector;
+use App\Models\ScheduleAppointment;
+use Illuminate\Contracts\View\View;
+use App\Repositories\VcardRepository;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Contracts\View\Factory;
 use App\Http\Requests\CreateVcardRequest;
 use App\Http\Requests\UpdateVcardRequest;
-use App\Models\Appointment;
-use App\Models\AppointmentDetail;
-use App\Models\Currency;
-use App\Models\PrivacyPolicy;
-use App\Models\ScheduleAppointment;
-use App\Models\Setting;
-use App\Models\TermCondition;
-use App\Models\UserSetting;
-use App\Models\Vcard;
-use App\Models\VcardBlog;
-use App\Repositories\VcardRepository;
-use Carbon\Carbon;
-use Exception;
 use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Routing\Redirector;
-use Illuminate\Support\Facades\Crypt;
-use Laracasts\Flash\Flash;
 use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
 
 class VcardController extends AppBaseController
@@ -388,5 +390,16 @@ class VcardController extends AppBaseController
 
         return view('vcards.blog', compact('blog'));
     }
-
+    public function ajaxGetStates()
+    {
+        $country_id = $_GET['country_id'];
+        $states = State::where('country_id', $country_id)->get();
+        return response()->json($states);
+    }
+    public function ajaxGetCities()
+    {
+        $state_id = $_GET['state_id'];
+        $cities = City::where('state_id', $state_id)->get();
+        return response()->json($cities);
+    }
 }

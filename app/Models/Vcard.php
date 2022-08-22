@@ -173,6 +173,7 @@ class Vcard extends Model implements HasMedia
         'registration_vehicle_year',
         'registration_plate_no',
         'registration_country',
+        'registration_state',
         'registration_city',
         'registration_district',
         'registration_emergency_contact_no',
@@ -188,6 +189,7 @@ class Vcard extends Model implements HasMedia
         'inspection_contact',
         'inspection_ar_no',
         'inspection_country',
+        'inspection_state',
         'inspection_city',
         'inspection_district',
         'inspection_control_technique',
@@ -200,6 +202,7 @@ class Vcard extends Model implements HasMedia
         'parking_plate_no',
         'parking_mobile',
         'parking_country',
+        'parking_state',
         'parking_city',
         'parking_district',
         'parking_p_place_of_registration',
@@ -464,5 +467,97 @@ class Vcard extends Model implements HasMedia
     public function term_condition(): HasOne
     {
         return $this->hasOne(TermCondition::class, 'vcard_id');
+    }
+
+    /**
+     *
+     *
+     * @return BelongsTo
+     */
+    public function registrationCity(): BelongsTo
+    {
+        return $this->belongsTo(City::class, 'registration_city');
+    }
+
+    /**
+     *
+     *
+     * @return BelongsTo
+     */
+    public function registrationState(): BelongsTo
+    {
+        return $this->belongsTo(State::class, 'registration_state');
+    }
+
+    /**
+     *
+     *
+     * @return BelongsTo
+     */
+    public function registrationCountry(): BelongsTo
+    {
+        return $this->belongsTo(Country::class, 'registration_country');
+    }
+
+
+    /**
+     *
+     *
+     * @return BelongsTo
+     */
+    public function inspectionCity(): BelongsTo
+    {
+        return $this->belongsTo(City::class, 'inspection_city');
+    }
+
+    /**
+     *
+     *
+     * @return BelongsTo
+     */
+    public function inspectionState(): BelongsTo
+    {
+        return $this->belongsTo(State::class, 'inspection_state');
+    }
+
+    /**
+     *
+     *
+     * @return BelongsTo
+     */
+    public function inspectionCountry(): BelongsTo
+    {
+        return $this->belongsTo(Country::class, 'inspection_country');
+    }
+
+
+        /**
+     *
+     *
+     * @return BelongsTo
+     */
+    public function parkingCity(): BelongsTo
+    {
+        return $this->belongsTo(City::class, 'parking_city');
+    }
+
+    /**
+     *
+     *
+     * @return BelongsTo
+     */
+    public function parkingState(): BelongsTo
+    {
+        return $this->belongsTo(State::class, 'parking_state');
+    }
+
+    /**
+     *
+     *
+     * @return BelongsTo
+     */
+    public function parkingCountry(): BelongsTo
+    {
+        return $this->belongsTo(Country::class, 'parking_country');
     }
 }

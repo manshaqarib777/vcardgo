@@ -97,9 +97,9 @@ Route::group(['middleware' => ['auth', 'valid.user', 'xss']], function () {
         Route::post('subscription-purchase/{plan}/manual',
             [SubscriptionController::class, 'manualPay'])->name('subscription.manual');
         Route::post('stripe/subscription-purchase', [StripeController::class, 'purchase'])->name('stripe.purchase');
-//        Route::get('stripe/payment-success/{plan}',
-//            [StripeController::class, 'paymentSuccess'])->name('stripe.success');
-//        Route::get('stripe/payment-failed', [StripeController::class, 'paymentFailed'])->name('stripe.failed');
+        //        Route::get('stripe/payment-success/{plan}',
+        //            [StripeController::class, 'paymentSuccess'])->name('stripe.success');
+        //        Route::get('stripe/payment-failed', [StripeController::class, 'paymentFailed'])->name('stripe.failed');
 
         //paypal routes
         Route::get('paypal-onboard', [PaypalController::class, 'onBoard'])->name('paypal.init');
@@ -277,6 +277,8 @@ Route::post('/vcard/{vcard}/check-password', [VcardController::class, 'checkPass
 Route::post('/vcard/{vcard}/enquiry/store', [EnquiryController::class, 'store'])->name('enquiry.store');
 Route::post('/vcard/{vcard}/appointment/store', [ScheduleAppointmentController::class, 'store'])->name('appointment.store');
 Route::get('enquiry/{enquiry}', [EnquiryController::class, 'show'])->name('enquiry.show');
+Route::get('ajaxed-get-states',[VcardController::class, 'ajaxGetStates'])->name('get-states-ajax');
+Route::get('ajaxed-get-cities',[VcardController::class, 'ajaxGetCities'])->name('get-cities-ajax');
 
 Route::get('language/{languageName}/{alias}',[VcardController::class,'language'])->name('LanguageChange');
 

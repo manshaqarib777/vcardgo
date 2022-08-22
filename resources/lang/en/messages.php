@@ -41,7 +41,7 @@
   'translation_manager' => 'Translation Manager',
   'create_your_business_digital_card_with_lots_of_information' => 'Create your business digital card with lots of information',
   'subscribe' => 'Subscribe',
-  'flash' => 
+  'flash' =>
   array (
     'vcard_create' => 'VCard created successfully.',
     'vcard_update' => 'updated successfully.',
@@ -83,7 +83,7 @@
     'create_blog' => 'VCard blog created successfully.',
     'update_blog' => 'VCard blog updated successfully.',
   ),
-  'form' => 
+  'form' =>
   array (
     'my_vcard_url' => 'my-vcard-page-url',
     'vcard_name' => 'Enter VCard Name',
@@ -153,6 +153,7 @@
     'registration_vehicle_year' => 'Year of Vehicle',
     'registration_plate_no' => 'Vehicle Plate No',
     'registration_country' => 'Country',
+    'registration_state' => 'State',
     'registration_city' => 'City',
     'registration_district' => 'District',
     'registration_emergency_contact_no' => 'Emergency Contact No',
@@ -169,6 +170,7 @@
     'inspection_contact' => 'Contact No',
     'inspection_ar_no' => 'AR No',
     'inspection_country' => 'Country',
+    'inspection_state' => 'State',
     'inspection_city' => 'City',
     'inspection_district' => 'District',
     'inspection_control_technique' => 'Control Technique',
@@ -182,6 +184,7 @@
     'parking_plate_no' => 'Vehicle Plate No',
     'parking_mobile' => 'Driver Modile No',
     'parking_country' => 'Country',
+    'parking_state' => 'State',
     'parking_city' => 'City',
     'parking_district' => 'District',
     'parking_p_place_of_registration' => 'P. Place of Registration',
@@ -193,7 +196,7 @@
     'parking_date_of_inspection' => 'Date of Inspection',
     'parking_date_of_expiration' => 'Date of Expiration',
   ),
-  'analytics' => 
+  'analytics' =>
   array (
     'countries' => 'Countries',
     'view_more' => 'View more',
@@ -204,7 +207,7 @@
     'overview' => 'Overview',
     'visitors' => 'Visitors',
   ),
-  'sadmin_dashboard' => 
+  'sadmin_dashboard' =>
   array (
     'day' => 'Day',
     'week' => 'Week',
@@ -217,7 +220,7 @@
     'plans_by_users' => 'Plans by Users',
     'income' => 'Income',
   ),
-  'languages' => 
+  'languages' =>
   array (
     'languages' => 'Languages',
     'new_language' => 'New Language',
@@ -227,7 +230,7 @@
     'language' => 'Language',
     'edit_translation' => 'Edit Translation',
   ),
-  'common' => 
+  'common' =>
   array (
     'are_you_sure' => 'Are you sure want to delete this',
     'no' => 'No, Cancel',
@@ -292,7 +295,7 @@
     'filter' => 'Filter',
     'reset' => 'Reset',
   ),
-  'user' => 
+  'user' =>
   array (
     'theme_change' => 'Theme Mode Change',
     'profile_details' => 'Profile Details',
@@ -329,7 +332,7 @@
     'your_name' => 'Your Name',
     'your_message' => 'Your Message',
   ),
-  'subscription' => 
+  'subscription' =>
   array (
     'current_expire' => 'Current Expired Plan',
     'manage_subscription' => 'Manage Subscription',
@@ -369,14 +372,14 @@
     'has_already_been_subscribed' => 'is already subscribed',
     'payment' => 'Payment',
   ),
-  'contact_us' => 
+  'contact_us' =>
   array (
     'contact_us' => 'Enquiries',
     'contact' => 'Contact Us',
     'message' => 'Message',
     'send_message' => 'Send Message',
   ),
-  'payment' => 
+  'payment' =>
   array (
     'payment_cancel' => 'Payment Cancel',
     'payment_success' => 'Payment Success',
@@ -384,18 +387,18 @@
     'payment' => 'PAYMENT',
     'cancelled' => 'CANCELLED',
   ),
-  'notification' => 
+  'notification' =>
   array (
     'notifications' => 'Notifications',
     'mark_all_as_read' => 'Mark All As Read',
     'you_don`t_have_any_new_notification' => 'You don`t have any new notification',
   ),
-  'vcards_template' => 
+  'vcards_template' =>
   array (
     'image' => 'Image',
     'used_count' => 'Used Count',
   ),
-  'vcard' => 
+  'vcard' =>
   array (
     'stats' => 'Stats',
     'new_vcard' => 'New VCard',
@@ -498,6 +501,7 @@
     'registration_vehicle_year' => 'Year of Vehicle',
     'registration_plate_no' => 'Vehicle Plate No',
     'registration_country' => 'Country',
+    'registration_state' => 'State',
     'registration_city' => 'City',
     'registration_district' => 'District',
     'registration_emergency_contact_no' => 'Emergency Contact No',
@@ -514,6 +518,7 @@
     'inspection_contact' => 'Contact No',
     'inspection_ar_no' => 'AR No',
     'inspection_country' => 'Country',
+    'inspection_state' => 'State',
     'inspection_city' => 'City',
     'inspection_district' => 'District',
     'inspection_control_technique' => 'Control Technique',
@@ -527,6 +532,7 @@
     'parking_plate_no' => 'Vehicle Plate No',
     'parking_mobile' => 'Driver Modile No',
     'parking_country' => 'Country',
+    'parking_state' => 'State',
     'parking_city' => 'City',
     'parking_district' => 'District',
     'parking_p_place_of_registration' => 'P. Place of Registration',
@@ -538,7 +544,7 @@
     'parking_date_of_inspection' => 'Date of Inspection',
     'parking_date_of_expiration' => 'Date of Expiration',
   ),
-  'business' => 
+  'business' =>
   array (
     'business_hours' => 'Business Hours',
     'start_time' => 'Start Time',
@@ -551,7 +557,7 @@
     'sat' => 'Sat',
     'sun' => 'Sun',
   ),
-  'font' => 
+  'font' =>
   array (
     'fonts' => 'Fonts',
     'font_family' => 'Font Family',
@@ -559,14 +565,14 @@
     'px' => 'px',
     'font_size_in_px' => 'Font size in px',
   ),
-  'gallery' => 
+  'gallery' =>
   array (
     'gallery_name' => 'Galleries',
     'type' => 'Type',
     'image' => 'Image',
     'youtube' => 'Youtube',
   ),
-  'social' => 
+  'social' =>
   array (
     'social_links' => 'Social links - Website',
     'Facebook' => 'Facebook',
@@ -582,7 +588,7 @@
     'map' => 'Map',
     'Tiktok' => 'Tiktok',
   ),
-  'plan' => 
+  'plan' =>
   array (
     'default_Plan' => 'Default Plan',
     'new_plan' => 'New Plan',
@@ -632,13 +638,13 @@
     'language' => 'Language',
     'what_s_in_startup_plan' => 'What\'s in Startup plan?',
   ),
-  'currency' => 
+  'currency' =>
   array (
     'currencies' => 'Currencies',
     'currency_icon' => 'Currency Icon',
     'currency_code' => 'Currency Code',
   ),
-  'country' => 
+  'country' =>
   array (
     'short_code' => 'Short Code',
     'phone_code' => 'Phone Code',
@@ -650,7 +656,7 @@
     'no_country_available' => 'No Country Available',
     'country' => 'Country',
   ),
-  'state' => 
+  'state' =>
   array (
     'states' => 'States',
     'new_state' => 'New State',
@@ -661,7 +667,7 @@
     'no_state_available' => 'No State Available',
     'state' => 'State',
   ),
-  'city' => 
+  'city' =>
   array (
     'cities' => 'Cities',
     'new_city' => 'New City',
@@ -672,7 +678,7 @@
     'no_city_available' => 'No City Available',
     'city' => 'City',
   ),
-  'role' => 
+  'role' =>
   array (
     'new_role' => 'New Role',
     'edit_role' => 'Edit Role',
@@ -681,7 +687,7 @@
     'role_permissions' => 'Role Permissions',
     'select_all_permissions' => 'Select All Permissions',
   ),
-  'feature' => 
+  'feature' =>
   array (
     'edit_feature' => 'Edit Feature',
     'name' => 'Name',
@@ -704,21 +710,21 @@
     'seo' => 'SEO',
     'blog' => 'Blog',
   ),
-  'front_cms' => 
+  'front_cms' =>
   array (
     'front_cms' => 'Front CMS',
     'title' => 'Title',
     'banner' => 'Banner Image',
     'description' => 'Description',
   ),
-  'about_us' => 
+  'about_us' =>
   array (
     'about_us' => 'About Us',
     'title' => 'Title',
     'image' => 'About Image',
     'description' => 'Description',
   ),
-  'setting' => 
+  'setting' =>
   array (
     'setting' => 'Setting',
     'general' => 'General',
@@ -749,7 +755,7 @@
     'credential' => 'Credentials',
     'privacy&policy' => 'Privacy Policy',
   ),
-  'tooltip' => 
+  'tooltip' =>
   array (
     'the_main_url' => 'The main URL that your vcard is going to be able accessed from.',
     'remove_branding' => 'If enabled, the vcard won\'t show the branding of our website.',
@@ -781,14 +787,14 @@
     'light_mode' => 'Switch to Light mode',
     'dark_mode' => 'Switch to Dark mode',
   ),
-  'front' => 
+  'front' =>
   array (
     'enter_your_name' => 'Enter Your Name',
     'enter_your_email' => 'Enter Your Email',
     'enter_your_message' => 'Enter Your Message',
     'your_email_address' => 'Your Email Address',
   ),
-  'appointment' => 
+  'appointment' =>
   array (
     'calendar' => 'Calendar',
     'appointment_details' => 'Appointment Details',
@@ -797,7 +803,7 @@
     'free' => 'Free',
     'paid' => 'Paid',
   ),
-  'analytic' => 
+  'analytic' =>
   array (
     'vcard_analytic' => 'Vcard Analytic',
   ),
