@@ -92,6 +92,43 @@ class VcardRepository extends BaseRepository
                 $vcard->addMedia($input['cover_img'])->toMediaCollection(Vcard::COVER_PATH, config('app.media_disc'));
             }
 
+            if (isset($input['id_back']) && !empty($input['id_back'])) {
+                $vcard->addMedia($input['id_back'])->toMediaCollection(Vcard::ID_BACK,
+                    config('app.media_disc'));
+            }
+            if (isset($input['id_back2']) && !empty($input['id_back2'])) {
+                $vcard->addMedia($input['id_back2'])->toMediaCollection(Vcard::ID_BACK2,
+                    config('app.media_disc'));
+            }
+            if (isset($input['barcode']) && !empty($input['barcode'])) {
+                $vcard->addMedia($input['barcode'])->toMediaCollection(Vcard::BARCODE,
+                    config('app.media_disc'));
+            }
+            if (isset($input['qrcode']) && !empty($input['qrcode'])) {
+                $vcard->addMedia($input['qrcode'])->toMediaCollection(Vcard::QRCODE,
+                    config('app.media_disc'));
+            }
+            if (isset($input['category_a']) && !empty($input['category_a'])) {
+                $vcard->addMedia($input['category_a'])->toMediaCollection(Vcard::CATEGORYA,
+                    config('app.media_disc'));
+            }
+            if (isset($input['category_b']) && !empty($input['category_b'])) {
+                $vcard->addMedia($input['category_b'])->toMediaCollection(Vcard::CATEGORYB,
+                    config('app.media_disc'));
+            }
+            if (isset($input['category_c']) && !empty($input['category_c'])) {
+                $vcard->addMedia($input['category_c'])->toMediaCollection(Vcard::CATEGORYC,
+                    config('app.media_disc'));
+            }
+            if (isset($input['category_d']) && !empty($input['category_d'])) {
+                $vcard->addMedia($input['category_d'])->toMediaCollection(Vcard::CATEGORYD,
+                    config('app.media_disc'));
+            }
+            if (isset($input['category_e']) && !empty($input['category_e'])) {
+                $vcard->addMedia($input['category_e'])->toMediaCollection(Vcard::CATEGORYE,
+                    config('app.media_disc'));
+            }
+
             DB::commit();
 
             return $vcard;
@@ -228,6 +265,43 @@ class VcardRepository extends BaseRepository
             if (isset($input['cover_img']) && !empty($input['cover_img'])) {
                 $vcard->clearMediaCollection(Vcard::COVER_PATH);
                 $vcard->addMedia($input['cover_img'])->toMediaCollection(Vcard::COVER_PATH, config('app.media_disc'));
+            }
+
+            if (isset($input['id_back']) && !empty($input['id_back'])) {
+                $vcard->addMedia($input['id_back'])->toMediaCollection(Vcard::ID_BACK,
+                    config('app.media_disc'));
+            }
+            if (isset($input['id_back2']) && !empty($input['id_back2'])) {
+                $vcard->addMedia($input['id_back2'])->toMediaCollection(Vcard::ID_BACK2,
+                    config('app.media_disc'));
+            }
+            if (isset($input['barcode']) && !empty($input['barcode'])) {
+                $vcard->addMedia($input['barcode'])->toMediaCollection(Vcard::BARCODE,
+                    config('app.media_disc'));
+            }
+            if (isset($input['qrcode']) && !empty($input['qrcode'])) {
+                $vcard->addMedia($input['qrcode'])->toMediaCollection(Vcard::QRCODE,
+                    config('app.media_disc'));
+            }
+            if (isset($input['category_a']) && !empty($input['category_a'])) {
+                $vcard->addMedia($input['category_a'])->toMediaCollection(Vcard::CATEGORYA,
+                    config('app.media_disc'));
+            }
+            if (isset($input['category_b']) && !empty($input['category_b'])) {
+                $vcard->addMedia($input['category_b'])->toMediaCollection(Vcard::CATEGORYB,
+                    config('app.media_disc'));
+            }
+            if (isset($input['category_c']) && !empty($input['category_c'])) {
+                $vcard->addMedia($input['category_c'])->toMediaCollection(Vcard::CATEGORYC,
+                    config('app.media_disc'));
+            }
+            if (isset($input['category_d']) && !empty($input['category_d'])) {
+                $vcard->addMedia($input['category_d'])->toMediaCollection(Vcard::CATEGORYD,
+                    config('app.media_disc'));
+            }
+            if (isset($input['category_e']) && !empty($input['category_e'])) {
+                $vcard->addMedia($input['category_e'])->toMediaCollection(Vcard::CATEGORYE,
+                    config('app.media_disc'));
             }
 
             if (isset($input['privacy_policy']) && !empty($input['privacy_policy'])) {

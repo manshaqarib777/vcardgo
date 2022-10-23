@@ -35,6 +35,24 @@ class CustomPathGenerator implements PathGenerator
                 return str_replace('{PARENT_DIR}', Vcard::PROFILE_PATH, $path);
             case Vcard::COVER_PATH:
                 return str_replace('{PARENT_DIR}', Vcard::COVER_PATH, $path);
+            case Vcard::ID_BACK:
+                return str_replace('{PARENT_DIR}', Vcard::ID_BACK, $path);
+            case Vcard::ID_BACK2:
+                return str_replace('{PARENT_DIR}', Vcard::ID_BACK2, $path);                
+            case Vcard::BARCODE:
+                return str_replace('{PARENT_DIR}', Vcard::BARCODE, $path);                
+            case Vcard::QRCODE:
+                return str_replace('{PARENT_DIR}', Vcard::QRCODE, $path);                
+            case Vcard::CATEGORYA:
+                return str_replace('{PARENT_DIR}', Vcard::CATEGORYA, $path); 
+            case Vcard::CATEGORYB:
+                return str_replace('{PARENT_DIR}', Vcard::CATEGORYB, $path);
+            case Vcard::CATEGORYC:
+                return str_replace('{PARENT_DIR}', Vcard::CATEGORYC, $path);
+            case Vcard::CATEGORYD:
+                return str_replace('{PARENT_DIR}', Vcard::CATEGORYD, $path);
+            case Vcard::CATEGORYE:
+                return str_replace('{PARENT_DIR}', Vcard::CATEGORYE, $path);                               
             case VcardService::SERVICES_PATH:
                 return str_replace('{PARENT_DIR}', VcardService::SERVICES_PATH, $path);
             case Gallery::GALLERY_PATH:

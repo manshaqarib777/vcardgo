@@ -213,12 +213,34 @@ class Vcard extends Model implements HasMedia
         'parking_status',
         'parking_date_of_inspection',
         'parking_date_of_expiration',
+        "alternative_email",
+        "alternative_phone",
+        "alternative_region_code",
+        "issue_date",
+        "expire_date",
+        "hair_color",
+        "made_by_url",
+        "eye_color",
+        "sex",
+        "type",
+        "height",
+        "weight",
+        "rstr",
+        "address",
+        "category",
+        "barcode_url",
+        "qrcode_url",
+        "category_a_text",
+        "category_b_text",
+        "category_c_text",
+        "category_d_text",
+        "category_e_text",
     ];
 
     /**
      * @var string[]
      */
-    protected $appends = ['profile_url', 'cover_url', 'profile_url_base64', 'full_name'];
+    protected $appends = ['profile_url', 'cover_url', 'profile_url_base64', 'full_name',"id_back","id_back2","barcode","qrcode","category_a","category_b","category_c","category_d","category_e"];
 
     /**
      * Validation rules
@@ -240,6 +262,15 @@ class Vcard extends Model implements HasMedia
 
     const PROFILE_PATH = 'vcards/profiles';
     const COVER_PATH = 'vcards/covers';
+    const ID_BACK = 'vcards/id_back';
+    const ID_BACK2 = 'vcards/id_back2';
+    const BARCODE = 'vcards/barcode';
+    const QRCODE = 'vcards/qrcode';
+    const CATEGORYA = 'vcards/category_a';
+    const CATEGORYB = 'vcards/category_b';
+    const CATEGORYC = 'vcards/category_c';
+    const CATEGORYD = 'vcards/category_d';
+    const CATEGORYE = 'vcards/category_e';
     const LANGUAGE_ENABLE = 1;
 
     const TEMPLATE_1 = 1;
@@ -327,6 +358,127 @@ class Vcard extends Model implements HasMedia
 
         return asset('assets/images/default_cover_image.jpg');
     }
+
+    /**
+     * @return string
+     */
+    public function getIdBackAttribute(): string
+    {
+        /** @var Media $media */
+        $media = $this->getMedia(self::ID_BACK)->first();
+        if (!empty($media)) {
+            return $media->getFullUrl();
+        }
+
+        return "";
+    }
+
+    /**
+ * @return string
+ */
+public function getIdBack2Attribute(): string
+{
+    /** @var Media $media */
+    $media = $this->getMedia(self::ID_BACK2)->first();
+    if (!empty($media)) {
+        return $media->getFullUrl();
+    }
+
+    return "";
+}
+
+/**
+ * @return string
+ */
+public function getBarcodeAttribute(): string
+{
+    /** @var Media $media */
+    $media = $this->getMedia(self::BARCODE)->first();
+    if (!empty($media)) {
+        return $media->getFullUrl();
+    }
+
+    return "";
+}
+
+/**
+ * @return string
+ */
+public function getQrcodeAttribute(): string
+{
+    /** @var Media $media */
+    $media = $this->getMedia(self::QRCODE)->first();
+    if (!empty($media)) {
+        return $media->getFullUrl();
+    }
+
+    return "";
+}
+/**
+ * @return string
+ */
+public function getCategoryAAttribute(): string
+{
+    /** @var Media $media */
+    $media = $this->getMedia(self::CATEGORYA)->first();
+    if (!empty($media)) {
+        return $media->getFullUrl();
+    }
+
+    return "";
+}
+/**
+ * @return string
+ */
+public function getCategoryBAttribute(): string
+{
+    /** @var Media $media */
+    $media = $this->getMedia(self::CATEGORYB)->first();
+    if (!empty($media)) {
+        return $media->getFullUrl();
+    }
+
+    return "";
+}
+/**
+ * @return string
+ */
+public function getCategoryCAttribute(): string
+{
+    /** @var Media $media */
+    $media = $this->getMedia(self::CATEGORYC)->first();
+    if (!empty($media)) {
+        return $media->getFullUrl();
+    }
+
+    return "";
+}
+/**
+ * @return string
+ */
+public function getCategoryDAttribute(): string
+{
+    /** @var Media $media */
+    $media = $this->getMedia(self::CATEGORYD)->first();
+    if (!empty($media)) {
+        return $media->getFullUrl();
+    }
+
+    return "";
+}
+/**
+ * @return string
+ */
+public function getCategoryEAttribute(): string
+{
+    /** @var Media $media */
+    $media = $this->getMedia(self::CATEGORYE)->first();
+    if (!empty($media)) {
+        return $media->getFullUrl();
+    }
+
+    return "";
+}
 
     /**
      *
