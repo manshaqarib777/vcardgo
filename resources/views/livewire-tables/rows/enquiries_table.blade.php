@@ -24,10 +24,12 @@
 
 <x-livewire-tables::bs5.table.cell>
     <div class="justify-content-center d-flex">
-    <a title = "{{ __('messages.common.view') }}" data-id="{{$row->id}}"
-       class="btn px-1 text-info fs-3 enquiries-view-btn">
-        <i class="fa-solid fa-eye"></i>
-    </a>
+        @can("enquiries.show")
+            <a title = "{{ __('messages.common.view') }}" data-id="{{$row->id}}"
+            class="btn px-1 text-info fs-3 enquiries-view-btn">
+                <i class="fa-solid fa-eye"></i>
+            </a>
+        @endcan
     </div>
 </x-livewire-tables::bs5.table.cell>
 

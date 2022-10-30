@@ -311,6 +311,8 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
         'first_name' => 'required|string|max:180',
         'last_name'  => 'required|string|max:180',
         'email'      => 'required|email:filter|max:191|unique:users,email,',
+        'role'       => '',
+        'permissions'       => '',
     ];
 
     /**

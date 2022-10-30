@@ -65,6 +65,7 @@
                         <h4 class="mb-0 fw-400 fs-6">{{ getLogInUser()->email }}</h4>
                     </div>
                     <ul class="pt-4">
+                        @can("account-settings.index")
                         <li>
                             <a class="dropdown-item text-gray-900" href="{{ route('profile.setting') }}">
                             <span class="dropdown-icon me-4 text-gray-600">
@@ -73,7 +74,9 @@
                                 {{ __('messages.user.account_setting') }}
                             </a>
                         </li>
+                        @endcan
                         @role(\App\Models\Role::ROLE_ADMIN)
+                        @can("user-manage-subscriptions.index")
                             <li>
                                 <a class="dropdown-item text-gray-900" href="{{ route('subscription.index') }}">
                                     <span class="dropdown-icon me-4 text-gray-600">
@@ -81,8 +84,10 @@
                                     </span>
                                     {{ __('messages.subscription.manage_subscription') }}</a>
                             </li>
+                        @endcan
                         @endrole
                         @if((is_impersonating() === false))
+                        @can("change-password.index")
                             <li>
                                 <a class="dropdown-item text-gray-900" id="changePassword" href="javascript:void(0)">
                                     <span class="dropdown-icon me-4 text-gray-600">
@@ -91,7 +96,9 @@
                                     {{ __('messages.user.change_password') }}
                                 </a>
                             </li>
+                            @endcan
                         @endif
+                        @can("change-language.index")
                         <li>
                             <a class="dropdown-item text-gray-900" id="changeLanguage" href="javascript:void(0)">
                                <span class="dropdown-icon me-4 text-gray-600">
@@ -100,6 +107,7 @@
                                 {{ __('messages.user.change_language') }}
                             </a>
                         </li>
+                        @endcan
                         <li>
                             <a class="dropdown-item text-gray-900 d-flex" href="javascript:void(0)">
                                 <span class="dropdown-icon me-4 text-gray-600">

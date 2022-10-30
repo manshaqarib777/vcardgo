@@ -74,5 +74,6 @@ class Kernel extends HttpKernel
         'language'         => \App\Http\Middleware\languageChangeMiddleware::class,
         'analytics'        => \App\Http\Middleware\Analytics::class,
         'setLanguage'      => SetLanguage::class,
+        'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
     ];
 }

@@ -28,6 +28,12 @@ class FeatureController extends AppBaseController
     public function __construct(featureRepository $featureRepository)
     {
         $this->featureRepository = $featureRepository;
+        $this->middleware('permission:features.index', ['only' => ['index']]);
+        $this->middleware('permission:features.create', ['only' => ['create']]);
+        $this->middleware('permission:features.store', ['only' => ['store']]);
+        $this->middleware('permission:features.edit', ['only' => ['edit']]);
+        $this->middleware('permission:features.update', ['only' => ['update']]);
+        $this->middleware('permission:features.delete', ['only' => ['destroy']]);
     }
 
     /**

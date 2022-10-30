@@ -19,6 +19,14 @@ class CountryController extends AppBaseController
     public function __construct(CountryRepository $countryRepository)
     {
         $this->countryRepository = $countryRepository;
+        $this->middleware('permission:countries.index', ['only' => ['index']]);
+        $this->middleware('permission:countries.create', ['only' => ['create']]);
+        $this->middleware('permission:countries.store', ['only' => ['store']]);
+        $this->middleware('permission:countries.edit', ['only' => ['edit']]);
+        $this->middleware('permission:countries.update', ['only' => ['update']]);
+        $this->middleware('permission:countries.delete', ['only' => ['destroy']]);
+        $this->middleware('permission:countries.status', ['only' => ['updateStatus']]);
+        $this->middleware('permission:countries.impersonate', ['only' => ['impersonate']]);
     }
     
     public function index()

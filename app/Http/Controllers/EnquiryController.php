@@ -15,7 +15,15 @@ use Illuminate\Http\Request;
 
 class EnquiryController extends AppBaseController
 {
-
+    public function __construct()
+    {
+        $this->middleware('permission:enquiries.index', ['only' => ['index']]);
+        $this->middleware('permission:enquiries.create', ['only' => ['create']]);
+        $this->middleware('permission:enquiries.store', ['only' => ['store']]);
+        $this->middleware('permission:enquiries.edit', ['only' => ['edit']]);
+        $this->middleware('permission:enquiries.update', ['only' => ['update']]);
+        $this->middleware('permission:enquiries.delete', ['only' => ['destroy']]);
+    }
     /**
      * @param  CreateEnquiryRequest  $request
      * @param $id

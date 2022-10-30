@@ -18,6 +18,7 @@ class AboutUsController extends Controller
     public function __construct(AboutUsRepository $aboutUsRepository)
     {
         $this->aboutUsRepository = $aboutUsRepository;
+        $this->middleware('permission:about-us.index', ['only' => ['index']]);
     }
 
     /**

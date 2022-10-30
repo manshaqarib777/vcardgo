@@ -32,6 +32,8 @@ class SettingController extends AppBaseController
     public function __construct(SettingRepository $settingRepository)
     {
         $this->settingRepository = $settingRepository;
+        $this->middleware('permission:settings.index', ['only' => ['index']]);
+        $this->middleware('permission:front-cms.index', ['only' => ['frontCmsIndex']]);
     }
 
     /**

@@ -26,6 +26,13 @@ class LanguageController extends AppBaseController
     public function __construct(LanguageRepository $languageRepo)
     {
         $this->languageRepository = $languageRepo;
+        $this->middleware('permission:languages.index', ['only' => ['index']]);
+        $this->middleware('permission:languages.create', ['only' => ['create']]);
+        $this->middleware('permission:languages.store', ['only' => ['store']]);
+        $this->middleware('permission:languages.edit', ['only' => ['edit']]);
+        $this->middleware('permission:languages.update', ['only' => ['update']]);
+        $this->middleware('permission:languages.delete', ['only' => ['destroy']]);
+        $this->middleware('permission:languages.translation', ['only' => ['showTranslation']]);
     }
 
     /**

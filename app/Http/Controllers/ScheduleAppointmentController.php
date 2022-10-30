@@ -20,6 +20,11 @@ use Illuminate\Support\Facades\DB;
 
 class ScheduleAppointmentController extends AppBaseController
 {
+    public function __construct()
+    {
+        $this->middleware('permission:user-appointments.index', ['only' => ['appointmentsList']]);
+        $this->middleware('permission:user-appointments.calender', ['only' => ['appointmentCalendar']]);
+    }
     /**
      * @param CreateScheduleAppointmentRequest $request
      *

@@ -14,6 +14,10 @@ use Illuminate\Routing\Redirector;
 class EmailSubscriptionController extends AppBaseController
 {
 
+    public function __construct()
+    {
+        $this->middleware('permission:subscriptions.index', ['only' => ['index']]);
+    }
     /**
      *
      * @return Application|Factory|View

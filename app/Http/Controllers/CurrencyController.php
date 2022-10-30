@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class CurrencyController extends AppBaseController
 {
+    public function __construct()
+    {
+        $this->middleware('permission:currencies.index', ['only' => ['index']]);
+    
+    }
     /**
      * @param Request $request
      *

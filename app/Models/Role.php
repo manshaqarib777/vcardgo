@@ -55,7 +55,6 @@ class Role extends roleModal
      */
     protected $fillable = [
         'name',
-        'display_name',
         'is_default',
         'guard_name',
     ];
@@ -64,7 +63,6 @@ class Role extends roleModal
      * @var array
      */
     public static $rules = [
-        'display_name' => 'required|unique:roles,name',
         'permission_id' => 'required',
     ];
 }

@@ -2,28 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateUserRequest;
-use App\Http\Requests\UpdateChangePasswordRequest;
-use App\Http\Requests\UpdateUserProfileRequest;
-use App\Http\Requests\UpdateUserRequest;
-use App\Models\MultiTenant;
-use App\Models\Subscription;
+use Exception;
+use Carbon\Carbon;
+use App\Models\Role;
 use App\Models\User;
 use App\Models\Vcard;
-use App\Repositories\UserRepository;
-use Carbon\Carbon;
-use Exception;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Routing\Redirector;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
+use App\Models\Section;
 use Laracasts\Flash\Flash;
+use App\Models\MultiTenant;
+use App\Models\Subscription;
+use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Contracts\View\View;
+use App\Repositories\UserRepository;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Contracts\View\Factory;
+use App\Http\Requests\CreateUserRequest;
+use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\UpdateUserProfileRequest;
+use Illuminate\Contracts\Foundation\Application;
+use App\Http\Requests\UpdateChangePasswordRequest;
 use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
 
 class UserController extends AppBaseController
@@ -42,6 +44,14 @@ class UserController extends AppBaseController
     public function __construct(UserRepository $userRepository)
     {
         $this->userRepo = $userRepository;
+        $this->middleware('permission:users.index', ['only' => ['index']]);
+        $this->middleware('permission:users.create', ['only' => ['create']]);
+        $this->middleware('permission:users.store', ['only' => ['store']]);
+        $this->middleware('permission:users.edit', ['only' => ['edit']]);
+        $this->middleware('permission:users.update', ['only' => ['update']]);
+        $this->middleware('permission:users.delete', ['only' => ['destroy']]);
+        $this->middleware('permission:users.status', ['only' => ['updateStatus']]);
+        $this->middleware('permission:users.impersonate', ['only' => ['impersonate']]);
     }
 
     /**
@@ -61,7 +71,9 @@ class UserController extends AppBaseController
      */
     public function create()
     {
-        return view('users.create');
+        $sections = Section::get();
+        $roles = Role::get();
+        return view('users.create',compact("sections","roles"));
     }
 
     /**
@@ -96,7 +108,9 @@ class UserController extends AppBaseController
      */
     public function edit(User $user)
     {
-        return view('users.edit', compact('user'));
+        $sections = Section::get();
+        $roles = Role::get();
+        return view('users.edit', compact('user','sections','roles'));
     }
 
     /**

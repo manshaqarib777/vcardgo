@@ -18,6 +18,12 @@ class FrontTestimonialController extends AppBaseController
     public function __construct(FrontTestimonialRepository $frontTestimonialRepo)
     {
         $this->frontTestimonialRepo = $frontTestimonialRepo;
+        $this->middleware('permission:flag.index', ['only' => ['index']]);
+        $this->middleware('permission:flag.create', ['only' => ['create']]);
+        $this->middleware('permission:flag.store', ['only' => ['store']]);
+        $this->middleware('permission:flag.edit', ['only' => ['edit']]);
+        $this->middleware('permission:flag.update', ['only' => ['update']]);
+        $this->middleware('permission:flag.delete', ['only' => ['destroy']]);
     }
 
 

@@ -8,8 +8,10 @@
             <div class="col-12">
                 <div class="d-flex justify-content-between align-items-end mb-5">
                     <h1>{{__('messages.user.add_user')}}</h1>
+                    @can("users.index")
                     <a class="btn btn-outline-primary float-end"
                        href="{{ route('users.index') }}">{{ __('messages.common.back') }}</a>
+                    @endcan
                 </div>
 
                 <div class="col-12">

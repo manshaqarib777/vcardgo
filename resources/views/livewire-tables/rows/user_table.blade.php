@@ -33,18 +33,20 @@
 </x-livewire-tables::bs5.table.cell>
 
 <x-livewire-tables::bs5.table.cell>
+    @can("users.impersonate")
+
     <div class="d-flex justify-content-center">
         @if($row->is_active)
             <a data-turbo="false" href="javascript:void(0)" data-id="{{ $row->id }}" class="btn btn-sm btn-info user-impersonate">
                 {{ __('messages.user.impersonate') }}
             </a>
         @else
-            <a data-turbo="false" href="javascript:void(0)" data-id="{{ $row->id }}" style="pointer-events: none;
-   cursor: default;" class="btn btn-sm btn-secondary user-impersonate">
+            <a data-turbo="false" href="javascript:void(0)" data-id="{{ $row->id }}" style="pointer-events: none;cursor: default;" class="btn btn-sm btn-secondary user-impersonate">
                 {{ __('messages.user.impersonate') }}
             </a>
         @endif
     </div>
+    @endcan
 </x-livewire-tables::bs5.table.cell>
 
 <x-livewire-tables::bs5.table.cell>
@@ -53,23 +55,30 @@
          ? ''
          : 'checked';
     @endphp
+    @can("users.status")
+
     <label class="form-check form-switch form-check-custom form-check-solid form-switch-sm d-flex justify-content-center cursor-pointer">
         <input type="checkbox" name="is_active" class="form-check-input user-active cursor-pointer"
                data-id="{{$row->id}}" {{$checked}}>
         <span class="custom-switch-indicator"></span>
     </label>
+    @endcan
 </x-livewire-tables::bs5.table.cell>
 
 <x-livewire-tables::bs5.table.cell>
     <div class="justify-content-center d-flex">
-    <a  href="{{ route('users.edit', $row->id) }}" title="{{ __('messages.common.edit') }}"
-        class="btn px-1 text-primary fs-3 user-edit-btn" data-id="{{$row->id}}">
-        <i class="fa-solid fa-pen-to-square"></i>
-    </a>
-    <a href="javascript:void(0)" data-id="{{ $row->id }}" title="{{ __('messages.common.delete') }}"
-       class="btn px-1 text-danger fs-3 user-delete-btn">
-        <i class="fa-solid fa-trash"></i>
-    </a>
+    @can("users.edit")
+        <a  href="{{ route('users.edit', $row->id) }}" title="{{ __('messages.common.edit') }}"
+            class="btn px-1 text-primary fs-3 user-edit-btn" data-id="{{$row->id}}">
+            <i class="fa-solid fa-pen-to-square"></i>
+        </a>
+    @endcan
+    @can("users.delete")
+        <a href="javascript:void(0)" data-id="{{ $row->id }}" title="{{ __('messages.common.delete') }}"
+        class="btn px-1 text-danger fs-3 user-delete-btn">
+            <i class="fa-solid fa-trash"></i>
+        </a>
+    @endcan
     </div>
 </x-livewire-tables::bs5.table.cell>
 

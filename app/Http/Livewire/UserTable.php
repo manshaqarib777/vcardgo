@@ -32,7 +32,7 @@ class UserTable extends LivewireTableComponent
      */
     public function query(): Builder
     {
-        return User::with(['media','subscriptions.plan'])->where('id', '!=', getLogInUserId());
+        return User::with(['media','subscriptions.plan']);
 
     }
 

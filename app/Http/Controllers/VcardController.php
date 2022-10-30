@@ -44,6 +44,16 @@ class VcardController extends AppBaseController
     public function __construct(VcardRepository $vcardRepository)
     {
         $this->vcardRepository = $vcardRepository;
+        $this->middleware('permission:user-vcards.index', ['only' => ['index']]);
+        $this->middleware('permission:user-vcards.create', ['only' => ['create']]);
+        $this->middleware('permission:user-vcards.store', ['only' => ['store']]);
+        $this->middleware('permission:user-vcards.edit', ['only' => ['edit']]);
+        $this->middleware('permission:user-vcards.update', ['only' => ['update']]);
+        $this->middleware('permission:user-vcards.delete', ['only' => ['destroy']]);
+        $this->middleware('permission:user-vcards.status', ['only' => ['updateStatus']]);
+        $this->middleware('permission:vcards.index', ['only' => ['vcards']]);
+        $this->middleware('permission:vcards-templates.index', ['only' => ['template']]);
+        
     }
 
     /**

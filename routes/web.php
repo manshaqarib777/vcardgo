@@ -248,7 +248,7 @@ Route::group(['middleware' => ['auth', 'valid.user', 'xss']], function () {
         Route::delete('/email-sub/{emailSubscription}',
             [EmailSubscriptionController::class, 'destroy'])->name('email.sub.destroy');
 
-        Route::group(['middleware' => ['permission:manage_language']], function () {
+        Route::group([], function () {
             Route::resource('languages', LanguageController::class);
             Route::get('languages/translation/{language}',
                 [LanguageController::class, 'showTranslation'])->name('languages.translation');

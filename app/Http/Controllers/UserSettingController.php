@@ -28,6 +28,8 @@ class UserSettingController extends AppBaseController
     public function __construct(UserSettingRepository $userSettingRepository)
     {
         $this->userSettingRepository = $userSettingRepository;
+        $this->middleware('permission:user-settings.index', ['only' => ['index']]);
+
     }
 
     /**

@@ -8,9 +8,13 @@
             <img src="{{ empty($row->template) ? $defaultTemplate : $row->template->template_url }}" alt="Vcard">
         </div>
         <div class="d-flex flex-column">
+            @can("user-vcards.edit")
             <a href="{{ route('vcards.edit', $row->id) }}" class="mb-1 text-decoration-none fs-6">
                 {{ $row->name }}
             </a>
+            @else
+                <span class="fs-6">{{ $row->name }}</span>        
+            @endcan
             <span class="fs-6">{{ $row->occupation }}</span>
         </div>
     </div>
@@ -39,10 +43,13 @@
 </x-livewire-tables::table.cell>
 
 <x-livewire-tables::table.cell>
+    @can("user-vcards.status")
+
     <label class="form-check form-switch d-flex justify-content-center">
         <input name="is_active" data-id="{{$row->id}}" class="form-check-input vcardStatus"
                type="checkbox" value="1" {{ $row->status == 1 ? 'checked': ''}}>
     </label>
+    @endcan
 </x-livewire-tables::table.cell>
 
 <x-livewire-tables::table.cell>
@@ -61,22 +68,31 @@
 
 <x-livewire-tables::table.cell>
     <div class="justify-content-center d-flex">
+        @can("user-vcards.show")
+
     @if(route('enquiry.index', $row->id))
         <a title = "{{ __('messages.common.view') }}" href="{{route('enquiry.index', $row->id)}}"
            class="btn px-1 text-info fs-3">
             <i class="fa-solid fa-eye"></i>
         </a>
     @endif
+    @endcan
+    @can("user-vcards.edit")
     <a href="{{ route('vcards.edit', $row->id) }}" title="{{ __('messages.common.edit') }}" class="btn px-1 text-primary fs-3">
         <i class="fa-solid fa-pen-to-square"></i>
     </a>
+    @endcan
+    @can("user-vcards.delete")
     <a href="javascript:void(0)" data-id="{{ $row->id }}" title="{{ __('messages.common.delete') }}"
        class="btn px-1 text-danger fs-3 vcard_delete-btn">
         <i class="fa-solid fa-trash"></i>
     </a>
+    @endcan
+    @can("user-vcards.upgrade-plan")
     <a class="btn btn-primary" href="{{ route('subscription.upgrade',$row->id) }}">
         {{ __('messages.subscription.upgrade_plan') }}
     </a>
+    @endcan
     </div>
 
 </x-livewire-tables::table.cell>

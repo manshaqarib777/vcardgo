@@ -16,6 +16,7 @@
 </x-livewire-tables::bs5.table.cell>
 
 <x-livewire-tables::bs5.table.cell>
+    @can("user-enquiries.show")
     <div class="justify-content-center d-flex">
         <a title=" {{__('messages.common.view')}}"
            class="btn px-1 text-info enquiries-view-btn fs-3"
@@ -23,4 +24,5 @@
             <i class="fa-solid fa-eye"></i>
         </a>
     </div>
+    @endcan
 </x-livewire-tables::bs5.table.cell>

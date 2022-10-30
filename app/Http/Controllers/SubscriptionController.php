@@ -31,6 +31,13 @@ class SubscriptionController extends AppBaseController
     public function __construct(SubscriptionRepository $subscriptionRepo)
     {
         $this->subscriptionRepo = $subscriptionRepo;
+        $this->middleware('permission:user-manage-subscriptions.index', ['only' => ['index']]);
+        $this->middleware('permission:user-vcards.upgrade-plan', ['only' => ['upgrade']]);
+        $this->middleware('permission:cash-payments.index', ['only' => ['cashPlan']]);
+        $this->middleware('permission:cash-payments.status', ['only' => ['planStatus']]);
+        $this->middleware('permission:subscribed-user-plans.index', ['only' => ['userSubscribedPlan']]);
+        $this->middleware('permission:subscribed-user-plans.edit', ['only' => ['userSubscribedPlanEdit']]);
+        $this->middleware('permission:subscribed-user-plans.status', ['only' => ['planStatus']]);
     }
 
     /**

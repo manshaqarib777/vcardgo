@@ -31,6 +31,13 @@ class   PlanController extends AppBaseController
     public function __construct(PlanRepository $planRepository)
     {
         $this->planRepository = $planRepository;
+        $this->middleware('permission:plans.index', ['only' => ['index']]);
+        $this->middleware('permission:plans.create', ['only' => ['create']]);
+        $this->middleware('permission:plans.store', ['only' => ['store']]);
+        $this->middleware('permission:plans.edit', ['only' => ['edit']]);
+        $this->middleware('permission:plans.update', ['only' => ['update']]);
+        $this->middleware('permission:plans.delete', ['only' => ['destroy']]);
+        $this->middleware('permission:plans.status', ['only' => ['updateStatus']]);
     }
 
     /**

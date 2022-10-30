@@ -68,6 +68,8 @@ class UserRepository extends BaseRepository
             if (isset($input['profile']) && !empty($input['profile'])) {
                 $user->addMedia($input['profile'])->toMediaCollection(User::PROFILE, config('app.media_disc'));
             }
+            $user->roles()->sync($input['role']);
+            $user->permissions()->sync($input['permissions']);
             $user->sendEmailVerificationNotification();
 
             
@@ -107,7 +109,8 @@ class UserRepository extends BaseRepository
             $input['contact'] = str_replace(' ','',$input['contact']);
         }
         $user->update($input);
-
+        $user->roles()->sync($input['role']);
+        $user->permissions()->sync($input['permissions']);
         if (isset($input['profile']) && !empty($input['profile'])) {
             $user->clearMediaCollection(User::PROFILE);
             $user->addMedia($input['profile'])->toMediaCollection(User::PROFILE, config('app.media_disc'));

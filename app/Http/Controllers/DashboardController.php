@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ScheduleAppointment;
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Vcard;
-use App\Repositories\DashboardRepository;
-use Carbon\Carbon;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use App\Models\ScheduleAppointment;
+use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Contracts\View\Factory;
+use App\Repositories\DashboardRepository;
+use Illuminate\Contracts\Foundation\Application;
 
 class DashboardController extends AppBaseController
 {
@@ -25,6 +26,7 @@ class DashboardController extends AppBaseController
     public function __construct(DashboardRepository $dashboardRepo)
     {
         $this->dashboardRepository = $dashboardRepo;
+        $this->middleware('permission:dashboard.index', ['only' => ['index']]);
     }
 
     /**
@@ -33,6 +35,7 @@ class DashboardController extends AppBaseController
      */
     public function index()
     {
+        Log::info(request()->ip());
         $activeUsersCount =  User::whereHas("roles", function ($q) {
             $q->where("name", "!=", "super_admin");
         })->where('is_active', 1)->count();

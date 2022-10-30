@@ -63,10 +63,83 @@
             </div>
         </div>
     </div>
+    <div class="col-lg-6 mb-5">
+        <label for="role" class="form-label">{{ __('messages.user.role') }}<span class="tcr i-req">*</span></label>
+        <select id="role" name="role" class="form-control {{ $errors->has('role') ? ' is-invalid' : '' }}">       
+            @foreach($roles as $role)                                    
+                <option value="{{$role->id}}" @if (isset($user) && $user->hasRole($role->name)) selected @endif>{{ucfirst($role->name)}}</option>
+            @endforeach                                    
+        </select>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                @foreach ($sections as $section)
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>{{ $section->name }}</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="checkbox" class="permission_checkbox" /> Select All
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            @foreach ($section->permissions as $permission)
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>{{ str_replace('_', ' ', $permission->name)}}</label>
+                                        <input type="checkbox" data-toggle="toggle" class="checkbox_package permission_assign" name="permissions[]" data-onstyle="primary" {{ ( isset($user) && in_array($permission->id,$user->permissions->pluck('id')->toArray()) ) ? "checked":'' }} value="{{ $permission->id }}">
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
     <div>
         {{ Form::submit(__('messages.common.save'),['class' => 'btn btn-primary me-3']) }}
         <a href="{{ route('users.index') }}"
            class="btn btn-secondary">{{__('messages.common.discard')}}</a>
     </div>
 </div>
-
+@section("script")
+<script>
+    $(document).ready(function() {
+        $(".permission_assign").click(function() {
+            var checked=true;
+            $(this).parent().parent().parent().parent().parent().find(".permission_assign").each(function() {
+                if ($(this).is(':checked')==false) {
+                    checked=false;
+                }
+            });
+            if(checked)
+            {
+                $(this).parent().parent().parent().parent().parent().find(".permission_checkbox").prop('checked', true);
+            }
+            else
+            {
+                $(this).parent().parent().parent().parent().parent().find(".permission_checkbox").prop('checked', false);
+            }
+    
+        });
+    
+        $(".permission_checkbox").click(function() {
+            if ($(this).is(':checked')) {
+                $(this).parent().parent().parent().find(".permission_assign").each(function() {
+                    $(this).prop('checked', true);
+                });
+    
+            } else {
+                $(this).parent().parent().parent().find(".permission_assign").each(function() {
+                    $(this).prop('checked', false);
+                });
+            }
+        });
+    });
+</script>    
+@endsection

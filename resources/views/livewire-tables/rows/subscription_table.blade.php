@@ -19,17 +19,21 @@
 </x-livewire-tables::bs5.table.cell>
 
 <x-livewire-tables::bs5.table.cell>
+    @can("subscribed-user-plans.status")
     <div class="form-check form-switch">
         <input class="form-check-input" type="checkbox" id="planStatus"  name="is_active"
                {{ $row->status == 1 ? 'disabled checked' : ''}} data-id="{{$row->id}}" data-tenant="{{$row->tenant_id}}" data-card="{{$row->card_id}}">
     </div>
+    @endcan
 </x-livewire-tables::bs5.table.cell>
 
 <x-livewire-tables::bs5.table.cell>
+    @can("subscribed-user-plans.edit")
     <div class="justify-content-center d-flex">
     <a title="{{ __('messages.common.edit') }}" class="btn px-1 text-primary fs-3 subscribed-user-plan-edit-btn"
             data-id="{{$row->id}}" data-turbolinks="false">
         <i class="fa-solid fa-pen-to-square"></i>
     </a>
     </div>
+    @endcan
 </x-livewire-tables::bs5.table.cell>

@@ -20,6 +20,13 @@ class StateController extends AppBaseController
     public function __construct(StateRepository $stateRepository)
     {
         $this->stateRepository = $stateRepository;
+        $this->middleware('permission:states.index', ['only' => ['index']]);
+        $this->middleware('permission:states.create', ['only' => ['create']]);
+        $this->middleware('permission:states.store', ['only' => ['store']]);
+        $this->middleware('permission:states.edit', ['only' => ['edit']]);
+        $this->middleware('permission:states.update', ['only' => ['update']]);
+        $this->middleware('permission:states.delete', ['only' => ['destroy']]);
+        $this->middleware('permission:states.status', ['only' => ['updateStatus']]);
     }
     
     public function index()

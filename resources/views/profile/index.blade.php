@@ -70,6 +70,7 @@
                         </div>
                         <div class="card-footer d-flex">
                             {{ Form::submit(__('messages.common.save'),['class' => 'btn btn-primary me-2']) }}
+                            @can("dashboard.index")
                             @role(\App\Models\Role::ROLE_ADMIN)
                             <a href="{{route('admin.dashboard')}}"
                                class="btn btn-secondary">{{__('messages.common.discard')}}</a>
@@ -78,6 +79,7 @@
                             <a href="{{route('sadmin.dashboard')}}"
                                class="btn btn-secondary">{{__('messages.common.discard')}}</a>
                             @endrole
+                            @endcan
                         </div>
                     </form>
                 </div>
