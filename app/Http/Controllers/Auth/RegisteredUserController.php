@@ -54,7 +54,7 @@ class RegisteredUserController extends Controller
                 'password'   => Hash::make($request->password),
                 'tenant_id'  => $tenant->id,
             ])->assignRole(Role::ROLE_ADMIN);
-            $user->permissions()->sync(["dashboard.index","account-settings.index","change-password.index","change-language.index","user-vcards.index","user-vcards.create","user-vcards.store","user-vcards.edit","user-vcards.update","user-vcards.delete","user-vcards.status","user-vcards.upgrade-plan","user-vcards.show","user-enquiries.index","user-appointments.index","user-manage-subscriptions.index","user-settings.index","user-enquiries.show","user-appointments.calender"]);
+            $user->assignPermissions(["dashboard.index","account-settings.index","change-password.index","change-language.index","user-vcards.index","user-vcards.create","user-vcards.store","user-vcards.edit","user-vcards.update","user-vcards.delete","user-vcards.status","user-vcards.upgrade-plan","user-vcards.show","user-enquiries.index","user-appointments.index","user-manage-subscriptions.index","user-settings.index","user-enquiries.show","user-appointments.calender"]);
 
             // $plan = Plan::whereIsDefault(true)->first();
 
