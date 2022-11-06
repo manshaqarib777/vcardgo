@@ -10,7 +10,6 @@ use Illuminate\Http\JsonResponse;
 use App\Models\ScheduleAppointment;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\View\Factory;
 use App\Repositories\DashboardRepository;
 use Illuminate\Contracts\Foundation\Application;
