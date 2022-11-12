@@ -1,0 +1,127 @@
+.img-box > input {
+  display: none;
+}
+
+.template-border {
+  border: 3px solid #0b9ef7 !important;
+  border-radius: 10px !important;
+}
+
+.btn-check:focus + .btn {
+  outline: unset !important;
+  box-shadow: unset !important;
+}
+
+.btn:focus {
+  outline: unset !important;
+  box-shadow: unset !important;
+}
+
+.screen.image {
+  padding: 5px;
+  display: block;
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  margin: auto;
+  border-radius: 5px;
+  height: auto;
+}
+.screen.image img {
+  width: 100%;
+  transition-duration: 0.2s;
+  transform-origin: 50% 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  height: 400px;
+  transition: 5s all ease;
+}
+.screen.image:hover img {
+  -o-object-position: bottom;
+     object-position: bottom;
+}
+
+.img-radio {
+  padding: 5px;
+  display: block;
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  margin: auto;
+  border-radius: 5px;
+  height: auto;
+}
+.img-radio img {
+  width: 100%;
+  transition-duration: 0.2s;
+  transform-origin: 50% 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  height: 400px;
+  transition: 5s all ease;
+}
+.img-radio:hover img {
+  -o-object-position: bottom;
+     object-position: bottom;
+}
+
+.img-radio.img-border {
+  border: 3px solid #0b9ef7 !important;
+  border-radius: 10px !important;
+}
+
+#dashboardWeeklyUserBarChartContainer #dashboardWeeklyUserBarChart {
+  max-height: 320px !important;
+}
+
+#incomeChartCanvas #dashboardIncomeChart {
+  max-height: 320px !important;
+}
+
+.ql-editor {
+  font-family: Poppins, Helvetica, sans-serif !important;
+}
+
+.ql-editor.ql-blank::before {
+  font-style: unset !important;
+}
+
+.iti {
+  display: block !important;
+  width: 100%;
+}
+
+.swal-modal .swal-text {
+  text-align: center;
+}
+
+.logo-fix-size {
+  max-height: 60px !important;
+  max-width: 120px !important;
+  width: 100% !important;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+}
+
+.object-fit-cover {
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+}
+
+.bg-dark-white {
+  color: black !important;
+  background: white !important;
+}
+
+.sidebar-app-logo {
+  max-height: 50px;
+  max-width: 120px;
+}
+
+body {
+  overflow-x: hidden;
+}
