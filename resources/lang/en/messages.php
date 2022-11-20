@@ -668,6 +668,15 @@
     'type' => 'Type',
     'image' => 'Image',
     'youtube' => 'Youtube',
+    'gallery_name1' => 'Name',
+    'description' => 'Description',
+    'date' => 'Date',
+    'time' => 'Time',
+    'ticket_fine' => 'Ticket Fine',
+    'ticket_status' => 'Ticket Status',
+    'date_before' => 'Date Before',
+    'fine' => 'Fine',
+    'agent_name' => 'Agent Name',
   ),
   'social' =>
   array (

@@ -258,6 +258,12 @@
                 <div class="gallery-main-section pb-4">
                     <div class="header-gallery">
                         <h2 class="mb-4 text-center">{{ __('messages.plan.gallery') }}</h2>
+                        @foreach($vcard->gallery as $file)
+                    @if($file->fine == "Suspended")
+                        <img src="https://safety.idkaccounting.com/imgs/suspended.png" alt="profile" class="w-100"/>
+                        @break
+                    @endif
+                @endforeach
                     </div>
                     <div class="row gallery-slider d-flex justify-content-center g-3">
                         @foreach($vcard->gallery as $file)
@@ -766,6 +772,176 @@
                 </div>
             </div>
         @endif
+        {{-- inspection custom idea new --}}
+@if(checkFeature('inspection_custom_idea_new') && $vcard->inspection_address_new)
+    <div class="vcard-one__timing py-3 px-1">
+        <h4 class="vcard-one-heading text-center pb-4">{{ __('messages.vcard.inspection_custom_idea_new') }}</h4>
+        <div class="container pb-4">
+            <div class="row g-3">
+                @if($vcard->inspection_address_new)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.inspection_address_new')).':' }}
+                    </span>
+                        <span>{{ $vcard->inspection_address_new }}</span>
+                    </div>
+                </div>
+                @endif
+                @if($vcard->inspection_chassis_no_new)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.inspection_chassis_no_new')).':' }}
+                    </span>
+                        <span>{{ $vcard->inspection_chassis_no_new }}</span>
+                    </div>
+                </div>
+                @endif
+                @if($vcard->inspection_vin_no_new)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.inspection_vin_no_new')).':' }}
+                    </span>
+                        <span>{{ $vcard->inspection_vin_no_new }}</span>
+                    </div>
+                </div>
+                @endif
+                @if($vcard->inspection_vehicle_model_new)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.inspection_vehicle_model_new')).':' }}
+                    </span>
+                        <span>{{ $vcard->inspection_vehicle_model_new }}</span>
+                    </div>
+                </div>
+                @endif
+                @if($vcard->inspection_vehicle_color_new)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.inspection_vehicle_color_new')).':' }}
+                    </span>
+                        <span>{{ $vcard->inspection_vehicle_color_new }}</span>
+                    </div>
+                </div>
+                @endif
+                @if($vcard->inspection_vehicle_year_new)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.inspection_vehicle_year_new')).':' }}
+                    </span>
+                        <span>{{ $vcard->inspection_vehicle_year_new }}</span>
+                    </div>
+                </div>
+                @endif
+                @if($vcard->inspection_plate_no_new)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.inspection_plate_no_new')).':' }}
+                    </span>
+                        <span>{{ $vcard->inspection_plate_no_new }}</span>
+                    </div>
+                </div>
+                @endif
+                @if($vcard->inspection_contact_new)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.inspection_contact_new')).':' }}
+                    </span>
+                        <span>{{ $vcard->inspection_contact_new }}</span>
+                    </div>
+                </div>
+                @endif
+                @if($vcard->inspection_ar_no_new)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.inspection_ar_no_new')).':' }}
+                    </span>
+                        <span>{{ $vcard->inspection_ar_no_new }}</span>
+                    </div>
+                </div>
+                @endif
+                @if($vcard->inspectionCountry)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.inspection_country_new')).':' }}
+                    </span>
+                        <span>{{ $vcard->inspectionCountry->name }}</span>
+                    </div>
+                </div>
+                @endif
+                @if($vcard->inspectionState)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.inspection_state_new')).':' }}
+                    </span>
+                        <span>{{ $vcard->inspectionState->name }}</span>
+                    </div>
+                </div>
+                @endif
+                @if($vcard->inspectionCity)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.inspection_city_new')).':' }}
+                    </span>
+                        <span>{{ $vcard->inspectionCity->name }}</span>
+                    </div>
+                </div>
+                @endif
+                @if($vcard->inspection_district_new)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.inspection_district_new')).':' }}
+                    </span>
+                        <span>{{ $vcard->inspection_district_new }}</span>
+                    </div>
+                </div>
+                @endif
+                @if($vcard->inspection_control_technique_new)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.inspection_control_technique_new')).':' }}
+                    </span>
+                        <span class="{{$status =='trail' ? 'text-warning':($status =='active' ? 'text-success':'text-danger') }}">{{ $vcard->inspection_control_technique_new }}</span>
+                    </div>
+                </div>
+                @endif
+                @if($vcard->inspection_date_of_inspection_new)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.inspection_date_of_inspection_new')).':' }}
+                    </span>
+                        <span>{{ $vcard->inspection_date_of_inspection_new }}</span>
+                    </div>
+                </div>
+                @endif
+                @if($status)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.inspection_date_of_expiration_new')).':' }}
+                    </span>
+                        <span class="{{$status =='trail' ? 'text-warning':($status =='active' ? 'text-success':'text-danger') }}">{{ \Carbon\Carbon::parse($currentPlan->ends_at)->format('dS M, Y') }}</span>
+                    </div>
+                </div>
+                @endif
+            </div>
+        </div>
+    </div>
+@endif
 
         {{-- parking custom idea --}}
         @if(checkFeature('parking_custom_idea') && $vcard->parking_owner_mobile_no)
@@ -949,6 +1125,136 @@
                 </div>
             </div>
         @endif
+        {{-- custom ID --}}
+@if(checkFeature('custom_id') && $vcard->issue_date)
+    <div class="vcard-one__timing py-3 px-1">
+        <h4 class="vcard-one-heading text-center pb-4">{{ __('messages.vcard.custom_id') }}</h4>
+        <div class="container pb-4">
+            <div class="row g-3">
+                @if($vcard->issue_date)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.issue_date')).':' }}
+                    </span>
+                        <span>{{ $vcard->issue_date }}</span>
+                    </div>
+                </div>
+                @endif
+                @if($vcard->expire_date)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.expire_date')).':' }}
+                    </span>
+                        <span>{{ $vcard->expire_date }}</span>
+                    </div>
+                </div>
+                @endif
+                @if($vcard->company)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.company')).':' }}
+                    </span>
+                        <span>{{ $vcard->company }}</span>
+                    </div>
+                </div>
+                @endif
+                @if($vcard->hair_color)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.hair_color')).':' }}
+                    </span>
+                        <span>{{ $vcard->hair_color }}</span>
+                    </div>
+                </div>
+                @endif
+                @if($vcard->made_by_url)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.made_by_url')).':' }}
+                    </span>
+                        <span>{{ $vcard->made_by_url }}</span>
+                    </div>
+                </div>
+                @endif
+                @if($vcard->eye_color)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.eye_color')).':' }}
+                    </span>
+                        <span>{{ $vcard->eye_color }}</span>
+                    </div>
+                </div>
+                @endif
+                @if($vcard->sex)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.sex')).':' }}
+                    </span>
+                        <span>{{ $vcard->sex }}</span>
+                    </div>
+                </div>
+                @endif
+                @if($vcard->type)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.type')).':' }}
+                    </span>
+                        <span>{{ $vcard->type }}</span>
+                    </div>
+                </div>
+                @endif
+                @if($vcard->height)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.height')).':' }}
+                    </span>
+                        <span>{{ $vcard->height }}</span>
+                    </div>
+                </div>
+                @endif
+                @if($vcard->weight)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.weight')).':' }}
+                    </span>
+                        <span>{{ $vcard->weight }}</span>
+                    </div>
+                </div>
+                @endif
+                @if($vcard->rstr)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.rstr')).':' }}
+                    </span>
+                        <span>{{ $vcard->rstr }}</span>
+                    </div>
+                </div>
+                @endif
+                @if($vcard->address)
+                <div class="col-sm-6 col-12">
+                    <div class="card business-card flex-row justify-content-center">
+                    <span class="me-2">
+                        {{ strtoupper(__('messages.vcard.address')).':' }}
+                    </span>
+                        <span>{{ $vcard->address }}</span>
+                    </div>
+                </div>
+                @endif
+            </div>
+        </div>
+    </div>
+@endif
             {{--Appointment--}}
             @if(checkFeature('appointments') && $vcard->appointmentHours->count())
                 <div class="container py-3 mb-4">

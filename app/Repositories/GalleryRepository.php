@@ -47,16 +47,16 @@ class GalleryRepository extends BaseRepository
     {
         try {
             DB::beginTransaction();
-            
+
             if ($input['type'] == Gallery::TYPE_IMAGE) {
                 $input['link'] = null;
-            } 
+            }
             if ($input['type'] == Gallery::TYPE_YOUTUBE) {
                 $input['image'] = null;
             }
 
             $gallery = Gallery::create($input);
-            
+
             if (($input['type'] == Gallery::TYPE_IMAGE) && isset($input['image']) && ! empty($input['image'])) {
                 $gallery->addMedia($input['image'])->toMediaCollection(Gallery::GALLERY_PATH,
                     config('app.media_disc'));
@@ -89,15 +89,14 @@ class GalleryRepository extends BaseRepository
             if ($input['type'] == Gallery::TYPE_YOUTUBE) {
                 $input['image'] = null;
             }
-            
+
             $gallery = Gallery::findOrFail($id);
-            $gallery->clearMediaCollection(Gallery::GALLERY_PATH);
             if (($input['type'] == Gallery::TYPE_IMAGE)  && isset($input['image']) && ! empty($input['image'])) {
                 $gallery->clearMediaCollection(Gallery::GALLERY_PATH);
                 $gallery->addMedia($input['image'])->toMediaCollection(Gallery::GALLERY_PATH,
                     config('app.media_disc'));
             }
-            
+
             $gallery->update($input);
 
             DB::commit();

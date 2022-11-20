@@ -51,6 +51,15 @@ class Gallery extends Model implements HasMedia
         'type',
         'link',
         'vcard_id',
+        'gallery_name',
+        'description',
+        'date',
+        'time',
+        'ticket_fine',
+        'ticket_status',
+        'date_before',
+        'fine',
+        'agent_name'
     ];
 
     const TYPE_IMAGE = 0;
@@ -60,6 +69,11 @@ class Gallery extends Model implements HasMedia
         self::TYPE_IMAGE   => 'Image',
         self::TYPE_YOUTUBE => 'YouTube',
     ];
+
+    const NAME = ["1"=>"1","2"=>"2","3"=>"3","4"=>"4","5"=>"5","6"=>"6","7"=>"7","8"=>"8","9"=>"9","10"=>"10"];
+    const TICKET_FINE = ["10$"=>"10$","20$"=>"20$","30$"=>"30$","40$"=>"40$"];
+    const FINE = ["Suspended"=>"Suspended","Active"=>"Active"];
+    const TICKET_STATUS = ["Unpaid"=>"Unpaid","Paid"=>"Paid"];
     /**
      * Validation rules
      * @var array

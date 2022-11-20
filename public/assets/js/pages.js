@@ -48,19 +48,19 @@ Copyright © 2021 Basecamp, LLC
 
 /**
  * The MIT License (MIT)
- * 
+ *
  * Copyright (c) 2019 Javan Makhmali
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -6396,7 +6396,7 @@ return $ || jsr;
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -6410,14 +6410,14 @@ return $ || jsr;
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
@@ -6430,12 +6430,12 @@ return $ || jsr;
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -6446,7 +6446,7 @@ return $ || jsr;
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
@@ -8022,7 +8022,7 @@ function loadVcardCreateEdit() {
     useCurrent: true,
     sideBySide: true
   });
-  
+
 }
 
 listenClick('.add-session-time', function () {
@@ -8474,7 +8474,16 @@ function editGalleryRenderData(id) {
     success: function success(result) {
       if (result.success) {
         $('#galleryId').val(result.data.id);
+        $('#editGalleryName').val(result.data.gallery_name).trigger('change');
+        $('#editDescription').val(result.data.description);
+        $('#editDate').val(result.data.date);
+        $('#editTime').val(result.data.time);
+        $('#editDateBefore').val(result.data.date_before);
+        $('#editAgentName').val(result.data.agent_name);
         $('#editTypeId').val(result.data.type).trigger('change');
+        $('#editTicketFine').val(result.data.ticket_fine).trigger('change');
+        $('#editTicketStatus').val(result.data.ticket_status).trigger('change');
+        $('#editFine').val(result.data.fine).trigger('change');
         $('#editGalleryPreview').css('background-image', 'url("' + result.data.gallery_image + '")');
         $('#editYouTube_Link').val(result.data.link);
         $('#editGalleryModal').modal('show');
