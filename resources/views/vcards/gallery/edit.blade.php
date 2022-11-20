@@ -9,6 +9,78 @@
             <div class="modal-body">
                 {!! Form::open(['id'=>'editGalleryForm', 'files' => 'true']) !!}
                 <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group mb-3">
+                            <label for="my-input">Name</label>
+                            <input id="my-input" class="form-control" type="text" name="">
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group mb-3">
+                            <label for="my-input">Description</label>
+                            <textarea id="my-input" class="form-control" type="text" name=""></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group mb-3">
+                            <label for="my-input">Date</label>
+                            <input id="my-input" class="form-control" type="date" name="">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group mb-3">
+                            <label for="my-input">Time</label>
+                            <input id="my-input" class="form-control" type="time" name="">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group mb-3">
+                            <label for="my-select">Ticket Fine</label>
+                            <select id="my-select" class="form-control" name="">
+                                <option>10$</option>
+                                <option>20$</option>
+                                <option>30$</option>
+                                <option>40$</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group mb-3">
+                            <label for="my-select">Ticket Status</label>
+                            <select id="my-select" class="form-control" name="">
+                                <option>Unpaid</option>
+                                <option>Paid</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group mb-3">
+                            <label for="my-select">Paid Before</label>
+                            <input id="my-input" class="form-control" type="date" name="">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group mb-3">
+                            <label for="my-select">Fine</label>
+                            <select id="my-select" class="form-control" name="">
+                                <option>Suspended</option>
+                                <option>Active</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="col-sm-12 mb-5">
+
+                        <img src="https://safety.idkaccounting.com/imgs/suspended.png" alt="" class="img-fluid">
+                    </div>
+                    
+                    <div class="col-12">
+                        <div class="form-group mb-3">
+                            <label for="my-input">Agent Name</label>
+                            <input id="my-input" class="form-control" type="text" name="">
+                        </div>
+                    </div>
                     <div class="col-sm-12 mb-5">
                         {{ Form::hidden('gallery_id', null,['id' => 'galleryId']) }}
                     </div>

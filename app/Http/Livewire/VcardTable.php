@@ -29,6 +29,14 @@ class VcardTable extends LivewireTableComponent
             })
                 ->searchable(),
             Column::make(__('messages.vcard.preview_url'), 'url_alias')->sortable(),
+            
+            Column::make(__('Full Name')),
+            Column::make(__('Company ID')),
+            Column::make(__('ID Category')),
+            Column::make(__('ID Class')),
+            Column::make(__('Blood Type')),
+            Column::make(__('messages.vcard.sex')),
+            
             Column::make(__('messages.vcard.stats')),
             Column::make(__('messages.vcard.created_at'), 'created_at')->sortable(),
             Column::make(__('messages.vcard.status'), 'status')->sortable(),

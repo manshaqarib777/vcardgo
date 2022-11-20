@@ -38,6 +38,35 @@
     @endif
 </x-livewire-tables::bs5.table.cell>
 
+
+
+<x-livewire-tables::bs5.table.cell>
+    {{ $row->name }}
+</x-livewire-tables::bs5.table.cell>
+
+<x-livewire-tables::bs5.table.cell>
+    {{ $row->location }}
+</x-livewire-tables::bs5.table.cell>
+
+<x-livewire-tables::bs5.table.cell>
+    static , not in vcard yet. <br>
+    ID Category Here like <br> Moto,Taxi
+</x-livewire-tables::bs5.table.cell>
+
+<x-livewire-tables::bs5.table.cell>
+    static , not in vcard yet. <br>
+    ID Class Here like <br> A, B, C etc.
+</x-livewire-tables::bs5.table.cell>
+
+<x-livewire-tables::bs5.table.cell>
+    static , not in vcard yet. <br>
+    Blood type here <br> A, AB etc.
+</x-livewire-tables::bs5.table.cell>
+
+<x-livewire-tables::bs5.table.cell>
+    {{ $row->sex }}
+</x-livewire-tables::bs5.table.cell>
+
 <x-livewire-tables::bs5.table.cell>
     <a href="{{ route('sadmin.vcard.analytics', $row->id)}}">
         <i class="fa-solid fa-chart-line fs-2"></i>

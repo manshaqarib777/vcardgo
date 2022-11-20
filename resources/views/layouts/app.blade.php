@@ -23,6 +23,12 @@
 
         @endif
     @yield('style')
+    <style>
+        .nav-tabs {
+    border-bottom: 0;
+    flex-wrap: wrap !important;
+}
+    </style>
     @livewireStyles
 
     @livewireScripts
