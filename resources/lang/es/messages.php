@@ -704,6 +704,7 @@
     'appointments' => 'Equipo',
     'seo' => 'SEO',
     'blog' => 'Blog',
+    'qr_code' => 'Qr Code',
   ),
   'front_cms' =>
   array (

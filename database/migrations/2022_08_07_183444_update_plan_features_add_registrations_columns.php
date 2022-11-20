@@ -16,6 +16,8 @@ class UpdatePlanFeaturesAddRegistrationsColumns extends Migration
         Schema::table('plan_features', function (Blueprint $table) {
             $table->boolean('registration_custom_idea')->default(false);
             $table->boolean('inspection_custom_idea')->default(false);
+            $table->boolean('inspection_custom_idea_new')->default(false);
+            $table->boolean('custom_id')->default(false);
             $table->boolean('parking_custom_idea')->default(false);
             $table->boolean('privacy_policy')->default(false);
             $table->boolean('term_condition')->default(false);
@@ -34,6 +36,8 @@ class UpdatePlanFeaturesAddRegistrationsColumns extends Migration
         Schema::table('plan_features', function (Blueprint $table) {
             $table->dropColumn('registration_custom_idea');
             $table->dropColumn('inspection_custom_idea');
+            $table->dropColumn('inspection_custom_idea_new');
+            $table->dropColumn('custom_id');
             $table->dropColumn('parking_custom_idea');
             $table->dropColumn('privacy_policy');
             $table->dropColumn('term_condition');

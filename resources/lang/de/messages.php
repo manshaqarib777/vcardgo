@@ -712,6 +712,7 @@ array (
         'appointments'      => 'Termine',
         'seo'               => 'SEO',
         'blog'              => 'Bloggen',
+        'qr_code' => 'Qr Code',
 ),
 
     'front_cms' =>

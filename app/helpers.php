@@ -710,6 +710,12 @@ function checkFeature($partName)
     if ($partName == 'inspection_custom_idea' && !$currentPlan->planFeature->inspection_custom_idea) {
         return false;
     }
+    if ($partName == 'inspection_custom_idea_new' && !$currentPlan->planFeature->inspection_custom_idea_new) {
+        return false;
+    }
+    if ($partName == 'custom_id' && !$currentPlan->planFeature->custom_id) {
+        return false;
+    }
     if ($partName == 'parking_custom_idea' && !$currentPlan->planFeature->parking_custom_idea) {
         return false;
     }
@@ -794,6 +800,12 @@ function checkFeatureVcard($partName)
         return false;
     }
     if ($partName == 'inspection_custom_idea' && !$currentPlan->planFeature->inspection_custom_idea) {
+        return false;
+    }
+    if ($partName == 'inspection_custom_idea_new' && !$currentPlan->planFeature->inspection_custom_idea_new) {
+        return false;
+    }
+    if ($partName == 'custom_id' && !$currentPlan->planFeature->custom_id) {
         return false;
     }
     if ($partName == 'parking_custom_idea' && !$currentPlan->planFeature->parking_custom_idea) {

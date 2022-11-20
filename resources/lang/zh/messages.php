@@ -704,6 +704,7 @@
     'appointments' => '約會',
     'seo' => '搜索引擎優化',
     'blog' => '博客',
+    'qr_code' => 'Qr Code',
   ),
   'front_cms' =>
   array (

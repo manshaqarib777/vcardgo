@@ -392,6 +392,7 @@
                 </div>
             @endif
             {{--Qrcode--}}
+            @if(checkFeature('qr_code'))
             <div class="container mt-4 mb-13">
                 <div class="main-Qr-section mb-5">
                     <div class="qr-header-title">

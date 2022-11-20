@@ -703,6 +703,7 @@
     'appointments' => 'Compromissos',
     'seo' => 'SEO',
     'blog' => 'Blogue',
+    'qr_code' => 'Qr Code',
   ),
   'front_cms' =>
   array (

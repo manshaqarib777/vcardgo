@@ -57,10 +57,12 @@
  setTimeout(() => {
     $('#registration_country').trigger('change');
     $('#inspection_country').trigger('change');
+    $('#inspection_country_new').trigger('change');
     $('#parking_country').trigger('change');
     setTimeout(() => {
         $('#registration_state').trigger('change');
         $('#inspection_state').trigger('change');
+        $('#inspection_state_new').trigger('change');
         $('#parking_state').trigger('change');
     }, 200);
  }, 100);
@@ -154,7 +156,50 @@
 
         });
     });
-
+    $('#inspection_country_new').change(function() {
+        var id = $(this).val();
+        $.get("{{ route('get-states-ajax') }}?country_id=" + id, function(data) {
+            var state = "{{isset($vcard) ? $vcard->inspection_state_new : null}}";
+            $('#inspection_state_new').empty();
+            $('#inspection_city_new').empty();
+            $('#inspection_state_new').append(
+                '<option value=""></option>');
+            for (let index = 0; index < data.length; index++) {
+                const element = data[index];
+                var selected = "";
+                if(state == element['id'] )
+                {
+                    selected = "selected";
+                }
+                $('#inspection_state_new').append('<option value="' +
+                    element['id'] + '" '+selected+'>' + element['name'] + '</option>');
+            }
+    
+    
+        });
+    });
+    $('#inspection_state_new').change(function() {
+        var id = $(this).val();
+    
+        $.get("{{ route('get-cities-ajax') }}?state_id=" + id, function(data) {
+            var city = "{{isset($vcard) ? $vcard->inspection_city_new : null}}";
+            $('#inspection_city_new').empty();
+            $('#inspection_city_new').append(
+                '<option value=""></option>');
+            for (let index = 0; index < data.length; index++) {
+                const element = data[index];
+                var selected = "";
+                if(city == element['id'] )
+                {
+                    selected = "selected";
+                }
+                $('#inspection_city_new').append('<option value="' +
+                    element['id'] + '" '+selected+'>' + element['name'] + '</option>');
+            }
+    
+    
+        });
+    });
 
     $('#parking_country').change(function() {
         var id = $(this).val();

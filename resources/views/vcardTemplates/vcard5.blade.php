@@ -54,9 +54,9 @@
                 @endif
                 @if($vcard->font_size)
                     div > h4 {
-                font-size: {{$vcard->font_size}}px !important;
-            }
-            @endif
+                        font-size: {{$vcard->font_size}}px !important;
+                    }
+                @endif
             @endif
             @if(isset(checkFeature('advanced')->custom_css))
                 {!! $vcard->custom_css !!}
@@ -390,6 +390,7 @@
                     </div>
                 </div>
             </div>
+        @endif
 
             {{--business-hour--}}
             @if($vcard->businessHours->count() && checkFeature('business_hours'))

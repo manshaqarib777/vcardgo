@@ -239,6 +239,20 @@
         <div class="col-lg-3 col-md-4 col-6 mb-5 col-xs">
             <label class="form-label form-check">
                 <input class="form-check-input feature mx-2" type="checkbox" value="1"
+                       name="inspection_custom_idea_new" {{ (isset($feature) && $feature->inspection_custom_idea_new == 1) ? 'checked' : '' }}/>
+                {{ __('messages.vcard.inspection_custom_idea_new') }}
+            </label>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6 mb-5 col-xs">
+            <label class="form-label form-check">
+                <input class="form-check-input feature mx-2" type="checkbox" value="1"
+                       name="custom_id" {{ (isset($feature) && $feature->custom_id == 1) ? 'checked' : '' }}/>
+                {{ __('messages.vcard.custom_id') }}
+            </label>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6 mb-5 col-xs">
+            <label class="form-label form-check">
+                <input class="form-check-input feature mx-2" type="checkbox" value="1"
                        name="parking_custom_idea" {{ (isset($feature) && $feature->parking_custom_idea == 1) ? 'checked' : '' }}/>
                 {{ __('messages.vcard.parking_custom_idea') }}
             </label>

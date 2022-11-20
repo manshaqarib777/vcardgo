@@ -704,6 +704,7 @@
     'appointments' => 'تعيينات',
     'seo' => 'SEO',
     'blog' => 'مدونة او مذكرة',
+    'qr_code' => 'Qr Code',
   ),
   'front_cms' =>
   array (

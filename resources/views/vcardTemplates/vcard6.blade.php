@@ -425,43 +425,44 @@
                 </div>
             @endif
             {{--Qr code--}}
-        @if(checkFeature('qr_code'))
-            <div class="main-qrcode position-relative pt-8">
-                <img src="{{asset('assets/img/vcard6/orengcircle.png')}}"
-                     class="img-fluid position-absolute orengcircle-img"/>
-                <img src="{{asset('assets/img/vcard6/uptriangle.png')}}"
-                     class="img-fluid position-absolute uptriangle-img"/>
-                <img src="{{asset('assets/img/vcard6/halfcircle.png')}}"
-                     class="img-fluid position-absolute halfcircle-img"/>
-                <img src="{{asset('assets/img/vcard6/orengtriangle.png')}}"
-                     class="img-fluid position-absolute orengtriangle-img"/>
-                <img src="{{asset('assets/img/vcard6/halfblue.png')}}" class="img-fluid position-absolute circle2-img"/>
+            @if(checkFeature('qr_code'))
+                <div class="main-qrcode position-relative pt-8">
+                    <img src="{{asset('assets/img/vcard6/orengcircle.png')}}"
+                        class="img-fluid position-absolute orengcircle-img"/>
+                    <img src="{{asset('assets/img/vcard6/uptriangle.png')}}"
+                        class="img-fluid position-absolute uptriangle-img"/>
+                    <img src="{{asset('assets/img/vcard6/halfcircle.png')}}"
+                        class="img-fluid position-absolute halfcircle-img"/>
+                    <img src="{{asset('assets/img/vcard6/orengtriangle.png')}}"
+                        class="img-fluid position-absolute orengtriangle-img"/>
+                    <img src="{{asset('assets/img/vcard6/halfblue.png')}}" class="img-fluid position-absolute circle2-img"/>
 
-                <div class="container mt-3 mb-5">
-                    <div class="main-Qr-section mb-5">
-                        <div>
-                            <h4 class="mb-4 text-center heading-title">{{ __('messages.vcard.qr_code') }}</h4>
-                        </div>
-                        <div class="row d-flex align-items-center">
-                            <div class="col-lg-6">
-                                <div class="text-center mb-4">
-                                    {!! QrCode::size(130)->format('svg')->generate(Request::url()); !!}
-                                </div>
+                    <div class="container mt-3 mb-5">
+                        <div class="main-Qr-section mb-5">
+                            <div>
+                                <h4 class="mb-4 text-center heading-title">{{ __('messages.vcard.qr_code') }}</h4>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="text-center">
-                                    <img src="{{$vcard->profile_url}}"
-                                         class="qr-logo rounded-circle"/>
-                                    <div class="mt-4">
-                                        <a class="btn btn-lg Qr-btn" id="qr-code-btn"
-                                           download="qr_code.png">{{ __('messages.vcard.download_my_qr_code') }}</a>
+                            <div class="row d-flex align-items-center">
+                                <div class="col-lg-6">
+                                    <div class="text-center mb-4">
+                                        {!! QrCode::size(130)->format('svg')->generate(Request::url()); !!}
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="text-center">
+                                        <img src="{{$vcard->profile_url}}"
+                                            class="qr-logo rounded-circle"/>
+                                        <div class="mt-4">
+                                            <a class="btn btn-lg Qr-btn" id="qr-code-btn"
+                                            download="qr_code.png">{{ __('messages.vcard.download_my_qr_code') }}</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @endif
 
             {{--business hour --}}
             @if($vcard->businessHours->count() && checkFeature('business_hours'))
@@ -480,12 +481,12 @@
                                 <div class="col-sm-8 text-light hour-info">
                                     @foreach($vcard->businessHours as $day)
                                         <p class=" d-flex justify-content-center">{{ strtoupper(__('messages.business.'.\App\Models\BusinessHour::DAY_OF_WEEK[$day->day_of_week])).':' }}<span>{{ $day->start_time.' - '.$day->end_time }}</span></p>
-{{--                                        <div class="d-flex justify-content-center">--}}
-{{--                                           <span class="me-2">--}}
-{{--                                    {{ strtoupper(__('messages.business.'.\App\Models\BusinessHour::DAY_OF_WEEK[$day->day_of_week])).':' }}--}}
-{{--                                </span>--}}
-{{--                                            <span>{{ $day->start_time.' - '.$day->end_time }}</span>--}}
-{{--                                        </div>--}}
+                                        <div class="d-flex justify-content-center">
+                                           <span class="me-2">
+                                                {{ strtoupper(__('messages.business.'.\App\Models\BusinessHour::DAY_OF_WEEK[$day->day_of_week])).':' }}
+                                            </span>
+                                            <span>{{ $day->start_time.' - '.$day->end_time }}</span>
+                                        </div>
                                     @endforeach
                                 </div>
 

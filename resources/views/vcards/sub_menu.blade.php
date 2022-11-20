@@ -5,6 +5,14 @@
             {{ __('messages.vcard.basic_details') }}
         </a>
     </li>
+    @if(checkFeatureVcard('custom_id'))
+    <li class="nav-item position-relative me-7 mb-3">
+        <a class="nav-link p-0  {{(isset($partName) && $partName == 'custom_id') ? 'active' : ''}}"
+        href="{{route('vcards.edit',$vcard->id).'?part=custom_id'}}" style="font-size: 15px">
+            {{ __('messages.vcard.custom_id') }}
+        </a>
+    </li>
+    @endif
     <li class="nav-item position-relative me-7 mb-3">
         <a class="nav-link p-0 {{(isset($partName) && $partName == 'templates') ? 'active' : ''}}"
            href="{{route('vcards.edit',$vcard->id).'?part=templates'}}">
@@ -127,6 +135,14 @@
                                 </a>
                         </li>
                         @endif
+                        @if(checkFeatureVcard('inspection_custom_idea_new'))
+                            <li>
+                                <a class="dropdown-item text-gray-900  {{(isset($partName) && $partName == 'inspection_custom_idea_new') ? 'active' : ''}}"
+                                    href="{{route('vcards.edit',$vcard->id).'?part=inspection_custom_idea_new'}}" style="font-size: 15px">
+                                    {{ __('messages.vcard.inspection_custom_idea_new') }}
+                                </a>
+                            </li>
+                        @endif
                         @if(checkFeatureVcard('parking_custom_idea'))
                         <li>
                                 <a class="dropdown-item text-gray-900  {{(isset($partName) && $partName == 'parking_custom_idea') ? 'active' : ''}}"
@@ -206,6 +222,14 @@
                     {{ __('messages.vcard.inspection_custom_idea') }}
                 </a>
             </li>
+        @endif
+        @if(checkFeatureVcard('inspection_custom_idea_new'))
+        <li class="nav-item position-relative me-7 mb-3">
+            <a class="nav-link p-0  {{(isset($partName) && $partName == 'inspection_custom_idea_new') ? 'active' : ''}}"
+            href="{{route('vcards.edit',$vcard->id).'?part=inspection_custom_idea_new'}}" style="font-size: 15px">
+                {{ __('messages.vcard.inspection_custom_idea_new') }}
+            </a>
+        </li>
         @endif
         @if(checkFeatureVcard('parking_custom_idea'))
             <li class="nav-item position-relative me-7 mb-3">

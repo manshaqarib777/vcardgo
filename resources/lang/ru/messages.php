@@ -704,6 +704,7 @@
     'appointments' => 'Назначения',
     'seo' => 'SEO',
     'blog' => 'Блог',
+    'qr_code' => 'Qr Code',
   ),
   'front_cms' =>
   array (

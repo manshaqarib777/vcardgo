@@ -701,6 +701,7 @@
     'appointments' => 'Rendez-vous',
     'seo' => 'référencement',
     'blog' => 'Blog',
+    'qr_code' => 'Qr Code',
   ),
   'front_cms' =>
   array (

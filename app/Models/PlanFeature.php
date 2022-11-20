@@ -89,6 +89,8 @@ class PlanFeature extends Model
         'blog',
         'registration_custom_idea',
         'inspection_custom_idea',
+        'inspection_custom_idea_new',
+        'custom_id',
         'parking_custom_idea',
         'privacy_policy',
         'term_condition',

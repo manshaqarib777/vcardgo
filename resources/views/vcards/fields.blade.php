@@ -140,359 +140,7 @@
                 {{ Form::label('dob', __('messages.vcard.date_of_birth') . ':', ['class' => 'form-label']) }}
                 {{ Form::text('dob', isset($vcard) ? $vcard->dob : null, ['class' => 'form-control bg-white', 'placeholder' => __('messages.form.DOB')]) }}
             </div>
-            <div class="col-lg-6 mb-7">
-                {{ Form::label('issue_date', __('messages.vcard.issue_date') . ':', ['class' => 'form-label']) }}
-                {{ Form::text('issue_date', isset($vcard) ? $vcard->issue_date : null, ['class' => 'form-control bg-white', 'placeholder' => __('messages.form.issue_date')]) }}
-            </div>
-            <div class="col-lg-6 mb-7">
-                {{ Form::label('expire_date', __('messages.vcard.expire_date') . ':', ['class' => 'form-label']) }}
-                {{ Form::text('expire_date', isset($vcard) ? $vcard->expire_date : null, ['class' => 'form-control bg-white', 'placeholder' => __('messages.form.expire_date')]) }}
-            </div>
-            <div class="col-lg-6 mb-7">
-                {{ Form::label('company', __('messages.vcard.company') . ':', ['class' => 'form-label']) }}
-                {{ Form::text('company', isset($vcard) ? $vcard->company : null, ['class' => 'form-control', 'placeholder' => __('messages.form.company')]) }}
-            </div>
 
-            <div class="col-lg-6 mb-7">
-                {{ Form::label('hair_color', __('messages.vcard.hair_color') . ':', ['class' => 'form-label']) }}
-                {{ Form::text('hair_color', isset($vcard) ? $vcard->hair_color : null, ['class' => 'form-control', 'placeholder' => __('messages.form.hair_color')]) }}
-            </div>
-            <div class="col-md-6">
-                <div class="form-group mb-7">
-                    {{ Form::label('made_by_url', __('messages.vcard.made_by_url') . ':', ['class' => 'form-label required']) }}
-                    {{ Form::text('made_by_url', isset($vcard) ? $vcard->made_by_url : null, ['class' => 'form-control', 'placeholder' => __('messages.form.made_by_url'), '']) }}
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group mb-7">
-                    {{ Form::label('eye_color', __('messages.vcard.eye_color') . ':', ['class' => 'form-label required']) }}
-                    {{ Form::text('eye_color', isset($vcard) ? $vcard->eye_color : null, ['class' => 'form-control', 'placeholder' => __('messages.form.eye_color'), '']) }}
-                </div>
-            </div>
-            <div class="col-lg-6 mb-7">
-                <div class="d-flex">
-                    {{ Form::label('sex', __('messages.vcard.sex') . ':', ['class' => 'form-label']) }}
-
-                </div>
-                <div class="form-group">
-
-                    {{ Form::select('sex', ['male', 'female', 'other'], isset($vcard) ? $vcard->sex : null, ['class' => 'form-control', 'data-control' => 'select2']) }}
-                </div>
-            </div>
-            <div class="col-lg-6 mb-7">
-                <div class="d-flex">
-                    {{ Form::label('type', __('messages.vcard.type') . ':', ['class' => 'form-label']) }}
-
-                </div>
-                <div class="form-group">
-
-                    {{ Form::select('type', ['A', 'B', 'AB', 'O'], isset($vcard) ? $vcard->type : null, ['class' => 'form-control', 'data-control' => 'select2']) }}
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group mb-7">
-                    {{ Form::label('height', __('messages.vcard.height') . ':', ['class' => 'form-label required']) }}
-                    {{ Form::text('height', isset($vcard) ? $vcard->height : null, ['class' => 'form-control', 'placeholder' => __('messages.form.height'), '']) }}
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group mb-7">
-                    {{ Form::label('weight', __('messages.vcard.weight') . ':', ['class' => 'form-label required']) }}
-                    {{ Form::text('weight', isset($vcard) ? $vcard->weight : null, ['class' => 'form-control', 'placeholder' => __('messages.form.weight'), '']) }}
-                </div>
-            </div>
-            <div class="col-lg-6 mb-7">
-                {{ Form::label('rstr', __('messages.vcard.rstr') . ':', ['class' => 'form-label']) }}
-                {{ Form::text('rstr', isset($vcard) ? $vcard->rstr : null, ['class' => 'form-control', 'placeholder' => __('messages.form.rstr')]) }}
-            </div>
-            <div class="col-lg-6 mb-7">
-                {{ Form::label('address', __('messages.vcard.address') . ':', ['class' => 'form-label required']) }}
-                {!! Form::textarea('address', isset($vcard) ? $vcard->address : null, [
-                    'class' => 'form-control',
-                    'placeholder' => __('messages.form.address'),
-                    '',
-                    'rows' => '5',
-                ]) !!}
-            </div>
-            <div class="col-lg-6 mb-7">
-                <label for="category" class="form-label">{{ __('messages.vcard.category') }}:</label>
-                <div class="row">
-                    <div class="col-2">
-                        <div class="btn-group px-1 btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-primary">
-                                <input type="radio" name="category" value="A"
-                                    {{ (isset($vcard) && $vcard->category == 'A') ? 'checked' : null }}> A
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="btn-group px-1 btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-primary">
-                                <input type="radio" name="category" value="B"
-                                    {{ (isset($vcard) && $vcard->category == 'B') ? 'checked' : null }}> B
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="btn-group px-1 btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-primary">
-                                <input type="radio" name="category" value="C"
-                                    {{ (isset($vcard) && $vcard->category == 'C') ? 'checked' : null }}> C
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="btn-group px-1 btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-primary">
-                                <input type="radio" name="category" value="D"
-                                    {{ (isset($vcard) && $vcard->category == 'D') ? 'checked' : null }}> D
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="btn-group px-1 btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-primary">
-                                <input type="radio" name="category" value="E"
-                                    {{ (isset($vcard) && $vcard->category == 'E') ? 'checked' : null }}> E
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-12">
-                <h4 class="text-danger mb-4">ID Back SIDE</h4>
-            </div>
-            <div class="col-lg-3 col-sm-6 mb-7">
-                <div class="mb-3" io-image-input="true">
-                    <label for="exampleInputIDBack" class="form-label">{{ __('messages.vcard.id_back').':' }}</label>
-                    <div class="d-block">
-                        <div class="image-picker">
-                            <div class="image previewImage" id="exampleInputIDBack"
-                                 style="background-image: url({{ !empty($vcard->id_back) ? $vcard->id_back : "" }})"></div>
-                            <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
-                                  data-placement="top" data-bs-original-title="{{__('messages.tooltip.id_back')}}">
-                                        <label>
-                                        <i class="fa-solid fa-pen" id="idBackIcon"></i>
-                                            <input type="file" id="id_back" name="id_back"
-                                                   class="image-upload d-none" accept="image/*"/>
-                                        </label>
-                                    </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-text text-danger" id="idBackValidationErrors"></div>
-            </div>
-            <div class="col-lg-3 col-sm-6 mb-7">
-                <div class="mb-3" io-image-input="true">
-                    <label for="exampleInputIDBack2" class="form-label">{{ __('messages.vcard.id_back2').':' }}</label>
-                    <div class="d-block">
-                        <div class="image-picker">
-                            <div class="image previewImage" id="exampleInputIDBack2"
-                                 style="background-image: url({{ !empty($vcard->id_back2) ? $vcard->id_back2 : "" }})"></div>
-                            <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
-                                  data-placement="top" data-bs-original-title="{{__('messages.tooltip.id_back2')}}">
-                                        <label>
-                                        <i class="fa-solid fa-pen" id="idBack2Icon"></i>
-                                            <input type="file" id="id_back2" name="id_back2"
-                                                   class="image-upload d-none" accept="image/*"/>
-                                        </label>
-                                    </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-text text-danger" id="idBack2ValidationErrors"></div>
-            </div>
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group mb-7">
-                            {{ Form::label('barcode_url', __('messages.vcard.barcode_url') . ':', ['class' => 'form-label required']) }}
-                            {{ Form::text('barcode_url', isset($vcard) ? $vcard->barcode_url : null, ['class' => 'form-control', 'placeholder' => __('messages.form.barcode_url'), '']) }}
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-7">
-                        {{ Form::label('qrcode_url', __('messages.vcard.qrcode_url') . ':', ['class' => 'form-label']) }}
-                        {{ Form::text('qrcode_url', isset($vcard) ? $vcard->qrcode_url : null, ['class' => 'form-control', 'placeholder' => __('messages.form.qrcode_url')]) }}
-                    </div>
-                    <div class="col-lg-6 col-sm-6 mb-7">
-                        <div class="mb-3" io-image-input="true">
-                            <label for="exampleInputBarcode" class="form-label">{{ __('messages.vcard.barcode').':' }}</label>
-                            <div class="d-block">
-                                <div class="image-picker">
-                                    <div class="image previewImage" id="exampleInputBarcode"
-                                         style="background-image: url({{ !empty($vcard->barcode) ? $vcard->barcode : "" }})"></div>
-                                    <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
-                                          data-placement="top" data-bs-original-title="{{__('messages.tooltip.barcode')}}">
-                                                <label>
-                                                <i class="fa-solid fa-pen" id="barcodeIcon"></i>
-                                                    <input type="file" id="barcode" name="barcode"
-                                                           class="image-upload d-none" accept="image/*"/>
-                                                </label>
-                                            </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-text text-danger" id="barcodeValidationErrors"></div>
-                    </div>
-                    <div class="col-lg-6 col-sm-6 mb-7">
-                        <div class="mb-3" io-image-input="true">
-                            <label for="exampleInputQrcode" class="form-label">{{ __('messages.vcard.qrcode').':' }}</label>
-                            <div class="d-block">
-                                <div class="image-picker">
-                                    <div class="image previewImage" id="exampleInputQrcode"
-                                         style="background-image: url({{ !empty($vcard->qrcode) ? $vcard->qrcode : "" }})"></div>
-                                    <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
-                                          data-placement="top" data-bs-original-title="{{__('messages.tooltip.qrcode')}}">
-                                                <label>
-                                                <i class="fa-solid fa-pen" id="qrcodeIcon"></i>
-                                                    <input type="file" id="qrcode" name="qrcode"
-                                                           class="image-upload d-none" accept="image/*"/>
-                                                </label>
-                                            </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-text text-danger" id="qrcodeValidationErrors"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-12">
-                <h4 class="text-danger mb-4">Categories Texts</h4>
-            </div>
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-lg-2 col-sm-6 mb-7">
-                        <div class="mb-3" io-image-input="true">
-                            <label for="exampleInputCategoryA" class="form-label">{{ __('messages.vcard.category_a').':' }}</label>
-                            <div class="d-block">
-                                <div class="image-picker">
-                                    <div class="image previewImage" id="exampleInputCategoryA"
-                                         style="background-image: url({{ !empty($vcard->category_a) ? $vcard->category_a : "" }})"></div>
-                                    <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
-                                          data-placement="top" data-bs-original-title="{{__('messages.tooltip.category_a')}}">
-                                                <label>
-                                                <i class="fa-solid fa-pen" id="categoryAIcon"></i>
-                                                    <input type="file" id="category_a" name="category_a"
-                                                           class="image-upload d-none" accept="image/*"/>
-                                                </label>
-                                            </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-text text-danger" id="categoryAValidationErrors"></div>
-                    </div>
-                    <div class="col-lg-2 col-sm-6 mb-7">
-                        <div class="mb-3" io-image-input="true">
-                            <label for="exampleInputCategoryB" class="form-label">{{ __('messages.vcard.category_b').':' }}</label>
-                            <div class="d-block">
-                                <div class="image-picker">
-                                    <div class="image previewImage" id="exampleInputCategoryB"
-                                         style="background-image: url({{ !empty($vcard->category_b) ? $vcard->category_b : "" }})"></div>
-                                    <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
-                                          data-placement="top" data-bs-original-title="{{__('messages.tooltip.category_b')}}">
-                                                <label>
-                                                <i class="fa-solid fa-pen" id="categoryBIcon"></i>
-                                                    <input type="file" id="category_b" name="category_b"
-                                                           class="image-upload d-none" accept="image/*"/>
-                                                </label>
-                                            </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-text text-danger" id="categoryBValidationErrors"></div>
-                    </div>
-                    <div class="col-lg-2 col-sm-6 mb-7">
-                        <div class="mb-3" io-image-input="true">
-                            <label for="exampleInputCategoryC" class="form-label">{{ __('messages.vcard.category_c').':' }}</label>
-                            <div class="d-block">
-                                <div class="image-picker">
-                                    <div class="image previewImage" id="exampleInputCategoryC"
-                                         style="background-image: url({{ !empty($vcard->category_c) ? $vcard->category_c : "" }})"></div>
-                                    <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
-                                          data-placement="top" data-bs-original-title="{{__('messages.tooltip.category_c')}}">
-                                                <label>
-                                                <i class="fa-solid fa-pen" id="categoryCIcon"></i>
-                                                    <input type="file" id="category_c" name="category_c"
-                                                           class="image-upload d-none" accept="image/*"/>
-                                                </label>
-                                            </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-text text-danger" id="categoryCValidationErrors"></div>
-                    </div>
-                    <div class="col-lg-2 col-sm-6 mb-7">
-                        <div class="mb-3" io-image-input="true">
-                            <label for="exampleInputCategoryD" class="form-label">{{ __('messages.vcard.category_d').':' }}</label>
-                            <div class="d-block">
-                                <div class="image-picker">
-                                    <div class="image previewImage" id="exampleInputCategoryD"
-                                         style="background-image: url({{ !empty($vcard->category_d) ? $vcard->category_d : "" }})"></div>
-                                    <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
-                                          data-placement="top" data-bs-original-title="{{__('messages.tooltip.category_d')}}">
-                                                <label>
-                                                <i class="fa-solid fa-pen" id="categoryDIcon"></i>
-                                                    <input type="file" id="category_d" name="category_d"
-                                                           class="image-upload d-none" accept="image/*"/>
-                                                </label>
-                                            </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-text text-danger" id="categoryDValidationErrors"></div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 mb-7">
-                        <div class="mb-3" io-image-input="true">
-                            <label for="exampleInputCategoryE" class="form-label">{{ __('messages.vcard.category_e').':' }}</label>
-                            <div class="d-block">
-                                <div class="image-picker">
-                                    <div class="image previewImage" id="exampleInputCategoryE"
-                                         style="background-image: url({{ !empty($vcard->category_e) ? $vcard->category_e : "" }})"></div>
-                                    <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
-                                          data-placement="top" data-bs-original-title="{{__('messages.tooltip.category_e')}}">
-                                                <label>
-                                                <i class="fa-solid fa-pen" id="categoryEIcon"></i>
-                                                    <input type="file" id="category_e" name="category_e"
-                                                           class="image-upload d-none" accept="image/*"/>
-                                                </label>
-                                            </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-text text-danger" id="categoryEValidationErrors"></div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group mb-7">
-                            {{ Form::label('category_a_text', __('messages.vcard.category_a_text') . ':', ['class' => 'form-label required']) }}
-                            {{ Form::text('category_a_text', isset($vcard) ? $vcard->category_a_text : null, ['class' => 'form-control', 'placeholder' => __('messages.form.category_a_text'), '']) }}
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group mb-7">
-                            {{ Form::label('category_b_text', __('messages.vcard.category_b_text') . ':', ['class' => 'form-label required']) }}
-                            {{ Form::text('category_b_text', isset($vcard) ? $vcard->category_b_text : null, ['class' => 'form-control', 'placeholder' => __('messages.form.category_b_text'), '']) }}
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group mb-7">
-                            {{ Form::label('category_c_text', __('messages.vcard.category_c_text') . ':', ['class' => 'form-label required']) }}
-                            {{ Form::text('category_c_text', isset($vcard) ? $vcard->category_c_text : null, ['class' => 'form-control', 'placeholder' => __('messages.form.category_c_text'), '']) }}
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group mb-7">
-                            {{ Form::label('category_d_text', __('messages.vcard.category_d_text') . ':', ['class' => 'form-label required']) }}
-                            {{ Form::text('category_d_text', isset($vcard) ? $vcard->category_d_text : null, ['class' => 'form-control', 'placeholder' => __('messages.form.category_d_text'), '']) }}
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group mb-7">
-                            {{ Form::label('category_e_text', __('messages.vcard.category_e_text') . ':', ['class' => 'form-label required']) }}
-                            {{ Form::text('category_e_text', isset($vcard) ? $vcard->category_e_text : null, ['class' => 'form-control', 'placeholder' => __('messages.form.category_e_text'), '']) }}
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="col-lg-6 mb-7">
                 <div class="d-flex">
                     {{ Form::label('default_language', __('messages.setting.default_language') . ':', ['class' => 'form-label']) }}
@@ -1140,6 +788,441 @@
         </div>
 @endif
 
+@if ($partName == 'inspection_custom_idea_new')
+    <div class="row">
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Address', __('messages.vcard.inspection_address_new') . ':', ['class' => 'form-label']) }}
+            {{ Form::text('inspection_address_new', isset($vcard) ? $vcard->inspection_address_new : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_address_new'), 'required']) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Chassis No.', __('messages.vcard.inspection_chassis_no_new') . ':', ['class' => 'form-label']) }}
+            {{ Form::text('inspection_chassis_no_new', isset($vcard) ? $vcard->inspection_chassis_no_new : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_chassis_no_new')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Vin No.', __('messages.vcard.inspection_vin_no_new') . ':', ['class' => 'form-label']) }}
+            {{ Form::text('inspection_vin_no_new', isset($vcard) ? $vcard->inspection_vin_no_new : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_vin_no_new')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Vehicle Model', __('messages.vcard.inspection_vehicle_model_new') . ':', ['class' => 'form-label']) }}
+            {{ Form::text('inspection_vehicle_model_new', isset($vcard) ? $vcard->inspection_vehicle_model_new : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_vehicle_model_new')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Vehicle Color', __('messages.vcard.inspection_vehicle_color_new') . ':', ['class' => 'form-label']) }}
+            {{ Form::text('inspection_vehicle_color_new', isset($vcard) ? $vcard->inspection_vehicle_color_new : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_vehicle_color_new')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Vehicle Year', __('messages.vcard.inspection_vehicle_year_new') . ':', ['class' => 'form-label']) }}
+            {{ Form::text('inspection_vehicle_year_new', isset($vcard) ? $vcard->inspection_vehicle_year_new : null, ['class' => 'form-control datepicker', 'placeholder' => __('messages.form.inspection_vehicle_year_new')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Plate No.', __('messages.vcard.inspection_plate_no_new') . ':', ['class' => 'form-label']) }}
+            {{ Form::text('inspection_plate_no_new', isset($vcard) ? $vcard->inspection_plate_no_new : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_plate_no_new')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Contact', __('messages.vcard.inspection_contact_new') . ':', ['class' => 'form-label']) }}
+            {{ Form::text('inspection_contact_new', isset($vcard) ? $vcard->inspection_contact_new : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_contact_new')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('AR No.', __('messages.vcard.inspection_ar_no_new') . ':', ['class' => 'form-label']) }}
+            {{ Form::text('inspection_ar_no_new', isset($vcard) ? $vcard->inspection_ar_no_new : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_ar_no_new')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Country', __('messages.vcard.inspection_country_new') . ':', ['class' => 'form-label required']) }}
+            {{ Form::select('inspection_country_new', getCountry(), isset($vcard) ? $vcard->inspection_country_new : null, ['id' => 'inspection_country_new', 'class' => 'form-select', 'required', 'placeholder' => __('messages.form.select_country'), 'data-control' => 'select2']) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('State', __('messages.vcard.inspection_state_new') . ':', ['class' => 'form-label required']) }}
+            {{ Form::select('inspection_state_new', [], isset($vcard) ? $vcard->inspection_state_new : null, ['id' => 'inspection_state_new', 'class' => 'form-select', 'required', 'placeholder' => __('messages.form.select_state'), 'data-control' => 'select2']) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('City', __('messages.vcard.inspection_city_new') . ':', ['class' => 'form-label required']) }}
+            {{ Form::select('inspection_city_new', [], isset($vcard) ? $vcard->inspection_city_new : null, ['id' => 'inspection_city_new', 'class' => 'form-select', 'required', 'placeholder' => __('messages.form.select_city'), 'data-control' => 'select2']) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('District', __('messages.vcard.inspection_district_new') . ':', ['class' => 'form-label']) }}
+            {{ Form::text('inspection_district_new', isset($vcard) ? $vcard->inspection_district_new : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_district_new')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Control Technique', __('messages.vcard.inspection_control_technique_new') . ':', ['class' => 'form-label']) }}
+            {{ Form::text('inspection_control_technique_new', isset($vcard) ? $vcard->inspection_control_technique_new : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_control_technique_new')]) }}
+        </div>
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('Date of Inspection', __('messages.vcard.inspection_date_of_inspection_new') . ':', ['class' => 'form-label']) }}
+            {{ Form::date('inspection_date_of_inspection_new', isset($vcard) ? $vcard->inspection_date_of_inspection_new : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_date_of_inspection_new')]) }}
+        </div>
+
+        <div class="col-lg-12 d-flex">
+            <button type="submit" class="btn btn-primary me-3">
+                {{ __('messages.common.save') }}
+            </button>
+            <a href="{{ route('vcards.index') }}"
+                class="btn btn-secondary">{{ __('messages.common.discard') }}</a>
+        </div>
+@endif
+@if ($partName == 'custom_id')
+<div class="row">
+    <div class="col-lg-6 mb-7">
+        {{ Form::label('issue_date', __('messages.vcard.issue_date') . ':', ['class' => 'form-label']) }}
+        {{ Form::text('issue_date', isset($vcard) ? $vcard->issue_date : null, ['class' => 'form-control bg-white', 'placeholder' => __('messages.form.issue_date')]) }}
+    </div>
+    <div class="col-lg-6 mb-7">
+        {{ Form::label('expire_date', __('messages.vcard.expire_date') . ':', ['class' => 'form-label']) }}
+        {{ Form::text('expire_date', isset($vcard) ? $vcard->expire_date : null, ['class' => 'form-control bg-white', 'placeholder' => __('messages.form.expire_date')]) }}
+    </div>
+    <div class="col-lg-6 mb-7">
+        {{ Form::label('company', __('messages.vcard.company') . ':', ['class' => 'form-label']) }}
+        {{ Form::text('company', isset($vcard) ? $vcard->company : null, ['class' => 'form-control', 'placeholder' => __('messages.form.company')]) }}
+    </div>
+
+    <div class="col-lg-6 mb-7">
+        {{ Form::label('hair_color', __('messages.vcard.hair_color') . ':', ['class' => 'form-label']) }}
+        {{ Form::text('hair_color', isset($vcard) ? $vcard->hair_color : null, ['class' => 'form-control', 'placeholder' => __('messages.form.hair_color')]) }}
+    </div>
+    <div class="col-md-6">
+        <div class="form-group mb-7">
+            {{ Form::label('made_by_url', __('messages.vcard.made_by_url') . ':', ['class' => 'form-label required']) }}
+            {{ Form::text('made_by_url', isset($vcard) ? $vcard->made_by_url : null, ['class' => 'form-control', 'placeholder' => __('messages.form.made_by_url'), '']) }}
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group mb-7">
+            {{ Form::label('eye_color', __('messages.vcard.eye_color') . ':', ['class' => 'form-label required']) }}
+            {{ Form::text('eye_color', isset($vcard) ? $vcard->eye_color : null, ['class' => 'form-control', 'placeholder' => __('messages.form.eye_color'), '']) }}
+        </div>
+    </div>
+    <div class="col-lg-6 mb-7">
+        <div class="d-flex">
+            {{ Form::label('sex', __('messages.vcard.sex') . ':', ['class' => 'form-label']) }}
+
+        </div>
+        <div class="form-group">
+
+            {{ Form::select('sex', ['male', 'female', 'other'], isset($vcard) ? $vcard->sex : null, ['class' => 'form-control', 'data-control' => 'select2']) }}
+        </div>
+    </div>
+    <div class="col-lg-6 mb-7">
+        <div class="d-flex">
+            {{ Form::label('type', __('messages.vcard.type') . ':', ['class' => 'form-label']) }}
+
+        </div>
+        <div class="form-group">
+
+            {{ Form::select('type', ['A', 'B', 'AB', 'O'], isset($vcard) ? $vcard->type : null, ['class' => 'form-control', 'data-control' => 'select2']) }}
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group mb-7">
+            {{ Form::label('height', __('messages.vcard.height') . ':', ['class' => 'form-label required']) }}
+            {{ Form::text('height', isset($vcard) ? $vcard->height : null, ['class' => 'form-control', 'placeholder' => __('messages.form.height'), '']) }}
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group mb-7">
+            {{ Form::label('weight', __('messages.vcard.weight') . ':', ['class' => 'form-label required']) }}
+            {{ Form::text('weight', isset($vcard) ? $vcard->weight : null, ['class' => 'form-control', 'placeholder' => __('messages.form.weight'), '']) }}
+        </div>
+    </div>
+    <div class="col-lg-6 mb-7">
+        {{ Form::label('rstr', __('messages.vcard.rstr') . ':', ['class' => 'form-label']) }}
+        {{ Form::text('rstr', isset($vcard) ? $vcard->rstr : null, ['class' => 'form-control', 'placeholder' => __('messages.form.rstr')]) }}
+    </div>
+    <div class="col-lg-6 mb-7">
+        {{ Form::label('address', __('messages.vcard.address') . ':', ['class' => 'form-label required']) }}
+        {!! Form::textarea('address', isset($vcard) ? $vcard->address : null, [
+            'class' => 'form-control',
+            'placeholder' => __('messages.form.address'),
+            '',
+            'rows' => '5',
+        ]) !!}
+    </div>
+    <div class="col-lg-6 mb-7">
+        <label for="category" class="form-label">{{ __('messages.vcard.category') }}:</label>
+        <div class="row">
+            <div class="col-2">
+                <div class="btn-group px-1 btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-primary">
+                        <input type="radio" name="category" value="A"
+                            {{ (isset($vcard) && $vcard->category == 'A') ? 'checked' : null }}> A
+                    </label>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="btn-group px-1 btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-primary">
+                        <input type="radio" name="category" value="B"
+                            {{ (isset($vcard) && $vcard->category == 'B') ? 'checked' : null }}> B
+                    </label>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="btn-group px-1 btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-primary">
+                        <input type="radio" name="category" value="C"
+                            {{ (isset($vcard) && $vcard->category == 'C') ? 'checked' : null }}> C
+                    </label>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="btn-group px-1 btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-primary">
+                        <input type="radio" name="category" value="D"
+                            {{ (isset($vcard) && $vcard->category == 'D') ? 'checked' : null }}> D
+                    </label>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="btn-group px-1 btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-primary">
+                        <input type="radio" name="category" value="E"
+                            {{ (isset($vcard) && $vcard->category == 'E') ? 'checked' : null }}> E
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <h4 class="text-danger mb-4">ID Back SIDE</h4>
+    </div>
+    <div class="col-lg-3 col-sm-6 mb-7">
+        <div class="mb-3" io-image-input="true">
+            <label for="exampleInputIDBack" class="form-label">{{ __('messages.vcard.id_back').':' }}</label>
+            <div class="d-block">
+                <div class="image-picker">
+                    <div class="image previewImage" id="exampleInputIDBack"
+                         style="background-image: url({{ !empty($vcard->id_back) ? $vcard->id_back : "" }})"></div>
+                    <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
+                          data-placement="top" data-bs-original-title="{{__('messages.tooltip.id_back')}}">
+                                <label>
+                                <i class="fa-solid fa-pen" id="idBackIcon"></i>
+                                    <input type="file" id="id_back" name="id_back"
+                                           class="image-upload d-none" accept="image/*"/>
+                                </label>
+                            </span>
+                </div>
+            </div>
+        </div>
+        <div class="form-text text-danger" id="idBackValidationErrors"></div>
+    </div>
+    <div class="col-lg-3 col-sm-6 mb-7">
+        <div class="mb-3" io-image-input="true">
+            <label for="exampleInputIDBack2" class="form-label">{{ __('messages.vcard.id_back2').':' }}</label>
+            <div class="d-block">
+                <div class="image-picker">
+                    <div class="image previewImage" id="exampleInputIDBack2"
+                         style="background-image: url({{ !empty($vcard->id_back2) ? $vcard->id_back2 : "" }})"></div>
+                    <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
+                          data-placement="top" data-bs-original-title="{{__('messages.tooltip.id_back2')}}">
+                                <label>
+                                <i class="fa-solid fa-pen" id="idBack2Icon"></i>
+                                    <input type="file" id="id_back2" name="id_back2"
+                                           class="image-upload d-none" accept="image/*"/>
+                                </label>
+                            </span>
+                </div>
+            </div>
+        </div>
+        <div class="form-text text-danger" id="idBack2ValidationErrors"></div>
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group mb-7">
+                    {{ Form::label('barcode_url', __('messages.vcard.barcode_url') . ':', ['class' => 'form-label required']) }}
+                    {{ Form::text('barcode_url', isset($vcard) ? $vcard->barcode_url : null, ['class' => 'form-control', 'placeholder' => __('messages.form.barcode_url'), '']) }}
+                </div>
+            </div>
+            <div class="col-md-6 mb-7">
+                {{ Form::label('qrcode_url', __('messages.vcard.qrcode_url') . ':', ['class' => 'form-label']) }}
+                {{ Form::text('qrcode_url', isset($vcard) ? $vcard->qrcode_url : null, ['class' => 'form-control', 'placeholder' => __('messages.form.qrcode_url')]) }}
+            </div>
+            <div class="col-lg-6 col-sm-6 mb-7">
+                <div class="mb-3" io-image-input="true">
+                    <label for="exampleInputBarcode" class="form-label">{{ __('messages.vcard.barcode').':' }}</label>
+                    <div class="d-block">
+                        <div class="image-picker">
+                            <div class="image previewImage" id="exampleInputBarcode"
+                                 style="background-image: url({{ !empty($vcard->barcode) ? $vcard->barcode : "" }})"></div>
+                            <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
+                                  data-placement="top" data-bs-original-title="{{__('messages.tooltip.barcode')}}">
+                                        <label>
+                                        <i class="fa-solid fa-pen" id="barcodeIcon"></i>
+                                            <input type="file" id="barcode" name="barcode"
+                                                   class="image-upload d-none" accept="image/*"/>
+                                        </label>
+                                    </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-text text-danger" id="barcodeValidationErrors"></div>
+            </div>
+            <div class="col-lg-6 col-sm-6 mb-7">
+                <div class="mb-3" io-image-input="true">
+                    <label for="exampleInputQrcode" class="form-label">{{ __('messages.vcard.qrcode').':' }}</label>
+                    <div class="d-block">
+                        <div class="image-picker">
+                            <div class="image previewImage" id="exampleInputQrcode"
+                                 style="background-image: url({{ !empty($vcard->qrcode) ? $vcard->qrcode : "" }})"></div>
+                            <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
+                                  data-placement="top" data-bs-original-title="{{__('messages.tooltip.qrcode')}}">
+                                        <label>
+                                        <i class="fa-solid fa-pen" id="qrcodeIcon"></i>
+                                            <input type="file" id="qrcode" name="qrcode"
+                                                   class="image-upload d-none" accept="image/*"/>
+                                        </label>
+                                    </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-text text-danger" id="qrcodeValidationErrors"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <h4 class="text-danger mb-4">Categories Texts</h4>
+    </div>
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-lg-2 col-sm-6 mb-7">
+                <div class="mb-3" io-image-input="true">
+                    <label for="exampleInputCategoryA" class="form-label">{{ __('messages.vcard.category_a').':' }}</label>
+                    <div class="d-block">
+                        <div class="image-picker">
+                            <div class="image previewImage" id="exampleInputCategoryA"
+                                 style="background-image: url({{ !empty($vcard->category_a) ? $vcard->category_a : "" }})"></div>
+                            <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
+                                  data-placement="top" data-bs-original-title="{{__('messages.tooltip.category_a')}}">
+                                        <label>
+                                        <i class="fa-solid fa-pen" id="categoryAIcon"></i>
+                                            <input type="file" id="category_a" name="category_a"
+                                                   class="image-upload d-none" accept="image/*"/>
+                                        </label>
+                                    </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-text text-danger" id="categoryAValidationErrors"></div>
+            </div>
+            <div class="col-lg-2 col-sm-6 mb-7">
+                <div class="mb-3" io-image-input="true">
+                    <label for="exampleInputCategoryB" class="form-label">{{ __('messages.vcard.category_b').':' }}</label>
+                    <div class="d-block">
+                        <div class="image-picker">
+                            <div class="image previewImage" id="exampleInputCategoryB"
+                                 style="background-image: url({{ !empty($vcard->category_b) ? $vcard->category_b : "" }})"></div>
+                            <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
+                                  data-placement="top" data-bs-original-title="{{__('messages.tooltip.category_b')}}">
+                                        <label>
+                                        <i class="fa-solid fa-pen" id="categoryBIcon"></i>
+                                            <input type="file" id="category_b" name="category_b"
+                                                   class="image-upload d-none" accept="image/*"/>
+                                        </label>
+                                    </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-text text-danger" id="categoryBValidationErrors"></div>
+            </div>
+            <div class="col-lg-2 col-sm-6 mb-7">
+                <div class="mb-3" io-image-input="true">
+                    <label for="exampleInputCategoryC" class="form-label">{{ __('messages.vcard.category_c').':' }}</label>
+                    <div class="d-block">
+                        <div class="image-picker">
+                            <div class="image previewImage" id="exampleInputCategoryC"
+                                 style="background-image: url({{ !empty($vcard->category_c) ? $vcard->category_c : "" }})"></div>
+                            <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
+                                  data-placement="top" data-bs-original-title="{{__('messages.tooltip.category_c')}}">
+                                        <label>
+                                        <i class="fa-solid fa-pen" id="categoryCIcon"></i>
+                                            <input type="file" id="category_c" name="category_c"
+                                                   class="image-upload d-none" accept="image/*"/>
+                                        </label>
+                                    </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-text text-danger" id="categoryCValidationErrors"></div>
+            </div>
+            <div class="col-lg-2 col-sm-6 mb-7">
+                <div class="mb-3" io-image-input="true">
+                    <label for="exampleInputCategoryD" class="form-label">{{ __('messages.vcard.category_d').':' }}</label>
+                    <div class="d-block">
+                        <div class="image-picker">
+                            <div class="image previewImage" id="exampleInputCategoryD"
+                                 style="background-image: url({{ !empty($vcard->category_d) ? $vcard->category_d : "" }})"></div>
+                            <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
+                                  data-placement="top" data-bs-original-title="{{__('messages.tooltip.category_d')}}">
+                                        <label>
+                                        <i class="fa-solid fa-pen" id="categoryDIcon"></i>
+                                            <input type="file" id="category_d" name="category_d"
+                                                   class="image-upload d-none" accept="image/*"/>
+                                        </label>
+                                    </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-text text-danger" id="categoryDValidationErrors"></div>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-7">
+                <div class="mb-3" io-image-input="true">
+                    <label for="exampleInputCategoryE" class="form-label">{{ __('messages.vcard.category_e').':' }}</label>
+                    <div class="d-block">
+                        <div class="image-picker">
+                            <div class="image previewImage" id="exampleInputCategoryE"
+                                 style="background-image: url({{ !empty($vcard->category_e) ? $vcard->category_e : "" }})"></div>
+                            <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
+                                  data-placement="top" data-bs-original-title="{{__('messages.tooltip.category_e')}}">
+                                        <label>
+                                        <i class="fa-solid fa-pen" id="categoryEIcon"></i>
+                                            <input type="file" id="category_e" name="category_e"
+                                                   class="image-upload d-none" accept="image/*"/>
+                                        </label>
+                                    </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-text text-danger" id="categoryEValidationErrors"></div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group mb-7">
+                    {{ Form::label('category_a_text', __('messages.vcard.category_a_text') . ':', ['class' => 'form-label required']) }}
+                    {{ Form::text('category_a_text', isset($vcard) ? $vcard->category_a_text : null, ['class' => 'form-control', 'placeholder' => __('messages.form.category_a_text'), '']) }}
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group mb-7">
+                    {{ Form::label('category_b_text', __('messages.vcard.category_b_text') . ':', ['class' => 'form-label required']) }}
+                    {{ Form::text('category_b_text', isset($vcard) ? $vcard->category_b_text : null, ['class' => 'form-control', 'placeholder' => __('messages.form.category_b_text'), '']) }}
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group mb-7">
+                    {{ Form::label('category_c_text', __('messages.vcard.category_c_text') . ':', ['class' => 'form-label required']) }}
+                    {{ Form::text('category_c_text', isset($vcard) ? $vcard->category_c_text : null, ['class' => 'form-control', 'placeholder' => __('messages.form.category_c_text'), '']) }}
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group mb-7">
+                    {{ Form::label('category_d_text', __('messages.vcard.category_d_text') . ':', ['class' => 'form-label required']) }}
+                    {{ Form::text('category_d_text', isset($vcard) ? $vcard->category_d_text : null, ['class' => 'form-control', 'placeholder' => __('messages.form.category_d_text'), '']) }}
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group mb-7">
+                    {{ Form::label('category_e_text', __('messages.vcard.category_e_text') . ':', ['class' => 'form-label required']) }}
+                    {{ Form::text('category_e_text', isset($vcard) ? $vcard->category_e_text : null, ['class' => 'form-control', 'placeholder' => __('messages.form.category_e_text'), '']) }}
+                </div>
+            </div>
+            <div class="col-lg-12 d-flex">
+                <button type="submit" class="btn btn-primary me-3">
+                    {{ __('messages.common.save') }}
+                </button>
+                <a href="{{ route('vcards.index') }}"
+                    class="btn btn-secondary">{{ __('messages.common.discard') }}</a>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
 
 @if ($partName == 'parking_custom_idea')
     <div class="row">
