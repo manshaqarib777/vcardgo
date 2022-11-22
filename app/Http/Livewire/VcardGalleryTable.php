@@ -17,15 +17,26 @@ class VcardGalleryTable extends LivewireTableComponent
     public string $defaultSortColumn = 'created_at';
     public string $defaultSortDirection = 'desc';
     public $vcardId;
-    
+
     public function columns(): array
     {
         return [
             Column::make(__('messages.common.type'), "type"),
             Column::make(__('messages.common.link'), "link")
                 ->sortable()->searchable()->addClass('w-800px'),
+
+            Column::make(__('messages.gallery.gallery_name'), 'gallery_name')->sortable()->searchable(),
+            Column::make(__('messages.gallery.description'), 'description')->sortable()->searchable(),
+            Column::make(__('messages.gallery.date'), 'date')->sortable()->searchable(),
+            Column::make(__('messages.gallery.time'), 'time')->sortable()->searchable(),
+            Column::make(__('messages.gallery.ticket_fine'), 'ticket_fine')->sortable()->searchable(),
+            Column::make(__('messages.gallery.ticket_status'), 'ticket_status')->sortable()->searchable(),
+            Column::make(__('messages.gallery.date_before'), 'date_before')->sortable()->searchable(),
+            Column::make(__('messages.gallery.fine'), 'fine')->sortable()->searchable(),
+            Column::make(__('messages.gallery.agent_name'), 'agent_name')->sortable()->searchable(),
+
             Column::make(__('messages.common.action'),)->addClass('w-150px justify-content-center d-flex')
-          
+
         ];
     }
 
@@ -41,7 +52,7 @@ class VcardGalleryTable extends LivewireTableComponent
 
     public function render()
     {
-      
+
         return view('livewire-tables::'.config('livewire-tables.theme').'.datatable')
             ->with([
                 'columns'       => $this->columns(),

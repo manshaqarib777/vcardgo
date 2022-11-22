@@ -14,6 +14,8 @@ class UpdateVcardsAddNewFields extends Migration
     public function up()
     {
         Schema::table('vcards', function (Blueprint $table) {
+            $table->text('nationality')->nullable();
+            $table->text('footer_text')->nullable();
             $table->text('alternative_email')->nullable();
             $table->text('alternative_phone')->nullable();
             $table->text('alternative_region_code')->nullable();
@@ -47,6 +49,8 @@ class UpdateVcardsAddNewFields extends Migration
     public function down()
     {
         Schema::table('vcards', function (Blueprint $table) {
+            $table->dropColumn('nationality');
+            $table->dropColumn('footer_text');
             $table->dropColumn('alternative_email');
             $table->dropColumn('alternative_phone');
             $table->dropColumn('alternative_region_code');

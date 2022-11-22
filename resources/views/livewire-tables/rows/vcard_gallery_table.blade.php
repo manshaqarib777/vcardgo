@@ -5,17 +5,48 @@
 <x-livewire-tables::table.cell>
     @if($row->link == null && $row->type == 0)
         <a href="{{$row->gallery_image}}" target="_blank">{{$row->gallery_image}}</a>
-    @else 
+    @else
 <a href="{{$row->link}}" target="_blank">{{$row->link}}</a>
     @endif
 </x-livewire-tables::table.cell>
+
+<x-livewire-tables::table.cell>
+{{$row->gallery_name}}
+</x-livewire-tables::table.cell>
+<x-livewire-tables::table.cell>
+{{$row->description}}
+</x-livewire-tables::table.cell>
+<x-livewire-tables::table.cell>
+{{$row->date}}
+</x-livewire-tables::table.cell>
+<x-livewire-tables::table.cell>
+{{$row->time}}
+</x-livewire-tables::table.cell>
+<x-livewire-tables::table.cell>
+{{$row->ticket_fine}}
+</x-livewire-tables::table.cell>
+<x-livewire-tables::table.cell>
+{{$row->ticket_status}}
+</x-livewire-tables::table.cell>
+<x-livewire-tables::table.cell>
+{{$row->date_before}}
+</x-livewire-tables::table.cell>
+<x-livewire-tables::table.cell>
+{{$row->fine}}
+</x-livewire-tables::table.cell>
+<x-livewire-tables::table.cell>
+{{$row->agent_name}}
+</x-livewire-tables::table.cell>
+
+
+
 
 <x-livewire-tables::table.cell>
     <div class="justify-content-center d-flex">
     <a href="javascript:void(0)" class="btn px-1 text-primary gallery-edit-btn fs-3" data-id="{{$row->id}}" title="{{__('messages.common.edit')}} ">
         <i class="fa-solid fa-pen-to-square"></i>
     </a>
-    
+
     <a href="javascript:void(0)" title="{{__('messages.common.delete')}}>" data-id="{{$row->id}}" class="btn px-1 text-danger fs-3 gallery-delete-btn">
         <i class="fa-solid fa-trash"></i>
     </a>

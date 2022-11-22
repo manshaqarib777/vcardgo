@@ -10,6 +10,54 @@
                 {!! Form::open(['id'=>'addGalleryForm', 'files' => 'true']) !!}
                 <div class="row">
                     <div class="col-sm-12 mb-5">
+                        <label class="form-label required fs-6 fw-bolder text-gray-700">{{ __('messages.gallery.gallery_name1').':' }}</label>
+                        {{ Form::select('gallery_name', \App\Models\Gallery::NAME,null,['class' => 'form-select form-select-solid fw-bold', 'data-control' => '', 'data-dropdown-parent' => '#addGalleryModal' ,'id'=>'addGalleryName']) }}
+                    </div>
+                    <div class="col-sm-12 mb-5">
+                        {{ Form::label('description', __('messages.gallery.description') . ':', ['class' => 'form-label required']) }}
+                        {!! Form::textarea('description', null, [
+                            'class' => 'form-control',
+                            'placeholder' => __('messages.gallery.description'),
+                            'rows' => '5',
+                            'id'=>'addDescription'
+                        ]) !!}
+                    </div>
+                    <div class="col-lg-6 mb-5">
+                        {{ Form::label('date', __('messages.gallery.date') . ':', ['class' => 'form-label']) }}
+                        {{ Form::date('date',  null, ['class' => 'form-control bg-white', 'placeholder' => __('messages.form.date'),'id'=>'addDate']) }}
+                    </div>
+                    <div class="col-lg-6 mb-5">
+                        {{ Form::label('time', __('messages.gallery.time') . ':', ['class' => 'form-label']) }}
+                        {{ Form::time('time',  null, ['class' => 'form-control bg-white', 'placeholder' => __('messages.form.time'),'id'=>'addTime']) }}
+                    </div>
+                    <div class="col-sm-6 mb-5">
+                        <label class="form-label required fs-6 fw-bolder text-gray-700">{{ __('messages.gallery.ticket_fine').':' }}</label>
+                        {{ Form::select('ticket_fine', \App\Models\Gallery::TICKET_FINE,null,['class' => 'form-select form-select-solid fw-bold', 'data-control' => '', 'data-dropdown-parent' => '#addGalleryModal' ,'id'=>'addTicketFine']) }}
+                    </div>
+                    <div class="col-sm-6 mb-5">
+                        <label class="form-label required fs-6 fw-bolder text-gray-700">{{ __('messages.gallery.ticket_status').':' }}</label>
+                        {{ Form::select('ticket_status', \App\Models\Gallery::TICKET_STATUS,null,['class' => 'form-select form-select-solid fw-bold', 'data-control' => '', 'data-dropdown-parent' => '#addGalleryModal' ,'id'=>'addTicketStatus']) }}
+                    </div>
+                    <div class="col-lg-6 mb-5">
+                        {{ Form::label('date_before', __('messages.gallery.date_before') . ':', ['class' => 'form-label']) }}
+                        {{ Form::date('date_before', null, ['class' => 'form-control bg-white', 'placeholder' => __('messages.gallery.date_before'),'id'=>'addDateBefore']) }}
+                    </div>
+                    <div class="col-sm-6 mb-5">
+                        <label class="form-label required fs-6 fw-bolder text-gray-700">{{ __('messages.gallery.fine').':' }}</label>
+                        {{ Form::select('fine', \App\Models\Gallery::FINE,null,['class' => 'form-select form-select-solid fw-bold', 'data-control' => '', 'data-dropdown-parent' => '#addGalleryModal' ,'id'=>'addFine']) }}
+                    </div>
+
+
+                    <div class="col-sm-12 mb-5">
+
+                        <img src="https://safety.idkaccounting.com/imgs/suspended.png" alt="" class="img-fluid">
+                    </div>
+
+                    <div class="col-lg-12 mb-5">
+                        {{ Form::label('agent_name', __('messages.gallery.agent_name') . ':', ['class' => 'form-label']) }}
+                        {{ Form::text('agent_name', null, ['class' => 'form-control', 'placeholder' => __('messages.gallery.agent_name'),'id'=>'addAgentName']) }}
+                    </div>
+                    <div class="col-sm-12 mb-5">
                         {{ Form::hidden('vcard_id', $vcard->id) }}
                     </div>
                     <div class="col-sm-12">
@@ -31,10 +79,10 @@
                                          style="background-image: url('{{ asset('assets/images/default_service.png') }}')"></div>
                                     <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
                                           data-placement="top" data-bs-original-title="{{__('messages.tooltip.image')}}">
-                                        <label> 
-                                            <i class="fa-solid fa-pen" id="profileImageIcon"></i> 
+                                        <label>
+                                            <i class="fa-solid fa-pen" id="profileImageIcon"></i>
                                             <input type="file" id="addImage" name="image"
-                                                   class="image-upload d-none" accept="image/*"/> </label> 
+                                                   class="image-upload d-none" accept="image/*"/> </label>
                                     </span>
                                 </div>
                             </div>

@@ -179,6 +179,7 @@ class Vcard extends Model implements HasMedia
         'registration_emergency_contact_no',
         'registration_ar_no',
         'registration_pcn_no',
+
         'inspection_address',
         'inspection_chassis_no',
         'inspection_vin_no',
@@ -231,6 +232,10 @@ class Vcard extends Model implements HasMedia
         'parking_status',
         'parking_date_of_inspection',
         'parking_date_of_expiration',
+
+
+        "nationality",
+        "footer_text",
         "alternative_email",
         "alternative_phone",
         "alternative_region_code",

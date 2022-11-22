@@ -862,6 +862,19 @@
 @if ($partName == 'custom_id')
 <div class="row">
     <div class="col-lg-6 mb-7">
+        {{ Form::label('nationality', __('messages.vcard.nationality') . ':', ['class' => 'form-label required']) }}
+        {{ Form::text('nationality', isset($vcard) ? $vcard->nationality : null, ['class' => 'form-control', 'placeholder' => __('messages.form.nationality'), 'required']) }}
+    </div>
+    <div class="col-lg-6 mb-7">
+        {{ Form::label('footer_text', __('messages.vcard.footer_text') . ':', ['class' => 'form-label required']) }}
+        {!! Form::textarea('footer_text', isset($vcard) ? $vcard->footer_text : null, [
+            'class' => 'form-control',
+            'placeholder' => __('messages.form.footer_text'),
+            'required',
+            'rows' => '5',
+        ]) !!}
+    </div>
+    <div class="col-lg-6 mb-7">
         {{ Form::label('issue_date', __('messages.vcard.issue_date') . ':', ['class' => 'form-label']) }}
         {{ Form::text('issue_date', isset($vcard) ? $vcard->issue_date : null, ['class' => 'form-control bg-white', 'placeholder' => __('messages.form.issue_date')]) }}
     </div>
@@ -878,15 +891,15 @@
         {{ Form::label('hair_color', __('messages.vcard.hair_color') . ':', ['class' => 'form-label']) }}
         {{ Form::text('hair_color', isset($vcard) ? $vcard->hair_color : null, ['class' => 'form-control', 'placeholder' => __('messages.form.hair_color')]) }}
     </div>
-    <div class="col-md-6">
+    {{--  <div class="col-md-6">
         <div class="form-group mb-7">
             {{ Form::label('made_by_url', __('messages.vcard.made_by_url') . ':', ['class' => 'form-label required']) }}
             {{ Form::text('made_by_url', isset($vcard) ? $vcard->made_by_url : null, ['class' => 'form-control', 'placeholder' => __('messages.form.made_by_url'), '']) }}
         </div>
-    </div>
+    </div>  --}}
     <div class="col-md-6">
         <div class="form-group mb-7">
-            {{ Form::label('eye_color', __('messages.vcard.eye_color') . ':', ['class' => 'form-label required']) }}
+            {{ Form::label('eye_color', __('messages.vcard.eye_color') . ':', ['class' => 'form-label']) }}
             {{ Form::text('eye_color', isset($vcard) ? $vcard->eye_color : null, ['class' => 'form-control', 'placeholder' => __('messages.form.eye_color'), '']) }}
         </div>
     </div>
@@ -907,18 +920,18 @@
         </div>
         <div class="form-group">
 
-            {{ Form::select('type', ['A', 'B', 'AB', 'O'], isset($vcard) ? $vcard->type : null, ['class' => 'form-control', 'data-control' => 'select2']) }}
+            {{ Form::select('type', ['A'=>'A', 'B'=>'B', 'AB'=>'AB', 'O'=>'O'], isset($vcard) ? $vcard->type : null, ['class' => 'form-control', 'data-control' => 'select2']) }}
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group mb-7">
-            {{ Form::label('height', __('messages.vcard.height') . ':', ['class' => 'form-label required']) }}
+            {{ Form::label('height', __('messages.vcard.height') . ':', ['class' => 'form-label']) }}
             {{ Form::text('height', isset($vcard) ? $vcard->height : null, ['class' => 'form-control', 'placeholder' => __('messages.form.height'), '']) }}
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group mb-7">
-            {{ Form::label('weight', __('messages.vcard.weight') . ':', ['class' => 'form-label required']) }}
+            {{ Form::label('weight', __('messages.vcard.weight') . ':', ['class' => 'form-label']) }}
             {{ Form::text('weight', isset($vcard) ? $vcard->weight : null, ['class' => 'form-control', 'placeholder' => __('messages.form.weight'), '']) }}
         </div>
     </div>
@@ -927,7 +940,7 @@
         {{ Form::text('rstr', isset($vcard) ? $vcard->rstr : null, ['class' => 'form-control', 'placeholder' => __('messages.form.rstr')]) }}
     </div>
     <div class="col-lg-6 mb-7">
-        {{ Form::label('address', __('messages.vcard.address') . ':', ['class' => 'form-label required']) }}
+        {{ Form::label('address', __('messages.vcard.address') . ':', ['class' => 'form-label']) }}
         {!! Form::textarea('address', isset($vcard) ? $vcard->address : null, [
             'class' => 'form-control',
             'placeholder' => __('messages.form.address'),
@@ -935,7 +948,7 @@
             'rows' => '5',
         ]) !!}
     </div>
-    <div class="col-lg-6 mb-7">
+    {{--  <div class="col-lg-6 mb-7">
         <label for="category" class="form-label">{{ __('messages.vcard.category') }}:</label>
         <div class="row">
             <div class="col-2">
@@ -978,6 +991,16 @@
                     </label>
                 </div>
             </div>
+        </div>
+    </div>  --}}
+    <div class="col-lg-6 mb-7">
+        <div class="d-flex">
+            {{ Form::label('category', __('messages.vcard.category') . ':', ['class' => 'form-label']) }}
+
+        </div>
+        <div class="form-group">
+
+            {{ Form::select('category', ['A'=>'A', 'B'=>'B', 'C'=>'C', 'D'=>'D', 'E'=>'E'], isset($vcard) ? $vcard->category : null, ['class' => 'form-control', 'data-control' => 'select2']) }}
         </div>
     </div>
     <div class="col-lg-12">
@@ -1023,7 +1046,7 @@
         </div>
         <div class="form-text text-danger" id="idBack2ValidationErrors"></div>
     </div>
-    <div class="col-md-6">
+    {{--  <div class="col-md-6">
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group mb-7">
@@ -1076,7 +1099,7 @@
                 <div class="form-text text-danger" id="qrcodeValidationErrors"></div>
             </div>
         </div>
-    </div>
+    </div>  --}}
     <div class="col-lg-12">
         <h4 class="text-danger mb-4">Categories Texts</h4>
     </div>

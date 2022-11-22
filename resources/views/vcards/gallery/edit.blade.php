@@ -11,7 +11,7 @@
                 <div class="row">
                     <div class="col-sm-12 mb-5">
                         <label class="form-label required fs-6 fw-bolder text-gray-700">{{ __('messages.gallery.gallery_name1').':' }}</label>
-                        {{ Form::select('gallery_name', \App\Models\Gallery::NAME,null,['class' => 'form-select form-select-solid fw-bold', 'data-control' => 'select2', 'data-dropdown-parent' => '#editGalleryModal' ,'id'=>'editGalleryName']) }}
+                        {{ Form::select('gallery_name', \App\Models\Gallery::NAME,null,['class' => 'form-select form-select-solid fw-bold', 'data-control' => '', 'data-dropdown-parent' => '#editGalleryModal' ,'id'=>'editGalleryName']) }}
                     </div>
                     <div class="col-sm-12 mb-5">
                         {{ Form::label('description', __('messages.gallery.description') . ':', ['class' => 'form-label required']) }}
@@ -32,11 +32,11 @@
                     </div>
                     <div class="col-sm-6 mb-5">
                         <label class="form-label required fs-6 fw-bolder text-gray-700">{{ __('messages.gallery.ticket_fine').':' }}</label>
-                        {{ Form::select('ticket_fine', \App\Models\Gallery::TICKET_FINE,null,['class' => 'form-select form-select-solid fw-bold', 'data-control' => 'select2', 'data-dropdown-parent' => '#editGalleryModal' ,'id'=>'editTicketFine']) }}
+                        {{ Form::select('ticket_fine', \App\Models\Gallery::TICKET_FINE,null,['class' => 'form-select form-select-solid fw-bold', 'data-control' => '', 'data-dropdown-parent' => '#editGalleryModal' ,'id'=>'editTicketFine']) }}
                     </div>
                     <div class="col-sm-6 mb-5">
                         <label class="form-label required fs-6 fw-bolder text-gray-700">{{ __('messages.gallery.ticket_status').':' }}</label>
-                        {{ Form::select('ticket_status', \App\Models\Gallery::TICKET_STATUS,null,['class' => 'form-select form-select-solid fw-bold', 'data-control' => 'select2', 'data-dropdown-parent' => '#editGalleryModal' ,'id'=>'editTicketStatus']) }}
+                        {{ Form::select('ticket_status', \App\Models\Gallery::TICKET_STATUS,null,['class' => 'form-select form-select-solid fw-bold', 'data-control' => '', 'data-dropdown-parent' => '#editGalleryModal' ,'id'=>'editTicketStatus']) }}
                     </div>
                     <div class="col-lg-6 mb-5">
                         {{ Form::label('date_before', __('messages.gallery.date_before') . ':', ['class' => 'form-label']) }}
@@ -44,7 +44,7 @@
                     </div>
                     <div class="col-sm-6 mb-5">
                         <label class="form-label required fs-6 fw-bolder text-gray-700">{{ __('messages.gallery.fine').':' }}</label>
-                        {{ Form::select('fine', \App\Models\Gallery::FINE,null,['class' => 'form-select form-select-solid fw-bold', 'data-control' => 'select2', 'data-dropdown-parent' => '#editGalleryModal' ,'id'=>'editFine']) }}
+                        {{ Form::select('fine', \App\Models\Gallery::FINE,null,['class' => 'form-select form-select-solid fw-bold', 'data-control' => '', 'data-dropdown-parent' => '#editGalleryModal' ,'id'=>'editFine']) }}
                     </div>
 
 
@@ -64,7 +64,7 @@
                         <label
                             class="form-label required fs-6 fw-bolder text-gray-700">{{ __('messages.gallery.type').':' }}</label>
                         {{ Form::select('type', \App\Models\Gallery::TYPE,\App\Models\Gallery::TYPE_IMAGE,
-                            ['class' => 'form-select form-select-solid fw-bold', 'data-control' => 'select2', 'data-dropdown-parent' => '#editGalleryModal' ,'id'=>'editTypeId']) }}
+                            ['class' => 'form-select form-select-solid fw-bold', 'data-control' => '', 'data-dropdown-parent' => '#editGalleryModal' ,'id'=>'editTypeId']) }}
                     </div>
                     <div class="col-sm-12 mb-5 mt-3 editImagelink">
 

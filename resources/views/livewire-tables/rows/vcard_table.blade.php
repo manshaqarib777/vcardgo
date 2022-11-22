@@ -13,16 +13,176 @@
             <a class="text-decoration-none fs-6">
                 {{$row->name}}
             </a>
-            @if($row->emaoccupationil != '')
-                {{ dd(2412) }}
-            @endif
-            <span class="fs-6">{{$row->emaoccupationil}}</span>
         </div>
     </div>
 </x-livewire-tables::bs5.table.cell>
 
 <x-livewire-tables::bs5.table.cell>
     {{$row->tenant->tenant_username}}
+</x-livewire-tables::bs5.table.cell>
+
+<x-livewire-tables::bs5.table.cell>
+    {{$row->registration_vin_no}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->registration_vehicle_model}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->registration_vehicle_color}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->registration_vehicle_year}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->registration_plate_no}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->registration_district}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->registration_emergency_contact_no}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->registration_ar_no}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->registration_pcn_no}}
+</x-livewire-tables::bs5.table.cell>
+
+
+<x-livewire-tables::bs5.table.cell>
+    {{$row->inspection_address}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->inspection_chassis_no}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->inspection_vin_no}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->inspection_vehicle_model}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->inspection_vehicle_color}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->inspection_vehicle_year}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->inspection_plate_no}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->inspection_contact}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->inspection_ar_no}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->inspection_district}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->inspection_control_technique}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->inspection_date_of_inspection}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->inspection_date_of_expiration}}
+</x-livewire-tables::bs5.table.cell>
+
+<x-livewire-tables::bs5.table.cell>
+    {{$row->parking_owner_mobile_no}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->parking_address}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->parking_vehicle_color}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->parking_vehicle_model}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->parking_plate_no}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->parking_mobile}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->parking_district}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->parking_p_place_of_registration}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->parking_p_registration_officer}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->parking_p_date_of_payment}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->parking_expiration_date}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->parking_parking_plan}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->parking_status}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->parking_date_of_inspection}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->parking_date_of_expiration}}
+</x-livewire-tables::bs5.table.cell>
+
+<x-livewire-tables::bs5.table.cell>
+    {{$row->nationality}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->footer_text}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->alternative_email}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->alternative_phone}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->alternative_region_code}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->issue_date}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->expire_date}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->hair_color}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->eye_color}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->sex}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->type}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->height}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->weight}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->rstr}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->address}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->category}}
 </x-livewire-tables::bs5.table.cell>
 
 <x-livewire-tables::bs5.table.cell>
@@ -40,32 +200,6 @@
 
 
 
-<x-livewire-tables::bs5.table.cell>
-    {{ $row->name }}
-</x-livewire-tables::bs5.table.cell>
-
-<x-livewire-tables::bs5.table.cell>
-    {{ $row->location }}
-</x-livewire-tables::bs5.table.cell>
-
-<x-livewire-tables::bs5.table.cell>
-    static , not in vcard yet. <br>
-    ID Category Here like <br> Moto,Taxi
-</x-livewire-tables::bs5.table.cell>
-
-<x-livewire-tables::bs5.table.cell>
-    static , not in vcard yet. <br>
-    ID Class Here like <br> A, B, C etc.
-</x-livewire-tables::bs5.table.cell>
-
-<x-livewire-tables::bs5.table.cell>
-    static , not in vcard yet. <br>
-    Blood type here <br> A, AB etc.
-</x-livewire-tables::bs5.table.cell>
-
-<x-livewire-tables::bs5.table.cell>
-    {{ $row->sex }}
-</x-livewire-tables::bs5.table.cell>
 
 <x-livewire-tables::bs5.table.cell>
     <a href="{{ route('sadmin.vcard.analytics', $row->id)}}">
