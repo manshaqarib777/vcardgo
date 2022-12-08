@@ -850,6 +850,8 @@
     'setting' => 'Setting',
     'general' => 'General',
     'app_name' => 'App Name',
+    'vcard_unique_text' => 'Vcard Unique Text',
+    'vcard_total_digits' => 'Vcard Total Digits',
     'app_logo' => 'App Logo',
     'favicon' => 'Favicon',
     'contact_information' => 'Contact Information',
