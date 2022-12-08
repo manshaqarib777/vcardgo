@@ -13,13 +13,15 @@
                 {{ $row->name }}
             </a>
             @else
-                <span class="fs-6">{{ $row->name }}</span>        
+                <span class="fs-6">{{ $row->name }}</span>
             @endcan
             <span class="fs-6">{{ $row->occupation }}</span>
         </div>
     </div>
 </x-livewire-tables::table.cell>
-
+<x-livewire-tables::bs5.table.cell>
+    {{$row->vcard_unique_number}}
+</x-livewire-tables::bs5.table.cell>
 
 <x-livewire-tables::table.cell>
     @if ($row->status == 1)

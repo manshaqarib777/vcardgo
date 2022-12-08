@@ -14,6 +14,14 @@
                     {{ Form::label('email', __('messages.user.email').':', ['class' => 'form-label required']) }}
                     {{ Form::email('email', $setting['email'], ['class' => 'form-control', 'required', 'id' => 'settingEmail']) }}
                 </div>
+                <div class="form-group col-sm-6 mb-3">
+                    {{ Form::label('vcard_unique_text', __('messages.setting.vcard_unique_text').':', ['class' => 'form-label required']) }}
+                    {{ Form::text('vcard_unique_text', $setting['vcard_unique_text'], ['class' => 'form-control', 'id' => 'settingUniqueText']) }}
+                </div>
+                <div class="form-group col-sm-6 mb-3">
+                    {{ Form::label('vcard_total_digits', __('messages.setting.vcard_total_digits').':', ['class' => 'form-label required']) }}
+                    {{ Form::text('vcard_total_digits', $setting['vcard_total_digits'], ['class' => 'form-control', 'id' => 'settingTotalDigits']) }}
+                </div>
                 <!-- Phone Field -->
                 <div class="form-group col-sm-6 mb-3">
                     {{ Form::label('phone', __('messages.user.phone').':', ['class' => 'form-label required']) }}

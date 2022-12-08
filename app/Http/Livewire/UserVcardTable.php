@@ -24,6 +24,8 @@ class UserVcardTable extends LivewireTableComponent
         return [
             Column::make(__('messages.vcard.vcard_name'), "name")
                 ->sortable()->searchable(),
+            Column::make(__('messages.vcard.vcard_unique_number'), "vcard_unique_number")
+                ->sortable()->searchable(),
             Column::make(__('messages.vcard.preview_url'), "preview_url"),
             Column::make(__('messages.vcard.stats') , "stats"),
             Column::make(__('messages.vcard.status'), "first_name")

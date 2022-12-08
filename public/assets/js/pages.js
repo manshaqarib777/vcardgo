@@ -7115,10 +7115,10 @@ listenSubmit('#createSetting', function () {
     displayErrorMessage('Phone Number field is required.');
     return false;
   }
-  if ($.trim($('#alternative_phoneNumber').val()) == '') {
-    displayErrorMessage('Alternative Phone Number field is required.');
-    return false;
-  }
+//   if ($.trim($('#alternative_phoneNumber').val()) == '') {
+//     displayErrorMessage('Alternative Phone Number field is required.');
+//     return false;
+//   }
 
   if ($.trim($('#settingPlanExpireNotification').val()) == '') {
     displayErrorMessage('Plan Expire Notification field is required.');
@@ -8018,6 +8018,26 @@ function loadVcardCreateEdit() {
     sideBySide: true
   });
   $('#expire_date').flatpickr({
+    format: 'YYYY-MM-DD',
+    useCurrent: true,
+    sideBySide: true
+  });
+  $('#addDate').flatpickr({
+    format: 'YYYY-MM-DD',
+    useCurrent: true,
+    sideBySide: true
+  });
+  $('#addDateBefore').flatpickr({
+    format: 'YYYY-MM-DD',
+    useCurrent: true,
+    sideBySide: true
+  });
+  $('#editDate').flatpickr({
+    format: 'YYYY-MM-DD',
+    useCurrent: true,
+    sideBySide: true
+  });
+  $('#editDateBefore').flatpickr({
     format: 'YYYY-MM-DD',
     useCurrent: true,
     sideBySide: true

@@ -79,7 +79,7 @@ class VcardRepository extends BaseRepository
             }
             $vcard = Vcard::create($input);
             $subscription->update(['card_id'=> $vcard->id]);
-
+            $vcard->update(['vcard_unique_number'=> getUniqueNumber($vcard->id)]);
 
             $input['vcard_id'] = $vcard->id;
             SocialLink::create($input);

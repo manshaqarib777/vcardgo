@@ -18,6 +18,9 @@
 </x-livewire-tables::bs5.table.cell>
 
 <x-livewire-tables::bs5.table.cell>
+    {{$row->vcard_unique_number}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
     {{$row->tenant->tenant_username}}
 </x-livewire-tables::bs5.table.cell>
 
@@ -86,9 +89,6 @@
 <x-livewire-tables::bs5.table.cell>
     {{$row->inspection_date_of_inspection}}
 </x-livewire-tables::bs5.table.cell>
-<x-livewire-tables::bs5.table.cell>
-    {{$row->inspection_date_of_expiration}}
-</x-livewire-tables::bs5.table.cell>
 
 <x-livewire-tables::bs5.table.cell>
     {{$row->parking_owner_mobile_no}}
@@ -121,19 +121,10 @@
     {{$row->parking_p_date_of_payment}}
 </x-livewire-tables::bs5.table.cell>
 <x-livewire-tables::bs5.table.cell>
-    {{$row->parking_expiration_date}}
-</x-livewire-tables::bs5.table.cell>
-<x-livewire-tables::bs5.table.cell>
     {{$row->parking_parking_plan}}
 </x-livewire-tables::bs5.table.cell>
 <x-livewire-tables::bs5.table.cell>
-    {{$row->parking_status}}
-</x-livewire-tables::bs5.table.cell>
-<x-livewire-tables::bs5.table.cell>
     {{$row->parking_date_of_inspection}}
-</x-livewire-tables::bs5.table.cell>
-<x-livewire-tables::bs5.table.cell>
-    {{$row->parking_date_of_expiration}}
 </x-livewire-tables::bs5.table.cell>
 
 <x-livewire-tables::bs5.table.cell>

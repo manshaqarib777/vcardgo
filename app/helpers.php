@@ -912,6 +912,11 @@ function getSuperAdminSettingValue($key)
     return $settings[$key]->value;
 }
 
+function getUniqueNumber($id)
+{
+    return getSuperAdminSettingValue('vcard_unique_text').str_pad($id, getSuperAdminSettingValue('vcard_total_digits'), 0,STR_PAD_LEFT);
+}
+
 /**
  * @param $part
  *

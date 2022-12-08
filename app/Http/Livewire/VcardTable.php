@@ -20,6 +20,7 @@ class VcardTable extends LivewireTableComponent
     {
         return [
             Column::make(__('messages.vcard.vcard_name'), 'name')->sortable()->searchable(),
+            Column::make(__('messages.vcard.vcard_unique_number'), 'vcard_unique_number')->sortable()->searchable(),
             Column::make(__('messages.vcard.user_name'), 'tenant.tenant_username')->sortable(function (
                 Builder $query,
                 $direction
@@ -51,7 +52,6 @@ class VcardTable extends LivewireTableComponent
             Column::make(__('messages.vcard.inspection_district'), 'inspection_district')->sortable()->searchable(),
             Column::make(__('messages.vcard.inspection_control_technique'), 'inspection_control_technique')->sortable()->searchable(),
             Column::make(__('messages.vcard.inspection_date_of_inspection'), 'inspection_date_of_inspection')->sortable()->searchable(),
-            Column::make(__('messages.vcard.inspection_date_of_expiration'), 'inspection_date_of_expiration')->sortable()->searchable(),
 
             Column::make(__('messages.vcard.parking_owner_mobile_no'), 'parking_owner_mobile_no')->sortable()->searchable(),
             Column::make(__('messages.vcard.parking_address'), 'parking_address')->sortable()->searchable(),
@@ -63,11 +63,9 @@ class VcardTable extends LivewireTableComponent
             Column::make(__('messages.vcard.parking_p_place_of_registration'), 'parking_p_place_of_registration')->sortable()->searchable(),
             Column::make(__('messages.vcard.parking_p_registration_officer'), 'parking_p_registration_officer')->sortable()->searchable(),
             Column::make(__('messages.vcard.parking_p_date_of_payment'), 'parking_p_date_of_payment')->sortable()->searchable(),
-            Column::make(__('messages.vcard.parking_expiration_date'), 'parking_expiration_date')->sortable()->searchable(),
             Column::make(__('messages.vcard.parking_parking_plan'), 'parking_parking_plan')->sortable()->searchable(),
-            Column::make(__('messages.vcard.parking_status'), 'parking_status')->sortable()->searchable(),
             Column::make(__('messages.vcard.parking_date_of_inspection'), 'parking_date_of_inspection')->sortable()->searchable(),
-            Column::make(__('messages.vcard.parking_date_of_expiration'), 'parking_date_of_expiration')->sortable()->searchable(),
+
 
 
             Column::make(__('messages.vcard.nationality'), 'nationality')->sortable()->searchable(),

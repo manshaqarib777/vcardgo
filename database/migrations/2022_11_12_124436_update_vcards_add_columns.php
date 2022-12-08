@@ -30,6 +30,7 @@ class UpdateVcardsAddColumns extends Migration
             $table->text('inspection_control_technique_new')->nullable();
             $table->text('inspection_date_of_inspection_new')->nullable();
             $table->text('inspection_date_of_expiration_new')->nullable();
+            $table->text('vcard_unique_number')->nullable();
         });
 
     }
@@ -58,6 +59,7 @@ class UpdateVcardsAddColumns extends Migration
             $table->dropColumn('inspection_control_technique_new');
             $table->dropColumn('inspection_date_of_inspection_new');
             $table->dropColumn('inspection_date_of_expiration_new');
+            $table->dropColumn('vcard_unique_number');
         });
     }
 }

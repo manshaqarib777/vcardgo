@@ -87,6 +87,7 @@
   array (
     'my_vcard_url' => 'my-vcard-page-url',
     'vcard_name' => 'Enter VCard Name',
+    'vcard_unique_number' => 'Unique Number',
     'nationality' => 'Enter Nationality',
     'footer_text' => 'This card must be kept during driving & produced on demand to authorized police officer Lost Card Please put it in nearby mailbox',
     'description' => 'Enter Description of Your VCard',
@@ -532,6 +533,7 @@
     'job_title' => 'Job Title',
     'date_of_birth' => 'Date Of Birth',
     'vcard_name' => 'VCard Name',
+    'vcard_unique_number' => 'Unique Number',
     'meta_keyword' => 'Meta Keyword',
     'meta_description' => 'Meta Description',
     'google_analytics' => 'Google Analytics',
