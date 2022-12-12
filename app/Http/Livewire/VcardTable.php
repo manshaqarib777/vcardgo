@@ -87,8 +87,14 @@ class VcardTable extends LivewireTableComponent
 
             Column::make(__('messages.vcard.preview_url'), 'url_alias')->sortable(),
             Column::make(__('messages.vcard.stats')),
-            Column::make(__('messages.vcard.created_at'), 'created_at')->sortable(),
-            Column::make(__('messages.vcard.status'), 'status')->sortable(),
+            Column::make(__('messages.vcard.created_at'), 'created_at')->sortable()->searchable(),
+            Column::make(__('messages.vcard.status'), 'status')->sortable()->searchable(function (Builder $query, $searchTerm) {
+                if(strtolower($searchTerm) == "active")
+                $query->orWhere("status",1);
+                else if(strtolower($searchTerm) == "deactive")
+                $query->orWhere("status",2);
+
+            }),
         ];
     }
 

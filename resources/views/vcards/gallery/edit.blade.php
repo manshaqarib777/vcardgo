@@ -26,10 +26,6 @@
                         {{ Form::label('date', __('messages.gallery.date') . ':', ['class' => 'form-label']) }}
                         {{ Form::date('date',  null, ['class' => 'form-control bg-white', 'placeholder' => __('messages.form.date'),'id'=>'editDate']) }}
                     </div>
-                    <div class="col-lg-6 mb-5">
-                        {{ Form::label('time', __('messages.gallery.time') . ':', ['class' => 'form-label']) }}
-                        {{ Form::time('time',  null, ['class' => 'form-control bg-white', 'placeholder' => __('messages.form.time'),'id'=>'editTime']) }}
-                    </div>
                     <div class="col-sm-6 mb-5">
                         <label class="form-label required fs-6 fw-bolder text-gray-700">{{ __('messages.gallery.ticket_fine').':' }}</label>
                         {{ Form::select('ticket_fine', \App\Models\Gallery::TICKET_FINE,null,['class' => 'form-select form-select-solid fw-bold', 'data-control' => '', 'data-dropdown-parent' => '#editGalleryModal' ,'id'=>'editTicketFine']) }}

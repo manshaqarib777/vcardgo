@@ -64,8 +64,8 @@
         $('#inspection_state').trigger('change');
         $('#inspection_state_new').trigger('change');
         $('#parking_state').trigger('change');
-    }, 200);
- }, 100);
+    }, 600);
+ }, 300);
     $('#registration_country').change(function() {
         var id = $(this).val();
         $.get("{{ route('get-states-ajax') }}?country_id=" + id, function(data) {
@@ -174,13 +174,13 @@
                 $('#inspection_state_new').append('<option value="' +
                     element['id'] + '" '+selected+'>' + element['name'] + '</option>');
             }
-    
-    
+
+
         });
     });
     $('#inspection_state_new').change(function() {
         var id = $(this).val();
-    
+
         $.get("{{ route('get-cities-ajax') }}?state_id=" + id, function(data) {
             var city = "{{isset($vcard) ? $vcard->inspection_city_new : null}}";
             $('#inspection_city_new').empty();
@@ -196,8 +196,8 @@
                 $('#inspection_city_new').append('<option value="' +
                     element['id'] + '" '+selected+'>' + element['name'] + '</option>');
             }
-    
-    
+
+
         });
     });
 

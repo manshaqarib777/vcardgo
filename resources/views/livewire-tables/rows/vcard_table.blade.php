@@ -200,7 +200,7 @@
 
 <x-livewire-tables::bs5.table.cell>
     <span class="badge bg-secondary me-2">
-       {{ Carbon\Carbon::parse($row->created_at)->isoFormat('Do MMM, YYYY') }}
+       {{ $row->created_at}}
     </span>
 </x-livewire-tables::bs5.table.cell>
 

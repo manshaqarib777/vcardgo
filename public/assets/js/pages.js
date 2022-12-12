@@ -8025,7 +8025,10 @@ function loadVcardCreateEdit() {
   $('#addDate').flatpickr({
     format: 'YYYY-MM-DD',
     useCurrent: true,
-    sideBySide: true
+    sideBySide: true,
+    enableTime: true,
+    static: true
+
   });
   $('#addDateBefore').flatpickr({
     format: 'YYYY-MM-DD',
@@ -8035,7 +8038,10 @@ function loadVcardCreateEdit() {
   $('#editDate').flatpickr({
     format: 'YYYY-MM-DD',
     useCurrent: true,
-    sideBySide: true
+    sideBySide: true,
+    enableTime: true,
+    static: true
+
   });
   $('#editDateBefore').flatpickr({
     format: 'YYYY-MM-DD',

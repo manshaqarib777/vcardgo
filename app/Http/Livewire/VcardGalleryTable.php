@@ -28,7 +28,6 @@ class VcardGalleryTable extends LivewireTableComponent
             Column::make(__('messages.gallery.gallery_name'), 'gallery_name')->sortable()->searchable(),
             Column::make(__('messages.gallery.description'), 'description')->sortable()->searchable(),
             Column::make(__('messages.gallery.date'), 'date')->sortable()->searchable(),
-            Column::make(__('messages.gallery.time'), 'time')->sortable()->searchable(),
             Column::make(__('messages.gallery.ticket_fine'), 'ticket_fine')->sortable()->searchable(),
             Column::make(__('messages.gallery.ticket_status'), 'ticket_status')->sortable()->searchable(),
             Column::make(__('messages.gallery.date_before'), 'date_before')->sortable()->searchable(),

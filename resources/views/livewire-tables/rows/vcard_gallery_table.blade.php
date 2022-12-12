@@ -20,9 +20,6 @@
 {{$row->date}}
 </x-livewire-tables::table.cell>
 <x-livewire-tables::table.cell>
-{{$row->time}}
-</x-livewire-tables::table.cell>
-<x-livewire-tables::table.cell>
 {{$row->ticket_fine}}
 </x-livewire-tables::table.cell>
 <x-livewire-tables::table.cell>
