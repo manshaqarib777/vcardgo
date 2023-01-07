@@ -9,9 +9,9 @@
             <div class="modal-body">
                 {!! Form::open(['id'=>'addGalleryForm', 'files' => 'true']) !!}
                 <div class="row">
-                    <div class="col-lg-12 mb-5">
-                        {{ Form::label('gallery_name', __('messages.gallery.gallery_name') . ':', ['class' => 'form-label']) }}
-                        {{ Form::text('gallery_name', null, ['class' => 'form-control', 'placeholder' => __('messages.gallery.gallery_name'),'id'=>'addGalleryName','maxlength'=>20]) }}
+                    <div class="col-sm-12 mb-5">
+                        <label class="form-label required fs-6 fw-bolder text-gray-700">{{ __('messages.gallery.gallery_name').':' }}</label>
+                        {{ Form::select('gallery_name', \App\Models\Gallery::NAME,null,['class' => 'form-select form-select-solid fw-bold', 'data-control' => '', 'data-dropdown-parent' => '#addGalleryModal' ,'id'=>'addName']) }}
                     </div>
                     <div class="col-sm-12 mb-5">
                         {{ Form::label('description', __('messages.gallery.description') . ':', ['class' => 'form-label required']) }}
@@ -42,14 +42,9 @@
                         <label class="form-label required fs-6 fw-bolder text-gray-700">{{ __('messages.gallery.fine').':' }}</label>
                         {{ Form::select('fine', \App\Models\Gallery::FINE,null,['class' => 'form-select form-select-solid fw-bold', 'data-control' => '', 'data-dropdown-parent' => '#addGalleryModal' ,'id'=>'addFine']) }}
                     </div>
-                    <div class="col-sm-12 mb-5 addSuspended" >
-                        {{ Form::label('suspended_description', __('messages.gallery.suspended_description') . ':', ['class' => 'form-label required']) }}
-                        {!! Form::textarea('suspended_description', null, [
-                            'class' => 'form-control',
-                            'placeholder' => __('messages.gallery.suspended_description'),
-                            'rows' => '5',
-                            'id'=>'addSuspendedDescription'
-                        ]) !!}
+                    <div class="col-sm-6 mb-5 addSuspended">
+                        <label class="form-label required fs-6 fw-bolder text-gray-700">{{ __('messages.gallery.suspended_description').':' }}</label>
+                        {{ Form::select('suspended_description', \App\Models\Gallery::NAME,null,['class' => 'form-select form-select-solid fw-bold', 'data-control' => '', 'data-dropdown-parent' => '#addGalleryModal' ,'id'=>'addSuspendedDescription']) }}
                     </div>
 
                     <div class="col-sm-12 mb-5 addSuspended">

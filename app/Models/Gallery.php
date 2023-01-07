@@ -71,8 +71,8 @@ class Gallery extends Model implements HasMedia
         self::TYPE_YOUTUBE => 'YouTube',
     ];
 
-    const NAME = ["1"=>"1","2"=>"2","3"=>"3","4"=>"4","5"=>"5","6"=>"6","7"=>"7","8"=>"8","9"=>"9","10"=>"10"];
-    const TICKET_FINE = ["10$"=>"10$","20$"=>"20$","30$"=>"30$","40$"=>"40$"];
+    const NAME = ["One"=>"One","Two"=>"Two","Three"=>"Three","Four"=>"Four","Five"=>"Five","Six"=>"Six","Seven"=>"Seven","Eight"=>"Eight","Nine"=>"Nine","Ten"=>"Ten"];
+    const TICKET_FINE = ["10$"=>"10$","20$"=>"20$","30$"=>"30$","40$"=>"40$","50$"=>"50$","60$"=>"60$","70$"=>"70$","80$"=>"80$","90$"=>"90$","100$"=>"100$"];
     const FINE = ["Suspended"=>"Suspended","Not Suspended"=>"Not Suspended"];
     const TICKET_STATUS = ["Unpaid"=>"Unpaid","Paid"=>"Paid"];
     /**

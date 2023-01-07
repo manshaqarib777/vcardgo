@@ -8500,7 +8500,7 @@ function editGalleryRenderData(id) {
     success: function success(result) {
       if (result.success) {
         $('#galleryId').val(result.data.id);
-        $('#editGalleryName').val(result.data.gallery_name);
+        $('#editGalleryName').val(result.data.gallery_name).trigger('change');
         $('#editDescription').val(result.data.description);
         $('#editSuspendedDescription').val(result.data.suspended_description);
         $('#editDate').val(result.data.date);

@@ -682,7 +682,7 @@
     'youtube' => 'Youtube',
     'gallery_name1' => 'Name',
     'description' => 'Description',
-    'suspended_description' => 'Suspended Description',
+    'suspended_description' => 'Suspended Des',
     'date' => 'Date',
     'time' => 'Time',
     'ticket_fine' => 'Ticket Fine',
