@@ -1311,6 +1311,36 @@
                                 </div>
                             </div>
                             @endif
+                            @if($vcard->comercial)
+                            <div class="col-sm-6 col-12">
+                                <div class="card business-card flex-row justify-content-center">
+                                <span class="me-2">
+                                    {{ strtoupper(__('messages.vcard.comercial')).':' }}
+                                </span>
+                                    <span>{{ $vcard->comercial }}</span>
+                                </div>
+                            </div>
+                            @endif
+                            @if($vcard->non_comercial)
+                            <div class="col-sm-6 col-12">
+                                <div class="card business-card flex-row justify-content-center">
+                                <span class="me-2">
+                                    {{ strtoupper(__('messages.vcard.non_comercial')).':' }}
+                                </span>
+                                    <span>{{ $vcard->non_comercial }}</span>
+                                </div>
+                            </div>
+                            @endif
+                            @if($vcard->dd)
+                            <div class="col-sm-6 col-12">
+                                <div class="card business-card flex-row justify-content-center">
+                                <span class="me-2">
+                                    {{ strtoupper(__('messages.vcard.dd')).':' }}
+                                </span>
+                                    <span>{{ $vcard->dd }}</span>
+                                </div>
+                            </div>
+                            @endif
                             @if($vcard->address)
                             <div class="col-sm-6 col-12">
                                 <div class="card business-card flex-row justify-content-center">

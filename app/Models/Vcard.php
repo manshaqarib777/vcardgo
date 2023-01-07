@@ -258,7 +258,10 @@ class Vcard extends Model implements HasMedia
         "category_c_text",
         "category_d_text",
         "category_e_text",
-        "vcard_unique_number"
+        "vcard_unique_number",
+        "comercial",
+        "non_comercial",
+        "dd",
     ];
 
     /**

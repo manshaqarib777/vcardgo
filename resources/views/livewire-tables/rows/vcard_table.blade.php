@@ -170,6 +170,15 @@
     {{$row->rstr}}
 </x-livewire-tables::bs5.table.cell>
 <x-livewire-tables::bs5.table.cell>
+    {{$row->comercial}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->non_comercial}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->dd}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
     {{$row->address}}
 </x-livewire-tables::bs5.table.cell>
 <x-livewire-tables::bs5.table.cell>

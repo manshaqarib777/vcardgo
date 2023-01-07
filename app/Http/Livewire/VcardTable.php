@@ -82,6 +82,9 @@ class VcardTable extends LivewireTableComponent
             Column::make(__('messages.vcard.height'), 'height')->sortable()->searchable(),
             Column::make(__('messages.vcard.weight'), 'weight')->sortable()->searchable(),
             Column::make(__('messages.vcard.rstr'), 'rstr')->sortable()->searchable(),
+            Column::make(__('messages.vcard.comercial'), 'comercial')->sortable()->searchable(),
+            Column::make(__('messages.vcard.non_comercial'), 'non_comercial')->sortable()->searchable(),
+            Column::make(__('messages.vcard.dd'), 'dd')->sortable()->searchable(),
             Column::make(__('messages.vcard.address'), 'address')->sortable()->searchable(),
             Column::make(__('messages.vcard.category'), 'category')->sortable()->searchable(),
 

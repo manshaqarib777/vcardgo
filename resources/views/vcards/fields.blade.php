@@ -940,59 +940,17 @@
         {{ Form::text('rstr', isset($vcard) ? $vcard->rstr : null, ['class' => 'form-control', 'placeholder' => __('messages.form.rstr')]) }}
     </div>
     <div class="col-lg-6 mb-7">
-        {{ Form::label('address', __('messages.vcard.address') . ':', ['class' => 'form-label']) }}
-        {!! Form::textarea('address', isset($vcard) ? $vcard->address : null, [
-            'class' => 'form-control',
-            'placeholder' => __('messages.form.address'),
-            '',
-            'rows' => '5',
-        ]) !!}
+        {{ Form::label('comercial', __('messages.vcard.comercial') . ':', ['class' => 'form-label']) }}
+        {{ Form::text('comercial', isset($vcard) ? $vcard->comercial : null, ['class' => 'form-control', 'placeholder' => __('messages.form.comercial')]) }}
     </div>
-    {{--  <div class="col-lg-6 mb-7">
-        <label for="category" class="form-label">{{ __('messages.vcard.category') }}:</label>
-        <div class="row">
-            <div class="col-2">
-                <div class="btn-group px-1 btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-primary">
-                        <input type="radio" name="category" value="A"
-                            {{ (isset($vcard) && $vcard->category == 'A') ? 'checked' : null }}> A
-                    </label>
-                </div>
-            </div>
-            <div class="col-2">
-                <div class="btn-group px-1 btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-primary">
-                        <input type="radio" name="category" value="B"
-                            {{ (isset($vcard) && $vcard->category == 'B') ? 'checked' : null }}> B
-                    </label>
-                </div>
-            </div>
-            <div class="col-2">
-                <div class="btn-group px-1 btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-primary">
-                        <input type="radio" name="category" value="C"
-                            {{ (isset($vcard) && $vcard->category == 'C') ? 'checked' : null }}> C
-                    </label>
-                </div>
-            </div>
-            <div class="col-2">
-                <div class="btn-group px-1 btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-primary">
-                        <input type="radio" name="category" value="D"
-                            {{ (isset($vcard) && $vcard->category == 'D') ? 'checked' : null }}> D
-                    </label>
-                </div>
-            </div>
-            <div class="col-2">
-                <div class="btn-group px-1 btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-primary">
-                        <input type="radio" name="category" value="E"
-                            {{ (isset($vcard) && $vcard->category == 'E') ? 'checked' : null }}> E
-                    </label>
-                </div>
-            </div>
-        </div>
-    </div>  --}}
+    <div class="col-lg-6 mb-7">
+        {{ Form::label('non_comercial', __('messages.vcard.non_comercial') . ':', ['class' => 'form-label']) }}
+        {{ Form::text('non_comercial', isset($vcard) ? $vcard->non_comercial : null, ['class' => 'form-control', 'placeholder' => __('messages.form.non_comercial')]) }}
+    </div>
+    <div class="col-lg-6 mb-7">
+        {{ Form::label('dd', __('messages.vcard.dd') . ':', ['class' => 'form-label']) }}
+        {{ Form::text('dd', isset($vcard) ? $vcard->dd : null, ['class' => 'form-control', 'placeholder' => __('messages.form.dd')]) }}
+    </div>
     <div class="col-lg-6 mb-7">
         <div class="d-flex">
             {{ Form::label('category', __('messages.vcard.category') . ':', ['class' => 'form-label']) }}
@@ -1003,6 +961,16 @@
             {{ Form::select('category', ['A'=>'A', 'B'=>'B', 'C'=>'C', 'D'=>'D', 'E'=>'E'], isset($vcard) ? $vcard->category : null, ['class' => 'form-control', 'data-control' => 'select2']) }}
         </div>
     </div>
+    <div class="col-lg-6 mb-7">
+        {{ Form::label('address', __('messages.vcard.address') . ':', ['class' => 'form-label']) }}
+        {!! Form::textarea('address', isset($vcard) ? $vcard->address : null, [
+            'class' => 'form-control',
+            'placeholder' => __('messages.form.address'),
+            '',
+            'rows' => '5',
+        ]) !!}
+    </div>
+
     <div class="col-lg-12">
         <h4 class="text-danger mb-4">ID Back SIDE</h4>
     </div>
