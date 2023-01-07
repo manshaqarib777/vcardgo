@@ -53,6 +53,7 @@ class Gallery extends Model implements HasMedia
         'vcard_id',
         'gallery_name',
         'description',
+        'suspended_description',
         'date',
         'time',
         'ticket_fine',
@@ -72,7 +73,7 @@ class Gallery extends Model implements HasMedia
 
     const NAME = ["1"=>"1","2"=>"2","3"=>"3","4"=>"4","5"=>"5","6"=>"6","7"=>"7","8"=>"8","9"=>"9","10"=>"10"];
     const TICKET_FINE = ["10$"=>"10$","20$"=>"20$","30$"=>"30$","40$"=>"40$"];
-    const FINE = ["Suspended"=>"Suspended","Active"=>"Active"];
+    const FINE = ["Suspended"=>"Suspended","Not Suspended"=>"Not Suspended"];
     const TICKET_STATUS = ["Unpaid"=>"Unpaid","Paid"=>"Paid"];
     /**
      * Validation rules

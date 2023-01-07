@@ -676,6 +676,7 @@
     'youtube' => 'Youtube',
     'gallery_name1' => 'Name',
     'description' => 'Description',
+    'suspended_description' => 'Suspended Description',
     'date' => 'Date',
     'time' => 'Time',
     'ticket_fine' => 'Ticket Fine',

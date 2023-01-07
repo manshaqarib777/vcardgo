@@ -910,7 +910,7 @@
         </div>
         <div class="form-group">
 
-            {{ Form::select('sex', ['male', 'female', 'other'], isset($vcard) ? $vcard->sex : null, ['class' => 'form-control', 'data-control' => 'select2']) }}
+            {{ Form::select('sex', ['Male'=>'male', "Female"=>'Female', 'Other'=>'Other'], isset($vcard) ? $vcard->sex : null, ['class' => 'form-control', 'data-control' => 'select2']) }}
         </div>
     </div>
     <div class="col-lg-6 mb-7">

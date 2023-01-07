@@ -8500,8 +8500,9 @@ function editGalleryRenderData(id) {
     success: function success(result) {
       if (result.success) {
         $('#galleryId').val(result.data.id);
-        $('#editGalleryName').val(result.data.gallery_name).trigger('change');
+        $('#editGalleryName').val(result.data.gallery_name);
         $('#editDescription').val(result.data.description);
+        $('#editSuspendedDescription').val(result.data.suspended_description);
         $('#editDate').val(result.data.date);
         $('#editTime').val(result.data.time);
         $('#editDateBefore').val(result.data.date_before);
@@ -8510,6 +8511,14 @@ function editGalleryRenderData(id) {
         $('#editTicketFine').val(result.data.ticket_fine).trigger('change');
         $('#editTicketStatus').val(result.data.ticket_status).trigger('change');
         $('#editFine').val(result.data.fine).trigger('change');
+        if(result.data.fine == "Not Suspended")
+        {
+            $('.showSuspended').hide()
+        }
+        else
+        {
+            $('.showSuspended').show()
+        }
         $('#editGalleryPreview').css('background-image', 'url("' + result.data.gallery_image + '")');
         $('#editYouTube_Link').val(result.data.link);
         $('#editGalleryModal').modal('show');
