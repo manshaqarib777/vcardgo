@@ -7063,7 +7063,7 @@ document.addEventListener('turbo:load', loadSettingData);
 var form;
 var phone;
 var prefixCode;
-
+var alternative_prefixCode;
 function loadSettingData() {
   if (!$('#createSetting').length) {
     return;
@@ -7074,6 +7074,7 @@ function loadSettingData() {
   phone = document.getElementById('phoneNumber').value;
   alternative_phone = document.getElementById('alternative_phoneNumber').value;
   prefixCode = document.getElementById('prefix_code').value;
+  alternative_prefixCode = document.getElementById('alternative_prefix_code').value;
 }
 
 listenChange('#appLogo', function () {
@@ -7093,6 +7094,7 @@ function reset() {
   document.getElementById('phoneNumber').setAttribute('value', phone);
   document.getElementById('alternative_phoneNumber').setAttribute('value', alternative_phone);
   document.getElementById('prefix_code').setAttribute('value', '+' + prefixCode);
+  document.getElementById('alternative_prefix_code').setAttribute('value', '+' + alternative_prefixCode);
 }
 
 function isEmail(email) {
@@ -10247,8 +10249,8 @@ function loadAlternativePhoneNumberCountryCode() {
   }
 
   var input = document.querySelector('#alternative_phoneNumber'),
-      errorMsg = document.querySelector('#error-msg'),
-      validMsg = document.querySelector('#valid-msg');
+      errorMsg = document.querySelector('#error-msg1'),
+      validMsg = document.querySelector('#valid-msg1');
   var errorMap = ['Invalid number', 'Invalid country code', 'Too short', 'Too long', 'Invalid number']; // initialise plugin
 
   var intl = window.intlTelInput(input, {

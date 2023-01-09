@@ -119,8 +119,8 @@
                     {{ Form::text('alternative_phone', isset($vcard) ? (isset($vcard->alternative_region_code) ? '+' . $vcard->alternative_region_code . '' . $vcard->alternative_phone : $vcard->alternative_phone) : null, ['class' => 'form-control', 'placeholder' => __('messages.form.alternative_phone'), 'id' => 'alternative_phoneNumber', 'onkeyup' => 'if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,"")']) }}
                     {{ Form::hidden('alternative_region_code', isset($vcard) ? $vcard->alternative_region_code : null, ['id' => 'alternative_prefix_code']) }}
                     <div class="mt-2">
-                        <span id="valid-msg" class="text-success d-none fw-400 fs-small mt-2">Valid Number</span>
-                        <span id="error-msg" class="text-danger d-none fw-400 fs-small mt-2">Invalid Number</span>
+                        <span id="valid-msg1" class="text-success d-none fw-400 fs-small mt-2">Valid Number</span>
+                        <span id="error-msg1" class="text-danger d-none fw-400 fs-small mt-2">Invalid Number</span>
                     </div>
                 </div>
             </div>
@@ -940,12 +940,13 @@
         {{ Form::text('rstr', isset($vcard) ? $vcard->rstr : null, ['class' => 'form-control', 'placeholder' => __('messages.form.rstr')]) }}
     </div>
     <div class="col-lg-6 mb-7">
-        {{ Form::label('comercial', __('messages.vcard.comercial') . ':', ['class' => 'form-label']) }}
-        {{ Form::text('comercial', isset($vcard) ? $vcard->comercial : null, ['class' => 'form-control', 'placeholder' => __('messages.form.comercial')]) }}
-    </div>
-    <div class="col-lg-6 mb-7">
-        {{ Form::label('non_comercial', __('messages.vcard.non_comercial') . ':', ['class' => 'form-label']) }}
-        {{ Form::text('non_comercial', isset($vcard) ? $vcard->non_comercial : null, ['class' => 'form-control', 'placeholder' => __('messages.form.non_comercial')]) }}
+        <div class="d-flex">
+            {{ Form::label('comercial', __('messages.vcard.comercial') . ':', ['class' => 'form-label']) }}
+
+        </div>
+        <div class="form-group">
+            {{ Form::select('comercial', ['Comercial'=>'Comercial', "Non Comercial"=>'Non Comercial'], isset($vcard) ? $vcard->comercial : null, ['class' => 'form-control', 'data-control' => 'select2']) }}
+        </div>
     </div>
     <div class="col-lg-6 mb-7">
         {{ Form::label('dd', __('messages.vcard.dd') . ':', ['class' => 'form-label']) }}

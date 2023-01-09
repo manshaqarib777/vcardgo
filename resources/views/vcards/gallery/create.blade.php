@@ -65,7 +65,7 @@
                                 class="form-label required fs-6 fw-bolder text-gray-700">{{ __('messages.gallery.type').':' }}</label>
                         </div>
                         {{ Form::select('type', \App\Models\Gallery::TYPE,null,
-                            ['class' => 'form-control form-select form-select-solid fw-bold', 'required','data-dropdown-parent' => '#addGalleryModal','placeholder'=>'Select Type', 'data-control' => 'select2','id'=>'typeId']) }}
+                            ['class' => 'form-control form-select form-select-solid fw-bold', 'required','data-dropdown-parent' => '#addGalleryModal','placeholder'=>'Select Type','id'=>'typeId']) }}
                     </div>
                     <div class="col-sm-12 mb-5 mt-3 image_link">
 
