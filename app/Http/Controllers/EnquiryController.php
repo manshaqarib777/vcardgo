@@ -19,7 +19,7 @@ class EnquiryController extends AppBaseController
     {
         $this->middleware('permission:enquiries.index', ['only' => ['index']]);
         $this->middleware('permission:enquiries.create', ['only' => ['create']]);
-        $this->middleware('permission:enquiries.store', ['only' => ['store']]);
+        // $this->middleware('permission:enquiries.store', ['only' => ['store']]);
         $this->middleware('permission:enquiries.edit', ['only' => ['edit']]);
         $this->middleware('permission:enquiries.update', ['only' => ['update']]);
         $this->middleware('permission:enquiries.delete', ['only' => ['destroy']]);
@@ -37,10 +37,14 @@ class EnquiryController extends AppBaseController
 
     public function store(CreateEnquiryRequest $request, Vcard $vcard)
     {
-        $input = $request->all();
+        $input = $request->except("enquiry_url");
         $input['vcard_id'] = $vcard->id;
         $input['vcard_name'] = $vcard->name;
-        Enquiry::create($input);
+        $enquiry = Enquiry::create($input);
+        //dd($enquiry->phone);
+        if (isset($request->enquiry_url) && !empty($request->enquiry_url)) {
+            $enquiry->addMedia($request->enquiry_url)->toMediaCollection(Enquiry::ENQUIRY_URL, config('app.media_disc'));
+        }
         $email = empty($vcard->email) ? $vcard->user->email : $vcard->email;
 
         if (!empty($email)) {

@@ -2,9 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Traits\Multitenantable;
+use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Stancl\Tenancy\Database\Concerns\BelongsToTenant;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * App\Models\Enquiry
@@ -31,12 +35,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @mixin \Eloquent
  * @property-read \App\Models\Vcard $vcard
  */
-class Enquiry extends Model
+class Enquiry extends Model implements HasMedia
 {
-    use HasFactory;
+    use InteractsWithMedia, HasFactory;
 
     protected $table = 'enquiries';
-
+    protected $appends = ['enquiry_url'];
+    const ENQUIRY_URL = 'vcards/profiles';
     /**
      * @var array
      */
@@ -64,5 +69,18 @@ class Enquiry extends Model
     public function vcard()
     {
         return $this->belongsTo(Vcard::class);
+    }
+    /**
+     * @return string
+     */
+    public function getEnquiryUrlAttribute(): string
+    {
+        /** @var Media $media */
+        $media = $this->getMedia(self::ENQUIRY_URL)->first();
+        if (!empty($media)) {
+            return $media->getFullUrl();
+        }
+
+        return "";
     }
 }
