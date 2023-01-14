@@ -140,6 +140,8 @@ class ScheduleAppointmentController extends AppBaseController
             $data[$key]['title'] = $startTime.'-'.$endTime;
             $data[$key]['name'] = $appointment->name;
             $data[$key]['email'] = $appointment->email;
+            $data[$key]['reason'] = $appointment->reason;
+            $data[$key]['message'] = $appointment->message;
             $data[$key]['phone'] = is_null($appointment->phone) ? 'N/A' : $appointment->phone;
             $data[$key]['vcardName'] = $appointment->vcard->name;
             $data[$key]['start'] = $start->toDateTimeString();

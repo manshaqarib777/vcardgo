@@ -39,7 +39,7 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Eloquent\Builder|ScheduleAppointment whereVcardId($value)
  * @mixin \Eloquent
  */
-class ScheduleAppointment extends Model 
+class ScheduleAppointment extends Model
 {
     use HasFactory;
 
@@ -54,6 +54,8 @@ class ScheduleAppointment extends Model
         'to_time',
         'vcard_id',
         'appointment_tran_id',
+        'reason',
+        'message',
     ];
 
     public static $rules = [
@@ -61,19 +63,19 @@ class ScheduleAppointment extends Model
         'email'   => 'required|email:filter',
         'phone'   => 'nullable|numeric|min:0',
     ];
-    
+
     const FREE = 0;
     const PAID = 1;
     const ALL = 3;
-    
+
     const TYPES = [
         self::ALL => 'All',
         self::FREE => 'Free',
         self::PAID => 'Paid',
     ];
-    
+
     protected $appends = ['paid_amount'];
-    
+
     /**
      * @return string
      */
@@ -83,10 +85,10 @@ class ScheduleAppointment extends Model
         if($transaction){
             return $transaction->currency_symbol.''.$transaction->amount;
         }
-        
+
         return '';
     }
-    
+
     /**
      *
      *
@@ -106,5 +108,5 @@ class ScheduleAppointment extends Model
     {
         return $this->belongsTo(AppointmentTransaction::class, 'appointment_tran_id');
     }
-    
+
 }

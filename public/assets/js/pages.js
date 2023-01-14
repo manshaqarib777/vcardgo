@@ -9527,11 +9527,13 @@ var data = {
   vcardName: '',
   email: '',
   phone: '',
+  reason: '',
+  message: '',
   startDateTime: '',
   endDateTime: ''
 }; // View event variables
 
-var viewEventName, viewEventDescription, viewEventStatus, viewStartDate, viewEndDate, viewModal, viewEditButton, viewDeleteButton, viewVcardName, viewEmail, viewPhone;
+var viewEventName, viewEventDescription, viewEventStatus, viewStartDate, viewEndDate, viewModal, viewEditButton, viewDeleteButton, viewVcardName, viewEmail, viewPhone,viewReason,viewMessage;
 
 function loadAppointmentCalendar() {
   if (!$('#appointmentCalendar').length) {
@@ -9579,6 +9581,7 @@ var initCalendarApp = function initCalendarApp() {
     },
     // MouseEnter event --- more info: https://fullcalendar.io/docs/eventMouseEnter
     eventMouseEnter: function eventMouseEnter(arg) {
+        console.log(arg)
       formatArgs({
         id: arg.event.id,
         title: arg.event.title,
@@ -9589,6 +9592,8 @@ var initCalendarApp = function initCalendarApp() {
         vcardName: arg.event.extendedProps.vcardName,
         email: arg.event.extendedProps.email,
         phone: arg.event.extendedProps.phone,
+        reason: arg.event.extendedProps.reason,
+        message: arg.event.extendedProps.message,
         startDateTime: arg.event.extendedProps.startDateTime,
         endDateTime: arg.event.extendedProps.endDateTime
       }); // Show popover preview
@@ -9611,6 +9616,8 @@ var initCalendarApp = function initCalendarApp() {
         vcardName: arg.event.extendedProps.vcardName,
         email: arg.event.extendedProps.email,
         phone: arg.event.extendedProps.phone,
+        reason: arg.event.extendedProps.reason,
+        message: arg.event.extendedProps.message,
         startDateTime: arg.event.extendedProps.startDateTime,
         endDateTime: arg.event.extendedProps.endDateTime
       });
@@ -9629,7 +9636,9 @@ var init = function init() {
   viewVcardName = viewElement.querySelector('[data-calendar="event_vcard_name"]');
   viewEmail = viewElement.querySelector('[data-calendar="event_email"]');
   viewPhone = viewElement.querySelector('[data-calendar="event_phone"]');
-  viewStartDate = viewElement.querySelector('[data-calendar="event_start_date"]');
+  viewReason = viewElement.querySelector('[data-calendar="event_reason"]');
+    viewMessage = viewElement.querySelector('[data-calendar="event_message"]');
+    viewStartDate = viewElement.querySelector('[data-calendar="event_start_date"]');
   viewEndDate = viewElement.querySelector('[data-calendar="event_end_date"]');
   viewEditButton = viewElement.querySelector('#modal_view_event_edit');
   viewDeleteButton = viewElement.querySelector('#modal_view_event_delete');
@@ -9646,6 +9655,8 @@ var formatArgs = function formatArgs(res) {
   data.vcardName = res.vcardName;
   data.email = res.email;
   data.phone = res.phone;
+  data.reason = res.reason;
+  data.message = res.message;
   data.startDateTime = res.startDateTime;
   data.endDateTime = res.endDateTime;
 }; // Initialize popovers --- more info: https://getbootstrap.com/docs/4.0/components/popovers/
@@ -9707,6 +9718,8 @@ var handleViewEvent = function handleViewEvent() {
   viewVcardName.innerText = Lang.get('messages.vcard.vcard_name') + ': ' + data.vcardName;
   viewEmail.innerText = Lang.get('messages.user.email') + ': ' + data.email;
   viewPhone.innerText = Lang.get('messages.user.phone') + ': ' + data.phone;
+  viewReason.innerText = Lang.get('messages.common.reason')+': ' + data.reason;
+  viewMessage.innerText = Lang.get('messages.common.message')+': ' + data.message;
 };
 
 listen('change', '#appointmentType', function () {
