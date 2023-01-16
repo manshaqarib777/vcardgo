@@ -30,6 +30,9 @@ class EnquiriesTable extends LivewireTableComponent
             Column::make(__('messages.common.phone'), 'phone')->searchable(),
             Column::make(__('messages.vcard.created_on'), 'created_at')->sortable()->searchable()
                 ->addClass('text-nowrap'),
+            Column::make(__('messages.common.reason'), 'reason')->sortable()->searchable(),
+            Column::make(__('messages.common.message'), 'message')->sortable()->searchable(),
+            Column::make(__('messages.common.enquiry_url'), 'enquiry_url'),
             Column::make(__('messages.common.action'))->addClass('justify-content-center d-flex'),
         ];
     }

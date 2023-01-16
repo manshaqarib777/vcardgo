@@ -17,7 +17,7 @@ class ScheduleAppointmentTable extends LivewireTableComponent
     protected $listeners = ['refresh' => '$refresh', 'changeFilter', 'resetPageTable'];
     protected string $pageName = 'schedule-appointment-table';
     public int $typeFilter = ScheduleAppointment::ALL;
-    
+
     public function columns(): array
     {
         return [
@@ -39,6 +39,8 @@ class ScheduleAppointmentTable extends LivewireTableComponent
             Column::make(__('messages.to_time'), "to_time")
                 ->sortable()->searchable()->addClass('w-100px '),
             Column::make(__('messages.common.type'), "id")->addClass('w-100px'),
+            Column::make(__('messages.common.reason'), 'reason')->sortable()->searchable(),
+            Column::make(__('messages.common.message'), 'message')->sortable()->searchable(),
         ];
     }
 
@@ -46,19 +48,19 @@ class ScheduleAppointmentTable extends LivewireTableComponent
     {
         $this->typeFilter = $value;
     }
-    
+
     public function query(): Builder
     {
         $vcardIds = Vcard::whereTenantId(getLogInTenantId())->pluck('id')->toArray();
 
         $scheduleAppointments = ScheduleAppointment::with('vcard')->whereIn('vcard_id', $vcardIds);
-        
+
         if (isset($this->typeFilter) && $this->typeFilter != ScheduleAppointment::ALL){
-            return $this->typeFilter == ScheduleAppointment::PAID 
-                ? $scheduleAppointments->whereNotNull('appointment_tran_id') 
+            return $this->typeFilter == ScheduleAppointment::PAID
+                ? $scheduleAppointments->whereNotNull('appointment_tran_id')
                 : $scheduleAppointments->whereNull('appointment_tran_id');
         }
-        
+
         return $scheduleAppointments;
     }
 
@@ -70,7 +72,7 @@ class ScheduleAppointmentTable extends LivewireTableComponent
     public function render()
     {
         $types = ScheduleAppointment::TYPES;
-        
+
         return view('livewire-tables::'.config('livewire-tables.theme').'.datatable')
             ->with([
                 'columns'       => $this->columns(),

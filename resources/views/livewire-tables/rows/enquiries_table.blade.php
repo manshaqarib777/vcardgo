@@ -23,6 +23,21 @@
 </x-livewire-tables::bs5.table.cell>
 
 <x-livewire-tables::bs5.table.cell>
+    {{ $row->reason }}
+</x-livewire-tables::bs5.table.cell>
+
+<x-livewire-tables::bs5.table.cell>
+    {{ $row->message }}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::table.cell>
+    @if($row->enquiry_url)
+    <div class="mt-4 d-flex justify-content-center">
+        <img src="{{ $row->enquiry_url }}" width="100" height="100" >
+    </div>
+    @endif
+</x-livewire-tables::table.cell>
+
+<x-livewire-tables::bs5.table.cell>
     <div class="justify-content-center d-flex">
         @can("enquiries.show")
             <a title = "{{ __('messages.common.view') }}" data-id="{{$row->id}}"

@@ -17,7 +17,7 @@
         {{'N/A'}}
     @endif
 </x-livewire-tables::bs5.table.cell>
-    
+
 <x-livewire-tables::bs5.table.cell>
     {{ $row->date }}
 </x-livewire-tables::bs5.table.cell>
@@ -36,4 +36,12 @@
     @else
         <span class="badge bg-primary">{{__('messages.appointment.free')}}</span>
     @endif
+</x-livewire-tables::bs5.table.cell>
+
+<x-livewire-tables::bs5.table.cell>
+    {{ $row->reason }}
+</x-livewire-tables::bs5.table.cell>
+
+<x-livewire-tables::bs5.table.cell>
+    {{ $row->message }}
 </x-livewire-tables::bs5.table.cell>

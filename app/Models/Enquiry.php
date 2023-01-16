@@ -41,7 +41,7 @@ class Enquiry extends Model implements HasMedia
 
     protected $table = 'enquiries';
     protected $appends = ['enquiry_url'];
-    const ENQUIRY_URL = 'vcards/profiles';
+    const ENQUIRYURL = 'vcards/enquiry_url';
     /**
      * @var array
      */
@@ -51,6 +51,7 @@ class Enquiry extends Model implements HasMedia
         'email',
         'phone',
         'message',
+        'reason',
     ];
 
     /**
@@ -76,7 +77,7 @@ class Enquiry extends Model implements HasMedia
     public function getEnquiryUrlAttribute(): string
     {
         /** @var Media $media */
-        $media = $this->getMedia(self::ENQUIRY_URL)->first();
+        $media = $this->getMedia(self::ENQUIRYURL)->first();
         if (!empty($media)) {
             return $media->getFullUrl();
         }

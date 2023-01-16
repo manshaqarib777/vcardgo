@@ -43,7 +43,7 @@ class EnquiryController extends AppBaseController
         $enquiry = Enquiry::create($input);
         //dd($enquiry->phone);
         if (isset($request->enquiry_url) && !empty($request->enquiry_url)) {
-            $enquiry->addMedia($request->enquiry_url)->toMediaCollection(Enquiry::ENQUIRY_URL, config('app.media_disc'));
+            $enquiry->addMedia($request->enquiry_url)->toMediaCollection(Enquiry::ENQUIRYURL, config('app.media_disc'));
         }
         $email = empty($vcard->email) ? $vcard->user->email : $vcard->email;
 
