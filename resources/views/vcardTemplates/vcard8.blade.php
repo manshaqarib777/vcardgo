@@ -529,6 +529,16 @@
                             </div>
                         </div>
                         @endif
+                        @if($vcard->registration_commune)
+                        <div class="col-sm-6 col-12">
+                            <div class="card business-card flex-row justify-content-center">
+                            <span class="me-2">
+                                {{ strtoupper(__('messages.vcard.registration_commune')).':' }}
+                            </span>
+                                <span>{{ $vcard->registration_commune }}</span>
+                            </div>
+                        </div>
+                        @endif
                         @if($vcard->registration_emergency_contact_no)
                         <div class="col-sm-6 col-12">
                             <div class="card business-card flex-row justify-content-center">
@@ -685,7 +695,7 @@
                             <span class="me-2">
                                 {{ strtoupper(__('messages.vcard.inspection_city')).':' }}
                             </span>
-                                <span>{{ $vcard->inspectionCity->name }}</span>
+                            <span>{{ $vcard->inspectionCity->name }}</span>
                             </div>
                         </div>
                         @endif
@@ -696,6 +706,16 @@
                                 {{ strtoupper(__('messages.vcard.inspection_district')).':' }}
                             </span>
                                 <span>{{ $vcard->inspection_district }}</span>
+                            </div>
+                        </div>
+                        @endif
+                        @if($vcard->inspection_commune)
+                        <div class="col-sm-6 col-12">
+                            <div class="card business-card flex-row justify-content-center">
+                            <span class="me-2">
+                                {{ strtoupper(__('messages.vcard.inspection_commune')).':' }}
+                            </span>
+                                <span>{{ $vcard->inspection_commune }}</span>
                             </div>
                         </div>
                         @endif
@@ -733,6 +753,7 @@
                 </div>
             </div>
         @endif
+
         {{-- inspection custom idea new --}}
         @if(checkFeature('inspection_custom_idea_new') && $vcard->inspection_address_new)
             <div class="vcard-one__timing py-3 px-1">
@@ -866,6 +887,16 @@
                                 {{ strtoupper(__('messages.vcard.inspection_district_new')).':' }}
                             </span>
                                 <span>{{ $vcard->inspection_district_new }}</span>
+                            </div>
+                        </div>
+                        @endif
+                        @if($vcard->inspection_commune_new)
+                        <div class="col-sm-6 col-12">
+                            <div class="card business-card flex-row justify-content-center">
+                            <span class="me-2">
+                                {{ strtoupper(__('messages.vcard.inspection_commune_new')).':' }}
+                            </span>
+                                <span>{{ $vcard->inspection_commune_new }}</span>
                             </div>
                         </div>
                         @endif
@@ -1008,6 +1039,16 @@
                                 {{ strtoupper(__('messages.vcard.parking_district')).':' }}
                             </span>
                                 <span>{{ $vcard->parking_district }}</span>
+                            </div>
+                        </div>
+                        @endif
+                        @if($vcard->parking_commune)
+                        <div class="col-sm-6 col-12">
+                            <div class="card business-card flex-row justify-content-center">
+                            <span class="me-2">
+                                {{ strtoupper(__('messages.vcard.parking_commune')).':' }}
+                            </span>
+                                <span>{{ $vcard->parking_commune }}</span>
                             </div>
                         </div>
                         @endif
@@ -1519,6 +1560,34 @@
                                                        placeholder="{{__('messages.form.phone')}}">
                                             </div>
                                         </div>
+                                        <div class="mb-5">
+                                            <div class="d-flex">
+                                                {{ Form::label('reason', __('messages.common.reason') . ':', ['class' => 'form-label']) }}
+                                            </div>
+                                            <div class="form-group">
+                                                {{ Form::select('reason', ['Medical Checkup 1'=>'Medical Checkup 1', "Medical Checkup 2"=>'Medical Checkup 2', 'Other'=>'Other'], null, ['class' => 'form-control', 'id' => 'paypalIntUserReason']) }}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-sm-6 mb-7">
+                                            <div class="mb-3" io-image-input="true">
+                                                <label for="exampleInputEnquiry" class="form-label">{{ __('messages.vcard.enquiry').':' }}</label>
+                                                <div class="d-block">
+                                                    <div class="image-picker">
+                                                        <div class="image previewImage" id="exampleInputEnquiry"
+                                                             style="background-image: url('')"></div>
+                                                        <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
+                                                              data-placement="top" data-bs-original-title="{{__('messages.tooltip.enquiry')}}">
+                                                                    <label>
+                                                                    <i class="fa-solid fa-pen" id="enquiryIcon"></i>
+                                                                        <input type="file" id="enquiry" name="enquiry_url"
+                                                                               class="image-upload d-none" accept="image/*"/>
+                                                                    </label>
+                                                                </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-text text-danger" id="enquiryValidationErrors"></div>
+                                        </div>
                                         <div class="mb-3">
                                             <label class="form-label">{{ __('messages.user.your_message') }}</label>
                                             <textarea class="form-control" name="message"
@@ -1679,6 +1748,54 @@
     @if (!empty($setting) && !empty($setting->value))
         stripe = Stripe('{{ $setting->value }}');
     @endif
+    document.querySelector(".image-upload").addEventListener(
+        "change",
+        function (t) {
+            !(function (t) {
+                var n = /image.*/;
+                if (!t.type.match(n))
+                    throw "File Type is not match.";
+                if (!t) throw "File not found.";
+                !(function (t) {
+                    var n = document.querySelector("#exampleInputEnquiry"),
+                        r = new FileReader();
+                    (r.onload = function (e) {
+                        var t = new Image();
+                        (t.src = e.target.result),
+                            (t.onload = function () {
+                                n.style.backgroundImage =
+                                    "url(" + e.target.result + ")";
+                            });
+                    }),
+                        r.readAsDataURL(t);
+                })(t);
+            })(t.currentTarget.files[0]);
+        }
+    );
+    document.querySelector(".image-upload").addEventListener(
+        "change",
+        function (t) {
+            !(function (t) {
+                var n = /image.*/;
+                if (!t.type.match(n))
+                    throw "File Type is not match.";
+                if (!t) throw "File not found.";
+                !(function (t) {
+                    var n = document.querySelector("#exampleInputEnquiry"),
+                        r = new FileReader();
+                    (r.onload = function (e) {
+                        var t = new Image();
+                        (t.src = e.target.result),
+                            (t.onload = function () {
+                                n.style.backgroundImage =
+                                    "url(" + e.target.result + ")";
+                            });
+                    }),
+                        r.readAsDataURL(t);
+                })(t);
+            })(t.currentTarget.files[0]);
+        }
+    );
     $('.testimonial-slider').slick({
         dots: true,
         infinite: true,

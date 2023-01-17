@@ -54,25 +54,64 @@
         startView: "years",
         minViewMode: "years"
     });
- setTimeout(() => {
-    $('#registration_country').trigger('change');
-    $('#inspection_country').trigger('change');
-    $('#inspection_country_new').trigger('change');
-    $('#parking_country').trigger('change');
-    setTimeout(() => {
-        $('#registration_state').trigger('change');
-        $('#inspection_state').trigger('change');
-        $('#inspection_state_new').trigger('change');
-        $('#parking_state').trigger('change');
-    }, 600);
- }, 300);
-    $('#registration_country').change(function() {
+
+    @if ($partName == 'registration_custom_idea')
+        var state = "{{isset($vcard) ? $vcard->registration_state : null}}";
+        var city = "{{isset($vcard) ? $vcard->registration_city : null}}";
+        var commune = "{{isset($vcard) ? $vcard->registration_commune : null}}";
+
+        setTimeout(() => {
+            $('#registration_country').trigger('change');
+            $('#registration_district').trigger('change');
+            setTimeout(() => {
+                $('#registration_state').trigger('change');
+            }, 600);
+        }, 300);
+    @endif
+    @if ($partName == 'inspection_custom_idea')
+        var state = "{{isset($vcard) ? $vcard->inspection_state : null}}";
+        var city = "{{isset($vcard) ? $vcard->inspection_city : null}}";
+        var commune = "{{isset($vcard) ? $vcard->inspection_commune : null}}";
+        setTimeout(() => {
+            $('#inspection_country').trigger('change');
+            $('#inspection_district').trigger('change');
+            setTimeout(() => {
+                $('#inspection_state').trigger('change');
+            }, 600);
+        }, 300);
+    @endif
+    @if ($partName == 'inspection_custom_idea_new')
+        var state = "{{isset($vcard) ? $vcard->inspection_state_new : null}}";
+        var city = "{{isset($vcard) ? $vcard->inspection_city_new : null}}";
+        var commune = "{{isset($vcard) ? $vcard->inspection_commune_new : null}}";
+        setTimeout(() => {
+            $('#inspection_country_new').trigger('change');
+            $('#inspection_district_new').trigger('change');
+            setTimeout(() => {
+                $('#inspection_state_new').trigger('change');
+            }, 600);
+        }, 300);
+    @endif
+    @if ($partName == 'parking_custom_idea')
+        var state = "{{isset($vcard) ? $vcard->parking_state : null}}";
+        var city = "{{isset($vcard) ? $vcard->parking_city : null}}";
+        var commune = "{{isset($vcard) ? $vcard->parking_commune : null}}";
+        setTimeout(() => {
+            $('#parking_country').trigger('change');
+            $('#parking_district').trigger('change');
+            setTimeout(() => {
+                $('#parking_state').trigger('change');
+            }, 600);
+        }, 300);
+    @endif
+
+    $('#registration_country,#inspection_country,#inspection_country_new,#parking_country').change(function() {
         var id = $(this).val();
+        var module = $(this).attr("module");
         $.get("{{ route('get-states-ajax') }}?country_id=" + id, function(data) {
-            var state = "{{isset($vcard) ? $vcard->registration_state : null}}";
-            $('#registration_state').empty();
-            $('#registration_city').empty();
-            $('#registration_state').append(
+            $(module).empty();
+            $('#registration_city,#inspection_city,#inspection_city_new,#parking_city').empty();
+            $(module).append(
                 '<option value=""></option>');
             for (let index = 0; index < data.length; index++) {
                 const element = data[index];
@@ -81,21 +120,24 @@
                 {
                     selected = "selected";
                 }
-                $('#registration_state').append('<option value="' +
+                $(module).append('<option value="' +
                     element['id'] + '" '+selected+'>' + element['name'] + '</option>');
             }
-
-
         });
     });
-    $('#registration_state').change(function() {
+    $('#registration_state,#inspection_state,#inspection_state_new,#parking_state').change(function() {
         var id = $(this).val();
-
+        var module = $(this).attr("module");
+        var hidden_module = $(this).attr("hidden_module");
+        if(id == 828){
+            $(hidden_module).show();
+        }
+        else{
+            $(hidden_module).hide();
+        }
         $.get("{{ route('get-cities-ajax') }}?state_id=" + id, function(data) {
-            var city = "{{isset($vcard) ? $vcard->registration_city : null}}";
-            $('#registration_city').empty();
-            $('#registration_city').append(
-                '<option value=""></option>');
+            $(module).empty();
+            $(module).append('<option value=""></option>');
             for (let index = 0; index < data.length; index++) {
                 const element = data[index];
                 var selected = "";
@@ -103,147 +145,58 @@
                 {
                     selected = "selected";
                 }
-                $('#registration_city').append('<option value="' +
+                $(module).append('<option value="' +
                     element['id'] + '" '+selected+'>' + element['name'] + '</option>');
             }
-
-
         });
     });
 
 
-    $('#inspection_country').change(function() {
+    $('#registration_district, #inspection_district, #inspection_district_new, #parking_district').change(function() {
+        var module = $(this).attr("module");
         var id = $(this).val();
-        $.get("{{ route('get-states-ajax') }}?country_id=" + id, function(data) {
-            var state = "{{isset($vcard) ? $vcard->inspection_state : null}}";
-            $('#inspection_state').empty();
-            $('#inspection_city').empty();
-            $('#inspection_state').append(
-                '<option value=""></option>');
-            for (let index = 0; index < data.length; index++) {
-                const element = data[index];
-                var selected = "";
-                if(state == element['id'] )
-                {
-                    selected = "selected";
-                }
-                $('#inspection_state').append('<option value="' +
-                    element['id'] + '" '+selected+'>' + element['name'] + '</option>');
-            }
+        $(module).empty();
+        if (id == "MONT-AMBA") {
+            $(module).append(`
+                <option value="LEMBA" ${(commune=='LEMBA')?'selected':''}>LEMBA</option>
+                <option value="MATETE" ${(commune=='MATETE')?'selected':''}>MATETE</option>
+                <option value="KISENSO" ${(commune=='KISENSO')?'selected':''}>KISENSO</option>
+                <option value="NGABA" ${(commune=='NGABA')?'selected':''}>NGABA</option>
+                <option value="LIMETE" ${(commune=='LIMETE')?'selected':''}>LIMETE</option>
+            `);
+        }
+        else if (id == "FUNA") {
+            $(module).append(`
+                <option value="MAKALA" ${(commune=='MAKALA')?'selected':''}>MAKALA</option>
+                <option value="KALAMU" ${(commune=='KALAMU')?'selected':''}>KALAMU</option>
+                <option value="SELEMBAO" ${(commune=='SELEMBAO')?'selected':''}>SELEMBAO</option>
+                <option value="BANDALUNGWA" ${(commune=='BANDALUNGWA')?'selected':''}>BANDALUNGWA</option>
+                <option value="NGIRI-NGIRI" ${(commune=='NGIRI-NGIRI')?'selected':''}>NGIRI-NGIRI</option>
+                <option value="BUMBU" ${(commune=='BUMBU')?'selected':''}>BUMBU</option>
+                <option value="KASA-VUBU" ${(commune=='KASA-VUBU')?'selected':''}>KASA-VUBU</option>
+            `);
+        }
+        else if (id == "LUKUNGA") {
+            $(module).append(`
+                <option value="KITAMBO" ${(commune=='KITAMBO')?'selected':''}>KITAMBO</option>
+                <option value="MONT-NGAFULA" ${(commune=='MONT-NGAFULA')?'selected':''}>MONT-NGAFULA</option>
+                <option value="NGALIEMA" ${(commune=='NGALIEMA')?'selected':''}>NGALIEMA</option>
+                <option value="KINSHASA" ${(commune=='KINSHASA')?'selected':''}>KINSHASA</option>
+                <option value="BARUMBU" ${(commune=='BARUMBU')?'selected':''}>BARUMBU</option>
+                <option value="GOMBE" ${(commune=='GOMBE')?'selected':''}>GOMBE</option>
+                <option value="LINGWALA" ${(commune=='LINGWALA')?'selected':''}>LINGWALA</option>
+            `);
+        }
+        else if (id == "TSHANGU") {
+            $(module).append(`
+                <option value="NDJILI" ${(commune=='NDJILI')?'selected':''}>NDJILI</option>
+                <option value="KIMBANSEKE" ${(commune=='KIMBANSEKE')?'selected':''}>KIMBANSEKE</option>
+                <option value="MASINA" ${(commune=='MASINA')?'selected':''}>MASINA</option>
+                <option value="NSELE" ${(commune=='NSELE')?'selected':''}>NSELE</option>
+                <option value="MALUKU" ${(commune=='MALUKU')?'selected':''}>MALUKU</option>
+            `);
+        }
 
-
-        });
-    });
-    $('#inspection_state').change(function() {
-        var id = $(this).val();
-
-        $.get("{{ route('get-cities-ajax') }}?state_id=" + id, function(data) {
-            var city = "{{isset($vcard) ? $vcard->inspection_city : null}}";
-            $('#inspection_city').empty();
-            $('#inspection_city').append(
-                '<option value=""></option>');
-            for (let index = 0; index < data.length; index++) {
-                const element = data[index];
-                var selected = "";
-                if(city == element['id'] )
-                {
-                    selected = "selected";
-                }
-                $('#inspection_city').append('<option value="' +
-                    element['id'] + '" '+selected+'>' + element['name'] + '</option>');
-            }
-
-
-        });
-    });
-    $('#inspection_country_new').change(function() {
-        var id = $(this).val();
-        $.get("{{ route('get-states-ajax') }}?country_id=" + id, function(data) {
-            var state = "{{isset($vcard) ? $vcard->inspection_state_new : null}}";
-            $('#inspection_state_new').empty();
-            $('#inspection_city_new').empty();
-            $('#inspection_state_new').append(
-                '<option value=""></option>');
-            for (let index = 0; index < data.length; index++) {
-                const element = data[index];
-                var selected = "";
-                if(state == element['id'] )
-                {
-                    selected = "selected";
-                }
-                $('#inspection_state_new').append('<option value="' +
-                    element['id'] + '" '+selected+'>' + element['name'] + '</option>');
-            }
-
-
-        });
-    });
-    $('#inspection_state_new').change(function() {
-        var id = $(this).val();
-
-        $.get("{{ route('get-cities-ajax') }}?state_id=" + id, function(data) {
-            var city = "{{isset($vcard) ? $vcard->inspection_city_new : null}}";
-            $('#inspection_city_new').empty();
-            $('#inspection_city_new').append(
-                '<option value=""></option>');
-            for (let index = 0; index < data.length; index++) {
-                const element = data[index];
-                var selected = "";
-                if(city == element['id'] )
-                {
-                    selected = "selected";
-                }
-                $('#inspection_city_new').append('<option value="' +
-                    element['id'] + '" '+selected+'>' + element['name'] + '</option>');
-            }
-
-
-        });
-    });
-
-    $('#parking_country').change(function() {
-        var id = $(this).val();
-        $.get("{{ route('get-states-ajax') }}?country_id=" + id, function(data) {
-            var state = "{{isset($vcard) ? $vcard->parking_state : null}}";
-            $('#parking_state').empty();
-            $('#parking_city').empty();
-            $('#parking_state').append(
-                '<option value=""></option>');
-            for (let index = 0; index < data.length; index++) {
-                const element = data[index];
-                var selected = "";
-                if(state == element['id'] )
-                {
-                    selected = "selected";
-                }
-                $('#parking_state').append('<option value="' +
-                    element['id'] + '" '+selected+'>' + element['name'] + '</option>');
-            }
-
-
-        });
-    });
-    $('#parking_state').change(function() {
-        var id = $(this).val();
-
-        $.get("{{ route('get-cities-ajax') }}?state_id=" + id, function(data) {
-            var city = "{{isset($vcard) ? $vcard->parking_city : null}}";
-            $('#parking_city').empty();
-            $('#parking_city').append(
-                '<option value=""></option>');
-            for (let index = 0; index < data.length; index++) {
-                const element = data[index];
-                var selected = "";
-                if(city == element['id'] )
-                {
-                    selected = "selected";
-                }
-                $('#parking_city').append('<option value="' +
-                    element['id'] + '" '+selected+'>' + element['name'] + '</option>');
-            }
-
-
-        });
     });
 </script>
 @endsection

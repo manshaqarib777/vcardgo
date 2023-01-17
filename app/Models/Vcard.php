@@ -176,6 +176,7 @@ class Vcard extends Model implements HasMedia
         'registration_state',
         'registration_city',
         'registration_district',
+        'registration_commune',
         'registration_emergency_contact_no',
         'registration_ar_no',
         'registration_pcn_no',
@@ -193,6 +194,7 @@ class Vcard extends Model implements HasMedia
         'inspection_state',
         'inspection_city',
         'inspection_district',
+        'inspection_commune',
         'inspection_control_technique',
         'inspection_date_of_inspection',
         'inspection_date_of_expiration',
@@ -210,6 +212,7 @@ class Vcard extends Model implements HasMedia
         'inspection_state_new',
         'inspection_city_new',
         'inspection_district_new',
+        'inspection_commune_new',
         'inspection_control_technique_new',
         'inspection_date_of_inspection_new',
         'inspection_date_of_expiration_new',
@@ -224,6 +227,7 @@ class Vcard extends Model implements HasMedia
         'parking_state',
         'parking_city',
         'parking_district',
+        'parking_commune',
         'parking_p_place_of_registration',
         'parking_p_registration_officer',
         'parking_p_date_of_payment',
@@ -262,6 +266,7 @@ class Vcard extends Model implements HasMedia
         "comercial",
         "non_comercial",
         "dd",
+
     ];
 
     /**

@@ -516,6 +516,16 @@
                             </div>
                         </div>
                         @endif
+                        @if($vcard->registration_commune)
+                        <div class="col-sm-6 col-12">
+                            <div class="card business-card flex-row justify-content-center">
+                            <span class="me-2">
+                                {{ strtoupper(__('messages.vcard.registration_commune')).':' }}
+                            </span>
+                                <span>{{ $vcard->registration_commune }}</span>
+                            </div>
+                        </div>
+                        @endif
                         @if($vcard->registration_emergency_contact_no)
                         <div class="col-sm-6 col-12">
                             <div class="card business-card flex-row justify-content-center">
@@ -672,7 +682,7 @@
                             <span class="me-2">
                                 {{ strtoupper(__('messages.vcard.inspection_city')).':' }}
                             </span>
-                                <span>{{ $vcard->inspectionCity->name }}</span>
+                            <span>{{ $vcard->inspectionCity->name }}</span>
                             </div>
                         </div>
                         @endif
@@ -683,6 +693,16 @@
                                 {{ strtoupper(__('messages.vcard.inspection_district')).':' }}
                             </span>
                                 <span>{{ $vcard->inspection_district }}</span>
+                            </div>
+                        </div>
+                        @endif
+                        @if($vcard->inspection_commune)
+                        <div class="col-sm-6 col-12">
+                            <div class="card business-card flex-row justify-content-center">
+                            <span class="me-2">
+                                {{ strtoupper(__('messages.vcard.inspection_commune')).':' }}
+                            </span>
+                                <span>{{ $vcard->inspection_commune }}</span>
                             </div>
                         </div>
                         @endif
@@ -720,6 +740,7 @@
                 </div>
             </div>
         @endif
+
         {{-- inspection custom idea new --}}
         @if(checkFeature('inspection_custom_idea_new') && $vcard->inspection_address_new)
             <div class="vcard-one__timing py-3 px-1">
@@ -856,6 +877,16 @@
                             </div>
                         </div>
                         @endif
+                        @if($vcard->inspection_commune_new)
+                        <div class="col-sm-6 col-12">
+                            <div class="card business-card flex-row justify-content-center">
+                            <span class="me-2">
+                                {{ strtoupper(__('messages.vcard.inspection_commune_new')).':' }}
+                            </span>
+                                <span>{{ $vcard->inspection_commune_new }}</span>
+                            </div>
+                        </div>
+                        @endif
                         @if($vcard->inspection_control_technique_new)
                         <div class="col-sm-6 col-12">
                             <div class="card business-card flex-row justify-content-center">
@@ -890,6 +921,7 @@
                 </div>
             </div>
         @endif
+
         {{-- parking custom idea --}}
         @if(checkFeature('parking_custom_idea') && $vcard->parking_owner_mobile_no)
             <div class="vcard-one__timing py-3 px-1">
@@ -994,6 +1026,16 @@
                                 {{ strtoupper(__('messages.vcard.parking_district')).':' }}
                             </span>
                                 <span>{{ $vcard->parking_district }}</span>
+                            </div>
+                        </div>
+                        @endif
+                        @if($vcard->parking_commune)
+                        <div class="col-sm-6 col-12">
+                            <div class="card business-card flex-row justify-content-center">
+                            <span class="me-2">
+                                {{ strtoupper(__('messages.vcard.parking_commune')).':' }}
+                            </span>
+                                <span>{{ $vcard->parking_commune }}</span>
                             </div>
                         </div>
                         @endif
