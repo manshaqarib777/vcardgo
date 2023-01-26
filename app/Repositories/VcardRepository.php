@@ -212,6 +212,14 @@ class VcardRepository extends BaseRepository
             if (!isset($input['part']) || $input['part'] == 'basic') {
                 $input['language_enable'] = isset($input['language_enable']) ? 1 : 0;
             }
+
+            if (!isset($input['part']) || $input['part'] == 'custom_id') {
+                $input['category_a_checkbox'] = isset($input['category_a_checkbox']) ? 1 : 0;
+                $input['category_b_checkbox'] = isset($input['category_b_checkbox']) ? 1 : 0;
+                $input['category_c_checkbox'] = isset($input['category_c_checkbox']) ? 1 : 0;
+                $input['category_d_checkbox'] = isset($input['category_d_checkbox']) ? 1 : 0;
+                $input['category_e_checkbox'] = isset($input['category_e_checkbox']) ? 1 : 0;
+            }
             $vcard->update($input);
 
             if (isset($input['part']) && $input['part'] == 'business_hours') {

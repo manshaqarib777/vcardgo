@@ -1341,7 +1341,7 @@
                         </div>
                         @endif
 
-                        @if($vcard->category_a)
+                        @if($vcard->category_a && $vcard->category_a_checkbox)
                         <div class="col-lg-6 col-sm-6">
                             <div class="mb-3" io-image-input="true">
                                 <div class="card business-card flex-row justify-content-center">
@@ -1359,7 +1359,7 @@
                             <div class="form-text text-danger" id="idBack2ValidationErrors"></div>
                         </div>
                         @endif
-                        @if($vcard->category_a_text)
+                        @if($vcard->category_a_text && $vcard->category_a_checkbox)
                         <div class="col-sm-6 col-12">
                             <div class="card business-card flex-row justify-content-center">
                             <span class="me-2">
@@ -1369,7 +1369,7 @@
                             </div>
                         </div>
                         @endif
-                        @if($vcard->category_b)
+                        @if($vcard->category_b && $vcard->category_b_checkbox)
                         <div class="col-lg-6 col-sm-6">
                             <div class="mb-3" io-image-input="true">
                                 <div class="card business-card flex-row justify-content-center">
@@ -1387,7 +1387,7 @@
                             <div class="form-text text-danger" id="idBack2ValidationErrors"></div>
                         </div>
                         @endif
-                        @if($vcard->category_b_text)
+                        @if($vcard->category_b_text && $vcard->category_b_checkbox)
                         <div class="col-sm-6 col-12">
                             <div class="card business-card flex-row justify-content-center">
                             <span class="me-2">
@@ -1399,7 +1399,7 @@
                         @endif
 
 
-                        @if($vcard->category_c)
+                        @if($vcard->category_c && $vcard->category_c_checkbox)
                         <div class="col-lg-6 col-sm-6">
                             <div class="mb-3" io-image-input="true">
                                 <div class="card business-card flex-row justify-content-center">
@@ -1417,7 +1417,7 @@
                             <div class="form-text text-danger" id="idBack2ValidationErrors"></div>
                         </div>
                         @endif
-                        @if($vcard->category_c_text)
+                        @if($vcard->category_c_text && $vcard->category_c_checkbox)
                         <div class="col-sm-6 col-12">
                             <div class="card business-card flex-row justify-content-center">
                             <span class="me-2">
@@ -1427,7 +1427,7 @@
                             </div>
                         </div>
                         @endif
-                        @if($vcard->category_d)
+                        @if($vcard->category_d && $vcard->category_d_checkbox)
                         <div class="col-lg-6 col-sm-6">
                             <div class="mb-3" io-image-input="true">
                                 <div class="card business-card flex-row justify-content-center">
@@ -1445,7 +1445,7 @@
                             <div class="form-text text-danger" id="idBack2ValidationErrors"></div>
                         </div>
                         @endif
-                        @if($vcard->category_d_text)
+                        @if($vcard->category_d_text && $vcard->category_d_checkbox)
                         <div class="col-sm-6 col-12">
                             <div class="card business-card flex-row justify-content-center">
                             <span class="me-2">
@@ -1458,7 +1458,7 @@
 
 
 
-                        @if($vcard->category_e)
+                        @if($vcard->category_e && $vcard->category_e_checkbox)
                         <div class="col-lg-6 col-sm-6">
                             <div class="mb-3" io-image-input="true">
                                 <div class="card business-card flex-row justify-content-center">
@@ -1476,7 +1476,7 @@
                             <div class="form-text text-danger" id="idBack2ValidationErrors"></div>
                         </div>
                         @endif
-                        @if($vcard->category_e_text)
+                        @if($vcard->category_e_text && $vcard->category_e_checkbox)
                         <div class="col-sm-6 col-12">
                             <div class="card business-card flex-row justify-content-center">
                             <span class="me-2">

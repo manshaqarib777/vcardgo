@@ -8021,9 +8021,19 @@ function loadVcardCreateEdit() {
   });
   $('#expire_date').flatpickr({
     format: 'YYYY-MM-DD',
+    minDate: $('#issue_date').val(),
     useCurrent: true,
     sideBySide: true
-  });
+});
+  $('#issue_date').change(function(){
+    $('#expire_date').flatpickr({
+        format: 'YYYY-MM-DD',
+        minDate: $('#issue_date').val(),
+        useCurrent: true,
+        sideBySide: true
+    });
+  })
+
   $('#addDate').flatpickr({
     format: 'YYYY-MM-DD',
     useCurrent: true,

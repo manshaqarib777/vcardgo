@@ -266,6 +266,11 @@ class Vcard extends Model implements HasMedia
         "comercial",
         "non_comercial",
         "dd",
+        "category_a_checkbox",
+        "category_b_checkbox",
+        "category_c_checkbox",
+        "category_d_checkbox",
+        "category_e_checkbox",
 
     ];
 

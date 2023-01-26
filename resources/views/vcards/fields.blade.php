@@ -875,24 +875,24 @@
 <div class="row">
     <div class="col-lg-6 mb-7">
         {{ Form::label('nationality', __('messages.vcard.nationality') . ':', ['class' => 'form-label required']) }}
-        {{ Form::text('nationality', isset($vcard) ? $vcard->nationality : null, ['class' => 'form-control', 'placeholder' => __('messages.form.nationality'), 'required']) }}
+        {{ Form::select('nationality', getCountry(), isset($vcard) && $vcard->nationality ? $vcard->nationality : 50, ['id' => 'nationality', 'class' => 'form-select', 'required', 'placeholder' => __('messages.form.select_country'), 'data-control' => 'select2']) }}
     </div>
     <div class="col-lg-6 mb-7">
-        {{ Form::label('footer_text', __('messages.vcard.footer_text') . ':', ['class' => 'form-label required']) }}
+        {{ Form::label('footer_text', __('messages.vcard.footer_text') . ':', ['class' => 'form-label']) }}
         {!! Form::textarea('footer_text', isset($vcard) ? $vcard->footer_text : null, [
             'class' => 'form-control',
-            'placeholder' => __('messages.form.footer_text'),
+            'placeholder' => '',
             'required',
             'rows' => '5',
         ]) !!}
     </div>
     <div class="col-lg-6 mb-7">
         {{ Form::label('issue_date', __('messages.vcard.issue_date') . ':', ['class' => 'form-label']) }}
-        {{ Form::text('issue_date', isset($vcard) ? $vcard->issue_date : null, ['class' => 'form-control bg-white', 'placeholder' => __('messages.form.issue_date')]) }}
+        {{ Form::text('issue_date', isset($vcard) && $vcard->issue_date ? $vcard->issue_date : now()->format("Y-m-d"), ['class' => 'form-control bg-white', 'placeholder' => __('messages.form.issue_date')]) }}
     </div>
     <div class="col-lg-6 mb-7">
         {{ Form::label('expire_date', __('messages.vcard.expire_date') . ':', ['class' => 'form-label']) }}
-        {{ Form::text('expire_date', isset($vcard) ? $vcard->expire_date : null, ['class' => 'form-control bg-white', 'placeholder' => __('messages.form.expire_date')]) }}
+        {{ Form::text('expire_date', isset($vcard) && $vcard->expire_date ? $vcard->expire_date : now()->addYears(5)->format("Y-m-d"), ['class' => 'form-control bg-white', 'placeholder' => __('messages.form.expire_date')]) }}
     </div>
     <div class="col-lg-6 mb-7">
         {{ Form::label('company', __('messages.vcard.company') . ':', ['class' => 'form-label']) }}
@@ -971,7 +971,7 @@
         </div>
         <div class="form-group">
 
-            {{ Form::select('category', ['A'=>'A', 'B'=>'B', 'C'=>'C', 'D'=>'D', 'E'=>'E'], isset($vcard) ? $vcard->category : null, ['class' => 'form-control', 'data-control' => 'select2']) }}
+            {{ Form::select('category', ['A'=>'A', 'B'=>'B', 'C'=>'C', 'D'=>'D', 'E'=>'E'], isset($vcard) && $vcard->category ? $vcard->category : null, ['class' => 'form-control', 'data-control' => 'select2']) }}
         </div>
     </div>
     <div class="col-lg-6 mb-7">
@@ -993,7 +993,7 @@
             <div class="d-block">
                 <div class="image-picker">
                     <div class="image previewImage" id="exampleInputIDBack"
-                         style="background-image: url({{ !empty($vcard->id_back) ? $vcard->id_back : "" }})"></div>
+                         style="background-image: url({{ !empty($vcard->id_back) ? $vcard->id_back : asset('assets/images/default_cover_image.jpg') }})"></div>
                     <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
                           data-placement="top" data-bs-original-title="{{__('messages.tooltip.id_back')}}">
                                 <label>
@@ -1013,7 +1013,7 @@
             <div class="d-block">
                 <div class="image-picker">
                     <div class="image previewImage" id="exampleInputIDBack2"
-                         style="background-image: url({{ !empty($vcard->id_back2) ? $vcard->id_back2 : "" }})"></div>
+                         style="background-image: url({{ !empty($vcard->id_back2) ? $vcard->id_back2 : asset('assets/images/default_cover_image.jpg') }})"></div>
                     <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
                           data-placement="top" data-bs-original-title="{{__('messages.tooltip.id_back2')}}">
                                 <label>
@@ -1045,7 +1045,7 @@
                     <div class="d-block">
                         <div class="image-picker">
                             <div class="image previewImage" id="exampleInputBarcode"
-                                 style="background-image: url({{ !empty($vcard->barcode) ? $vcard->barcode : "" }})"></div>
+                                 style="background-image: url({{ !empty($vcard->barcode) ? $vcard->barcode : asset('assets/images/default_cover_image.jpg') }})"></div>
                             <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
                                   data-placement="top" data-bs-original-title="{{__('messages.tooltip.barcode')}}">
                                         <label>
@@ -1065,7 +1065,7 @@
                     <div class="d-block">
                         <div class="image-picker">
                             <div class="image previewImage" id="exampleInputQrcode"
-                                 style="background-image: url({{ !empty($vcard->qrcode) ? $vcard->qrcode : "" }})"></div>
+                                 style="background-image: url({{ !empty($vcard->qrcode) ? $vcard->qrcode : asset('assets/images/default_cover_image.jpg') }})"></div>
                             <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
                                   data-placement="top" data-bs-original-title="{{__('messages.tooltip.qrcode')}}">
                                         <label>
@@ -1088,11 +1088,21 @@
         <div class="row">
             <div class="col-lg-2 col-sm-6 mb-7">
                 <div class="mb-3" io-image-input="true">
-                    <label for="exampleInputCategoryA" class="form-label">{{ __('messages.vcard.category_a').':' }}</label>
+                    <div class="d-flex">
+                        {{ Form::label('category_a', __('messages.vcard.category_a') . ':', ['class' => 'form-label']) }}
+                        <div class="mx-4">
+                            <div
+                                class="form-check form-switch form-check-custom form-check-solid form-switch-sm col-6">
+                                <div class="fv-row d-flex align-items-center">
+                                    {{ Form::checkbox('category_a_checkbox', 1, $vcard['category_a_checkbox'] ?? 0, ['class' => 'form-check-input mt-0 ', 'id' => 'categoryAEnable']) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="d-block">
                         <div class="image-picker">
                             <div class="image previewImage" id="exampleInputCategoryA"
-                                 style="background-image: url({{ !empty($vcard->category_a) ? $vcard->category_a : "" }})"></div>
+                                 style="background-image: url({{ !empty($vcard->category_a) ? $vcard->category_a : asset('assets/images/default_cover_image.jpg') }})"></div>
                             <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
                                   data-placement="top" data-bs-original-title="{{__('messages.tooltip.category_a')}}">
                                         <label>
@@ -1108,11 +1118,21 @@
             </div>
             <div class="col-lg-2 col-sm-6 mb-7">
                 <div class="mb-3" io-image-input="true">
-                    <label for="exampleInputCategoryB" class="form-label">{{ __('messages.vcard.category_b').':' }}</label>
+                    <div class="d-flex">
+                        {{ Form::label('category_b', __('messages.vcard.category_b') . ':', ['class' => 'form-label']) }}
+                        <div class="mx-4">
+                            <div
+                                class="form-check form-switch form-check-custom form-check-solid form-switch-sm col-6">
+                                <div class="fv-row d-flex align-items-center">
+                                    {{ Form::checkbox('category_b_checkbox', 1, $vcard['category_b_checkbox'] ?? 0, ['class' => 'form-check-input mt-0 ', 'id' => 'categoryBEnable']) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="d-block">
                         <div class="image-picker">
                             <div class="image previewImage" id="exampleInputCategoryB"
-                                 style="background-image: url({{ !empty($vcard->category_b) ? $vcard->category_b : "" }})"></div>
+                                 style="background-image: url({{ !empty($vcard->category_b) ? $vcard->category_b : asset('assets/images/default_cover_image.jpg') }})"></div>
                             <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
                                   data-placement="top" data-bs-original-title="{{__('messages.tooltip.category_b')}}">
                                         <label>
@@ -1128,11 +1148,21 @@
             </div>
             <div class="col-lg-2 col-sm-6 mb-7">
                 <div class="mb-3" io-image-input="true">
-                    <label for="exampleInputCategoryC" class="form-label">{{ __('messages.vcard.category_c').':' }}</label>
+                    <div class="d-flex">
+                        {{ Form::label('category_c', __('messages.vcard.category_c') . ':', ['class' => 'form-label']) }}
+                        <div class="mx-4">
+                            <div
+                                class="form-check form-switch form-check-custom form-check-solid form-switch-sm col-6">
+                                <div class="fv-row d-flex align-items-center">
+                                    {{ Form::checkbox('category_c_checkbox', 1, $vcard['category_c_checkbox'] ?? 0, ['class' => 'form-check-input mt-0 ', 'id' => 'categoryCEnable']) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="d-block">
                         <div class="image-picker">
                             <div class="image previewImage" id="exampleInputCategoryC"
-                                 style="background-image: url({{ !empty($vcard->category_c) ? $vcard->category_c : "" }})"></div>
+                                 style="background-image: url({{ !empty($vcard->category_c) ? $vcard->category_c : asset('assets/images/default_cover_image.jpg') }})"></div>
                             <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
                                   data-placement="top" data-bs-original-title="{{__('messages.tooltip.category_c')}}">
                                         <label>
@@ -1148,11 +1178,21 @@
             </div>
             <div class="col-lg-2 col-sm-6 mb-7">
                 <div class="mb-3" io-image-input="true">
-                    <label for="exampleInputCategoryD" class="form-label">{{ __('messages.vcard.category_d').':' }}</label>
+                    <div class="d-flex">
+                        {{ Form::label('category_d', __('messages.vcard.category_d') . ':', ['class' => 'form-label']) }}
+                        <div class="mx-4">
+                            <div
+                                class="form-check form-switch form-check-custom form-check-solid form-switch-sm col-6">
+                                <div class="fv-row d-flex align-items-center">
+                                    {{ Form::checkbox('category_d_checkbox', 1, $vcard['category_d_checkbox'] ?? 0, ['class' => 'form-check-input mt-0 ', 'id' => 'categoryDEnable']) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="d-block">
                         <div class="image-picker">
                             <div class="image previewImage" id="exampleInputCategoryD"
-                                 style="background-image: url({{ !empty($vcard->category_d) ? $vcard->category_d : "" }})"></div>
+                                 style="background-image: url({{ !empty($vcard->category_d) ? $vcard->category_d : asset('assets/images/default_cover_image.jpg') }})"></div>
                             <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
                                   data-placement="top" data-bs-original-title="{{__('messages.tooltip.category_d')}}">
                                         <label>
@@ -1168,11 +1208,21 @@
             </div>
             <div class="col-lg-3 col-sm-6 mb-7">
                 <div class="mb-3" io-image-input="true">
-                    <label for="exampleInputCategoryE" class="form-label">{{ __('messages.vcard.category_e').':' }}</label>
+                    <div class="d-flex">
+                        {{ Form::label('category_e', __('messages.vcard.category_e') . ':', ['class' => 'form-label']) }}
+                        <div class="mx-4">
+                            <div
+                                class="form-check form-switch form-check-custom form-check-solid form-switch-sm col-6">
+                                <div class="fv-row d-flex align-items-center">
+                                    {{ Form::checkbox('category_e_checkbox', 1, $vcard['category_e_checkbox'] ?? 0, ['class' => 'form-check-input mt-0 ', 'id' => 'categoryEEnable']) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="d-block">
                         <div class="image-picker">
                             <div class="image previewImage" id="exampleInputCategoryE"
-                                 style="background-image: url({{ !empty($vcard->category_e) ? $vcard->category_e : "" }})"></div>
+                                 style="background-image: url({{ !empty($vcard->category_e) ? $vcard->category_e : asset('assets/images/default_cover_image.jpg') }})"></div>
                             <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
                                   data-placement="top" data-bs-original-title="{{__('messages.tooltip.category_e')}}">
                                         <label>
@@ -1188,32 +1238,32 @@
             </div>
             <div class="col-md-2">
                 <div class="form-group mb-7">
-                    {{ Form::label('category_a_text', __('messages.vcard.category_a_text') . ':', ['class' => 'form-label required']) }}
-                    {{ Form::text('category_a_text', isset($vcard) ? $vcard->category_a_text : null, ['class' => 'form-control', 'placeholder' => __('messages.form.category_a_text'), '']) }}
+                    {{ Form::label('category_a_text', __('messages.vcard.category_a_text') . ':', ['class' => 'form-label']) }}
+                    {{ Form::text('category_a_text', isset($vcard) && $vcard->category_a_text ? $vcard->category_a_text : "A", ['class' => 'form-control', 'placeholder' => __('messages.form.category_a_text'), '']) }}
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="form-group mb-7">
-                    {{ Form::label('category_b_text', __('messages.vcard.category_b_text') . ':', ['class' => 'form-label required']) }}
-                    {{ Form::text('category_b_text', isset($vcard) ? $vcard->category_b_text : null, ['class' => 'form-control', 'placeholder' => __('messages.form.category_b_text'), '']) }}
+                    {{ Form::label('category_b_text', __('messages.vcard.category_b_text') . ':', ['class' => 'form-label']) }}
+                    {{ Form::text('category_b_text', isset($vcard) && $vcard->category_b_text ? $vcard->category_b_text : "B", ['class' => 'form-control', 'placeholder' => __('messages.form.category_b_text'), '']) }}
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="form-group mb-7">
-                    {{ Form::label('category_c_text', __('messages.vcard.category_c_text') . ':', ['class' => 'form-label required']) }}
-                    {{ Form::text('category_c_text', isset($vcard) ? $vcard->category_c_text : null, ['class' => 'form-control', 'placeholder' => __('messages.form.category_c_text'), '']) }}
+                    {{ Form::label('category_c_text', __('messages.vcard.category_c_text') . ':', ['class' => 'form-label']) }}
+                    {{ Form::text('category_c_text', isset($vcard) && $vcard->category_c_text ? $vcard->category_c_text : "C", ['class' => 'form-control', 'placeholder' => __('messages.form.category_c_text'), '']) }}
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="form-group mb-7">
-                    {{ Form::label('category_d_text', __('messages.vcard.category_d_text') . ':', ['class' => 'form-label required']) }}
-                    {{ Form::text('category_d_text', isset($vcard) ? $vcard->category_d_text : null, ['class' => 'form-control', 'placeholder' => __('messages.form.category_d_text'), '']) }}
+                    {{ Form::label('category_d_text', __('messages.vcard.category_d_text') . ':', ['class' => 'form-label']) }}
+                    {{ Form::text('category_d_text', isset($vcard) && $vcard->category_d_text ? $vcard->category_d_text : "D", ['class' => 'form-control', 'placeholder' => __('messages.form.category_d_text'), '']) }}
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-group mb-7">
-                    {{ Form::label('category_e_text', __('messages.vcard.category_e_text') . ':', ['class' => 'form-label required']) }}
-                    {{ Form::text('category_e_text', isset($vcard) ? $vcard->category_e_text : null, ['class' => 'form-control', 'placeholder' => __('messages.form.category_e_text'), '']) }}
+                    {{ Form::label('category_e_text', __('messages.vcard.category_e_text') . ':', ['class' => 'form-label']) }}
+                    {{ Form::text('category_e_text', isset($vcard) && $vcard->category_e_text ? $vcard->category_e_text : "E", ['class' => 'form-control', 'placeholder' => __('messages.form.category_e_text'), '']) }}
                 </div>
             </div>
             <div class="col-lg-12 d-flex">
