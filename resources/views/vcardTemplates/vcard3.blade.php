@@ -1559,7 +1559,7 @@ id="qr-code-btn"
                                             {{ Form::label('reason', __('messages.common.reason') . ':', ['class' => 'form-label']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::select('reason', ['Medical Checkup 1'=>'Medical Checkup 1', "Medical Checkup 2"=>'Medical Checkup 2', 'Other'=>'Other'], null, ['class' => 'form-control', 'id' => 'paypalIntUserReason']) }}
+                                            {{ Form::select('reason', \App\Models\Enquiry::REASON, null, ['class' => 'form-control', 'id' => 'paypalIntUserReason']) }}
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-sm-6 mb-7">

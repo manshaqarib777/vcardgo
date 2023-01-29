@@ -42,6 +42,8 @@ class Enquiry extends Model implements HasMedia
     protected $table = 'enquiries';
     protected $appends = ['enquiry_url'];
     const ENQUIRYURL = 'vcards/enquiry_url';
+    const REASON = ["Medical Checkup 1"=>"Medical Checkup 1","Medical Checkup 2"=>"Medical Checkup 2","Other"=>"Other"];
+
     /**
      * @var array
      */

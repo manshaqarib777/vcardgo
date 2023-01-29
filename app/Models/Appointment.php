@@ -53,19 +53,21 @@ class Appointment extends Model
         self::CHECK_OUT => 'Check Out',
         self::CANCELLED => 'Cancelled',
     ];
-    
+
     const STRIPE = 1;
     const PAYPAL = 2;
-        
+
     const STRIPE_ARR = [
       self::STRIPE => 'Stripe',
     ];
     const PAYPAL_ARR = [
         self::PAYPAL => 'Paypal',
     ];
-    
+
     const PAYMENT_METHOD = [
         self::STRIPE => 'Stripe',
         self::PAYPAL => 'Paypal',
     ];
+    const REASON = ["Medical Checkup 1"=>"Medical Checkup 1","Medical Checkup 2"=>"Medical Checkup 2","Other"=>"Other"];
+
 }
