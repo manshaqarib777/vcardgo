@@ -20,9 +20,9 @@ class EnquiryController extends AppBaseController
         $this->middleware('permission:enquiries.index', ['only' => ['index']]);
         $this->middleware('permission:enquiries.create', ['only' => ['create']]);
         // $this->middleware('permission:enquiries.store', ['only' => ['store']]);
-        $this->middleware('permission:enquiries.edit', ['only' => ['edit']]);
-        $this->middleware('permission:enquiries.update', ['only' => ['update']]);
-        $this->middleware('permission:enquiries.delete', ['only' => ['destroy']]);
+        // $this->middleware('permission:enquiries.edit', ['only' => ['edit']]);
+        // $this->middleware('permission:enquiries.update', ['only' => ['update']]);
+        // $this->middleware('permission:enquiries.delete', ['only' => ['destroy']]);
     }
     /**
      * @param  CreateEnquiryRequest  $request
@@ -77,5 +77,55 @@ class EnquiryController extends AppBaseController
     {
 
         return view('enquiry.list');
+    }
+
+    /**
+     * @param $id
+     *
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function edit($id)
+    {
+        $enquiry = Enquiry::with('vcard')->where('id', '=', $id)->first();
+
+
+        return $this->sendResponse($enquiry, 'Enquiry successfully retrieved.');
+    }
+
+    /**
+     * @param $id
+     *
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroy($id)
+    {
+        $enquiry = Enquiry::where('id', $id)->first();
+        $enquiry->clearMediaCollection(Enquiry::ENQUIRYURL);
+        $enquiry->delete();
+
+        return $this->sendSuccess('Enquiry deleted successfully.');
+    }
+
+    /**
+     * @param  UpdateProductRequest  $request
+     * @param $id
+     *
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function update(Request $request, $id)
+    {
+        $input = $request->except("enquiry_url");
+        $enquiry = Enquiry::findOrFail($id);
+        $enquiry->update($input);
+
+        if (isset($request['enquiry_url']) && ! empty($request['enquiry_url'])) {
+            $enquiry->clearMediaCollection(Enquiry::ENQUIRYURL);
+            $enquiry->addMedia($request['enquiry_url'])->toMediaCollection(Enquiry::ENQUIRYURL, config('app.media_disc'));
+        }
+
+        return $this->sendSuccess('Enquiry updated successfully.');
     }
 }

@@ -20,5 +20,8 @@
             <livewire:user-enquiries-table :vcard-id="request()->vcard" />
         </div>
     </div>
+    @include('enquiry.edit')
     @include('enquiry.vacrd_enquiries_show')
+
+
 @endsection

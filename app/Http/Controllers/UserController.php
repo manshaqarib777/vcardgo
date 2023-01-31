@@ -13,6 +13,7 @@ use App\Models\MultiTenant;
 use App\Models\Subscription;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use App\Models\Role as CustomRole;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\View\View;
@@ -21,6 +22,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Contracts\View\Factory;
+use App\Providers\RouteServiceProvider;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\UpdateUserProfileRequest;
@@ -177,7 +179,7 @@ class UserController extends AppBaseController
     public function impersonate(User $user)
     {
         getLogInUser()->impersonate($user);
-        return redirect(route('admin.dashboard'));
+        return redirect()->route("login");
     }
 
     /**

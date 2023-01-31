@@ -33,6 +33,7 @@ class VcardGalleryTable extends LivewireTableComponent
             Column::make(__('messages.gallery.date_before'), 'date_before')->sortable()->searchable(),
             Column::make(__('messages.gallery.fine'), 'fine')->sortable()->searchable(),
             Column::make(__('messages.gallery.agent_name'), 'agent_name')->sortable()->searchable(),
+            Column::make(__('messages.gallery.days'),)->sortable(),
 
             Column::make(__('messages.common.action'),)->addClass('w-150px justify-content-center d-flex')
 

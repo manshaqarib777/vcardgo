@@ -26,7 +26,7 @@ class DashboardController extends AppBaseController
     public function __construct(DashboardRepository $dashboardRepo)
     {
         $this->dashboardRepository = $dashboardRepo;
-        $this->middleware('permission:dashboard.index', ['only' => ['index']]);
+        // $this->middleware('permission:dashboard.index', ['only' => ['index']]);
     }
 
     /**
@@ -44,7 +44,7 @@ class DashboardController extends AppBaseController
         $deActiveUsersCount =  User::whereHas("roles", function ($q) {
             $q->where("name", "!=", "super_admin");
         })->where('is_active', 0)->count();
-        
+
         $enquiry = $this->dashboardRepository->getEnquiryCountAttribute();
         $appointment = $this->dashboardRepository->getAppointmentCountAttribute();
 
@@ -52,7 +52,7 @@ class DashboardController extends AppBaseController
 
             $activeVcard = Vcard::where('status', 1)->count();
             $deActiveVcard = Vcard::where('status', 0)->count();
-            
+
             return view('dashboard.index', compact('activeUsersCount', 'deActiveUsersCount', 'activeVcard', 'deActiveVcard',));
         }
 

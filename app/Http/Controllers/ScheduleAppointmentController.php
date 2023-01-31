@@ -156,4 +156,48 @@ class ScheduleAppointmentController extends AppBaseController
 
         return $data;
     }
+
+
+
+    /**
+     * @param $id
+     *
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function edit($id)
+    {
+        $appointment = ScheduleAppointment::with('vcard')->where('id', '=', $id)->first();
+        return $this->sendResponse($appointment, 'Appointment successfully retrieved.');
+    }
+
+    /**
+     * @param $id
+     *
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroy($id)
+    {
+        $appointment = ScheduleAppointment::where('id', $id)->first();
+        $appointment->delete();
+
+        return $this->sendSuccess('Appointment deleted successfully.');
+    }
+
+    /**
+     * @param  UpdateProductRequest  $request
+     * @param $id
+     *
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function update(Request $request, $id)
+    {
+        $input = $request->all();
+        $appointment = ScheduleAppointment::findOrFail($id);
+        $appointment->update($input);
+
+        return $this->sendSuccess('Appointment updated successfully.');
+    }
 }

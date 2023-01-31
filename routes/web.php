@@ -119,11 +119,17 @@ Route::group(['middleware' => ['auth', 'valid.user', 'xss']], function () {
 
             Route::get('/vcard/{vcard}/analytics', [VcardController::class,'analytics'])->name('vcard.analytics');
             Route::get('/enquiries', [EnquiryController::class,'enquiryList'])->name('enquiries.index');
+            Route::get('enquiries/{enquiries}', [EnquiryController::class, 'edit'])->name('enquiries.edit');
+            Route::post('enquiries/{enquiries}/update', [EnquiryController::class, 'update'])->name('enquiries.update');
+            Route::delete('enquiries/{enquiries}', [EnquiryController::class, 'destroy'])->name('enquiries.destroy');
             Route::get('/appointments',
                 [ScheduleAppointmentController::class, 'appointmentsList'])->name('appointments.index');
             Route::get('/appointments-calendar',
                 [ScheduleAppointmentController::class, 'appointmentCalendar'])->name('appointments.calendar');
 
+            Route::get('appointments/{appointments}', [ScheduleAppointmentController::class, 'edit'])->name('appointments.edit');
+            Route::post('appointments/{appointments}/update', [ScheduleAppointmentController::class, 'update'])->name('appointments.update');
+            Route::delete('appointments/{appointments}', [ScheduleAppointmentController::class, 'destroy'])->name('appointments.destroy');
             Route::get('/vcard/status/{vcard}', [VcardController::class, 'updateStatus'])->name('vcard.status');
             Route::group(['prefix' => 'vcard'], function () {
                 //VCard services
@@ -176,6 +182,7 @@ Route::group(['middleware' => ['auth', 'valid.user', 'xss']], function () {
             });
 
             Route::get('/vcards/{vcard}/enquiry', [EnquiryController::class, 'index'])->name('enquiry.index');
+
             Route::get('/getSlot', [VcardController::class, 'getSlot'])->name('get.slot');
             Route::get('/user-settings', [UserSettingController::class, 'index'])->name('user.setting.index');
             Route::post('/user-setting', [UserSettingController::class, 'update'])->name('user.setting.update');

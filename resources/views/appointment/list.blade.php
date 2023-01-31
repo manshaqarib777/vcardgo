@@ -9,4 +9,5 @@
             <livewire:schedule-appointment-table/>
         </div>
     </div>
+    @include('appointment.edit')
 @endsection

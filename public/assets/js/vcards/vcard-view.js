@@ -44,6 +44,11 @@ function loadVcardView() {
     minDate: new Date(),
     disableMobile: true
   });
+  $('.appointmentDate').flatpickr({
+    locale: lang,
+    minDate: new Date(),
+    disableMobile: true
+  });
   setTimeout(function () {
     if (isEdit) {
       $('.date').val(date).trigger('change');
@@ -87,6 +92,43 @@ listenChange('.date', function () {
     }
   });
 });
+listenChange('.appointmentDate', function () {
+    $('#slotData').empty();
+    selectedDate = $(this).val();
+    selectedVcard = $("#vCardId").val();
+    selectedFromTime = $("#timeSlot").val();
+    selectedToTime = $("#toTime").val();
+    $('#Date').val(selectedDate);
+    $.ajax({
+      url: slotUrl,
+      type: 'GET',
+      data: {
+        'date': selectedDate,
+        'timezone_offset_minutes': timezone_offset_minutes,
+        'vcardId': selectedVcard
+      },
+      success: function success(result) {
+          var activeSlot = false;
+        if (result.success) {
+          $.each(result.data, function (index, value) {
+              if(selectedFromTime+' - '+selectedToTime == value)
+              {
+                  activeSlot = true;
+              }
+              var data = [{
+                  'value': value,
+                  'activeSlot':activeSlot
+              }];
+            $('#slotData').append(prepareTemplateRender('#appoitmentTemplate', data));
+          });
+        }
+      },
+      error: function error(result) {
+        $('#slotData').html('');
+        displayErrorMessage(result.responseJSON.message);
+      }
+    });
+  });
 listenClick('.appointmentAdd', function () {
   if (!$('.time-slot').hasClass('activeSlot')) {
     displayErrorMessage('Please Select Date Or Hour');

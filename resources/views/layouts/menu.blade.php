@@ -1,12 +1,10 @@
 @role(App\Models\Role::ROLE_SUPER_ADMIN)
-@can("dashboard.index")
 <li class="nav-item {{ Request::is('sadmin/dashboard*') ? 'active' : '' }}">
     <a class="nav-link d-flex align-items-center py-3" aria-current="page" href="{{ route('sadmin.dashboard') }}">
         <span class="aside-menu-icon pe-3"><i class="fa-solid fa-circle-dot"></i></span>
         <span class="aside-menu-title">{{ __('messages.dashboard') }}</span>
     </a>
 </li>
-@endcan
 @can("users.index")
 
 <li class="nav-item {{ Request::is('sadmin/users*') ? 'active' : '' }}">
@@ -101,7 +99,6 @@
 @endif
 @endrole
 @role(App\Models\Role::ROLE_ADMIN)
-@can("dashboard.index")
 
 <li class="nav-item {{ Request::is('admin/dashboard*') ? 'active' : '' }}">
     <a class="nav-link d-flex align-items-center py-3" aria-current="page" href="{{ route('admin.dashboard') }}">
@@ -109,7 +106,6 @@
         <span class="aside-menu-title">{{ __('messages.dashboard') }}</span>
     </a>
 </li>
-@endcan
 @can("user-vcards.index")
 <li class="nav-item {{ Request::is('admin/vcard*') ? 'active' : '' }}">
     <a class="nav-link d-flex align-items-center py-3" aria-current="page" href="{{ route('vcards.index') }}">

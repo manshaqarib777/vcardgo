@@ -30,6 +30,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
         $schedule->command('sitemap:generate')->daily();
         $schedule->command('email:expiration')->daily();
+        $schedule->command('gallery:expiration')->daily();
 
     }
 

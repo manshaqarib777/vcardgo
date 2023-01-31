@@ -378,7 +378,7 @@ class Vcard extends Model implements HasMedia
             $url = $media->getFullUrl();
         }
 
-        return base64_encode(file_get_contents($url));
+        return asset('web/media/avatars/150-26.jpg');
     }
 
 

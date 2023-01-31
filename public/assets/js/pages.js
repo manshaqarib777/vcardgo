@@ -9459,6 +9459,60 @@ listenClick('#planFormSubmit', function (e) {
 /*!************************************************!*\
   !*** ./resources/assets/js/enquiry/enquiry.js ***!
   \************************************************/
+  listenClick('.enquiry-delete-btn', function (event) {
+    var recordId = $(event.currentTarget).data('id');
+    deleteItem(route('enquiries.destroy', recordId), "Enquires");
+  });
+  listenClick('.enquiry-edit-btn', function (event) {
+    var vcardEnquiryId = $(event.currentTarget).data('id');
+    editVcardEnquiryRenderData(vcardEnquiryId);
+  });
+  var enquiryIconUrl = '';
+
+  function editVcardEnquiryRenderData(id) {
+    $.ajax({
+      url: route('enquiries.edit', id),
+      type: 'GET',
+      success: function success(result) {
+        if (result.success) {
+          $('#enquiryId').val(result.data.id);
+          $('#editName').val(result.data.name);
+          $('#editEmail').val(result.data.email);
+          $('#editPhone').val(result.data.phone);
+          $('#editReason').val(result.data.reason).change();
+          $('#editMessage').val(result.data.message);
+          $('#editEnquiryPreview').attr('src', result.data.enquiry_icon);
+          $('#editEnquiryModal').modal('show');
+          enquiryIconUrl = result.data.enquiry_icon;
+        }
+      },
+      error: function error(result) {
+        displayErrorMessage(result.responseJSON.message);
+      }
+    });
+  }
+
+  listenSubmit('#editEnquiryForm', function (event) {
+    event.preventDefault();
+    var vcardEnquiryId = $('#enquiryId').val();
+    $.ajax({
+      url: route('enquiries.update', vcardEnquiryId),
+      type: 'POST',
+      data: new FormData(this),
+      contentType: false,
+      processData: false,
+      success: function success(result) {
+        if (result.success) {
+          displaySuccessMessage(result.message);
+          $('#editEnquiryModal').modal('hide');
+          Livewire.emit('refresh');
+        }
+      },
+      error: function error(result) {
+        displayErrorMessage(result.responseJSON.message);
+      }
+    });
+  });
 listenClick('.view-btn', function (event) {
   var frontEnquiryTestimonialsId = $(event.currentTarget).data('id');
   renderDataShow(frontEnquiryTestimonialsId);
@@ -9506,7 +9560,7 @@ listenClick('.enquiries-view-btn', function (event) {
           $('#showPhone').text("N/A");
         }
 
-        $('#showMessage').text(result.data.message);
+        // $('#showMessage').text(result.data.message);
         $('#showEnquiriesModal').modal('show');
       }
     },
@@ -9743,6 +9797,130 @@ listen('click', '#appointmentResetFilter', function () {
 listen('click', '#appointmentFilterBtn', function () {
   openDropdownManually($('#appointmentFilterBtn'), $('#appointmentFilter'));
 });
+
+
+  listenClick('.time-slot', function () {
+    if ($(this).hasClass('activeSlot')) {
+      $('.time-slot').removeClass('activeSlot');
+      $(this).removeClass('activeSlot');
+      selectedSlotTime = $(this).addClass('activeSlot');
+
+      if (selectedSlotTime) {
+        $(this).removeClass('activeSlot');
+      }
+    } else {
+      $('.time-slot').removeClass('activeSlot');
+      selectedSlotTime = $(this).addClass('activeSlot');
+    }
+
+    var fromToTime = $(this).attr('data-id').split('-');
+    var fromTime = fromToTime[0];
+    var toTime = fromToTime[1];
+    $('#timeSlot').val('');
+    $('#toTime').val('');
+    $('#timeSlot').val(fromTime);
+    $('#toTime').val(toTime);
+  });
+listenChange('.appointmentDate', function () {
+    $('#slotData').empty();
+    selectedDate = $(this).val();
+    selectedVcard = $("#vCardId").val();
+    selectedFromTime = $("#timeSlot").val();
+    selectedToTime = $("#toTime").val();
+    $.ajax({
+      url: route('appointment-session-time'),
+      type: 'GET',
+      data: {
+        'date': selectedDate,
+        'vcardId': selectedVcard
+      },
+      success: function success(result) {
+          var activeSlot = false;
+        if (result.success) {
+          $.each(result.data, function (index, value) {
+              if(selectedFromTime+' - '+selectedToTime == value)
+              {
+                  activeSlot = true;
+              }
+              var data = [{
+                  'value': value,
+                  'activeSlot':activeSlot
+              }];
+            $('#slotData').append(prepareTemplateRender('#appoitmentTemplate', data));
+          });
+        }
+      },
+      error: function error(result) {
+        $('#slotData').html('');
+        displayErrorMessage(result.responseJSON.message);
+      }
+    });
+  });
+  listenClick(".appointment-delete-btn", function (event) {
+    var recordId = $(event.currentTarget).data("id");
+    deleteItem(route("appointments.destroy", recordId), "Appointments");
+  });
+  listenClick(".appointment-edit-btn", function (event) {
+    var vcardAppointmentId = $(event.currentTarget).data("id");
+    editVcardAppointmentRenderData(vcardAppointmentId);
+  });
+  var appointmentIconUrl = "";
+
+  function editVcardAppointmentRenderData(id) {
+    $.ajax({
+      url: route("appointments.edit", id),
+      type: "GET",
+      success: function success(result) {
+        if (result.success) {
+          $("#vCardId").val(result.data.vcard_id);
+          $("#appointmentId").val(result.data.id);
+          $("#editName").val(result.data.name);
+          $("#editEmail").val(result.data.email);
+          $("#editPhone").val(result.data.phone);
+          $("#editReason").val(result.data.reason).change();
+          $("#editMessage").val(result.data.message);
+          $('#pickUpDate').flatpickr({
+            minDate: new Date(),
+            disableMobile: true
+          });
+          $('#pickUpDate').val(result.data.date).change();
+          $('#timeSlot').val(result.data.from_time);
+          $('#toTime').val(result.data.to_time);
+          $("#editAppointmentModal").modal("show");
+        }
+      },
+      error: function error(result) {
+        displayErrorMessage(result.responseJSON.message);
+      },
+    });
+  }
+
+  listenSubmit("#editAppointmentForm", function (event) {
+    event.preventDefault();
+    var vcardAppointmentId = $("#appointmentId").val();
+    $.ajax({
+      url: route("appointments.update", vcardAppointmentId),
+      type: "POST",
+      data: new FormData(this),
+      contentType: false,
+      processData: false,
+      success: function success(result) {
+        if (result.success) {
+          displaySuccessMessage(result.message);
+          $("#editAppointmentModal").modal("hide");
+          Livewire.emit("refresh");
+        }
+      },
+      error: function error(result) {
+        displayErrorMessage(result.responseJSON.message);
+      },
+    });
+  });
+
+
+
+
+
 })();
 
 // This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.

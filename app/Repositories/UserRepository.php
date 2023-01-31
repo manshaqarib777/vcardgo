@@ -69,12 +69,15 @@ class UserRepository extends BaseRepository
                 $user->addMedia($input['profile'])->toMediaCollection(User::PROFILE, config('app.media_disc'));
             }
             $user->roles()->sync($input['role']);
-            $user->permissions()->sync($input['permissions']);
+            if(isset($input['permissions']))
+            {
+                $user->permissions()->sync($input['permissions']);
+            }
             $user->sendEmailVerificationNotification();
 
-            
+
             $plan = Plan::whereIsDefault(true)->first();
-            
+
             $subscription = new Subscription();
             $subscription->plan_id = $plan->id;
             $subscription->starts_at = Carbon::now();
@@ -86,7 +89,7 @@ class UserRepository extends BaseRepository
             $subscription->tenant_id = $input['tenant_id'];
             $subscription->status = Subscription::ACTIVE;
             $subscription->saveQuietly();
-            
+
             DB::commit();
 
             return $user;
@@ -130,9 +133,9 @@ class UserRepository extends BaseRepository
             DB::beginTransaction();
 
             $user = Auth::user();
-            
+
             $userInput['contact'] = str_replace(' ','',$userInput['contact']);
-            
+
             $user->update($userInput);
 
             if (isset($userInput['profile']) && !empty($userInput['profile'])) {

@@ -41,6 +41,7 @@ class ScheduleAppointmentTable extends LivewireTableComponent
             Column::make(__('messages.common.type'), "id")->addClass('w-100px'),
             Column::make(__('messages.common.reason'), 'reason')->sortable()->searchable(),
             Column::make(__('messages.common.message'), 'message')->sortable()->searchable(),
+            Column::make(__('messages.common.action'))->addClass('justify-content-center d-flex'),
         ];
     }
 

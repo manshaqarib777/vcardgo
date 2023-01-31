@@ -35,6 +35,13 @@
 {{$row->agent_name}}
 </x-livewire-tables::table.cell>
 
+<x-livewire-tables::table.cell>
+    @if($row->date_before != "" && $row->date_before > now())
+        {{Carbon\Carbon::parse($row->date_before)->diffInDays(now())}}
+    @elseif($row->date_before != "" && $row->date_before < now())
+        -{{Carbon\Carbon::parse($row->date_before)->diffInDays(now())}}
+    @endif
+</x-livewire-tables::table.cell>
 
 
 

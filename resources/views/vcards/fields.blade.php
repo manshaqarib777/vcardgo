@@ -875,7 +875,11 @@
 <div class="row">
     <div class="col-lg-6 mb-7">
         {{ Form::label('nationality', __('messages.vcard.nationality') . ':', ['class' => 'form-label required']) }}
-        {{ Form::select('nationality', getCountry(), isset($vcard) && $vcard->nationality ? $vcard->nationality : 50, ['id' => 'nationality', 'class' => 'form-select', 'required', 'placeholder' => __('messages.form.select_country'), 'data-control' => 'select2']) }}
+        <select name="nationality" class="form-select" id="nationality"  required placeholder = "{{ __('messages.form.select_country')}}" data-control = 'select2'>
+            @foreach (getNationality() as $value)
+                <option value="{{ $value }}" {{ isset($vcard) && $vcard->nationality == $value ? "selected" : "" }}>{{ $value }}</option>
+            @endforeach
+        </select>
     </div>
     <div class="col-lg-6 mb-7">
         {{ Form::label('footer_text', __('messages.vcard.footer_text') . ':', ['class' => 'form-label']) }}
