@@ -349,6 +349,7 @@ Route::group(['middleware' => ['auth', 'valid.user', 'role:super_admin','xss']],
 require __DIR__.'/auth.php';
 require __DIR__.'/user.php';
 Route::get('session-time', [VcardController::class, 'getSession'])->name('appointment-session-time');
+Route::get('session-time-admin', [VcardController::class, 'getTimeSession'])->name('appointment-session-time-admin');
 Route::post('contact', [HomeController::class, 'store'])->name('contact.store');
 Route::get('vcards/{vcard}',[VcardController::class,'download'])->name('vcard.download');
 Route::get('/appointments-data', [DashboardController::class, 'appointments'])->name('appointmentsData.data');

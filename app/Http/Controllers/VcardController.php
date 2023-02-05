@@ -53,7 +53,7 @@ class VcardController extends AppBaseController
         $this->middleware('permission:user-vcards.status', ['only' => ['updateStatus']]);
         $this->middleware('permission:vcards.index', ['only' => ['vcards']]);
         $this->middleware('permission:vcards-templates.index', ['only' => ['template']]);
-        
+
     }
 
     /**
@@ -319,6 +319,56 @@ class VcardController extends AppBaseController
         }
 
         return $this->sendResponse($slots, 'Retrieved successfully.');
+    }
+    /**
+     * @param Request $request
+     *
+     *
+     * @return JsonResponse
+     */
+    public function getTimeSession(Request $request)
+    {
+        $vcardId = $request->get('vcardId');
+        $appointmentId = $request->get('appointmentId');
+
+        $date = Carbon::createFromFormat('Y-m-d', $request->date);
+        $WeekDaySessions = Appointment::where('day_of_week', ($date->dayOfWeek == 0) ? 7 : $date->dayOfWeek)->where('vcard_id', $vcardId)->get();
+
+        if ($WeekDaySessions->count() == 0) {
+            return $this->sendError('There is no available slots on given date.');
+        }
+
+        $bookedAppointments = ScheduleAppointment::where('vcard_id', $vcardId)->where('id','!=',$appointmentId)->get();
+
+
+        $bookingSlot = [];
+        $bookedSlot = [];
+
+        foreach ($bookedAppointments as $appointment) {
+
+            if ($appointment->date == $request->date) {
+                $bookedSlot[] = $appointment->from_time.' - '.$appointment->to_time;
+            }
+        }
+
+        foreach ($WeekDaySessions as $index => $WeekDaySessions) {
+
+            $bookingSlot[] = $WeekDaySessions->start_time.' - '.$WeekDaySessions->end_time;
+
+        }
+
+        $slots = array_diff($bookingSlot, $bookedSlot);
+
+        if ($slots == null) {
+            return $this->sendError('There is no available slots on given date.');
+        }
+        $appointment = ScheduleAppointment::find($appointmentId);
+
+        $data["slots"] = $slots;
+        $data["appointment"] = $appointment;
+        $data["date"] = $request->date;
+
+        return $this->sendResponse($data, 'Retrieved successfully.');
     }
 
     public function language($languageName, $alias)

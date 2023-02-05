@@ -46,6 +46,7 @@ class ScheduleAppointment extends Model
     protected $table = 'schedule_appointments';
 
     protected $fillable = [
+        'id',
         'name',
         'email',
         'date',

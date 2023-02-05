@@ -14,9 +14,9 @@
                         {{ Form::label('date',__('messages.date').(':'), ['class' => 'form-label required']) }}
                         {{ Form::text('date', null, ['class' => 'appointmentDate mb-2 form-control', 'id' => 'pickUpDate', 'required', 'placeholder' => __('messages.form.pick_date')]) }}
                     </div>
-                    <div class="col-sm-12 mb-5 col-lg-6">
+                    <div class="col-sm-12 mb-5 col-lg-6 vcard-one vcard-one__appointment ">
                         {{ Form::label('hour',__('messages.hour').(':'), ['class' => 'form-label required']) }}
-                        <div id="slotData" class="row">
+                        <div id="slotData" class="row appointment-one">
                         </div>
                     </div>
                     <div class="col-sm-12 mb-5 col-lg-6">

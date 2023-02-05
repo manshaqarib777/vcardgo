@@ -9825,22 +9825,26 @@ listenChange('.appointmentDate', function () {
     $('#slotData').empty();
     selectedDate = $(this).val();
     selectedVcard = $("#vCardId").val();
-    selectedFromTime = $("#timeSlot").val();
-    selectedToTime = $("#toTime").val();
+    selectedAppointmentId = $("#appointmentId").val();
     $.ajax({
-      url: route('appointment-session-time'),
+      url: route('appointment-session-time-admin'),
       type: 'GET',
       data: {
         'date': selectedDate,
-        'vcardId': selectedVcard
+        'vcardId': selectedVcard,
+        'appointmentId': selectedAppointmentId
       },
       success: function success(result) {
           var activeSlot = false;
         if (result.success) {
-          $.each(result.data, function (index, value) {
-              if(selectedFromTime+' - '+selectedToTime == value)
+          $.each(result.data.slots, function (index, value) {
+              if(result.data.date == result.data.appointment.date &&  result.data.appointment.from_time+' - '+result.data.appointment.to_time == value)
               {
                   activeSlot = true;
+              }else
+              {
+                activeSlot = false;
+
               }
               var data = [{
                   'value': value,
@@ -9897,6 +9901,10 @@ listenChange('.appointmentDate', function () {
 
   listenSubmit("#editAppointmentForm", function (event) {
     event.preventDefault();
+    if (!$('.time-slot').hasClass('activeSlot')) {
+        displayErrorMessage('Please Select Date Or Hour');
+        return;
+    }
     var vcardAppointmentId = $("#appointmentId").val();
     $.ajax({
       url: route("appointments.update", vcardAppointmentId),
