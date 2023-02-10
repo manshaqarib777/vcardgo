@@ -130,10 +130,13 @@
                     {{ Form::textarea('location', isset($vcard) ? $vcard->location : null, ['class' => 'form-control', 'placeholder' => __('messages.form.location'), 'rows' => '1']) }}
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="form-group mb-7">
-                    {{ Form::label('location_url', __('messages.setting.location_url') . ':', ['class' => 'form-label']) }}
-                    {{ Form::text('location_url', isset($vcard) ? $vcard->location_url : null, ['class' => 'form-control', 'placeholder' => __('messages.form.location_url')]) }}
+            <div class="col-lg-6 mb-7">
+                <div class="d-flex">
+                    {{ Form::label('location_url', __('messages.vcard.location_url') . ':', ['class' => 'form-label']) }}
+
+                </div>
+                <div class="form-group">
+                    {{ Form::select('location_url', App\Models\Vcard::URL, isset($vcard) ? $vcard->location_url : null, ['class' => 'form-control', 'data-control' => 'select2']) }}
                 </div>
             </div>
             <div class="col-lg-6 mb-7">
@@ -926,7 +929,7 @@
         </div>
         <div class="form-group">
 
-            {{ Form::select('sex', ['Male'=>'male', "Female"=>'Female', 'Other'=>'Other'], isset($vcard) ? $vcard->sex : null, ['class' => 'form-control', 'data-control' => 'select2']) }}
+            {{ Form::select('sex', App\Models\Vcard::SEX, isset($vcard) ? $vcard->sex : null, ['class' => 'form-control', 'data-control' => 'select2']) }}
         </div>
     </div>
     <div class="col-lg-6 mb-7">
@@ -936,7 +939,7 @@
         </div>
         <div class="form-group">
 
-            {{ Form::select('type', ['A'=>'A', 'B'=>'B', 'AB'=>'AB', 'O'=>'O'], isset($vcard) ? $vcard->type : null, ['class' => 'form-control', 'data-control' => 'select2']) }}
+            {{ Form::select('type', App\Models\Vcard::TYPE, isset($vcard) ? $vcard->type : null, ['class' => 'form-control', 'data-control' => 'select2']) }}
         </div>
     </div>
     <div class="col-md-6">
@@ -961,7 +964,7 @@
 
         </div>
         <div class="form-group">
-            {{ Form::select('comercial', ['Comercial'=>'Comercial', "Non Comercial"=>'Non Comercial'], isset($vcard) ? $vcard->comercial : null, ['class' => 'form-control', 'data-control' => 'select2']) }}
+            {{ Form::select('comercial', App\Models\Vcard::COMERCIAL, isset($vcard) ? $vcard->comercial : null, ['class' => 'form-control', 'data-control' => 'select2']) }}
         </div>
     </div>
     <div class="col-lg-6 mb-7">
@@ -975,7 +978,7 @@
         </div>
         <div class="form-group">
 
-            {{ Form::select('category', ['A'=>'A', 'B'=>'B', 'C'=>'C', 'D'=>'D', 'E'=>'E'], isset($vcard) && $vcard->category ? $vcard->category : null, ['class' => 'form-control', 'data-control' => 'select2']) }}
+            {{ Form::select('category', App\Models\Vcard::CATEGORY, isset($vcard) && $vcard->category ? $vcard->category : null, ['class' => 'form-control', 'data-control' => 'select2']) }}
         </div>
     </div>
     <div class="col-lg-6 mb-7">

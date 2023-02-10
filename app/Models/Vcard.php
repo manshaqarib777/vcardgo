@@ -329,6 +329,12 @@ class Vcard extends Model implements HasMedia
         self::TEMPLATE_4 => 'assets/images/default_cover_image.jpg',
     ];
 
+    const URL = ["Lorem1"=>"Lorem","Lorem2"=>"Lorem","Lorem3"=>"Lorem","Lorem4"=>"Lorem","Lorem5"=>"Lorem","Lorem6"=>"Lorem","Lorem7"=>"Lorem","Lorem8"=>"Lorem","Lorem9"=>"Lorem","Lorem10"=>"Lorem","Lorem11"=>"Lorem","Lorem12"=>"Lorem","Lorem13"=>"Lorem","Lorem14"=>"Lorem","Lorem15"=>"Lorem","Lorem16"=>"Lorem","Lorem17"=>"Lorem","Lorem18"=>"Lorem","Lorem19"=>"Lorem","Lorem20"=>"Lorem"];
+    const SEX = ['Male'=>'male', "Female"=>'Female', 'Other'=>'Other'];
+    const TYPE = ['A'=>'A', 'B'=>'B', 'AB'=>'AB', 'O'=>'O'];
+    const CATEGORY = ['A'=>'A', 'B'=>'B', 'C'=>'C', 'D'=>'D', 'E'=>'E'];
+    const COMERCIAL = ['Comercial'=>'Comercial', "Non Comercial"=>'Non Comercial'];
+
     const FONT_FAMILY = [
         'Poppins'         => 'Default',
         'Roboto'          => 'Roboto',
