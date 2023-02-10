@@ -329,7 +329,7 @@ class Vcard extends Model implements HasMedia
         self::TEMPLATE_4 => 'assets/images/default_cover_image.jpg',
     ];
 
-    const URL = ["Lorem1"=>"Lorem","Lorem2"=>"Lorem","Lorem3"=>"Lorem","Lorem4"=>"Lorem","Lorem5"=>"Lorem","Lorem6"=>"Lorem","Lorem7"=>"Lorem","Lorem8"=>"Lorem","Lorem9"=>"Lorem","Lorem10"=>"Lorem","Lorem11"=>"Lorem","Lorem12"=>"Lorem","Lorem13"=>"Lorem","Lorem14"=>"Lorem","Lorem15"=>"Lorem","Lorem16"=>"Lorem","Lorem17"=>"Lorem","Lorem18"=>"Lorem","Lorem19"=>"Lorem","Lorem20"=>"Lorem"];
+    const URL = ["Lorem1"=>"Lorem1","Lorem2"=>"Lorem2","Lorem3"=>"Lorem3","Lorem4"=>"Lorem4","Lorem5"=>"Lorem5","Lorem6"=>"Lorem6","Lorem7"=>"Lorem7","Lorem8"=>"Lorem8","Lorem9"=>"Lorem9","Lorem10"=>"Lorem10","Lorem11"=>"Lorem11","Lorem12"=>"Lorem12","Lorem13"=>"Lorem13","Lorem14"=>"Lorem14","Lorem15"=>"Lorem15","Lorem16"=>"Lorem16","Lorem17"=>"Lorem17","Lorem18"=>"Lorem18","Lorem19"=>"Lorem19","Lorem20"=>"Lorem20"];
     const SEX = ['Male'=>'male', "Female"=>'Female', 'Other'=>'Other'];
     const TYPE = ['A'=>'A', 'B'=>'B', 'AB'=>'AB', 'O'=>'O'];
     const CATEGORY = ['A'=>'A', 'B'=>'B', 'C'=>'C', 'D'=>'D', 'E'=>'E'];
