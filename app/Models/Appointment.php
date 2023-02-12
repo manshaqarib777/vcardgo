@@ -69,5 +69,6 @@ class Appointment extends Model
         self::PAYPAL => 'Paypal',
     ];
     const REASON = ["Medical Checkup 1"=>"Medical Checkup 1","Medical Checkup 2"=>"Medical Checkup 2","Other"=>"Other"];
+    const LOCATION = ["Lorem1"=>"Lorem1","Lorem2"=>"Lorem2","Lorem3"=>"Lorem3","Lorem4"=>"Lorem4","Lorem5"=>"Lorem5","Lorem6"=>"Lorem6","Lorem7"=>"Lorem7","Lorem8"=>"Lorem8","Lorem9"=>"Lorem9","Lorem10"=>"Lorem10","Lorem11"=>"Lorem11","Lorem12"=>"Lorem12","Lorem13"=>"Lorem13","Lorem14"=>"Lorem14","Lorem15"=>"Lorem15","Lorem16"=>"Lorem16","Lorem17"=>"Lorem17","Lorem18"=>"Lorem18","Lorem19"=>"Lorem19","Lorem20"=>"Lorem20"];
 
 }

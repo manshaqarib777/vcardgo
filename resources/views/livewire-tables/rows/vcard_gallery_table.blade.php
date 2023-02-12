@@ -32,6 +32,9 @@
 {{$row->fine}}
 </x-livewire-tables::table.cell>
 <x-livewire-tables::table.cell>
+{{$row->suspended_description}}
+</x-livewire-tables::table.cell>
+<x-livewire-tables::table.cell>
 {{$row->agent_name}}
 </x-livewire-tables::table.cell>
 

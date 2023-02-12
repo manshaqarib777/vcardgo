@@ -24,7 +24,7 @@
                     </div>
                     <div class="col-lg-6 mb-5">
                         {{ Form::label('date', __('messages.gallery.date') . ':', ['class' => 'form-label']) }}
-                        {{ Form::date('date',  null, ['class' => 'form-control bg-white', 'placeholder' => __('messages.form.date'),'id'=>'addDate']) }}
+                        {{ Form::date('date',  now()->format("Y-m-d"), ['class' => 'form-control bg-white', 'placeholder' => __('messages.form.date'),'id'=>'addDate']) }}
                     </div>
                     <div class="col-sm-6 mb-5">
                         <label class="form-label required fs-6 fw-bolder text-gray-700">{{ __('messages.gallery.ticket_fine').':' }}</label>
@@ -36,7 +36,7 @@
                     </div>
                     <div class="col-lg-6 mb-5">
                         {{ Form::label('date_before', __('messages.gallery.date_before') . ':', ['class' => 'form-label']) }}
-                        {{ Form::date('date_before', null, ['class' => 'form-control bg-white', 'placeholder' => __('messages.gallery.date_before'),'id'=>'addDateBefore']) }}
+                        {{ Form::date('date_before', now()->addMonth(1)->format("Y-m-d"), ['class' => 'form-control bg-white', 'placeholder' => __('messages.gallery.date_before'),'id'=>'addDateBefore']) }}
                     </div>
                     <div class="col-sm-6 mb-5">
                         <label class="form-label required fs-6 fw-bolder text-gray-700">{{ __('messages.gallery.fine').':' }}</label>

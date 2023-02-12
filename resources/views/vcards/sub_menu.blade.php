@@ -193,8 +193,8 @@
         @endif
         @if(checkFeatureVcard('gallery'))
                 <li class="nav-item position-relative me-7 mb-3">
-                <a class="nav-link p-0  {{(isset($partName) && $partName == 'gallery') ? 'active' : ''}}"
-                   href="{{route('vcards.edit',$vcard->id).'?part=gallery'}}" style="font-size: 15px">
+                <a class="nav-link p-0  {{(isset($partName) && $partName == 'galleries') ? 'active' : ''}}"
+                   href="{{route('vcards.edit',$vcard->id).'?part=galleries'}}" style="font-size: 15px">
                     {{ __('messages.gallery.gallery_name') }}
                 </a>
             </li>

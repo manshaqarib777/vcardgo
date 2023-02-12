@@ -40,6 +40,10 @@
                         {{ Form::select('reason',  \App\Models\Appointment::REASON, null, ['class' => 'form-select form-select-solid fw-bold select2Selector', 'data-placeholder'=>__('messages.common.reason'), 'id' => 'editReason', 'data-control' => 'select2', 'data-dropdown-parent' => '#editAppointmentModal']) }}
                     </div>
                     <div class="col-sm-12 mb-5 col-lg-6">
+                        {{ Form::label('location',__('messages.vcard.location').':', ['class' => 'form-label']) }}
+                        {{ Form::select('location',  \App\Models\Appointment::LOCATION, null, ['class' => 'form-select form-select-solid fw-bold select2Selector', 'data-placeholder'=>__('messages.common.location'), 'id' => 'editLocation', 'data-control' => 'select2', 'data-dropdown-parent' => '#editAppointmentModal']) }}
+                    </div>
+                    <div class="col-sm-12 mb-5 col-lg-6">
                         {{ Form::label('message', __('messages.contact_us.message').':', ['class' => 'form-label required']) }}
                         {{ Form::textarea('message', null, ['class' => 'form-control', 'id' => 'editMessage', 'placeholder' => __('messages.form.type_message'), 'rows' => '5' , 'required']) }}
                     </div>

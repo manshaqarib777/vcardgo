@@ -9592,12 +9592,13 @@ var data = {
   email: '',
   phone: '',
   reason: '',
+  location: '',
   message: '',
   startDateTime: '',
   endDateTime: ''
 }; // View event variables
 
-var viewEventName, viewEventDescription, viewEventStatus, viewStartDate, viewEndDate, viewModal, viewEditButton, viewDeleteButton, viewVcardName, viewEmail, viewPhone,viewReason,viewMessage;
+var viewEventName, viewEventDescription, viewEventStatus, viewStartDate, viewEndDate, viewModal, viewEditButton, viewDeleteButton, viewVcardName, viewEmail, viewPhone,viewReason,viewMessage,viewLocation;
 
 function loadAppointmentCalendar() {
   if (!$('#appointmentCalendar').length) {
@@ -9657,6 +9658,7 @@ var initCalendarApp = function initCalendarApp() {
         email: arg.event.extendedProps.email,
         phone: arg.event.extendedProps.phone,
         reason: arg.event.extendedProps.reason,
+        location: arg.event.extendedProps.location,
         message: arg.event.extendedProps.message,
         startDateTime: arg.event.extendedProps.startDateTime,
         endDateTime: arg.event.extendedProps.endDateTime
@@ -9681,6 +9683,7 @@ var initCalendarApp = function initCalendarApp() {
         email: arg.event.extendedProps.email,
         phone: arg.event.extendedProps.phone,
         reason: arg.event.extendedProps.reason,
+        location: arg.event.extendedProps.location,
         message: arg.event.extendedProps.message,
         startDateTime: arg.event.extendedProps.startDateTime,
         endDateTime: arg.event.extendedProps.endDateTime
@@ -9701,8 +9704,9 @@ var init = function init() {
   viewEmail = viewElement.querySelector('[data-calendar="event_email"]');
   viewPhone = viewElement.querySelector('[data-calendar="event_phone"]');
   viewReason = viewElement.querySelector('[data-calendar="event_reason"]');
-    viewMessage = viewElement.querySelector('[data-calendar="event_message"]');
-    viewStartDate = viewElement.querySelector('[data-calendar="event_start_date"]');
+  viewMessage = viewElement.querySelector('[data-calendar="event_message"]');
+  viewLocation = viewElement.querySelector('[data-calendar="event_location"]');
+  viewStartDate = viewElement.querySelector('[data-calendar="event_start_date"]');
   viewEndDate = viewElement.querySelector('[data-calendar="event_end_date"]');
   viewEditButton = viewElement.querySelector('#modal_view_event_edit');
   viewDeleteButton = viewElement.querySelector('#modal_view_event_delete');
@@ -9720,6 +9724,7 @@ var formatArgs = function formatArgs(res) {
   data.email = res.email;
   data.phone = res.phone;
   data.reason = res.reason;
+  data.location = res.location;
   data.message = res.message;
   data.startDateTime = res.startDateTime;
   data.endDateTime = res.endDateTime;
@@ -9784,6 +9789,7 @@ var handleViewEvent = function handleViewEvent() {
   viewPhone.innerText = Lang.get('messages.user.phone') + ': ' + data.phone;
   viewReason.innerText = Lang.get('messages.common.reason')+': ' + data.reason;
   viewMessage.innerText = Lang.get('messages.common.message')+': ' + data.message;
+  viewLocation.innerText = Lang.get('messages.vcard.location')+': ' + data.location;
 };
 
 listen('change', '#appointmentType', function () {
@@ -9882,6 +9888,7 @@ listenChange('.appointmentDate', function () {
           $("#editEmail").val(result.data.email);
           $("#editPhone").val(result.data.phone);
           $("#editReason").val(result.data.reason).change();
+          $("#editLocation").val(result.data.location).change();
           $("#editMessage").val(result.data.message);
           $('#pickUpDate').flatpickr({
             minDate: new Date(),

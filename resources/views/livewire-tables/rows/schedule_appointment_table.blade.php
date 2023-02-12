@@ -43,6 +43,10 @@
 </x-livewire-tables::bs5.table.cell>
 
 <x-livewire-tables::bs5.table.cell>
+    {{ $row->location }}
+</x-livewire-tables::bs5.table.cell>
+
+<x-livewire-tables::bs5.table.cell>
     {{ $row->message }}
 </x-livewire-tables::bs5.table.cell>
 

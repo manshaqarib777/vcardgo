@@ -293,6 +293,7 @@
   array (
     'are_you_sure' => 'Are you sure want to delete this',
     'no' => 'No, Cancel',
+    'enquiry_url' => 'Enquiry Url',
     'yes' => 'Yes, Delete!',
     'has_been_deleted' => 'has been deleted.',
     'deleted' => 'Deleted',
@@ -335,6 +336,7 @@
     'email' => 'Email',
     'phone' => 'Phone',
     'message' => 'Message',
+    'reason' => 'Reason',
     'details' => 'Details',
     'is_active' => 'Is Active',
     'active' => 'Active',
@@ -459,6 +461,7 @@
   ),
   'vcard' =>
   array (
+    'enquiry' => 'Enquiry',
     'stats' => 'Stats',
     'new_vcard' => 'New VCard',
     'edit_vcard' => 'Edit VCard',

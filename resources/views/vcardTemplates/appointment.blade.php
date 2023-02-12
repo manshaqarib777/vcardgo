@@ -31,6 +31,16 @@
                         {{ Form::select('reason', \App\Models\Appointment::REASON, null, ['class' => 'form-control', 'id' => 'paypalIntUserReason']) }}
                     </div>
                 </div>
+
+                <div class="mb-5">
+                    <div class="d-flex">
+                        {{ Form::label('location', __('messages.vcard.location') . ':', ['class' => 'form-label']) }}
+                    </div>
+                    <div class="form-group">
+                        {{ Form::select('location', \App\Models\Appointment::LOCATION, null, ['class' => 'form-control']) }}
+                    </div>
+                </div>
+
                 <div class="mb-3">
                     <label class="form-label">
                         {{ __('messages.contact_us.message') }}<span class="text-danger">*</span></label>

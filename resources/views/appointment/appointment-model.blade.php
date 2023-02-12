@@ -20,6 +20,8 @@
                         <span class="ms-8 text-muted" data-calendar="event_reason"></span>
                         <br>
                         <span class="ms-8 text-muted" data-calendar="event_message"></span>
+                        <br>
+                        <span class="ms-8 text-muted" data-calendar="event_location"></span>
                     </div>
                 </div>
                 <div class="d-flex align-items-center ms-7 mb-2">

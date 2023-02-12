@@ -669,7 +669,7 @@ function checkFeature($partName)
     if ($partName == 'custom_fonts' && !$currentPlan->planFeature->custom_fonts) {
         return false;
     }
-    if ($partName == 'gallery' && !$currentPlan->planFeature->gallery) {
+    if ($partName == 'galleries' && !$currentPlan->planFeature->gallery) {
         return false;
     }
     if ($partName == 'seo' && !$currentPlan->planFeature->seo) {
@@ -760,7 +760,7 @@ function checkFeatureVcard($partName)
     if ($partName == 'custom_fonts' && !$currentPlan->planFeature->custom_fonts) {
         return false;
     }
-    if ($partName == 'gallery' && !$currentPlan->planFeature->gallery) {
+    if ($partName == 'galleries' && !$currentPlan->planFeature->gallery) {
         return false;
     }
     if ($partName == 'seo' && !$currentPlan->planFeature->seo) {

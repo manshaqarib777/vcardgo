@@ -57,6 +57,7 @@ class ScheduleAppointment extends Model
         'appointment_tran_id',
         'reason',
         'message',
+        'location'
     ];
 
     public static $rules = [

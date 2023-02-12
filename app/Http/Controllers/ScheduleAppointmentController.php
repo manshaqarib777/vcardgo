@@ -141,6 +141,7 @@ class ScheduleAppointmentController extends AppBaseController
             $data[$key]['name'] = $appointment->name;
             $data[$key]['email'] = $appointment->email;
             $data[$key]['reason'] = $appointment->reason;
+            $data[$key]['location'] = $appointment->location;
             $data[$key]['message'] = $appointment->message;
             $data[$key]['phone'] = is_null($appointment->phone) ? 'N/A' : $appointment->phone;
             $data[$key]['vcardName'] = $appointment->vcard->name;
