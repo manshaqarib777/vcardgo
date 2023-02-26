@@ -10,12 +10,6 @@
                 <div class="row">
                     <div class="col-sm-12 mb-5">
                         <label class="form-label fs-6 fw-bolder text-gray-700">
-                           {{ __('messages.vcard.vcard_name') }} :
-                        </label>
-                        <p id="vcardName" class="text-gray-600 fw-bold mb-0"></p>
-                    </div>
-                    <div class="col-sm-12 mb-5">
-                        <label class="form-label fs-6 fw-bolder text-gray-700">
                             {{__('messages.common.name').':'}}
                         </label>
                         <p id="showName" class="text-gray-600 fw-bold mb-0"></p>

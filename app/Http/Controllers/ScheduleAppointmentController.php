@@ -2,21 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateScheduleAppointmentRequest;
+use Exception;
+use Carbon\Carbon;
+use App\Models\User;
+use App\Models\Vcard;
+use App\Models\Appointment;
+use Illuminate\Http\Request;
 use App\Mail\AppointmentMail;
 use App\Mail\UserAppointmentMail;
-use App\Models\Appointment;
-use App\Models\ScheduleAppointment;
-use App\Models\Vcard;
-use App\Repositories\AppointmentRepository;
-use Carbon\Carbon;
-use Exception;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
+use App\Models\AppointmentDetail;
 use Illuminate\Support\Facades\DB;
+use App\Models\ScheduleAppointment;
+use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\PaypalController;
+use App\Http\Controllers\AppBaseController;
+use App\Repositories\AppointmentRepository;
+use Illuminate\Contracts\Foundation\Application;
+use App\Http\Requests\CreateScheduleAppointmentRequest;
+use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
 
 class ScheduleAppointmentController extends AppBaseController
 {
@@ -38,9 +45,9 @@ class ScheduleAppointmentController extends AppBaseController
         try {
             DB::beginTransaction();
             $vcard = Vcard::with('tenant.user')->where('id', $input['vcard_id'])->first();
-            $input['toName'] = $vcard->fullName > 1 ? $vcard->fullName : $vcard->tenant->user->fullName;
-            $input['vcard_name'] = $vcard->name;
-            $userId = $vcard->tenant->user->id;
+            $input['toName'] = auth()->user()->fullName;
+            $input['vcard_name'] = auth()->user()->fullName;
+            $userId = auth()->id();
 
             //Stripe
             if (isset($input['payment_method'])) {
@@ -76,7 +83,7 @@ class ScheduleAppointmentController extends AppBaseController
 
             /** @var AppointmentRepository $appointmentRepo */
             $appointmentRepo = App::make(AppointmentRepository::class);
-            $vcardEmail = is_null($vcard->email) ? $vcard->tenant->user->email : $vcard->email;
+            $vcardEmail = auth()->user()->email;
             $appointmentRepo->appointmentStoreOrEmail($input, $vcardEmail);
 
             DB::commit();
@@ -97,6 +104,35 @@ class ScheduleAppointmentController extends AppBaseController
     {
 
         return view('appointment.list');
+    }
+
+    /**
+     *
+     * @return Application|Factory|View
+     */
+    public function galleriesList()
+    {
+
+        return view('appointment.gallery.index');
+    }
+
+    /**
+     *
+     * @return Application|Factory|View
+     */
+    public function appointmentsScheduleList()
+    {
+        $appointmentHours = Auth::user()->appointmentHours()->get()->groupBy('day_of_week');
+
+        foreach ($appointmentHours as $day => $hours) {
+            foreach ($hours as $hour) {
+                $data['time'][$day][] = [
+                    'start_time' => $hour->start_time,
+                    'end_time'   => $hour->end_time,
+                ];
+            }
+        }
+        return view('appointment.appointment-schedule')->with($data);
     }
 
     /**
@@ -200,5 +236,59 @@ class ScheduleAppointmentController extends AppBaseController
         $appointment->update($input);
 
         return $this->sendSuccess('Appointment updated successfully.');
+    }
+
+    public function updateAppointmentsSchedule(Request $request, $id)
+    {
+        try {
+            $input = $request->all();
+
+            Appointment::whereVcardId($id)->delete();
+            if (isset($input['checked_week_days'])) {
+                foreach ($input['checked_week_days'] as $day) {
+                    $this->saveSlots($input, $day, $id);
+                }
+            }
+
+            $appointmentDetails = AppointmentDetail::where('vcard_id', $id)->first();
+            if (isset($input['is_paid'])) {
+                if (!empty($appointmentDetails)) {
+                    $appointmentDetails->update([
+                        'is_paid' => $input['is_paid'],
+                        'price'   => $input['price'],
+                    ]);
+                } else {
+                    AppointmentDetail::create([
+                        'vcard_id' => $id,
+                        'is_paid'  => $input['is_paid'],
+                        'price'    => $input['price'],
+                    ]);
+                }
+            }
+        } catch (Exception $e) {
+            DB::rollBack();
+
+            throw new UnprocessableEntityHttpException($e->getMessage());
+        }
+        Session::flash('success', ' '.__('messages.flash.vcard_update'));
+
+        return redirect()->back();
+    }
+    public function saveSlots($input, $day, $id)
+    {
+        $startTimeArr = $input['startTimes'][$day] ?? [];
+        $endTimeArr = $input['endTimes'][$day] ?? [];
+        if (count($startTimeArr) != 0 && count($endTimeArr) != 0) {
+            foreach (array_unique($startTimeArr) as $key => $startTime) {
+                Appointment::create([
+                    'vcard_id'    => $id,
+                    'day_of_week' => $day,
+                    'start_time'  => $startTime,
+                    'end_time'    => $endTimeArr[$key],
+                ]);
+            }
+        }
+
+        return true;
     }
 }

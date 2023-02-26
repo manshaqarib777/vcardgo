@@ -21,11 +21,6 @@ class ScheduleAppointmentTable extends LivewireTableComponent
     public function columns(): array
     {
         return [
-            Column::make(__('messages.vcard.vcard_name'), 'vcard.name')
-                ->sortable(function (Builder $query, $direction) {
-                    return $query->orderBy(Vcard::select('name')->whereColumn('id', 'vcard_id'),
-                        $direction);
-                })->searchable(),
             Column::make(__('messages.common.name'), "name")
                 ->sortable()->searchable(),
             Column::make(__('messages.common.email'), "email")
@@ -53,9 +48,9 @@ class ScheduleAppointmentTable extends LivewireTableComponent
 
     public function query(): Builder
     {
-        $vcardIds = Vcard::whereTenantId(getLogInTenantId())->pluck('id')->toArray();
+        // $vcardIds = Vcard::whereTenantId(getLogInTenantId())->pluck('id')->toArray();
 
-        $scheduleAppointments = ScheduleAppointment::with('vcard')->whereIn('vcard_id', $vcardIds);
+        $scheduleAppointments = ScheduleAppointment::with('vcard')->where('vcard_id', auth()->id());
 
         if (isset($this->typeFilter) && $this->typeFilter != ScheduleAppointment::ALL){
             return $this->typeFilter == ScheduleAppointment::PAID

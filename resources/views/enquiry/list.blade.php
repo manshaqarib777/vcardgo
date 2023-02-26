@@ -9,6 +9,7 @@
             <livewire:enquiries-table/>
         </div>
     </div>
+    @include('enquiry.create')
     @include('enquiry.edit')
     @include('enquiry.vacrd_enquiries_show')
 @endsection

@@ -18,13 +18,6 @@ class EnquiriesTable extends LivewireTableComponent
     public function columns(): array
     {
         return [
-            Column::make(__('messages.vcard.vcard_name'), 'vcard.name')->searchable()->sortable(function (
-                Builder $query,
-                $direction
-            ) {
-                return $query->orderBy(vcard::select('name')->whereColumn('vcards.id', 'enquiries.vcard_id'),
-                    $direction);
-            }),
             Column::make(__('messages.common.name'), 'name')->sortable()->searchable(),
             Column::make(__('messages.common.email'), 'email')->searchable()->sortable(),
             Column::make(__('messages.common.phone'), 'phone')->searchable(),
@@ -39,9 +32,9 @@ class EnquiriesTable extends LivewireTableComponent
 
     public function query()
     {
-        $vcardIds = Vcard::whereTenantId(getLogInTenantId())->pluck('id')->toArray();
+        // $vcardIds = Vcard::whereTenantId(getLogInTenantId())->pluck('id')->toArray();
 
-        return Enquiry::with('vcard')->whereIn('vcard_id', $vcardIds);
+        return Enquiry::with('vcard')->where('vcard_id', auth()->id());
 
     }
 
@@ -64,6 +57,8 @@ class EnquiriesTable extends LivewireTableComponent
                 'rows'          => $this->rows,
                 'modalsView'    => $this->modalsView(),
                 'bulkActions'   => $this->bulkActions,
+                'componentName' => 'enquiry.add-button',
+
             ]);
     }
 }

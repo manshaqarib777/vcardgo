@@ -289,7 +289,7 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
     const PROFILE = 'profile';
     const ALL = 2;
     const STEP_3 = 3;
-    
+
     const IS_ACTIVE = 1;
 
     protected $appends = ['full_name', 'profile_image', 'plan_name'];
@@ -352,15 +352,15 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
      */
     public function getPlanNameAttribute()
     {
-        
+
 //        $subscription = Cache::get('subscription');
-        
+
 //        if (empty($subscription)) {
             $subscription = $this->subscriptions->where('status', Subscription::ACTIVE)->first();
-            
+
 //            Cache::put('subscription', $subscription);
 //        }
-        
+
         if (! empty($subscription)) {
             return $subscription->plan->name;
         } else {
@@ -386,5 +386,9 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
     {
         return DB::table('users')->where('id', $this->id)
             ->update(['email_verified_at' => \Carbon\Carbon::now()]);
+    }
+    public function appointmentHours()
+    {
+        return $this->hasMany(Appointment::class, 'vcard_id', 'id');
     }
 }

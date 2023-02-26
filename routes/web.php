@@ -122,10 +122,11 @@ Route::group(['middleware' => ['auth', 'valid.user', 'xss']], function () {
             Route::get('enquiries/{enquiries}', [EnquiryController::class, 'edit'])->name('enquiries.edit');
             Route::post('enquiries/{enquiries}/update', [EnquiryController::class, 'update'])->name('enquiries.update');
             Route::delete('enquiries/{enquiries}', [EnquiryController::class, 'destroy'])->name('enquiries.destroy');
-            Route::get('/appointments',
-                [ScheduleAppointmentController::class, 'appointmentsList'])->name('appointments.index');
-            Route::get('/appointments-calendar',
-                [ScheduleAppointmentController::class, 'appointmentCalendar'])->name('appointments.calendar');
+            Route::get('/appointments',[ScheduleAppointmentController::class, 'appointmentsList'])->name('appointments.index');
+            Route::get('/galleries',[ScheduleAppointmentController::class, 'galleriesList'])->name('galleries.index');
+            Route::get('/appointments-calendar',[ScheduleAppointmentController::class, 'appointmentCalendar'])->name('appointments.calendar');
+            Route::get('/appointments-schedule',[ScheduleAppointmentController::class, 'appointmentsScheduleList'])->name('appointments.schedule');
+            Route::post('appointments-schedule/{appointments}/update', [ScheduleAppointmentController::class, 'updateAppointmentsSchedule'])->name('appointments.appointments-schedule-update');
 
             Route::get('appointments/{appointments}', [ScheduleAppointmentController::class, 'edit'])->name('appointments.edit');
             Route::post('appointments/{appointments}/update', [ScheduleAppointmentController::class, 'update'])->name('appointments.update');
@@ -281,8 +282,8 @@ Route::get('/v/{alias}', [VcardController::class, 'show'])->name('vcard.show')->
 Route::get('/v/{alias}/blog/{id}', [VcardController::class, 'showBlog'])->name('vcard.show-blog');
 Route::get('/vcard/{alias}/chart', [VcardController::class, 'chartData'])->name('vcard.chart');
 Route::post('/vcard/{vcard}/check-password', [VcardController::class, 'checkPassword'])->name('vcard.password');
-Route::post('/vcard/{vcard}/enquiry/store', [EnquiryController::class, 'store'])->name('enquiry.store');
-Route::post('/vcard/{vcard}/appointment/store', [ScheduleAppointmentController::class, 'store'])->name('appointment.store');
+Route::post('/vcard/enquiry/store', [EnquiryController::class, 'store'])->name('enquiry.store');
+Route::post('/vcard/appointment/store', [ScheduleAppointmentController::class, 'store'])->name('appointment.store');
 Route::get('enquiry/{enquiry}', [EnquiryController::class, 'show'])->name('enquiry.show');
 Route::get('ajaxed-get-states',[VcardController::class, 'ajaxGetStates'])->name('get-states-ajax');
 Route::get('ajaxed-get-cities',[VcardController::class, 'ajaxGetCities'])->name('get-cities-ajax');

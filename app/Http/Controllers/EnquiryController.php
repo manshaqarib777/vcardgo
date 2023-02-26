@@ -35,17 +35,17 @@ class EnquiryController extends AppBaseController
         return view('enquiry.index');
     }
 
-    public function store(CreateEnquiryRequest $request, Vcard $vcard)
+    public function store(CreateEnquiryRequest $request)
     {
         $input = $request->except("enquiry_url");
-        $input['vcard_id'] = $vcard->id;
-        $input['vcard_name'] = $vcard->name;
+        $input['vcard_id'] = auth()->id();
+        $input['vcard_name'] = auth()->user()->first_name." ".auth()->user()->last_name;
         $enquiry = Enquiry::create($input);
         //dd($enquiry->phone);
         if (isset($request->enquiry_url) && !empty($request->enquiry_url)) {
             $enquiry->addMedia($request->enquiry_url)->toMediaCollection(Enquiry::ENQUIRYURL, config('app.media_disc'));
         }
-        $email = empty($vcard->email) ? $vcard->user->email : $vcard->email;
+        $email = $request->email;
 
         if (!empty($email)) {
             dispatch(new SendEmailJob($input, $email));
@@ -115,7 +115,7 @@ class EnquiryController extends AppBaseController
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(CreateEnquiryRequest $request, $id)
     {
         $input = $request->except("enquiry_url");
         $enquiry = Enquiry::findOrFail($id);

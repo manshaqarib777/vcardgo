@@ -3,17 +3,18 @@
 namespace App\Http\Livewire;
 
 
+use App\Models\Vcard;
+use App\Models\Gallery;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\Views\Column;
-use App\Models\Gallery;
 
-class VcardGalleryTable extends LivewireTableComponent
+class GalleryTable extends LivewireTableComponent
 {
 
     public $paginationTheme = 'bootstrap-5';
     protected $listeners = ['refresh' => '$refresh', 'changeFilter', 'resetPageTable'];
     public string $primaryKey = 'gallery_id';
-    protected string $pageName = 'vcard-gallery-table';
+    protected string $pageName = 'gallery-table';
     public string $defaultSortColumn = 'created_at';
     public string $defaultSortDirection = 'desc';
     public $vcardId;
@@ -34,21 +35,21 @@ class VcardGalleryTable extends LivewireTableComponent
             Column::make(__('messages.gallery.fine'), 'fine')->sortable()->searchable(),
             Column::make(__('messages.gallery.suspended_description'), 'suspended_description')->sortable()->searchable(),
             Column::make(__('messages.gallery.agent_name'), 'agent_name')->sortable()->searchable(),
-            Column::make(__('messages.gallery.days'),),
-
-            Column::make(__('messages.common.action'),)->addClass('w-150px justify-content-center d-flex')
+            Column::make(__('messages.gallery.days'),)
 
         ];
     }
 
     public function query(): Builder
     {
-        return Gallery::with('media')->whereVcardId($this->vcardId);
+        $vcardIds = Vcard::whereTenantId(getLogInTenantId())->pluck('id')->toArray();
+
+        return Gallery::with('media')->whereIn('vcard_id', $vcardIds);
     }
 
     public function rowView(): string
     {
-        return 'livewire-tables.rows.vcard_gallery_table';
+        return 'livewire-tables.rows.gallery_table';
     }
 
     public function render()
@@ -62,12 +63,11 @@ class VcardGalleryTable extends LivewireTableComponent
                 'customFilters' => $this->filters(),
                 'rows'          => $this->rows,
                 'modalsView'    => $this->modalsView(),
-                'bulkActions'   => $this->bulkActions,
-                'componentName' => 'vcards.gallery.add-button',
+                'bulkActions'   => $this->bulkActions
             ]);
     }
 
-    public function resetPageTable($pageName = 'vcard-gallery-table')
+    public function resetPageTable($pageName = 'gallery-table')
     {
         $this->customResetPage($pageName);
     }

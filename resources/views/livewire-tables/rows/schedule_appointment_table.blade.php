@@ -1,6 +1,4 @@
-<x-livewire-tables::bs5.table.cell>
-    {{$row->vcard->name}}
-</x-livewire-tables::bs5.table.cell>
+
 
 <x-livewire-tables::bs5.table.cell>
     {{ $row->name }}
