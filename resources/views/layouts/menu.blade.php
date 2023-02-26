@@ -131,6 +131,22 @@
     </a>
 </li>
 @endcan
+@can("user-appointments.schedule")
+<li class="nav-item {{ Request::is('admin/appointment-schedule*') ? 'active' : '' }}">
+    <a class="nav-link d-flex align-items-center py-3" aria-current="page" href="{{ route('appointments.schedule') }}">
+        <span class="aside-menu-icon pe-3"><i class="fas fa-calendar"></i></span>
+        <span class="aside-menu-title">{{ __('messages.vcard.appointments-schedule') }}</span>
+    </a>
+</li>
+@endcan
+@can("galleries.index")
+<li class="nav-item {{ Request::is('admin/galleries*') ? 'active' : '' }}">
+    <a class="nav-link d-flex align-items-center py-3" aria-current="page" href="{{ route('galleries.index') }}">
+        <span class="aside-menu-icon pe-3"><i class="fas fa-calendar"></i></span>
+        <span class="aside-menu-title">{{ __('messages.vcard.galleries') }}</span>
+    </a>
+</li>
+@endcan
 @can("user-settings.index")
 <li class="nav-item {{ Request::is('admin/user-setting*') ? 'active' : '' }}">
     <a class="nav-link d-flex align-items-center py-3" aria-current="page" href="{{ route('user.setting.index') }}">

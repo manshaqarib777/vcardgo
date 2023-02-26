@@ -917,6 +917,11 @@ function getUniqueNumber($id)
     return getSuperAdminSettingValue('vcard_unique_text').str_pad($id, getSuperAdminSettingValue('vcard_total_digits'), 0,STR_PAD_LEFT);
 }
 
+function getUniqueNumberGallery($id)
+{
+    return getSuperAdminSettingValue('gallery_unique_text').str_pad($id, getSuperAdminSettingValue('gallery_total_digits'), 0,STR_PAD_LEFT);
+}
+
 /**
  * @param $part
  *

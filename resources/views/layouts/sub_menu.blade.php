@@ -158,6 +158,18 @@
        href="{{ route('appointments.index') }}">{{ __('messages.appointments') }}</a>
 </li>
 @endcan
+@can("galleries.index")
+<li class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0 {{ !Request::is('admin/galleries*') ? 'd-none' : '' }}">
+    <a class="nav-link p-0 {{ Request::is('admin/galleries*') ? 'active' : '' }}"
+       href="{{ route('galleries.index') }}">{{ __('messages.vcard.galleries') }}</a>
+</li>
+@endcan
+@can("user-appointments.schedule")
+<li class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0 {{ !Request::is('admin/appointment-schedule*') ? 'd-none' : '' }}">
+    <a class="nav-link p-0 {{ Request::is('admin/galleries*') ? 'active' : '' }}"
+       href="{{ route('appointments.schedule') }}">{{ __('messages.vcard.appointments-schedule') }}</a>
+</li>
+@endcan
 @can("user-settings.index")
 <li class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0 {{ !Request::is('admin/user-setting*') ? 'd-none' : '' }}">
     <a class="nav-link p-0 {{ Request::is('admin/user-setting*') ? 'active' : '' }}"

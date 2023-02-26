@@ -1497,107 +1497,10 @@
                 </div>
             </div>
         @endif
-        {{--Appointment--}}
-        @if(checkFeature('appointments') && $vcard->appointmentHours->count())
-            <div class="vcard-nine__appointment py-3 px-sm-4 px-3 mt-2 position-relative">
-                <h4 class="heading-left heading-line position-relative text-center mb-5">{{__('messages.make_appointments')}}</h4>
-                <div class="container">
-                    <div class="appointment-card p-3">
-                        <div class="row d-flex align-items-center justify-content-center mb-3">
-                            <div class="col-md-2">
-                                <label for="date" class="appoint-date mb-2">{{__('messages.date')}}</label>
-                            </div>
-                            <div class="col-md-10">
-                                {{ Form::text('date', null, ['class' => 'date appoint-input', 'placeholder' => 'Pick a Date','id'=>'pickUpDate']) }}
-                            </div>
-                        </div>
-                        <div class="row d-flex align-items-center justify-content-center mb-md-3">
-                            <div class="col-md-2">
-                                <label for="text" class="appoint-date mb-2">{{__('messages.hour')}}</label>
-                            </div>
-                            <div class="col-md-10">
-                                <div id="slotData" class="row">
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <button type="button"
-                                class="appointmentAdd appoint-btn text-white mt-4 d-block mx-auto ">{{__('messages.make_appointments')}}
-                        </button>
-                </div>
-            </div>
-        </div>
-            @include('vcardTemplates.appointment')
-        @endif
 
 
         <div class="vcard-nine__contact py-4 px-3 position-relative px-sm-3">
-            {{--contact us--}}
-            @php $currentSubs = $vcard->subscriptions()->where('status', \App\Models\Subscription::ACTIVE)->latest()->first() @endphp
-            @if($currentSubs && $currentSubs->plan->planFeature->enquiry_form)
-                <h4 class="heading-right position-relative text-center">{{ __('messages.contact_us.contact_us') }}</h4>
-                <div class="container mt-5">
-                    <div class="row mt-4">
-                        <div class="col-12 px-0">
-                            <form id="enquiryForm">
-                                @csrf
-                                <div class="contact-form px-sm-2">
-                                    <div id="enquiryError" class="alert alert-danger d-none"></div>
-                                    <div class="mb-3">
-                                        <input type="text" name="name" class="form-control" id="name"
-                                               placeholder="{{__('messages.form.your_name')}}">
-                                    </div>
-                                    <div class="mb-3">
-                                        <input type="email" name="email" class="form-control" id="email"
-                                               placeholder="{{__('messages.form.your_email')}}">
-                                    </div>
-                                    <div class="mb-3">
-                                        <input type="tel" name="phone" class="form-control" id="mobile"
-                                               placeholder="{{__('messages.form.phone')}}">
-                                    </div>
-                                    <div class="mb-5">
-                                        <div class="d-flex">
-                                            {{ Form::label('reason', __('messages.common.reason') . ':', ['class' => 'form-label']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::select('reason', \App\Models\Enquiry::REASON, null, ['class' => 'form-control', 'id' => 'paypalIntUserReason']) }}
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-sm-6 mb-7">
-                                        <div class="mb-3" io-image-input="true">
-                                            <label for="exampleInputEnquiry" class="form-label">{{ __('messages.vcard.enquiry').':' }}</label>
-                                            <div class="d-block">
-                                                <div class="image-picker">
-                                                    <div class="image previewImage" id="exampleInputEnquiry"
-                                                         style="background-image: url('')"></div>
-                                                    <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip"
-                                                          data-placement="top" data-bs-original-title="{{__('messages.tooltip.enquiry')}}">
-                                                                <label>
-                                                                <i class="fa-solid fa-pen" id="enquiryIcon"></i>
-                                                                    <input type="file" id="enquiry" name="enquiry_url"
-                                                                           class="image-upload d-none" accept="image/*"/>
-                                                                </label>
-                                                            </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-text text-danger" id="enquiryValidationErrors"></div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <textarea class="form-control" name="message"
-                                                  placeholder="{{__('messages.form.type_message')}}" id="message"
-                                                  rows="5"></textarea>
-                                    </div>
-                                    <button type="submit"
-                                            class="contact-btn text-white mt-4 d-block mx-auto">{{ __('messages.contact_us.send_message') }}
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            @endif
+
             <div class="d-sm-flex justify-content-center mt-5 pb-5">
                 <button type="submit" class="vcard-nine-btn mt-4 d-block btn text-white "
                         onclick="downloadVcard('{{ $vcard->name }}.vcf',{{ $vcard->id }})"><i

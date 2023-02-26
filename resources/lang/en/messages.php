@@ -88,6 +88,7 @@
     'my_vcard_url' => 'my-vcard-page-url',
     'vcard_name' => 'Enter VCard Name',
     'vcard_unique_number' => 'Unique Number',
+    'gallery_unique_number' => 'Unique Number',
     'nationality' => 'Enter Nationality',
     'footer_text' => 'This card must be kept during driving & produced on demand to authorized police officer Lost Card Please put it in nearby mailbox',
     'description' => 'Enter Description of Your VCard',
@@ -254,6 +255,8 @@
     'category_c_text' => 'Category Text C',
     'category_d_text' => 'Category Text D',
     'category_e_text' => 'Category Text E',
+    'appointment' => 'Appointment',
+
   ),
   'analytics' =>
   array (
@@ -462,6 +465,8 @@
   'vcard' =>
   array (
     'enquiry' => 'Enquiry',
+    'galleries' => 'Galleries',
+    'appointments-schedule' => 'Appointments Schedule',
     'stats' => 'Stats',
     'new_vcard' => 'New VCard',
     'edit_vcard' => 'Edit VCard',
@@ -552,6 +557,7 @@
     'date_of_birth' => 'Date Of Birth',
     'vcard_name' => 'VCard Name',
     'vcard_unique_number' => 'Unique Number',
+    'gallery_unique_number' => 'Unique Number',
     'meta_keyword' => 'Meta Keyword',
     'meta_description' => 'Meta Description',
     'google_analytics' => 'Google Analytics',
@@ -693,6 +699,7 @@
   'gallery' =>
   array (
     'gallery_name' => 'Galleries',
+    'days' => 'Days',
     'type' => 'Type',
     'image' => 'Image',
     'youtube' => 'Youtube',
@@ -875,6 +882,8 @@
     'app_name' => 'App Name',
     'vcard_unique_text' => 'Vcard Unique Text',
     'vcard_total_digits' => 'Vcard Total Digits',
+    'gallery_unique_text' => 'Gallery Unique Text',
+    'gallery_total_digits' => 'Gallery Total Digits',
     'app_logo' => 'App Logo',
     'favicon' => 'Favicon',
     'contact_information' => 'Contact Information',

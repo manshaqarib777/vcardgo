@@ -1,3 +1,6 @@
+<x-livewire-tables::bs5.table.cell>
+    {{$row->gallery_unique_number}}
+</x-livewire-tables::bs5.table.cell>
 <x-livewire-tables::table.cell>
 {{$row->type_name}}
 </x-livewire-tables::table.cell>

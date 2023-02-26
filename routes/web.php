@@ -125,7 +125,7 @@ Route::group(['middleware' => ['auth', 'valid.user', 'xss']], function () {
             Route::get('/appointments',[ScheduleAppointmentController::class, 'appointmentsList'])->name('appointments.index');
             Route::get('/galleries',[ScheduleAppointmentController::class, 'galleriesList'])->name('galleries.index');
             Route::get('/appointments-calendar',[ScheduleAppointmentController::class, 'appointmentCalendar'])->name('appointments.calendar');
-            Route::get('/appointments-schedule',[ScheduleAppointmentController::class, 'appointmentsScheduleList'])->name('appointments.schedule');
+            Route::get('/appointment-schedule',[ScheduleAppointmentController::class, 'appointmentsScheduleList'])->name('appointments.schedule');
             Route::post('appointments-schedule/{appointments}/update', [ScheduleAppointmentController::class, 'updateAppointmentsSchedule'])->name('appointments.appointments-schedule-update');
 
             Route::get('appointments/{appointments}', [ScheduleAppointmentController::class, 'edit'])->name('appointments.edit');

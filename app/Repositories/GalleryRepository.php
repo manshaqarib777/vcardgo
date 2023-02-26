@@ -61,6 +61,8 @@ class GalleryRepository extends BaseRepository
                 $gallery->addMedia($input['image'])->toMediaCollection(Gallery::GALLERY_PATH,
                     config('app.media_disc'));
             }
+            $gallery->update(['gallery_unique_number'=> getUniqueNumberGallery($gallery->id)]);
+
 
             DB::commit();
 

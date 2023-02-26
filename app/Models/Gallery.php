@@ -60,7 +60,8 @@ class Gallery extends Model implements HasMedia
         'ticket_status',
         'date_before',
         'fine',
-        'agent_name'
+        'agent_name',
+        'gallery_unique_number'
     ];
 
     const TYPE_IMAGE = 0;

@@ -22,6 +22,8 @@ class GalleryTable extends LivewireTableComponent
     public function columns(): array
     {
         return [
+            Column::make(__('messages.vcard.gallery_unique_number'), "gallery_unique_number")
+            ->sortable()->searchable(),
             Column::make(__('messages.common.type'), "type"),
             Column::make(__('messages.common.link'), "link")
                 ->sortable()->searchable()->addClass('w-800px'),
