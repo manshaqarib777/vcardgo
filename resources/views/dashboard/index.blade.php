@@ -19,7 +19,7 @@
                                 <i class="fa-solid fa-user fs-1-xl text-white"></i>
                             </div>
                             <div class="text-end text-white">
-                                <h2 class="fs-1-xxl fw-bolder text-white">{{ $activeUsersCount }}</h2>
+                                <h2 class="fs-1-xxl fw-bolder text-white">{{ @$activeUsersCount }}</h2>
                                 <h3 class="mb-0 fs-4 fw-light">{{__('messages.common.total_active_users')}}</h3>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                                 <i class="fa-solid fa-id-card-clip fs-1-xl text-white"></i>
                             </div>
                             <div class="text-end text-white">
-                                <h2 class="fs-1-xxl fw-bolder text-white">{{ $deActiveUsersCount }}</h2>
+                                <h2 class="fs-1-xxl fw-bolder text-white">{{ @$deActiveUsersCount }}</h2>
                                 <h3 class="mb-0 fs-4 fw-light">{{ __('messages.common.total_deactive_users') }}</h3>
                             </div>
                         </div>

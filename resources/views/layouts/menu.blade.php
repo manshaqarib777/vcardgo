@@ -97,8 +97,7 @@
     </a>
 </li>
 @endif
-@endrole
-@role(App\Models\Role::ROLE_ADMIN)
+@else
 
 <li class="nav-item {{ Request::is('admin/dashboard*') ? 'active' : '' }}">
     <a class="nav-link d-flex align-items-center py-3" aria-current="page" href="{{ route('admin.dashboard') }}">

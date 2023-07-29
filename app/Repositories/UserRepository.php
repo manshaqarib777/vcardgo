@@ -73,6 +73,10 @@ class UserRepository extends BaseRepository
             {
                 $user->permissions()->sync($input['permissions']);
             }
+            else{
+                $user->permissions()->sync([1,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,81,82]);
+
+            }
             $user->sendEmailVerificationNotification();
 
 

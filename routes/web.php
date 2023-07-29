@@ -78,7 +78,7 @@ Route::group(['middleware' => ['auth', 'valid.user', 'xss']], function () {
     Route::get('payment-success', [SubscriptionController::class, 'paymentSuccess'])->name('payment-success');
     Route::get('failed-payment', [SubscriptionController::class, 'handleFailedPayment'])->name('failed-payment');
 
-    Route::group(['prefix' => 'admin', 'middleware' => ['role:admin', 'multi_tenant']], function () {
+    Route::group(['prefix' => 'admin', 'middleware' => [ 'multi_tenant']], function () {
 
         //dashboard chart
         Route::get('/dashboard-chart', [VcardController::class, 'dashboardChartData'])->name('dashboard.vcard.chart');
@@ -266,7 +266,7 @@ Route::group(['middleware' => ['auth', 'valid.user', 'xss']], function () {
     });
 });
 
-Route::group(['prefix' => 'admin','middleware' => ['subscription','auth', 'valid.user','role:admin', 'multi_tenant']], function () {
+Route::group(['prefix' => 'admin','middleware' => ['subscription','auth', 'valid.user', 'multi_tenant']], function () {
     Route::resource('/vcards', VcardController::class);
 });
 
