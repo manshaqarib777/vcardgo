@@ -618,33 +618,33 @@
                                 </div>
                             </div>
                             @endif
-                            @if($vcard->registration_driver_country)
+                            @if($vcard->registrationDriverCountry)
                             <div class="col-sm-6 col-12">
                                 <div class="card business-card flex-row justify-content-center">
                                 <span class="me-2">
                                     {{ strtoupper(__('messages.vcard.registration_driver_country')).':' }}
                                 </span>
-                                    <span>{{ $vcard->registration_driver_country }}</span>
+                                    <span>{{ $vcard->registrationDriverCountry->name }}</span>
                                 </div>
                             </div>
                             @endif
-                            @if($vcard->registration_driver_state)
+                            @if($vcard->registrationDriverState)
                             <div class="col-sm-6 col-12">
                                 <div class="card business-card flex-row justify-content-center">
                                 <span class="me-2">
                                     {{ strtoupper(__('messages.vcard.registration_driver_state')).':' }}
                                 </span>
-                                    <span>{{ $vcard->registration_driver_state }}</span>
+                                    <span>{{ $vcard->registrationDriverState->name }}</span>
                                 </div>
                             </div>
                             @endif
-                            @if($vcard->registration_driver_city)
+                            @if($vcard->registrationDriverCity)
                             <div class="col-sm-6 col-12">
                                 <div class="card business-card flex-row justify-content-center">
                                 <span class="me-2">
                                     {{ strtoupper(__('messages.vcard.registration_driver_city')).':' }}
                                 </span>
-                                    <span>{{ $vcard->registration_driver_city }}</span>
+                                    <span>{{ $vcard->registrationDriverCity->name }}</span>
                                 </div>
                             </div>
                             @endif

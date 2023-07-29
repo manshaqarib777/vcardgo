@@ -304,7 +304,7 @@ class Vcard extends Model implements HasMedia
         'job_title'     => 'nullable|string',
         'email'         => 'nullable|email:filter',
         'phone'         => 'nullable',
-        'location_url'  =>  'nullable|url',
+        'location_url'  =>  'nullable',
     ];
 
     const PROFILE_PATH = 'vcards/profiles';
@@ -776,5 +776,35 @@ public function getCategoryEAttribute(): string
     public function parkingCountry(): BelongsTo
     {
         return $this->belongsTo(Country::class, 'parking_country');
+    }
+
+    /**
+     *
+     *
+     * @return BelongsTo
+     */
+    public function registrationDriverCity(): BelongsTo
+    {
+        return $this->belongsTo(City::class, 'registration_driver_city');
+    }
+
+    /**
+     *
+     *
+     * @return BelongsTo
+     */
+    public function registrationDriverState(): BelongsTo
+    {
+        return $this->belongsTo(State::class, 'registration_driver_state');
+    }
+
+    /**
+     *
+     *
+     * @return BelongsTo
+     */
+    public function registrationDriverCountry(): BelongsTo
+    {
+        return $this->belongsTo(Country::class, 'registration_driver_country');
     }
 }

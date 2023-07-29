@@ -654,6 +654,7 @@
 @if ($partName == 'registration_custom_idea')
     <div class="row">
         <div class="col-lg-6 mb-7">
+            <input type="hidden" name="part" value="{{ $partName }}">
             {{ Form::label('Address', __('messages.vcard.registration_address') . ':', ['class' => 'form-label']) }}
             {{ Form::text('registration_address', isset($vcard) ? $vcard->registration_address : null, ['class' => 'form-control', 'placeholder' => __('messages.form.registration_address'), 'required']) }}
         </div>
@@ -794,6 +795,7 @@
 @if ($partName == 'inspection_custom_idea')
     <div class="row">
         <div class="col-lg-6 mb-7">
+            <input type="hidden" name="part" value="{{ $partName }}">
             {{ Form::label('Address', __('messages.vcard.inspection_address') . ':', ['class' => 'form-label']) }}
             {{ Form::text('inspection_address', isset($vcard) ? $vcard->inspection_address : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_address'), 'required']) }}
         </div>
@@ -870,6 +872,7 @@
 @if ($partName == 'inspection_custom_idea_new')
     <div class="row">
         <div class="col-lg-6 mb-7">
+            <input type="hidden" name="part" value="{{ $partName }}">
             {{ Form::label('Address', __('messages.vcard.inspection_address_new') . ':', ['class' => 'form-label']) }}
             {{ Form::text('inspection_address_new', isset($vcard) ? $vcard->inspection_address_new : null, ['class' => 'form-control', 'placeholder' => __('messages.form.inspection_address_new'), 'required']) }}
         </div>
@@ -945,6 +948,7 @@
 @if ($partName == 'custom_id')
 <div class="row">
     <div class="col-lg-6 mb-7">
+        <input type="hidden" name="part" value="{{ $partName }}">
         {{ Form::label('nationality', __('messages.vcard.nationality') . ':', ['class' => 'form-label required']) }}
         <select name="nationality" class="form-select" id="nationality"  required placeholder = "{{ __('messages.form.select_country')}}" data-control = 'select2'>
             @foreach (getNationality() as $value)
@@ -1356,6 +1360,7 @@
 @if ($partName == 'parking_custom_idea')
     <div class="row">
         <div class="col-lg-6 mb-7">
+            <input type="hidden" name="part" value="{{ $partName }}">
             {{ Form::label('Owner Mobile No.', __('messages.vcard.parking_owner_mobile_no') . ':', ['class' => 'form-label']) }}
             {{ Form::text('parking_owner_mobile_no', isset($vcard) ? $vcard->parking_owner_mobile_no : null, ['class' => 'form-control', 'placeholder' => __('messages.form.parking_owner_mobile_no'), 'required']) }}
         </div>

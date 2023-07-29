@@ -217,14 +217,14 @@ class VcardRepository extends BaseRepository
                 $input['language_enable'] = isset($input['language_enable']) ? 1 : 0;
             }
 
-            if (!isset($input['part']) || $input['part'] == 'custom_id') {
+            if (isset($input['part']) && $input['part'] == 'custom_id') {
                 $input['category_a_checkbox'] = isset($input['category_a_checkbox']) ? 1 : 0;
                 $input['category_b_checkbox'] = isset($input['category_b_checkbox']) ? 1 : 0;
                 $input['category_c_checkbox'] = isset($input['category_c_checkbox']) ? 1 : 0;
                 $input['category_d_checkbox'] = isset($input['category_d_checkbox']) ? 1 : 0;
                 $input['category_e_checkbox'] = isset($input['category_e_checkbox']) ? 1 : 0;
             }
-            if (!isset($input['part']) || $input['part'] == 'registration_custom_idea') {
+            if (isset($input['part']) && $input['part'] == 'registration_custom_idea') {
                 $input['registration_driver'] = isset($input['registration_driver']) ? 1 : 0;
             }
             $vcard->update($input);
