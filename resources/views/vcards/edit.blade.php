@@ -49,6 +49,8 @@
 @section('script')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
 <script>
+$(document).ready(function(){
+
     $(".datepicker").datepicker( {
         format: "yyyy",
         startView: "years",
@@ -65,6 +67,19 @@
             $('#registration_district').trigger('change');
             setTimeout(() => {
                 $('#registration_state').trigger('change');
+            }, 600);
+        }, 300);
+
+        var driver_state = "{{isset($vcard) ? $vcard->registration_driver_state : null}}";
+        var driver_city = "{{isset($vcard) ? $vcard->registration_driver_city : null}}";
+        var driver_commune = "{{isset($vcard) ? $vcard->registration_driver_commune : null}}";
+        setTimeout(() => {
+            $('#registration_driver_country').trigger('change');
+            $('#registration_driver_district').trigger('change');
+            setTimeout(() => {
+                $('#registration_driver_state').trigger('change');
+                $('#registrationDriver').trigger('change');
+
             }, 600);
         }, 300);
     @endif
@@ -125,6 +140,85 @@
             }
         });
     });
+    $('#registration_driver_country').change(function() {
+        var id = $(this).val();
+        var module = $(this).attr("module");
+        $.get("{{ route('get-states-ajax') }}?country_id=" + id, function(data) {
+            $(module).empty();
+            $('#registration_driver_city').empty();
+            $(module).append(
+                '<option value=""></option>');
+            for (let index = 0; index < data.length; index++) {
+                const element = data[index];
+                var selected = "";
+                if(driver_state == element['id'] )
+                {
+                    selected = "selected";
+                }
+                $(module).append('<option value="' +
+                    element['id'] + '" '+selected+'>' + element['name'] + '</option>');
+            }
+        });
+    });
+
+    $('#registration_driver_state').change(function() {
+        var id = $(this).val();
+        var module = $(this).attr("module");
+        var hidden_module = $(this).attr("hidden_module");
+        if(id == 828){
+            $(hidden_module).show();
+        }
+        else{
+            $(hidden_module).hide();
+        }
+        $.get("{{ route('get-cities-ajax') }}?state_id=" + id, function(data) {
+            $(module).empty();
+            $(module).append('<option value=""></option>');
+            for (let index = 0; index < data.length; index++) {
+                const element = data[index];
+                var selected = "";
+                if(driver_city == element['id'] )
+                {
+                    selected = "selected";
+                }
+                $(module).append('<option value="' +
+                    element['id'] + '" '+selected+'>' + element['name'] + '</option>');
+            }
+        });
+    });
+    $('#registration_driver_state').change(function() {
+        var id = $(this).val();
+        var module = $(this).attr("module");
+        var hidden_module = $(this).attr("hidden_module");
+        if(id == 828){
+            $(hidden_module).show();
+        }
+        else{
+            $(hidden_module).hide();
+        }
+        $.get("{{ route('get-cities-ajax') }}?state_id=" + id, function(data) {
+            $(module).empty();
+            $(module).append('<option value=""></option>');
+            for (let index = 0; index < data.length; index++) {
+                const element = data[index];
+                var selected = "";
+                if(driver_city == element['id'] )
+                {
+                    selected = "selected";
+                }
+                $(module).append('<option value="' +
+                    element['id'] + '" '+selected+'>' + element['name'] + '</option>');
+            }
+        });
+    });
+    $('#registrationDriver').change(function() {
+        if($(this).is(':checked')){
+            $(".registration_driver_toggle").show();
+        }
+        else{
+            $(".registration_driver_toggle").hide();
+        }
+    });
     $('#registration_state,#inspection_state,#inspection_state_new,#parking_state').change(function() {
         var id = $(this).val();
         var module = $(this).attr("module");
@@ -152,7 +246,7 @@
     });
 
 
-    $('#registration_district, #inspection_district, #inspection_district_new, #parking_district').change(function() {
+    $('#registration_district, #inspection_district, #inspection_district_new, #parking_district,#registration_driver_district').change(function() {
         var module = $(this).attr("module");
         var id = $(this).val();
         $(module).empty();
@@ -198,5 +292,6 @@
         }
 
     });
+});
 </script>
 @endsection

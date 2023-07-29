@@ -577,6 +577,116 @@
                             </div>
                         </div>
                         @endif
+                        @if($vcard->registration_driver)
+                            @if($vcard->registration_driver_name)
+                            <div class="col-sm-6 col-12">
+                                <div class="card business-card flex-row justify-content-center">
+                                <span class="me-2">
+                                    {{ strtoupper(__('messages.vcard.registration_driver_name')).':' }}
+                                </span>
+                                    <span>{{ $vcard->registration_driver_name }}</span>
+                                </div>
+                            </div>
+                            @endif
+                            @if($vcard->registration_driver_image)
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="mb-3" io-image-input="true">
+                                    <div class="card business-card flex-row justify-content-center">
+                                        <span class="me-2">
+                                            {{ __('messages.vcard.registration_driver_image').':' }}
+                                        </span>
+                                    </div>
+                                    <div class="d-block">
+                                        <div class="image-picker">
+                                            <div class="image previewImage" id="exampleInputIDBack2"
+                                                style="background-image: url({{ !empty($vcard->registration_driver_image) ? $vcard->registration_driver_image : "" }})"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-text text-danger" id="idBack2ValidationErrors"></div>
+                            </div>
+                            @endif
+                            @if($vcard->registration_driver_address)
+                            <div class="col-sm-6 col-12">
+                                <div class="card business-card flex-row justify-content-center">
+                                <span class="me-2">
+                                    {{ strtoupper(__('messages.vcard.registration_driver_address')).':' }}
+                                </span>
+                                    <span>{{ $vcard->registration_driver_address }}</span>
+                                </div>
+                            </div>
+                            @endif
+                            @if($vcard->registration_driver_country)
+                            <div class="col-sm-6 col-12">
+                                <div class="card business-card flex-row justify-content-center">
+                                <span class="me-2">
+                                    {{ strtoupper(__('messages.vcard.registration_driver_country')).':' }}
+                                </span>
+                                    <span>{{ $vcard->registration_driver_country }}</span>
+                                </div>
+                            </div>
+                            @endif
+                            @if($vcard->registration_driver_state)
+                            <div class="col-sm-6 col-12">
+                                <div class="card business-card flex-row justify-content-center">
+                                <span class="me-2">
+                                    {{ strtoupper(__('messages.vcard.registration_driver_state')).':' }}
+                                </span>
+                                    <span>{{ $vcard->registration_driver_state }}</span>
+                                </div>
+                            </div>
+                            @endif
+                            @if($vcard->registration_driver_city)
+                            <div class="col-sm-6 col-12">
+                                <div class="card business-card flex-row justify-content-center">
+                                <span class="me-2">
+                                    {{ strtoupper(__('messages.vcard.registration_driver_city')).':' }}
+                                </span>
+                                    <span>{{ $vcard->registration_driver_city }}</span>
+                                </div>
+                            </div>
+                            @endif
+                            @if($vcard->registration_driver_district)
+                            <div class="col-sm-6 col-12">
+                                <div class="card business-card flex-row justify-content-center">
+                                <span class="me-2">
+                                    {{ strtoupper(__('messages.vcard.registration_driver_district')).':' }}
+                                </span>
+                                    <span>{{ $vcard->registration_driver_district }}</span>
+                                </div>
+                            </div>
+                            @endif
+                            @if($vcard->registration_driver_commune)
+                            <div class="col-sm-6 col-12">
+                                <div class="card business-card flex-row justify-content-center">
+                                <span class="me-2">
+                                    {{ strtoupper(__('messages.vcard.registration_driver_commune')).':' }}
+                                </span>
+                                    <span>{{ $vcard->registration_driver_commune }}</span>
+                                </div>
+                            </div>
+                            @endif
+                            @if($vcard->registration_driver_emergency_contact_no)
+                            <div class="col-sm-6 col-12">
+                                <div class="card business-card flex-row justify-content-center">
+                                <span class="me-2">
+                                    {{ strtoupper(__('messages.vcard.registration_driver_emergency_contact_no')).':' }}
+                                </span>
+                                    <span>{{ $vcard->registration_driver_emergency_contact_no }}</span>
+                                </div>
+                            </div>
+                            @endif
+                            @if($vcard->registration_driver_extra_field)
+                            <div class="col-sm-6 col-12">
+                                <div class="card business-card flex-row justify-content-center">
+                                <span class="me-2">
+                                    {{ strtoupper(__('messages.vcard.registration_driver_extra_field')).':' }}
+                                </span>
+                                    <span>{{ $vcard->registration_driver_extra_field }}</span>
+                                </div>
+                            </div>
+                            @endif
+                        @endif
                     </div>
                 </div>
             </div>

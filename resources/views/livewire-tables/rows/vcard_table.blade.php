@@ -54,6 +54,38 @@
 
 
 <x-livewire-tables::bs5.table.cell>
+    {{$row->registration_driver_name}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->registration_driver_address}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->registration_driver_emergency_contact_no}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->registration_driver_extra_field}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->registration_driver_country}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->registration_driver_state}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->registration_driver_city}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->registration_driver_district}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->registration_driver_commune}}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    {{$row->registration_driver}}
+</x-livewire-tables::bs5.table.cell>
+
+
+<x-livewire-tables::bs5.table.cell>
     {{$row->inspection_address}}
 </x-livewire-tables::bs5.table.cell>
 <x-livewire-tables::bs5.table.cell>

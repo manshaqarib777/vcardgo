@@ -100,6 +100,10 @@ class VcardRepository extends BaseRepository
                 $vcard->addMedia($input['id_back2'])->toMediaCollection(Vcard::ID_BACK2,
                     config('app.media_disc'));
             }
+            if (isset($input['registration_driver_image']) && !empty($input['registration_driver_image'])) {
+                $vcard->addMedia($input['registration_driver_image'])->toMediaCollection(Vcard::REGISTRATION_DRIVER_IMAGE,
+                    config('app.media_disc'));
+            }
             if (isset($input['barcode']) && !empty($input['barcode'])) {
                 $vcard->addMedia($input['barcode'])->toMediaCollection(Vcard::BARCODE,
                     config('app.media_disc'));
@@ -220,6 +224,9 @@ class VcardRepository extends BaseRepository
                 $input['category_d_checkbox'] = isset($input['category_d_checkbox']) ? 1 : 0;
                 $input['category_e_checkbox'] = isset($input['category_e_checkbox']) ? 1 : 0;
             }
+            if (!isset($input['part']) || $input['part'] == 'registration_custom_idea') {
+                $input['registration_driver'] = isset($input['registration_driver']) ? 1 : 0;
+            }
             $vcard->update($input);
 
             if (isset($input['part']) && $input['part'] == 'business_hours') {
@@ -283,6 +290,11 @@ class VcardRepository extends BaseRepository
             if (isset($input['id_back2']) && !empty($input['id_back2'])) {
                 $vcard->clearMediaCollection(Vcard::ID_BACK2);
                 $vcard->addMedia($input['id_back2'])->toMediaCollection(Vcard::ID_BACK2,
+                    config('app.media_disc'));
+            }
+            if (isset($input['registration_driver_image']) && !empty($input['registration_driver_image'])) {
+                $vcard->clearMediaCollection(Vcard::REGISTRATION_DRIVER_IMAGE);
+                $vcard->addMedia($input['registration_driver_image'])->toMediaCollection(Vcard::REGISTRATION_DRIVER_IMAGE,
                     config('app.media_disc'));
             }
             if (isset($input['barcode']) && !empty($input['barcode'])) {

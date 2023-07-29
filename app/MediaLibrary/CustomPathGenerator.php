@@ -38,6 +38,8 @@ class CustomPathGenerator implements PathGenerator
                 return str_replace('{PARENT_DIR}', Vcard::COVER_PATH, $path);
             case Vcard::ID_BACK:
                 return str_replace('{PARENT_DIR}', Vcard::ID_BACK, $path);
+            case Vcard::REGISTRATION_DRIVER_IMAGE:
+                return str_replace('{PARENT_DIR}', Vcard::REGISTRATION_DRIVER_IMAGE, $path);
             case Vcard::ID_BACK2:
                 return str_replace('{PARENT_DIR}', Vcard::ID_BACK2, $path);
             case Vcard::BARCODE:

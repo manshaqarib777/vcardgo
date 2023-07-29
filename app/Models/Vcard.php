@@ -180,6 +180,16 @@ class Vcard extends Model implements HasMedia
         'registration_emergency_contact_no',
         'registration_ar_no',
         'registration_pcn_no',
+        'registration_driver_name',
+        'registration_driver_address',
+        'registration_driver_emergency_contact_no',
+        'registration_driver_extra_field',
+        'registration_driver_country',
+        'registration_driver_state',
+        'registration_driver_city',
+        'registration_driver_district',
+        'registration_driver_commune',
+        'registration_driver',
 
         'inspection_address',
         'inspection_chassis_no',
@@ -277,7 +287,7 @@ class Vcard extends Model implements HasMedia
     /**
      * @var string[]
      */
-    protected $appends = ['profile_url', 'cover_url', 'profile_url_base64', 'full_name',"id_back","id_back2","barcode","qrcode","category_a","category_b","category_c","category_d","category_e"];
+    protected $appends = ['profile_url', 'cover_url', 'profile_url_base64', 'full_name',"id_back","id_back2","registration_driver_image","driver_photo","barcode","qrcode","category_a","category_b","category_c","category_d","category_e"];
 
     /**
      * Validation rules
@@ -301,6 +311,7 @@ class Vcard extends Model implements HasMedia
     const COVER_PATH = 'vcards/covers';
     const ID_BACK = 'vcards/id_back';
     const ID_BACK2 = 'vcards/id_back2';
+    const REGISTRATION_DRIVER_IMAGE = 'vcards/registration_driver_image';
     const BARCODE = 'vcards/barcode';
     const QRCODE = 'vcards/qrcode';
     const CATEGORYA = 'vcards/category_a';
@@ -429,6 +440,17 @@ public function getIdBack2Attribute(): string
 
     return "";
 }
+
+public function getRegistrationDriverImageAttribute(): string
+    {
+        /** @var Media $media */
+        $media = $this->getMedia(self::REGISTRATION_DRIVER_IMAGE)->first();
+        if (!empty($media)) {
+            return $media->getFullUrl();
+        }
+
+        return "";
+    }
 
 /**
  * @return string

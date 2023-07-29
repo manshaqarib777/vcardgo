@@ -714,6 +714,74 @@
             {{ Form::text('registration_pcn_no', isset($vcard) ? $vcard->registration_pcn_no : null, ['class' => 'form-control', 'placeholder' => __('messages.form.registration_pcn_no')]) }}
         </div>
 
+        <div class="col-lg-6 mb-7">
+            {{ Form::label('registration_driver', __('messages.vcard.registration_driver') . ':', ['class' => 'form-label']) }}
+            <div class="form-check form-switch form-check-custom form-check-solid form-switch-sm col-6">
+                <div class="fv-row d-flex align-items-center">
+                    {{ Form::checkbox('registration_driver', 1, $vcard['registration_driver'] ?? 0, ['class' => 'form-check-input mt-0 ', 'id' => 'registrationDriver']) }}
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mb-7 registration_driver_toggle">
+            {{ Form::label('Driver Name.', __('messages.vcard.registration_driver_name') . ':', ['class' => 'form-label']) }}
+            {{ Form::text('registration_driver_name', isset($vcard) ? $vcard->registration_driver_name : null, ['class' => 'form-control', 'placeholder' => __('messages.form.registration_driver_name')]) }}
+        </div>
+        <div class="col-lg-6 col-sm-6 mb-7 registration_driver_toggle">
+            <div class="mb-3" io-image-input="true">
+                <label for="exampleInputDriverPhoto" class="form-label">{{ __('messages.vcard.registration_driver_image').':' }}</label>
+                <div class="d-block">
+                    <div class="image-picker">
+                        <div class="image previewImage" id="exampleInputDriverPhoto"
+                             style="background-image: url({{ !empty($vcard->registration_driver_image) ? $vcard->registration_driver_image : asset('assets/images/default_cover_image.jpg') }})"></div>
+                            <span class="picker-edit rounded-circle text-gray-500 fs-small" data-bs-toggle="tooltip" data-placement="top" data-bs-original-title="{{__('messages.tooltip.registration_driver_image')}}">
+                                <label>
+                                    <i class="fa-solid fa-pen" id="DriverPhotoIcon"></i>
+                                    <input type="file" id="registration_driver_image" name="registration_driver_image"
+                                            class="image-upload d-none" accept="image/*"/>
+                                </label>
+                            </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-text text-danger" id="DriverPhotoValidationErrors"></div>
+        </div>
+        <div class="col-lg-6 mb-7 registration_driver_toggle">
+            {{ Form::label('Driver Address.', __('messages.vcard.registration_driver_address') . ':', ['class' => 'form-label']) }}
+            {{ Form::text('registration_driver_address', isset($vcard) ? $vcard->registration_driver_address : null, ['class' => 'form-control', 'placeholder' => __('messages.form.registration_driver_address')]) }}
+        </div>
+        <div class="col-lg-6 mb-7 registration_driver_toggle">
+            {{ Form::label('Country', __('messages.vcard.registration_driver_country') . ':', ['class' => 'form-label required']) }}
+            {{ Form::select('registration_driver_country', getCountry(), isset($vcard) ? $vcard->registration_driver_country : null, ['id' => 'registration_driver_country','module' => '#registration_driver_state', 'class' => 'form-select', 'placeholder' => __('messages.form.select_country'), 'data-control' => 'select2']) }}
+        </div>
+        <div class="col-lg-6 mb-7 registration_driver_toggle">
+            {{ Form::label('State', __('messages.vcard.registration_driver_state') . ':', ['class' => 'form-label required']) }}
+            {{ Form::select('registration_driver_state', [], isset($vcard) ? $vcard->registration_driver_state : null, ['id' => 'registration_driver_state','module' => '#registration_driver_city','hidden_module' => '.registration_driver_hidden', 'class' => 'form-select', 'placeholder' => __('messages.form.select_state'), 'data-control' => 'select2']) }}
+        </div>
+        <div class="col-lg-6 mb-7 registration_driver_toggle">
+            {{ Form::label('City', __('messages.vcard.registration_driver_city') . ':', ['class' => 'form-label required']) }}
+            {{ Form::select('registration_driver_city', [], isset($vcard) ? $vcard->registration_driver_city : null, ['id' => 'registration_driver_city', 'class' => 'form-select', 'placeholder' => __('messages.form.select_city'), 'data-control' => 'select2']) }}
+        </div>
+        <div class="col-lg-6 mb-7 registration_driver_toggle registration_driver_hidden">
+            {{ Form::label('District', __('messages.vcard.registration_driver_district') . ':', ['class' => 'form-label required']) }}
+            {{ Form::select('registration_driver_district', ["MONT-AMBA"=>"MONT-AMBA","FUNA"=>"FUNA","LUKUNGA"=>"LUKUNGA","TSHANGU"=>"TSHANGU"], isset($vcard) ? $vcard->registration_driver_district : null, ['id' => 'registration_driver_district','module' => '#registration_driver_commune', 'data-control' => 'select2']) }}
+        </div>
+        <div class="col-lg-6 mb-7 registration_driver_toggle registration_driver_hidden">
+            {{ Form::label('Commune', __('messages.vcard.registration_driver_commune') . ':', ['class' => 'form-label required']) }}
+            {{ Form::select('registration_driver_commune', [], isset($vcard) ? $vcard->registration_driver_commune : null, ['id' => 'registration_driver_commune', 'placeholder' => __('messages.form.select_commune'), 'data-control' => 'select2']) }}
+        </div>
+
+        <div class="col-lg-6 mb-7 registration_driver_toggle">
+            {{ Form::label('Driver Emergency Contact No.', __('messages.vcard.registration_driver_emergency_contact_no') . ':', ['class' => 'form-label']) }}
+            {{ Form::text('registration_driver_emergency_contact_no', isset($vcard) ? $vcard->registration_driver_emergency_contact_no : null, ['class' => 'form-control', 'placeholder' => __('messages.form.registration_driver_emergency_contact_no')]) }}
+        </div>
+        <div class="col-lg-6 mb-7 registration_driver_toggle">
+            {{ Form::label('Driver Extra Field.', __('messages.vcard.registration_driver_extra_field') . ':', ['class' => 'form-label']) }}
+            {{ Form::text('registration_driver_extra_field', isset($vcard) ? $vcard->registration_driver_extra_field : null, ['class' => 'form-control', 'placeholder' => __('messages.form.registration_driver_extra_field')]) }}
+        </div>
+
+
+
+
         <div class="col-lg-12 d-flex">
             <button type="submit" class="btn btn-primary me-3">
                 {{ __('messages.common.save') }}

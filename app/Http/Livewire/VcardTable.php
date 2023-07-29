@@ -40,6 +40,21 @@ class VcardTable extends LivewireTableComponent
             Column::make(__('messages.vcard.registration_ar_no'), 'registration_ar_no')->sortable()->searchable(),
             Column::make(__('messages.vcard.registration_pcn_no'), 'registration_pcn_no')->sortable()->searchable(),
 
+            Column::make(__('messages.vcard.registration_driver_name'), 'registration_driver_name')->sortable()->searchable(),
+            Column::make(__('messages.vcard.registration_driver_address'), 'registration_driver_address')->sortable()->searchable(),
+            Column::make(__('messages.vcard.registration_driver_emergency_contact_no'), 'registration_driver_emergency_contact_no')->sortable()->searchable(),
+            Column::make(__('messages.vcard.registration_driver_extra_field'), 'registration_driver_extra_field')->sortable()->searchable(),
+            Column::make(__('messages.vcard.registration_driver_country'), 'registration_driver_country')->sortable()->searchable(),
+            Column::make(__('messages.vcard.registration_driver_state'), 'registration_driver_state')->sortable()->searchable(),
+            Column::make(__('messages.vcard.registration_driver_city'), 'registration_driver_city')->sortable()->searchable(),
+            Column::make(__('messages.vcard.registration_driver_district'), 'registration_driver_district')->sortable()->searchable(),
+            Column::make(__('messages.vcard.registration_driver_commune'), 'registration_driver_commune')->sortable()->searchable(),
+            Column::make(__('messages.vcard.registration_driver'), 'registration_driver')->sortable()->searchable(),
+
+
+
+
+
             Column::make(__('messages.vcard.inspection_address'), 'inspection_address')->sortable()->searchable(),
             Column::make(__('messages.vcard.inspection_chassis_no'), 'inspection_chassis_no')->sortable()->searchable(),
             Column::make(__('messages.vcard.inspection_vin_no'), 'inspection_vin_no')->sortable()->searchable(),
